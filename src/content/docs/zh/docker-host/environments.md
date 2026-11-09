@@ -64,7 +64,7 @@ const preview = await miosa.deployments.env.list(deploymentId, {
 // preview returns: { STRIPE_KEY: "sk_live_••••", NEXT_PUBLIC_API_URL: "https://api…" }
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/deployments/$DEP/env \

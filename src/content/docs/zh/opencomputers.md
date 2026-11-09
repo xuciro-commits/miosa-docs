@@ -1,6 +1,6 @@
 ---
 slug: "opencomputers"
-title: "开放计算机公司"
+title: "OpenComputers公司"
 description: "将您已经拥有的机器连接到 MIOSA 并将它们作为主机进行管理 - 命令、容器、网格、GitHub Actions 运行器、备份、隧道和设备。"
 section: "Computers"
 order: 3013
@@ -38,7 +38,7 @@ miosa主机注册工作室--linux平台
 
 |你需要|使用 |为什么 |
 |---|---|---|
-|在您已经拥有或租用的硬件上运行 |开放计算机 |智能体在该机器上的操作系统权限内运行命令。 |
+|在您已经拥有或租用的硬件上运行 |OpenComputers |智能体在该机器上的操作系统权限内运行命令。 |
 |您可以流式传输的桌面或浏览器会话 | [托管计算机](/docs/computers/overview) |由 MIOSA 提供和运营，并提供现成的桌面合同。 |
 |隔离的、一次性的代码执行 | [沙箱](/docs/develop/sandboxes) |每个沙箱都有一个新的 microVM，无需维护主机。 |
 |您自己的 AWS 账户或 Google Cloud 项目内的受管工作人员池 | [BYOC](/docs/infrastructure/byoc/overview) |云工作者能力的单独入职路径。 |
@@ -64,18 +64,20 @@ flowchart TB
   Agent -->|"Status and requested output"| Control
 ```
 
-|层|谁在运营？
+| 层 | 谁在运营？ |
 |---|---|
 |主机、操作系统、磁盘、电源、网络|您或您的托管提供商|
 |主机智能体服务及其操作系统用户和权限 |您安装并运行它； MIOSA 提供签名智能体更新 |
-|组织、API、授权、编排、审计 |米奥萨 |
+| 组织、API、授权、编排、审计 | MIOSA |
 |智能体可以访问的本地文件、服务和凭据 |您，受智能体用户的权限限制|
 |命令、状态、输出、工件、桌面流、模型请求 |可能会作为工作流程的一部分通过 MIOSA |
 
 连接主机不会在您的场所安装 MIOSA 平台，也不会将主机变成沙箱工作池、Docker Host 主机或 BYOC 区域。
 有关完整的边界矩阵，请参阅[共同责任](/docs/infrastructure/shared-responsibility)。
 
-## OpenComputers 界面|面积 |你得到什么 |指南|
+## OpenComputers 界面
+
+| 面积 | 你得到什么 | 指南 |
 |---|---|---|
 |主持人 |注册机器、检查状态、功能、指标、服务和作业 | [主机和功能](/docs/opencomputers/hosts) |
 |命令和文件 |在一台主机或组的每个成员上运行命令；读写文件| [主机和功能](/docs/opencomputers/hosts) |

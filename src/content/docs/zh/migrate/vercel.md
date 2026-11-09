@@ -1,6 +1,6 @@
 ---
 slug: "migrate/vercel"
-title: "从韦尔塞尔搬家"
+title: "从Vercel搬家"
 description: "使用 miosa import vercel 导入 Vercel 项目，检查计划以及结转的内容。"
 section: "Optional"
 order: 17029
@@ -33,7 +33,7 @@ miosa import vercel --apply --plan plan.json
 
 ## 继承什么
 
-|韦尔塞尔 |米奥萨 |
+|Vercel |MIOSA |
 |---|---|
 |该应用程序 |从存储库构建的[服务](/docs/services/overview) |
 |地区 |服务区域，当一个 MIOSA 的文件名具有 |
@@ -50,4 +50,4 @@ miosa import vercel --apply --plan plan.json
 ## 下一步去哪里
 
 - [服务快速启动](/docs/services/quickstart)
-- [从铁路搬家](/docs/migrate/railway)
+- [从Railway搬家](/docs/migrate/railway)

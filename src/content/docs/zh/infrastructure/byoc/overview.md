@@ -117,7 +117,7 @@ sequenceDiagram
 
 ## BYOC 与 OpenComputers 的比较
 
-| |自带云 |开放计算机 |
+| |自带云 |OpenComputers |
 |---|---|---|
 |单位|受控云区域或主机池 |个人拥有的机器|
 |供应| Terraform 或 CloudFormation |智能体安装|
@@ -156,7 +156,7 @@ sequenceDiagram
 
 ## 共同责任
 
-|责任|客户|米奥萨 |云提供商 |
+|责任|客户|MIOSA |云提供商 |
 |---|---|---|---|
 |帐户或项目所有权 |拥有 |验证访问 |主机帐户服务 |
 | IAM 和网络政策 |批准并拥有 |请求范围能力 |强制执行|

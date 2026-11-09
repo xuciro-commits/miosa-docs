@@ -1,12 +1,12 @@
 ---
 slug: "optimal-engine/miosa"
-title: "MIOSA 上的最佳引擎"
-description: "在 MIOSA 上运行托管最佳引擎 - 控制台中的工作区内存、最佳聊天如何使用它、miosa 引擎命令、最佳 CLI 和 MCP 服务器的客户端密钥、API、大小、备份以及如何启用它。"
+title: "MIOSA 上的Optimal Engine"
+description: "在 MIOSA 上运行托管Optimal Engine - 控制台中的工作区内存、最佳聊天如何使用它、miosa 引擎命令、最佳 CLI 和 MCP 服务器的客户端密钥、API、大小、备份以及如何启用它。"
 section: "Optimal Engine"
 order: 8010
 ---
 
-在 MIOSA 上，最佳引擎作为托管数据库与引擎 `optimal` 一起运行。
+在 MIOSA 上，Optimal Engine作为托管数据库与引擎 `optimal` 一起运行。
 MIOSA 为您创建并运行它：您无需安装它、持有其管理密钥或手动进行备份。
 
 ## 可用性
@@ -14,7 +14,7 @@ MIOSA 为您创建并运行它：您无需安装它、持有其管理密钥或�
 每个组织都启用托管引擎。
 直到您的启用为止：
 
-- 控制台在**数据库**下的创建流程不提供最佳引擎；
+- 控制台在**数据库**下的创建流程不提供Optimal Engine；
 - **启动内存**回答“内存无法启动。您的角色可能不允许，或者尚未为此组织设置内存。”；
 - 通过 API 或 CLI 创建一个答案 `422`，代码为 `ENGINE_NOT_AVAILABLE`。
 
@@ -34,40 +34,40 @@ MIOSA 为您创建并运行它：您无需安装它、持有其管理密钥或�
 |健康 |引擎本身报告的健康检查|
 |搜索 |全文搜索。托管引擎不包含嵌入模型，因此矢量搜索在 MIOSA 上不可用。 |
 
-It is billed like an always-on managed database while it runs, at the hourly price of its size.
+它运行时按常开托管数据库的方式计费，价格为其规格对应的每小时单价。
 控制台会在创建任何内容之前显示该价格以及整个月的价格。
 
 ## 控制台中的工作区内存
 
-**Optimal > Memory** (`/optimal/memory`) is the simplest way in.
-Memory belongs to one workspace: pick a workspace in the switcher first.
+**Optimal > Memory**（`/optimal/memory`）是最简单的入口。
+Memory 只属于一个工作区：请先在工作区切换器中选定一个工作区。
 
 1. 按**启动内存**。
-   - If your organization already has a running Engine, Memory attaches this workspace to it at no new cost.
-   - Otherwise the console offers to create one with 1 vCPU, 2 GiB of memory, and the smallest disk, and shows its price.按**创建并启动内存**。
-2. "Memory is starting. This takes about a minute."
+   - 如果您的组织已经有运行中的引擎，Memory 会把这个工作区附加到它上面，不会产生新的费用。
+   - 否则控制台会提议创建一个 1 vCPU、2 GiB 内存、最小磁盘的引擎，并显示其价格。按**创建并启动内存**。
+2. “内存正在启动。这大约需要一分钟。”
 3. 运行时，该页面有一个搜索框，包含工作区已知的所有内容，以及每个结果的标题、位置和摘录。
 
-To add to Memory, ask Optimal in a chat to save a note.
+要向 Memory 添加内容，请在聊天中让 Optimal 保存一条笔记。
 
 ## 最佳聊天如何使用内存
 
-When the workspace has Memory, [Optimal](/docs/optimal) can:
+当工作区拥有 Memory 时，[Optimal](/docs/optimal) 可以：
 
-- **search it** before answering about the workspace's people, projects, clients, or history, and say so when Memory has nothing;
+- 在回答工作区的人员、项目、客户或历史相关问题之前先**搜索它**，并在 Memory 中没有任何内容时说明这一点；
 - **保存**您要求其保留的注释、决定或记录；
 - 当您询问时，**启动**工作空间的内存。
 
-In an **All workspaces** chat, Optimal searches every workspace you can open and names the workspace each result came from.
+在 **All workspaces** 聊天中，Optimal 会搜索您可以打开的每个工作区，并注明每条结果来自哪个工作区。
 
 每个聊天还有一个内存面板：
 
-- **Save to memory** stores the chat as a session.
-- **Sources** lists what Optimal read, grouped by workspace in an organization chat.
+- **Save to memory** 会把该聊天保存为一个会话。
+- **Sources** 列出 Optimal 读取过的内容，在组织聊天中按工作区分组。
 - **在此聊天中了解到**列出了聊天产生的声明；接受或拒绝每一项。
 
-Optimal reaches Memory through MIOSA as you, with your permissions.
-It holds no Engine key and has no network path to the Engine.
+Optimal 以您的身份、按您的权限通过 MIOSA 访问 Memory。
+它不持有任何引擎密钥，也没有通往引擎的网络路径。
 内存返回的内容作为不受信任的内容传递给模型。
 
 ## 从终端
@@ -81,9 +81,11 @@ miosa engine status notes
 ```
 
 当存在具有该名称的引擎时，`create` 返回现有引擎，因此脚本每次都可以调用它。
-`--for` picks a starting size: `agent` (tiny, 2 GiB disk), `workspace` (xs, 10 GiB), or `business` (small, 25 GiB).
+`--for` 选择起始规格：`agent`（tiny，2 GiB 磁盘）、`workspace`（xs，10 GiB）或 `business`（small，25 GiB）。
 `--size tiny|xs|small|medium|large` 和 `--disk <GiB>` 覆盖它。
-An Engine created for a workspace attaches to that workspace when it first runs.|命令 |它有什么作用 |
+为某个工作区创建的引擎会在首次运行时附加到该工作区。
+
+|命令 |它有什么作用 |
 |---|---|
 | `miosa engine attach <workspace> --to <engine>` |将另一个工作区附加到引擎 |
 | `miosa engine detach <workspace>` |分离工作区并撤销其引擎密钥 |
@@ -140,7 +142,7 @@ miosa engine shell brain -- optimal brief        # one command, key revoked afte
    工作区必须附加到引擎。
    `GET /databases/:id/client-keys` 列出不带秘密的密钥，并且 `DELETE /databases/:id/client-keys/:key_id` 撤销一个密钥。
 
-2.用它调用引擎：
+2. 用它调用引擎：
 
    ```bash
    curl -s "https://api.miosa.ai/api/v1/engines/$ENGINE_ID/engine-api/api/search?q=renewal" \
@@ -149,17 +151,17 @@ miosa engine shell brain -- optimal brief        # one command, key revoked afte
 
 智能体仅转发智能体所需的路由，并回答`404`其他所有路由，包括密钥、同步、备份和维护路由。
 
-|方法| `/api/` | 下的路线
+| 方法 | 位于 `/api/` 下的路由 |
 |---|---|
 | `GET` | `boot`、`brief`、`protocol`、`operating-projection`、`rhythm/current`、`loops`、`search`、`grep`、`read`、`memory`、 `memory-core/claims`、`memory-core/claim-review`、`sessions`、`sessions/:id`、`org-policy`、`review/routing`、`routing/rules`、`authority/effective`、`viability`、`viability/history`、 `analyses`、`jobs`、`workspaces`、`status`、`health`、`version`、`profile`、`recall/:kind`、`wiki/:slug`、`render/specs`、 `agent-actions/:id` |
 | `POST` | `rag`、`assemble`、`reconstruct`、`ingest`、`memory`、`memory/remember`、`memory/:id/forget`、`loops`、`loops/extract`、`loops/:id/:action`、 `sessions/commit`、`routing/classify`、`signals/check`、`authority/decide`、`authority/requests`、`agent-actions`、`render/context` |
 
 |状态 |代码|当 |
 |---|---|---|
-| 404 | 404 `NOT_FOUND` |路线不在列表中|
-| 409 | 409 `ENGINE_NOT_RUNNING` |发动机停止或启动 |
-| 413 | 413 `REQUEST_TOO_LARGE` |正文超过 1 MiB，或查询字符串超过 8 KiB |
-| 502 | 502 `ENGINE_UNAVAILABLE`、`ENGINE_RESPONSE_TOO_LARGE` |引擎没有回答，或者回答太多 |
+| 404 | `NOT_FOUND` | 路线不在列表中 |
+| 409 | `ENGINE_NOT_RUNNING` | 发动机停止或启动 |
+| 413 | `REQUEST_TOO_LARGE` | 正文超过 1 MiB，或查询字符串超过 8 KiB |
+| 502 | `ENGINE_UNAVAILABLE`、`ENGINE_RESPONSE_TOO_LARGE` | 引擎没有回答，或者回答太多 |
 
 ### 工作空间内存路径
 
@@ -169,7 +171,7 @@ miosa engine shell brain -- optimal brief        # one command, key revoked afte
 
 |路线 |它有什么作用 |许可|
 |---|---|---|
-| `GET .../engine` |哪个引擎为工作区提供服务？ |
+| `GET .../engine` | 哪个引擎为工作区提供服务 | |
 | `GET .../engine/search?q=&limit=` |搜索工作区的内存| `databases:read` |
 | `GET .../engine/boot` |工作区的启动简报 | `databases:read` |
 | `POST .../engine/remember` 与 `{"content", "metadata"}` |保存记忆 | `databases:write` |
@@ -177,7 +179,9 @@ miosa engine shell brain -- optimal brief        # one command, key revoked afte
 | `GET .../engine/sessions/:session_id` |阅读已保存的聊天记录 | `databases:read` |
 | `POST .../engine/claims/:claim_id/accept` 或 `/reject` |审查索赔 | `databases:write` |
 
-没有引擎答案的工作区 `404 NOT_FOUND`;未运行的引擎回答 `409 ENGINE_NOT_RUNNING`。## 备份、升级和大小
+没有引擎答案的工作区 `404 NOT_FOUND`;未运行的引擎回答 `409 ENGINE_NOT_RUNNING`。
+
+## 备份、升级和大小
 
 在控制台中的 **Databases** 下打开引擎。
 其页面有一个**概述**选项卡，其中包含针对大小限制的连接、运行状况和使用情况、**备份**选项卡、**调整大小**按钮，以及当引擎报告它们时，**简要**、**循环**、**工作空间**和**密钥**选项卡。

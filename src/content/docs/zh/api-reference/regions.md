@@ -60,7 +60,7 @@ MIOSA 计算机和沙箱在地理区域中运行。每台计算机（以及每�
   console.log(computer.region); // "us-east"
 ```
 
-**卷曲**
+**curl**
 
 ```bash
   curl -X POST https://api.miosa.ai/api/v1/computers \

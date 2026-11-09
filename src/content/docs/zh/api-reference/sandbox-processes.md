@@ -197,7 +197,7 @@ data: {"line":"  ready in 743ms","ts":"2026-05-26T10:14:24Z"}
 
 ## 示例
 
-**卷曲**
+**curl**
 
 ```bash
 # Start

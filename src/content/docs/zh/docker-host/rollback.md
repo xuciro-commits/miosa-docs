@@ -79,7 +79,7 @@ print(deployment.active_version_id)
 print(deployment.state)
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 # Rollback to a specific version

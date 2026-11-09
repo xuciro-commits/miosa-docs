@@ -94,7 +94,7 @@ sequenceDiagram
 ```
 
 这是 Polsia 式运算符的最小工作版本，
-联合创始人式的部门智能体，或者星云式的虚拟设备。
+联合创始人式的部门智能体，或者Nebula式的虚拟设备。
 
 ---
 
@@ -137,12 +137,12 @@ type AgentRunRequest = {
 |设备适配器| `exec`、`writeFile`、`readFile`、`preview`、`snapshot` | MIOSA 沙箱、计算机、本地设备 |
 |连接器经纪人| `getToken(connector, subject, scopes)` |提供商身份验证、刷新、出口限制、审核 |
 |事件流 | `subscribe(runId)` |工具调用、标准输出、文件写入、屏幕截图、工件、批准 |
-|神器商店 | `putArtifact`、`versionArtifact` | PDF、DOCX、图像、zip、屏幕截图、生成的应用程序 |
+|产物商店 | `putArtifact`、`versionArtifact` | PDF、DOCX、图像、zip、屏幕截图、生成的应用程序 |
 |部署桥| `publish(version)` | MIOSA 部署、Docker 主机、域、回滚 |
 
 前端不应该在每个运行时都出现特殊情况。它应该呈现相同的效果
 事件契约，无论后端是否使用 OSA、Codex、Claude Code、
-Pi、Hermes 或客户自有的安全带。
+Pi、Hermes 或客户自有的运行框架。
 
 ## 产品映射
 
@@ -151,7 +151,9 @@ Pi、Hermes 或客户自有的安全带。
 当产品承诺是：“描述业务。智能体商保留
 建造、研究、销售和改进它。”
 
-使用此 MIOSA 形状：|层|米奥萨的选择 |
+使用此 MIOSA 形状：
+
+| 层 | MIOSA 的选择 |
 |---|---|
 |默认设备 |持久沙箱 |
 |浏览器工作|需要真正的浏览器或仪表板登录时的计算机 |
@@ -201,14 +203,14 @@ Orchestrator:
 - 删除数据、快照、部署或客户文件
 - 使用管理员级别的凭据
 
-### 构建你自己的星云式虚拟设备
+### 构建你自己的Nebula式虚拟设备
 
 当产品承诺是：“智能体和人类共享持久的
 包含文件、代码、浏览器、作业和连接的应用程序的工作区。”
 
 使用此 MIOSA 设备模型：
 
-|星云式概念| MIOSA 实施 |
+|Nebula式概念| MIOSA 实施 |
 |---|---|
 |虚拟设备|持久沙箱或计算机|
 |本地设备|配对客户拥有的设备 |
@@ -279,15 +281,17 @@ Gemini CLI、OpenCode、光标、Aider、Windsurf、OpenClaw、Qwen 代码、Kim
 ### 1. 选择运行时形状
 
 不要将一个智能体运行时硬编码到平台中。将运行时设置为打开
-智能体或工作区。|运行时选项 |最佳使用 |
+智能体或工作区。
+
+| 运行时选项 | 最佳使用 |
 |---|---|
 | OSA | MIOSA-原生智能体及平台运营|
-|法典|回购工作、代码库编辑、终端驱动工程 |
-|克劳德·代码 |使用工具和 MCP 进行智能体编码 |
-|双子座 CLI |替代编码和研究循环|
-| OpenCode、光标、助手、风帆 |用户选择的编码运行框架|
-|开爪|多智能体编排大脑与编码工具相结合|
-| Qwen 代码、Kimi 代码 |型号/供应商特定代码智能体 |
+| Codex | 仓库工作、代码库编辑、终端驱动的工程 |
+| Claude Code | 使用工具和 MCP 进行智能体编码 |
+| Gemini CLI | 替代编码和研究循环 |
+| OpenCode、Cursor、Aider、Windsurf | 用户选择的编码运行框架 |
+| OpenClaw | 多智能体编排大脑与编码工具相结合 |
+| Qwen Code、Kimi Code | 型号/供应商特定代码智能体 |
 |定制|您自己的运行框架、提示格式、队列或模型路由器 |
 
 运行时应该接收相同的工作区合约：范围内的 MIOSA 令牌，

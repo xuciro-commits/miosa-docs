@@ -26,7 +26,7 @@ order: 12021
 
 内容类型：`multipart/form-data`
 
-|领域|类型 |必填 |描述 |
+|字段 |类型 |必填 |描述 |
 |--------|------|----------|-------------|
 | `file` |文件|是的 |要上传的文件 |
 | `path` |字符串|没有 |远程路径。如果以 `/` 结尾，则附加文件名。默认值：`/home/ubuntu/` |
@@ -48,9 +48,9 @@ order: 12021
 |状态 |代码|描述 |
 |--------|------|-------------|
 | 400 | `MISSING_FILE` |请求中没有文件字段 |
-| 403 | 403 `FORBIDDEN_PATH` |允许目录之外的路径 |
-| 413 | 413 `FILE_TOO_LARGE` |文件超过 500 MB 上传限制 |
-| 502 | 502 `AGENT_UNAVAILABLE` |虚拟机内智能体无法访问 |
+| 403 | `FORBIDDEN_PATH` | 允许目录之外的路径 |
+| 413 | `FILE_TOO_LARGE` | 文件超过 500 MB 上传限制 |
+| 502 | `AGENT_UNAVAILABLE` | 虚拟机内智能体无法访问 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/files/upload \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -95,12 +95,12 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/files/upload \
 
 ### 文件输入字段
 
-|领域|类型 |描述 |
+|字段 |类型 |描述 |
 |--------|------|-------------|
-| `name` |字符串|文件或目录名 |
+| `name` |字符串 |文件或目录名 |
 | `type` |字符串| `"file"` 或 `"directory"` |
 | `size_bytes` |整数 |大小（以字节为单位）|
-| `modified_at` | ISO 8601 | ISO 8601最后修改时间 |
+| `modified_at` | ISO 8601 |最后修改时间 |
 ```bash
 curl "https://api.miosa.ai/api/v1/computers/{id}/files?path=/workspace" \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -129,8 +129,8 @@ curl "https://api.miosa.ai/api/v1/computers/{id}/files?path=/workspace" \
 |状态 |代码|描述 |
 |--------|------|-------------|
 | 400 | `MISSING_PATH` |无路径参数|
-| 403 | 403 `FORBIDDEN_PATH` |允许目录之外的路径 |
-| 502 | 502 `AGENT_UNAVAILABLE` |虚拟机内智能体无法访问 |
+| 403 | `FORBIDDEN_PATH` | 允许目录之外的路径 |
+| 502 | `AGENT_UNAVAILABLE` | 虚拟机内智能体无法访问 |
 ```bash
 curl "https://api.miosa.ai/api/v1/computers/{id}/files/download?path=/workspace/output.txt" \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -147,7 +147,7 @@ curl "https://api.miosa.ai/api/v1/computers/{id}/files/download?path=/workspace/
 
 ### 请求正文
 
-|领域|类型 |必填 |描述 |
+|字段 |类型 |必填 |描述 |
 |--------|------|----------|-------------|
 | `path` |字符串|是的 |文件的完整路径 |
 
@@ -171,8 +171,8 @@ curl "https://api.miosa.ai/api/v1/computers/{id}/files/download?path=/workspace/
 |状态 |代码|描述 |
 |--------|------|-------------|
 | 400 | `MISSING_PATH` |请求正文中没有路径 |
-| 403 | 403 `FORBIDDEN_PATH` |允许目录之外的路径 |
-| 404 | 404 `FILE_NOT_FOUND` |文件不存在或为空 |
+| 403 | `FORBIDDEN_PATH` | 允许目录之外的路径 |
+| 404 | `FILE_NOT_FOUND` | 文件不存在或为空 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/files/export \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -190,7 +190,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/files/export \
 
 ### 请求正文
 
-|领域|类型 |必填 |描述 |
+|字段 |类型 |必填 |描述 |
 |--------|------|----------|-------------|
 | `path` |字符串|是的 |要删除的文件的完整路径 |
 
@@ -207,8 +207,8 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/files/export \
 |状态 |代码|描述 |
 |--------|------|-------------|
 | 400 | `MISSING_PATH` |请求正文中没有路径 |
-| 403 | 403 `FORBIDDEN_PATH` |允许目录之外的路径 |
-| 502 | 502 `AGENT_UNAVAILABLE` |虚拟机内智能体无法访问 |
+| 403 | `FORBIDDEN_PATH` | 允许目录之外的路径 |
+| 502 | `AGENT_UNAVAILABLE` | 虚拟机内智能体无法访问 |
 ```bash
 curl -X DELETE https://api.miosa.ai/api/v1/computers/{id}/files \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -240,7 +240,9 @@ curl -X DELETE https://api.miosa.ai/api/v1/computers/{id}/files \
 
 将文件写入沙箱文件系统。接受两种请求格式。
 
-#### 请求正文 - JSON|领域|类型 |必填 |描述 |
+#### 请求正文 - JSON
+
+|字段 |类型 |必填 |描述 |
 |--------|------|----------|-------------|
 | `path` |字符串|是的 |沙箱内的绝对目标路径。 |
 | `content` |字符串|是的 | Base64 编码的文件内容。 |
@@ -255,7 +257,7 @@ curl -X DELETE https://api.miosa.ai/api/v1/computers/{id}/files \
 
 或者，发送带有字段的 `multipart/form-data`：
 
-|领域|描述 |
+|字段 |描述 |
 |--------|-------------|
 | `path` |绝对目标路径。 |
 | `file` |包含原始内容的文件部分。 |
@@ -275,8 +277,8 @@ curl -X DELETE https://api.miosa.ai/api/v1/computers/{id}/files \
 
 |状态 |代码|原因 |
 |--------|------|--------|
-| 409 | 409 `SANDBOX_NOT_RUNNING` |沙盒不处于 `running` 状态。 |
-| 413 | 413  - |文件超过 500 MB 上传限制。 |
+| 409 | `SANDBOX_NOT_RUNNING` | 沙盒不处于 `running` 状态。 |
+| 413 | - | 文件超过 500 MB 上传限制。 |
 ```bash
 # JSON (base64-encoded content)
 curl -X POST https://api.miosa.ai/api/v1/sandboxes/sbx_01j9xr2t4fk8me3n5q/files \
@@ -310,8 +312,8 @@ curl -X POST https://api.miosa.ai/api/v1/sandboxes/sbx_01j9xr2t4fk8me3n5q/files 
 
 |状态 |代码|原因 |
 |--------|------|--------|
-| 404 | 404 `FILE_NOT_FOUND` |沙箱内不存在路径。 |
-| 409 | 409 `SANDBOX_NOT_RUNNING` |沙盒不处于 `running` 状态。 |
+| 404 | `FILE_NOT_FOUND` | 沙箱内不存在路径。 |
+| 409 | `SANDBOX_NOT_RUNNING` | 沙盒不处于 `running` 状态。 |
 ```bash
 curl -o output.json \
   "https://api.miosa.ai/api/v1/sandboxes/sbx_01j9xr2t4fk8me3n5q/files/workspace%2Foutput.json" \
@@ -329,7 +331,7 @@ curl -o output.json \
 创建一个准备好的导出描述符。这不会将文件移出
 沙箱；它返回沙箱文件系统支持的下载 URL。
 
-|领域|类型 |必填 |描述 |
+|字段 |类型 |必填 |描述 |
 |--------|------|----------|-------------|
 | `path` |字符串|是的，除非设置了 `paths` |沙箱内的单个文件路径。 |
 | `paths` |数组|是的，除非设置了 `path` |打包为 tar.gz 存档的多个文件路径。 |

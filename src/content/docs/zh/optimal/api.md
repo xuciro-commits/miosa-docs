@@ -56,12 +56,12 @@ curl -s https://api.miosa.ai/api/v1/optimal/workspace-token \
 
 |状态 |代码|当 |
 |---|---|---|
-| 401 | 401 `UNAUTHORIZED` | API 密钥丢失或已撤销 |
-| 403 | 403 `FORBIDDEN` |该键没有 `osa:write` |
-| 403 | 403 `WORKSPACE_FORBIDDEN` |密钥的用户不是工作区的成员 |
-| 403 | 403 `API_KEY_WORKSPACE_BOUND` |密钥绑定到不同的工作空间 |
-| 403 | 403 `API_KEY_NOT_ELIGIBLE` |密钥绑定到项目或最终用户|
-| 422 | 422 `WORKSPACE_REQUIRED` |缺少 `workspace_id` |
+| 401 | `UNAUTHORIZED` | API 密钥丢失或已撤销 |
+| 403 | `FORBIDDEN` | 该键没有 `osa:write` |
+| 403 | `WORKSPACE_FORBIDDEN` | 密钥的用户不是工作区的成员 |
+| 403 | `API_KEY_WORKSPACE_BOUND` | 密钥绑定到不同的工作空间 |
+| 403 | `API_KEY_NOT_ELIGIBLE` | 密钥绑定到项目或最终用户 |
+| 422 | `WORKSPACE_REQUIRED` | 缺少 `workspace_id` |
 
 ### 铸造组织令牌
 
@@ -168,7 +168,7 @@ curl -s https://optimal.miosa.ai/api/v1/sessions/$CHAT/message \
 | `client_message_id` |字符串| 1 到 128 个字符的字母、数字、`_`、`.`、`:` 或 `-`。再次发送相同的 id 会用 `status: "duplicate"` 回答 `200`，而不是第二轮 |
 | `machine` |对象| `{"resource_type": "sandbox" \| "computer", "resource_id": "..."}`：在该机器上运行此消息 |
 | `confirm_switch` |布尔 | `true` 移动已在另一台计算机上运行的聊天 |
-| `attachments` |数组|来自 [附件](/docs/optimal/api#attachments) | 的附件 ID
+| `attachments` | 数组 | 来自 [附件](/docs/optimal/api#attachments) 的附件 ID |
 
 Optimal 工作时发送的消息会在当前回合之后等待，并且 `queued` 为 `true`。
 `DELETE /sessions/{id}/queued/{client_message_id}` 删除它直到它开始；之后呼叫应答 `409 not_queued`。
@@ -201,7 +201,9 @@ Optimal 工作时发送的消息会在当前回合之后等待，并且 `queued`
 ```bash
 curl -N https://optimal.miosa.ai/api/v1/sessions/$CHAT/stream \
   -H "Authorization: Bearer $TOKEN"
-```- 浏览器`EventSource`无法设置标头，因此此端点也将令牌视为`?token=`。
+```
+
+- 浏览器`EventSource`无法设置标头，因此此端点也将令牌视为`?token=`。
   没有其他端点接受 URL 中的令牌。
 - 每个事件都有一个编号 `id:`。
   重新连接 `Last-Event-ID` 标头或 `?last_event_id=`，以重播您错过的内容。
@@ -218,7 +220,7 @@ curl -N https://optimal.miosa.ai/api/v1/sessions/$CHAT/stream \
 | `tool_call` | `name`、`phase`（`start` 或 `end`）|最好是使用工具 |
 | `permission_required` |等待的步骤|某个步骤需要批准；请参阅[批准](/docs/optimal/api#approvals) |
 | `agent_response` | `response` |回复完毕|
-| `turn_billed` | `turn_credits`、`session_credits`、`balance` |一旦账本结算，回合成本是多少？
+| `turn_billed` | `turn_credits`、`session_credits`、`balance` | 一旦账本结算，回合成本是多少 |
 | `replay_gap` | `session_id`, `last_seq` |您要求重播的事件已消失 |
 
 忽略您不使用的事件；可以添加新事件。
@@ -239,9 +241,9 @@ curl -N https://optimal.miosa.ai/api/v1/sessions/$CHAT/stream \
 |状态 |代码|当 |
 |---|---|---|
 | 400 | `invalid_machine` | `resource_type` 不是 `sandbox` 或 `computer`，或者缺少 `resource_id` |
-| 404 | 404 `machine_not_found` |机器不在该工作空间中 |
-| 409 | 409 `machine_unavailable` |机器未运行或无法访问 |
-| 409 | 409 `machine_switch_requires_confirmation` |聊天正在另一台机器上进行；发送 `confirm_switch: true` |
+| 404 | `machine_not_found` | 机器不在该工作空间中 |
+| 409 | `machine_unavailable` | 机器未运行或无法访问 |
+| 409 | `machine_switch_requires_confirmation` | 聊天正在另一台机器上进行；发送 `confirm_switch: true` |
 
 ## 附件
 
@@ -327,13 +329,13 @@ curl -s "https://optimal.miosa.ai/api/v1/sessions/$CHAT/attachments?name=error.l
 |状态 |代码|意义|
 |---|---|---|
 | 400 | `missing or empty message` | `message` 为空 |
-| 401 | 401 `MISSING_TOKEN`，或过期的令牌 |铸造新的最佳代币 |
-| 402 | 402 `OPTIMAL_CREDITS_REQUIRED` |没有剩余积分；添加积分或升级 |
-| 403 | 403 `ownership_denied` |该机器不在您的组织内 |
-| 404 | 404 `session_not_found` |该聊天记录不存在，或者不是您的 |
-| 415 | 415 `unsupported_media_type` |不带 `Content-Type: application/json` | 的 JSON 正文
-| 429 | 429 `rate_limited` |请求过多；等待`Retry-After` |
-| 429 | 429 `session_ceiling` |您的组织同时运行的聊天太多 |
+| 401 | `MISSING_TOKEN`，或过期的令牌 | 铸造新的 Optimal 令牌 |
+| 402 | `OPTIMAL_CREDITS_REQUIRED` | 没有剩余积分；添加积分或升级 |
+| 403 | `ownership_denied` | 该机器不在您的组织内 |
+| 404 | `session_not_found` | 该聊天不存在，或者不是您的 |
+| 415 | `unsupported_media_type` | 不带 `Content-Type: application/json` 的 JSON 正文 |
+| 429 | `rate_limited` | 请求过多；等待 `Retry-After` |
+| 429 | `session_ceiling` | 您的组织同时运行的聊天太多 |
 
 另一个组织或工作区中的聊天回复 `404`，与不存在的聊天相同。
 

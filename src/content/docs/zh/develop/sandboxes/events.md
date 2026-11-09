@@ -25,7 +25,7 @@ for await (const event of sbx.events.stream()) {
 }
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl https://api.miosa.ai/api/v1/sandboxes/$SBX/events \

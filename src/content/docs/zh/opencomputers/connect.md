@@ -53,7 +53,7 @@ osa version
 
 ## 2. 注册主机并保存其密钥
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa host register studio --platform linux
@@ -113,7 +113,7 @@ miosa host get <host>
 
 ## 5. 在所选主机上完成命令
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa host jobs <host>

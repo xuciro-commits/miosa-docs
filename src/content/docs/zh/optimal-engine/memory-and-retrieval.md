@@ -1,12 +1,12 @@
 ---
 slug: "optimal-engine/memory-and-retrieval"
 title: "记忆与检索"
-description: "最佳引擎如何搜索（全文、矢量、混合）、询问和组合返回内容、如何将声明审查为事实、版本化内存如何工作以及基准数字的含义。"
+description: "Optimal Engine如何搜索（全文、矢量、混合）、询问和组合返回内容、如何将声明审查为事实、版本化内存如何工作以及基准数字的含义。"
 section: "Optimal Engine"
 order: 8006
 ---
 
-最佳引擎有四种读取内存的方法，从普通搜索到智能体的受控上下文包。
+Optimal Engine有四种读取内存的方法，从普通搜索到智能体的受控上下文包。
 
 |致电 |返回|用它来 |
 |---|---|---|

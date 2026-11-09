@@ -38,7 +38,7 @@ order: 1038
 `repo create` 也采用 `--slug` 和 `--project-id`。
 `repo delete` 是永久的。
 
-##公关
+## pr
 
 |命令 |示例|
 |---|---|
@@ -73,7 +73,7 @@ order: 1038
 完成的检查需要 `--file` 中的 `{"evidence": {...}}`，最多 64 KB。
 `--status queued` 或 `in_progress` 报告仍在运行的检查。
 
-##政策
+## policy
 
 |命令 |示例|
 |---|---|

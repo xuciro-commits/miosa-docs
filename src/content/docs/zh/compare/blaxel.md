@@ -1,6 +1,6 @@
 ---
 slug: "compare/blaxel"
-title: "米奥萨 vs 布拉克塞尔"
+title: "MIOSA vs 布拉克塞尔"
 description: "使用截至 2026 年 10 月的独立 ComputeSDK 基准和 Blaxel 公共文档对 MIOSA 和 Blaxel 进行事实比较。"
 section: "Optional"
 order: 17024
@@ -18,7 +18,7 @@ Blaxel（“自治智能体的基础设施”）提供了用于在沙箱中运�
 
 独立的 ComputeSDK 基准测试针对每个提供商运行相同的工作负载。这是这里唯一可以比较的数字。
 
-|公制|米奥萨 |布莱克塞尔 |截至 |
+|公制|MIOSA |布莱克塞尔 |截至 |
 |---|---|---|---|
 |突发启动、中位交互时间 | **57.09 毫秒（第 1 条，共 32 条）** | 441.82 毫秒 (#7) | 2026年10月23日 |
 | DAX 完整构建，2026-08-28 | **39.3 秒（第 1 条，共 19 条）** | 45.6 秒 (#4) | 2026-08-28 |
@@ -36,7 +36,7 @@ Blaxel（“自治智能体的基础设施”）提供了用于在沙箱中运�
 每个 MIOSA 答案都链接了记录它的页面。
 “未记录”意味着供应商的文档没有说明，而不是缺少该功能。
 
-|能力|米奥萨 |布莱克塞尔 |来源 |
+|能力|MIOSA |布莱克塞尔 |来源 |
 |---|---|---|---|
 |隔离| [默认情况下 Firecracker microVM](/docs/develop/sandboxes) |微虚拟机 | [Blaxel 文档](https://docs.blaxel.ai/Infrastructure/Gens.md) |
 |沙箱寿命 | 【空闲超时，默认1小时，最长24小时，可延长；计算机持续存在](/docs/develop/sandboxes/timeouts) |保留直至 TTL 或策略将其删除；闲置沙箱进入待机| [Blaxel 文档](https://docs.blaxel.ai/Sandboxes/Expiration.md) |
@@ -63,8 +63,8 @@ Blaxel（“自治智能体的基础设施”）提供了用于在沙箱中运�
 - **具有连接注入的托管数据**：Postgres、MySQL、Redis、MongoDB、Qdrant。请参阅[数据](/docs/data/overview)。
 - **区域和 OpenComputers** 适用于您拥有的机器。请参阅[区域](/docs/regions)和[OpenComputers](/docs/opencomputers)。
 
-## 何时选择每个- **Choose Blaxel** if you want agent infrastructure focused on running autonomous agents, and the DAX build numbers are the metric you care about.
-- **Choose MIOSA** if you want measured-fast sandbox startup plus computers with desktops, agent runs, deployments, managed data, and a branded platform in one place.
+## 何时选择每个- **选择 Blaxel**：如果您想要的是专注于运行自治智能体的智能体基础设施，并且 DAX 构建数字正是您在意的指标。
+- **选择 MIOSA**：如果您想要实测快速的沙箱启动，再加上带桌面的计算机、智能体运行、部署、托管数据，以及集于一身的有品牌平台。
 
 ## 来源
 
@@ -72,5 +72,5 @@ Blaxel（“自治智能体的基础设施”）提供了用于在沙箱中运�
 - ComputeSDK 基准测试结果，来自[我们的基准测试页面](/docs/benchmarks)（2026 年 10 月 23 日）。
 - MIOSA 功能，如本网站所述。
 
-- [MIOSA vs Beam](/docs/compare/beam)：下一个比较。
+- [MIOSA 与 Beam](/docs/compare/beam)：下一个比较。
 - [所有比较](/docs/compare)：对每个提供商 MIOSA 进行衡量。

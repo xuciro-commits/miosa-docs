@@ -8,7 +8,9 @@ order: 11026
 
 该系列中的每个工具都与托管服务器注册的完全相同。论点
 是工具自己的参数名称；仍然列出了可选的，因为
-描述说明了它们改变了什么。|工具|论点|描述 |
+描述说明了它们改变了什么。
+
+| 工具 | 论点 | 描述 |
 |---|---|---|
 | `computer_accessibility_tree` | `computer_id` |获取当前桌面状态的 AT-SPI 可访问性树。 |
 | `computer_bash` | `computer_id`、`command`、`timeout` |在计算机上执行 bash 命令并返回 stdout + stderr。 |
@@ -72,7 +74,7 @@ order: 11026
 | `computer_service_start` | `computer_id`，`service_id` |启动已停止的后台服务。 |
 | `computer_service_stop` | `computer_id`, `service_id` |停止正在运行的后台服务（发送 SIGTERM）。 |
 | `computer_set_clipboard` | `computer_id`、`text` |设置剪贴板文本内容。 |
-| `computer_set_wallpaper` | `computer_id`、`path` |设置桌面壁纸。接受 | 内的绝对路径
+| `computer_set_wallpaper` | `computer_id`、`path` | 设置桌面壁纸。接受计算机内的绝对路径 |
 | `computer_set_window_position` | `computer_id`、`window_id`、`x`、`y` |将窗口移动到给定的屏幕坐标。 |
 | `computer_set_window_size` | `computer_id`、`window_id`、`width`、`height` |将窗口大小调整为给定的宽度和高度（以像素为单位）。 |
 | `computer_start` | `computer_id` |启动已停止的计算机。 |

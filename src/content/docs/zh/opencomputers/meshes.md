@@ -13,7 +13,7 @@ MIOSA 在网格的 `/24` 中为每个成员分配一个地址并分发 WireGuard
 
 ## 创建网格
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa host mesh list
@@ -74,7 +74,7 @@ miosa host mesh rm lab --yes
 | `assigned_ip` |网格的 `10.x.x.x` 范围内的地址 |
 | `pubkey` |对等方的 WireGuard 公钥 |
 | `endpoint` |最后看到的端点 |
-| `latest_handshake` |隧道最后一次完成握手是什么时候？
+| `latest_handshake` | 隧道最后一次完成握手是什么时候 |
 | `rx_bytes`、`tx_bytes` |客流量计数器|
 | `state` | `pending_key`、`configured`、`active` 或 `failed` |
 
@@ -82,7 +82,7 @@ miosa host mesh rm lab --yes
 
 ## 活动
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa host mesh events lab

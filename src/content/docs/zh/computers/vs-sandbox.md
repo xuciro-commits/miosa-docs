@@ -13,15 +13,15 @@ order: 3002
 
 ## 按工作负载选择
 
-|工作量|选择|为什么 |
+|工作负载 |选择 |原因 |
 |---|---|---|
-|运行测试、安装软件包、构建代码、公开开发服务器 | **沙盒** |更快、更便宜的 shell-first 计算 |
-|必须点击网站的计算机使用智能体 | **计算机** | Needs pixels, browser state, and input events |
-|登录的浏览器会话必须跨任务生存**计算机** | Browser profile persists with the VM |
-| Headless Playwright、API 测试、CLI 工作流程 | **沙盒** | No visible desktop needed |
-| Screenshot-based QA or visual inspection | **计算机** |使用渲染的屏幕作为真相 |
-|桌面应用程序、扩展、文件选择器或手动接管 | **计算机** | Needs a full GUI and streamable session |
-| Public 24/7 app URL for customers | **Docker 主机** |专为持久部署和自定义域而构建 |
+|运行测试、安装软件包、构建代码、对外提供开发服务器 | **Sandbox** |更快、更便宜的以 shell 为主的计算 |
+|必须点击网站界面的计算机使用智能体 | **Computer** |需要像素、浏览器状态和输入事件 |
+|登录后需要跨任务持续存在的浏览器会话 | **Computer** |浏览器配置文件随虚拟机一起持久保留 |
+| Headless Playwright、API 测试、CLI 工作流程 | **Sandbox** |不需要可见的桌面 |
+|基于截图的 QA 或视觉检查 | **Computer** |以渲染出来的屏幕为准 |
+|桌面应用程序、扩展、文件选择器或人工接管 | **Computer** |需要完整的 GUI 和可流式传输的会话 |
+|面向客户的公开 24/7 应用 URL | **Docker Host** |专为持久部署和自定义域而构建 |
 
 ## 计算机的用途
 

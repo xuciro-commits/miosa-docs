@@ -36,7 +36,7 @@ const miosa = new Miosa({ apiKey: 'msk_u_...' });
 const sandbox = await miosa.sandboxes.create();
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes \
@@ -50,11 +50,11 @@ curl -X POST https://api.miosa.ai/api/v1/sandboxes \
 传递 `template_id` 在沙箱图像内暂存一个脚手架并启动它。
 该模板提供运行应用程序的文件、包和命令；它不是一个单独的图像。
 
-| `template_id` |它的舞台是什么？
+| `template_id` | 它会准备什么 |
 |---|---|
-| `nextjs` | Next.js 应用程序在端口 3000 上启动。
+| `nextjs` | 一个 Next.js 应用，在端口 3000 上启动。 |
 | `nextjs-postgres` |端口 3000 上带有 Postgres 客户端工具的 Next.js 应用程序；绑定`DATABASE_URL`。 |
-| `static-html` |静态 HTML、CSS 和 JavaScript 由端口 8000 上的 `/workspace` 提供服务。
+| `static-html` | 静态 HTML、CSS 和 JavaScript，由端口 8000 上的 `/workspace` 提供服务。 |
 | `fastapi-auth` |一个 FastAPI 启动器，在端口 8000 上具有注册、登录、我和仪表板路由。它的运行状况检查尚不工作，因此不要在其上设置您自己的准备情况。 |
 |你自己的 |您的工作区构建的任何自定义模板。请参阅[自定义模板](/docs/develop/templates#custom-templates)。 |
 
@@ -76,7 +76,7 @@ const sandbox = await miosa.sandboxes.create({
 });
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes \
@@ -170,7 +170,7 @@ const computer = await miosa.computers.create({
 });
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers \

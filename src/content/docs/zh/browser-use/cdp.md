@@ -33,7 +33,7 @@ curl -X POST https://api.miosa.ai/api/v1/sandboxes/$SANDBOX_ID/browser \
 - `?token=<stream_auth>` - `POST` 返回的令牌（1 小时）。对于智能体来说最简单。
 - `Authorization: Bearer <msk_* API key>` - API 密钥需要 `sandboxes:exec` 范围；浏览器可以访问沙箱可以访问的任何内容，因此范围是经过深思熟虑的。
 
-##剧作家
+## Playwright
 
 > **注意：已经打开的上下文**
 >
@@ -76,7 +76,7 @@ await browserConn.close()   // detaches; it does not stop the sandbox browser
 
 当您的客户端支持时，您可以将令牌作为标头而不是查询参数传递，例如 Playwright 的 `connect_over_cdp(cdp_url, headers={"Authorization": "Bearer " + api_key})`。
 
-## 木偶师
+## Puppeteer
 
 **JavaScript**
 

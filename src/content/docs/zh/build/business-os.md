@@ -20,14 +20,14 @@ order: 10062
 
 用于运营业务的开源操作层：工作区、模块、终端和智能体
 
-本地优先的桌面和 Web 应用程序：带有 PostgreSQL 和 Redis 的 Go 后端、SvelteKit 前端、可选的 Electron shell 以及用于知识和智能体上下文的捆绑最佳引擎。
+本地优先的桌面和 Web 应用程序：带有 PostgreSQL 和 Redis 的 Go 后端、SvelteKit 前端、可选的 Electron shell 以及用于知识和智能体上下文的捆绑Optimal Engine。
 
 您将使用的基元：组织和 API 密钥 · 沙箱 · 计算机 · Postgres · 部署 (App Engine) · 自定义域
 
 - 可拖动、持久的模块窗口
 - 工作空间、角色和团队
 - 真实终端（PTY）表面
-- 通过最佳引擎管理知识和记忆
+- 通过Optimal Engine管理知识和记忆
 - 自定义模块构建器
 
 您在 MIOSA 上安装并**运行真正的 BusinessOS**。首先阅读官方文档：[github.com/Miosa-osa/BusinessOS](https://github.com/Miosa-osa/BusinessOS)。下面的每个安装命令都来自他们；如果文档和本指南不一致，则文档获胜。 BusinessOS 是开源的 (Apache-2.0)，来自 MIOSA。
@@ -103,7 +103,7 @@ make onboard
 
 检查：安装完成，没有错误；接下来的部分将配置并启动它。
 
-## 配置`make onboard` 检查工具，创建本地环境文件，在 `.run/` 下初始化独立的 PostgreSQL 集群和 Redis，启动捆绑的最佳引擎，安装依赖项并启动后端、前端和（除非 `BUSINESSOS_HEADLESS=1`）Electron shell。它需要 Node 22+、pnpm 9.15.4、Go 1.26.2、PostgreSQL 14+、Redis 7+、Elixir/Mix 和 Python 3。
+## 配置`make onboard` 检查工具，创建本地环境文件，在 `.run/` 下初始化独立的 PostgreSQL 集群和 Redis，启动捆绑的Optimal Engine，安装依赖项并启动后端、前端和（除非 `BUSINESSOS_HEADLESS=1`）Electron shell。它需要 Node 22+、pnpm 9.15.4、Go 1.26.2、PostgreSQL 14+、Redis 7+、Elixir/Mix 和 Python 3。
 
 型号：由您的智能体商选择。使用我已连接的提供商的当前模型；如果没有的话就问哪一个。
 
@@ -168,7 +168,7 @@ BusinessOS 是一个模板，而不是一个固定的产品：模块的含义来
 
 - **前端和模块**位于 `frontend/` (SvelteKit) 中。模块是一条路线加上它所拥有的人员、智能体、记录、状态和策略；从现有的基础路线作为模板开始。
 - **Go backend** 位于 `desktop/` 中：您的模块为获取数据而调用的 API。
-- **知识和智能体**来自 `optimal-engine/` 中捆绑的最佳引擎，它为助手提供了对您自己的数据的记忆、搜索和智能体上下文。
+- **知识和智能体**来自 `optimal-engine/` 中捆绑的Optimal Engine，它为助手提供了对您自己的数据的记忆、搜索和智能体上下文。
 - **工作空间形状**存在于 `workspaces/` 中：团队、角色和工作空间起始的私人投影。
 
 更改运行机器中的代码并重新启动堆栈即可看到它：

@@ -13,19 +13,19 @@ order: 17007
 
 ### Builder
 
-**Builder** 是一个发布操作的独立工作人员。
+**构建器**是一个发布操作的独立工作人员。
 它冻结沙箱源，运行选定的构建管道，存储结果，然后退出。
 稍后对沙箱的编辑无法更改该构建。
 
-Three build modes:
+三种构建模式：
 
 |模式|触发|输出|
 |------|---------|--------|
 |静态打包器| `/workspace` 只有静态文件 |从 MIOSA 的边缘提供 Tarball |
-|自动检测 | Node/Python/Ruby/Go project detected | Dynamic release served by production runtimes |
-| Dockerfile | `Dockerfile` present in `/workspace` | Dynamic release served by production runtimes |
+|自动检测 | 检测到 Node/Python/Ruby/Go 项目 | 由生产运行时提供的动态发布 |
+| Dockerfile | `/workspace` 中存在 `Dockerfile` | 由生产运行时提供的动态发布 |
 
-The Builder is internal and short-lived.
+构建器是内部且短命的。
 它的工作是使生产构建可重复，同时可变的沙箱仍然可用于继续工作。
 
 ### 发布
@@ -34,16 +34,16 @@ The Builder is internal and short-lived.
 其内容由 SHA-256 摘要寻址并存储在沙箱外部。
 相同的字节可以重复启动，放置在不同的主机上，并独立验证。
 
-MIOSA never edits a Release in place.
+MIOSA 从不就地编辑发布。
 发布更改的源会创建一个新版本。
 该规则可防止 URL 以静默方式提供与其发布记录不匹配的字节。
 
 两种形状：
 
-- **静态发布** - 文件的 tarball（`index.html`、`app.js`、资产）。 MIOSA's edge serves them directly. No Runtime Instances required.
-- **Dynamic release**  -  a server app artifact. Served by production runtimes.
+- **静态发布** - 文件的 tarball（`index.html`、`app.js`、资产）。MIOSA 的边缘直接提供它们。不需要运行时实例。
+- **动态发布** - 服务器应用工件。由生产运行时提供。
 
-[Releases reference →](/docs/docker-host/releases)
+[发布参考 →](/docs/docker-host/releases)
 
 ### 运行时实例
 
@@ -60,7 +60,7 @@ MIOSA 的调度程序会放置它，健康系统会检查它，当实际运行�
 静态部署不需要运行时实例。
 MIOSA 从边缘提供不可变文件。
 
-[Runtime Instances reference →](/docs/docker-host/runtime-instances)
+[运行时实例参考 →](/docs/docker-host/runtime-instances)
 
 ### 域名
 
@@ -74,7 +74,7 @@ MIOSA 从边缘提供不可变文件。
 更改路由不会重建应用程序。
 验证版本接收同一部署 URL 后面的流量的升级和回滚更改。
 
-[Domains reference →](/docs/docker-host/domains)
+[域参考 →](/docs/docker-host/domains)
 
 ## The immutable publish pipeline
 
@@ -82,11 +82,11 @@ MIOSA 从边缘提供不可变文件。
 它拥有稳定的URL、版本历史、路由、环境配置和数据绑定。
 
 **版本** 将一个部署连接到一个不可变的版本以及运行它所需的配置。
-Publishing creates a candidate Version.
+发布创建一个候选版本。
 它不会仅仅因为构建完成而使该候选者存活。
 
 升级必须证明候选者已经准备好，其所需的配置存在，其运行时是健康的，并且其路由服务于预期的工件。
-Only then does MIOSA update `active_version_id`.
+只有到那时，MIOSA 才会更新 `active_version_id`。
 
 ```mermaid
 flowchart LR
@@ -102,12 +102,12 @@ flowchart LR
 
 生产过渡故意缩小：
 
-1. Freeze the exact Sandbox source.
-2. Build an immutable Release.
-3. Create a candidate Version.
+1. 冻结沙箱的确切源。
+2. 构建不可变的发布。
+3. 创建候选版本。
 4. 验证运行状况、路由、机密、数据绑定和声明的要求。
-5. Promote that exact Version.
-6. Prove the public URL serves it.
+5. 提升那个确切的版本。
+6. 证明公共 URL 提供它。
 7. 保留以前的版本以供回滚。
 
 对象关系在各个版本中保持稳定：

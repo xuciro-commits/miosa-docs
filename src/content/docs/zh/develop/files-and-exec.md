@@ -25,7 +25,7 @@ await sandbox.files.write("/workspace/logo.png", pngBuffer, {
 })
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes/$SBX/files/write \
@@ -128,12 +128,12 @@ miosa files cp -r sb_abc123:/workspace/dist ./homepage-build --json
 `/workspace` 下的文件，但您的后端应仅提升批准的路径
 进入命名的工件。
 
-|产品图样 |工作路径 |出口神器|
+|产品图样 |工作路径 |出口产物|
 |---|---|---|
 | Lovable/Replit/Genspark 风格的应用程序构建器 | `/workspace`、`/workspace/dist` |源 ZIP、构建文件夹、预览、部署 URL |
 | Polsia 式运算符 | `/workspace/research`, `/workspace/artifacts` |报告、CSV、营销活动副本、生成的应用程序包 |
 | coFounder.co风格的公司操作系统| `/workspace/agents`、`/workspace/receipts`、`/workspace/artifacts` |里程碑文件、决策、状态报告 |
-|星云式虚拟设备|分享`/workspace`加电脑截图|选定的文件、屏幕截图、日志、设备收据 |
+|Nebula式虚拟设备|分享`/workspace`加电脑截图|选定的文件、屏幕截图、日志、设备收据 |
 
 存储导出 ID、标签、路径、大小、MIME 类型（如果可用）并下载
 您自己的跑步记录上的 URL。这为用户提供了稳定的工件历史记录，即使
@@ -196,7 +196,7 @@ const result = await sandbox.exec("npm install", {
 console.log(result.exit_code, result.stdout, result.stderr)
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes/$SBX/exec \

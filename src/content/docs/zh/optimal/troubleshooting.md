@@ -1,7 +1,7 @@
 ---
 slug: "optimal/troubleshooting"
 title: "最佳故障排除"
-description: "修复了常见的 Optimal 问题 - 没有积分、没有工作区、丢失机器、附件、安全带登录、接管和 API 错误。"
+description: "修复了常见的 Optimal 问题 - 没有积分、没有工作区、丢失机器、附件、运行框架登录、接管和 API 错误。"
 section: "Optimal"
 order: 7011
 ---
@@ -10,7 +10,7 @@ order: 7011
 
 ## 在控制台中
 
-###“学分上的最佳运行”
+### "Optimal runs on credits"
 
 Optimal 需要正信用余额，而你的信用余额是空的。
 按“**添加积分**”或“**升级**”以获得包含积分的计划，然后再次发送。
@@ -56,7 +56,7 @@ Optimal 需要正信用余额，而你的信用余额是空的。
 回复还没说完就被切断了。
 按注释旁边的**重试**；聊天会保留之前的所有内容。
 
-###“无法接管。请重试。”或“无法归还。请重试。”
+### “无法接管。请重试。”或“无法归还。请重试。”
 
 机器没有及时应答。
 稍等片刻，然后再次按 **接管** 或 **交回**。
@@ -83,12 +83,12 @@ Optimal 需要正信用余额，而你的信用余额是空的。
 | `403 approval_scope_required` |为 API 密钥授予 `osa:approve` 权限，然后铸造一个新令牌 |
 | `402 OPTIMAL_CREDITS_REQUIRED` |添加积分或升级 |
 | `404 session_not_found` |聊天id错误、已删除、或在其他工作区；检查令牌的工作区 |
-| `409 machine_switch_requires_confirmation` |使用 `"confirm_switch": true` | 再次发送消息
+| `409 machine_switch_requires_confirmation` |使用 `"confirm_switch": true` 再次发送消息 |
 | `409 machine_unavailable` |启动机器，然后重试 |
 | `409 no_machine` 上传 |首先使用 `POST /sessions/{id}/machine` 绑定机器 |
 | `415 unsupported_media_type` |添加 `Content-Type: application/json` |
 | `429 rate_limited` |等待 `Retry-After` 秒 |
-|一条不显示任何内容的流 |在发送之前打开流，或从 `GET /sessions/{id}/messages` | 读取已完成的回合。
+|一条不显示任何内容的流 |在发送之前打开流，或从 `GET /sessions/{id}/messages` 读取已完成的回合。|
 
 请参阅每个端点的[最佳 API](/docs/optimal/api)。
 

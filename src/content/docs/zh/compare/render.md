@@ -14,7 +14,7 @@ Render 和 MIOSA 都从存储库运行 Web 应用程序、worker、cron 作业�
 
 ## 服务
 
-|能力|米奥萨 |渲染|
+|能力|MIOSA |渲染|
 |---|---|---|
 |来自存储库的 Web 服务 |是的，有公共地址 |是的 |
 |后台工作者|是的，运行模式 `worker` |是的 |
@@ -27,7 +27,7 @@ Render 和 MIOSA 都从存储库运行 Web 应用程序、worker、cron 作业�
 
 ## 发布和流量
 
-|能力|米奥萨 |渲染|
+|能力|MIOSA |渲染|
 |---|---|---|
 |发布并回滚 |是的，每个版本都会保留其源代码和设置 |是的 |
 |复制品|是的，在网络允许的情况下跨主机传播 |是的 |
@@ -38,7 +38,7 @@ Render 和 MIOSA 都从存储库运行 Web 应用程序、worker、cron 作业�
 
 ## 数据
 
-|能力|米奥萨 |渲染 |
+|能力|MIOSA |渲染 |
 |---|---|---|
 | Postgres、Redis |是的，已管理 |是的 |
 | MySQL、MongoDB |是的，已管理 |不属于 Render 托管集的一部分 |
@@ -61,4 +61,4 @@ Render 和 MIOSA 都从存储库运行 Web 应用程序、worker、cron 作业�
 >
 > 两种产品均发生变化。上面的链接是本页面于 2026 年 10 月 23 日撰写的内容。
 
-移动？从[部署服务](/docs/services/quickstart)开始； `miosa import` 今天读了一个铁路项目，其他进口商也会写同样的计划格式。
+移动？从[部署服务](/docs/services/quickstart)开始； `miosa import` 今天读了一个Railway项目，其他进口商也会写同样的计划格式。

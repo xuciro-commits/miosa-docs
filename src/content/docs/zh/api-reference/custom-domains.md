@@ -79,7 +79,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/domains \
 |--------|------|-------------|
 | `GET` | `/custom-domains?computer_id={id}` |列出计算机的域 |
 | `GET` | `/custom-domains?deployment_id={id}` |列出部署的域 |
-| `POST` | `/custom-domains` |使用 `computer_id` 或 `deployment_id` | 注册域名
+| `POST` | `/custom-domains` |使用 `computer_id` 或 `deployment_id` 注册一个域 |
 | `DELETE` | `/custom-domains/{id}` |删除域名 |
 
 ### 租户预览域
@@ -147,7 +147,7 @@ DNS 必须将通配符流量委托给 MIOSA 预览路由器：
 
 ### 请求正文
 
-|领域|类型 |必填 |描述 |
+|字段 |类型 |必填 |描述 |
 |--------|------|----------|-------------|
 | `domain` |字符串|是的 |完全合格的域名。 RFC 1123 主机名，最多 253 个字符 |
 
@@ -179,16 +179,18 @@ DNS 必须将通配符流量委托给 MIOSA 预览路由器：
 
 |状态 |描述 |
 |--------|-------------|
-| `pending` |挂号的;等待 DNS 验证 |
-| `verified` | CNAME 已确认；球童可能会颁发证书|
-| `active` | TLS证书已颁发并正在使用 |
-| `failed` |验证或 TLS 颁发失败 |
-| `removed` |域已分离（删除前的软标记）|
+| `pending` |已注册；等待 DNS 验证 |
+| `verified` | CNAME 已确认；Caddy 可以颁发证书 |
+| `active` | TLS 证书已签发并正在使用 |
+| `failed` |验证或 TLS 签发失败 |
+| `removed` |域已解除关联（删除前的软标记） |
 
-### 错误|状态 |错误 |原因 |
+### 错误
+
+|状态 |错误 |原因 |
 |--------|--------|--------|
-| 409 | 409 `has already been taken` | FQDN 已注册（全球唯一）|
-| 422 | 422验证错误 | FQDN 格式无效或以 `miosa.ai` | 结尾
+| 409 | `has already been taken` | FQDN 已注册（全局唯一） |
+| 422 | 验证错误 | FQDN 格式无效，或以 `miosa.ai` 结尾 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/domains \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -264,8 +266,8 @@ curl https://api.miosa.ai/api/v1/computers/{id}/domains \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 409 | 409 `domain is already verified` |已经完成 |
-| 422 | 422 `CNAME not found` | DNS 记录丢失或尚未传播 |
+| 409 | `domain is already verified` |已完成 |
+| 422 | `CNAME not found` | DNS 记录缺失或尚未传播 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/domains/{domain_id}/verify \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -296,9 +298,9 @@ curl -X DELETE https://api.miosa.ai/api/v1/computers/{id}/domains/{domain_id} \
 
 注册域后，请在您的注册商或 DNS 提供商处添加以下 DNS 记录：
 
-|记录|主持人|价值|
+|记录 |主机 |值 |
 |--------|------|--------|
-|别名 | `app`（或完整子域）| `verify.miosa.ai` |
+| CNAME | `app`（或完整子域）| `verify.miosa.ai` |
 
 DNS 传播通常需要 1-60 分钟。传播完成后调用 `verify`。如果验证失败，请等待几分钟并重试 - 端点是幂等的。
 

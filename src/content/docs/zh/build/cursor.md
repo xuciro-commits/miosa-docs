@@ -32,7 +32,7 @@ Cursor 是一个带有智能体的编辑器，可以跨代码库进行编辑；�
 每一行都是在开始之前创建的一件事。该数字与使用它的步骤相匹配。
 
 1. 组织和 API 密钥 - 确定每次调用的范围；工作人员只需要一把工作区钥匙即可。 - `miosa api-key create app-key --preset agent` [文档](/docs/platform/api-keys)
-2. 沙箱 - 智能体在其中编写代码和运行命令的隔离 Linux 工作区。 - `miosa create app-box --template nextjs --wait` [Docs](/docs/develop/sandboxes)
+2. 沙箱 - 智能体在其中编写代码和运行命令的隔离 Linux 工作区。 - `miosa create app-box --template nextjs --wait` [文档](/docs/develop/sandboxes)
 3. 每个客户一个工作区 - 隔离每个客户的机器、部署和数据。 - `miosa workspace create customer-1` [文档](/docs/platform/white-label)
 4. 品牌和白标 - 您的姓名和预览、部署和桌面上的 slug；顾客永远不会看到 MIOSA。 - `miosa org` [文档](/docs/platform/white-label)
 5. 使用计量和计费 - 每个客户的使用情况，以及哪个帐户为新机器付费。 - `miosa org bill` [文档](/docs/platform/usage-and-billing)
@@ -137,7 +137,7 @@ Cursor 在 MIOSA 沙箱上运行并回答实际任务。
 
 ## 后续步骤
 
-- [Agent prompt builder Pick a product shape and hand the brief to your agent.](/docs/build)
-- [Run coding agents Run Claude Code, Codex or Cursor in the cloud, or build a product on them.](/docs/build/run-agents)
-- [Compare MIOSA How MIOSA compares to other sandbox and agent platforms.](/docs/compare)
-- [What you can build Every product pattern MIOSA supports.](/docs/use-cases)
+- [智能体提示词构建器：选择一种产品形态，把需求交给你的智能体。](/docs/build)
+- [运行编码智能体：在云端运行 Claude Code、Codex 或 Cursor，或基于它们构建产品。](/docs/build/run-agents)
+- [对比 MIOSA：MIOSA 与其他沙箱和智能体平台有何不同。](/docs/compare)
+- [您可以构建什么：MIOSA 支持的每一种产品模式。](/docs/use-cases)

@@ -1,7 +1,7 @@
 ---
 slug: "cookbook/build-virtual-device-product"
 title: "构建虚拟设备产品"
-description: "使用持久设备、文件、浏览器工作、作业、工件和连接工具在 MIOSA 上构建星云式产品。"
+description: "使用持久设备、文件、浏览器工作、作业、工件和连接工具在 MIOSA 上构建Nebula式产品。"
 section: "Platform builders"
 order: 9018
 ---
@@ -10,7 +10,7 @@ order: 9018
 对话之间的状态。它可以保存文件、运行代码、保留浏览器上下文，
 执行作业、连接到应用程序并生成工件。
 
-这就是星云式设备背后的 MIOSA 模式，永远在线的运营商，
+这就是Nebula式设备背后的 MIOSA 模式，永远在线的运营商，
 智能体工作区、浏览器自动化产品和人工智能公司工作室。
 
 ---

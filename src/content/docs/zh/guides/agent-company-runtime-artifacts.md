@@ -121,7 +121,7 @@ export_info = sandbox.create_export(
 save_product_run_artifact(run["id"], export_info["archive_download_url"])
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/agent-runtime-profiles \
@@ -234,10 +234,10 @@ prompt
 |输出|生产它的设备 |面向用户的表面|
 |---|---|---|
 |生成的应用程序 |沙盒|预览 URL、部署 URL、源 ZIP |
-| PDF/DOCX/报告 |沙盒|带下载按钮的神器卡|
+| PDF/DOCX/报告 |沙盒|带下载按钮的产物卡|
 |截图集|电脑| QA 证据和可下载图像 |
-|研究包|沙盒| Markdown/CSV/ZIP 神器 |
-|客户本地结果 | BYOC/开放计算机 |主机端文件加上智能体导出（如果获得批准）|
+|研究包|沙盒| Markdown/CSV/ZIP 产物 |
+|客户本地结果 | BYOC/OpenComputers |主机端文件加上智能体导出（如果获得批准）|
 
 请参阅 [文件、exec 和工件 ](/docs/develop/files-and-exec) 进行导出
 API 形状。

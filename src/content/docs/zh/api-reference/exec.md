@@ -33,7 +33,7 @@ order: 12018
 | `command` |字符串|是的 |执行的 Shell 命令 |
 | `timeout` |整数 |没有 |超时以秒为单位（默认值：30，最大值：86400）|
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 ```json
 {
   "output": "total 24\ndrwxr-xr-x 6 user user 4096 Apr 11 10:00 .\n",
@@ -92,7 +92,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/exec \
 | `code` |字符串|是的 | Python源代码|
 | `timeout` |整数 |没有 |超时以秒为单位（默认值：30，最大值：300）|
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 ```json
 {
   "output": "42\n",
@@ -103,8 +103,8 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/exec \
 ### 它是如何运作的
 
 1. 代码写入`/tmp/miosa_exec_&lt;random&gt;.py`
-2.通过`timeout &lt;N&gt; python3 /tmp/miosa_exec_&lt;random&gt;.py 2&gt;&1`执行
-3.执行后删除临时文件
+2. 通过`timeout &lt;N&gt; python3 /tmp/miosa_exec_&lt;random&gt;.py 2&gt;&1`执行
+3. 执行后删除临时文件
 4. stdout 和 stderr 被捕获在 `output` 中
 
 ### 错误
@@ -171,7 +171,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/exec/python \
 | `rows` |整数 |没有 |端子行（默认：24）|
 | `shell` |字符串|没有 |要使用的 shell（默认值：`/bin/bash`）|
 
-#### 响应 - `201 Created`
+#### 响应  -  `201 Created`
 ```json
 {
   "data": {
@@ -205,7 +205,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/terminal \
 | `cols` |整数 |是的 |新列数 |
 | `rows` |整数 |是的 |新行计数 |
 
-#### 响应 - `200 OK`
+#### 响应  -  `200 OK`
 ```json
 {
   "status": "ok"
@@ -269,7 +269,9 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/pty/{session_id}/resize 
 
 |参数|类型 |描述 |
 |------------|------|-------------|
-| `id` |字符串|沙箱 ID。必须处于 `running` 状态。 |#### 请求正文
+| `id` |字符串|沙箱 ID。必须处于 `running` 状态。 |
+
+#### 请求正文
 
 |领域|类型 |必填 |描述 |
 |--------|------|----------|-------------|
@@ -278,7 +280,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/pty/{session_id}/resize 
 | `cwd` |字符串|没有 | VM 内的工作目录。 |
 | `env` |对象|没有 |仅用于此调用的环境变量。 |
 
-#### 响应 - `200 OK`
+#### 响应  -  `200 OK`
 ```json
 {
   "data": {
@@ -318,7 +320,7 @@ curl -X POST https://api.miosa.ai/api/v1/sandboxes/sbx_01j9xr2t4fk8me3n5q/exec \
 | `rows` |整数 |没有 |初始终端高度。默认为 `24`。 |
 | `shell` |字符串|没有 |外壳命令。可用时默认登录 bash。 |
 
-#### 响应 - `201 Created`
+#### 响应  -  `201 Created`
 ```json
 {
   "session_id": "52d1df5a0a3a0018",

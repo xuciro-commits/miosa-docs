@@ -92,7 +92,7 @@ MIOSA 有两个并行的邀请流程：
 }
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/workspaces/{id}/invites \
@@ -175,7 +175,7 @@ String type = (String) result.get("type"); // "invited" or "added"
 }
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl https://api.miosa.ai/api/v1/workspaces/{id}/invites \
@@ -226,7 +226,7 @@ List<Map<String,Object>> invites = miosa.workspaceInvites().list("ws-uuid");
 { "invite_id": "inv_abc123", "revoked": true }
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X DELETE https://api.miosa.ai/api/v1/workspaces/{id}/invites/{invite_id} \
@@ -285,7 +285,7 @@ miosa.workspaceInvites().revoke("ws-uuid", "inv_abc123");
 }
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl https://api.miosa.ai/api/v1/workspace-invites/{token}
@@ -348,13 +348,15 @@ Map<String,Object> preview = miosa.workspaceInvites().preview(token);
 }
 ```
 
-#### 错误|状态 |代码|原因 |
+#### 错误
+
+| 状态 | 代码 | 原因 |
 |--------|------|--------|
 | 400 | `INVALID_TOKEN` |令牌未找到或已过期 |
 | 400 | `REVOKED` |邀请被撤销 |
-| 422 | 422 `EMAIL_MISMATCH` |经过身份验证的用户的电子邮件与邀请电子邮件不同 |
+| 422 | `EMAIL_MISMATCH` | 经过身份验证的用户的电子邮件与邀请电子邮件不同 |
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/workspace-invites/{token}/accept \
@@ -428,7 +430,7 @@ Map<String,Object> result = miosa.workspaceInvites().accept(token);
 }
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/tenants/{id}/invites \
@@ -485,7 +487,7 @@ System.out.println("invite URL: " + invite.get("invite_url"));
 
 返回所有待处理的组织邀请。
 
-**卷曲**
+**curl**
 
 ```bash
 curl https://api.miosa.ai/api/v1/tenants/{id}/invites \
@@ -530,7 +532,7 @@ List<Map<String,Object>> invites = miosa.orgInvites().list(tenantId);
 
 撤销待处理的组织邀请。如果邀请已被接受，则返回 `409`。
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X DELETE https://api.miosa.ai/api/v1/tenants/{id}/invites/{invite_id} \
@@ -590,7 +592,7 @@ miosa.orgInvites().revoke(tenantId, inviteId);
 }
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl https://api.miosa.ai/api/v1/invites/{token}
@@ -657,9 +659,9 @@ Map<String,Object> preview = miosa.orgInvites().preview(token);
 |状态 |代码|原因 |
 |--------|------|--------|
 | 400 | `invalid_token` |令牌未找到或已过期 |
-| 422 | 422 `EMAIL_MISMATCH` |会话电子邮件与邀请电子邮件不同 |
+| 422 | `EMAIL_MISMATCH` | 会话电子邮件与邀请电子邮件不同 |
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/invites/{token}/accept \
@@ -707,9 +709,9 @@ Map<String,Object> result = miosa.orgInvites().accept(token);
 |--------|------|--------|
 | 400 | `INVALID_TOKEN` / `invalid_token` |令牌未找到、已过期或已撤销 |
 | 400 | `REVOKED` |邀请被明确撤销 |
-| 409 | 409 `ALREADY_ACCEPTED` |无法撤销已接受的邀请 |
-| 422 | 422 `EMAIL_MISMATCH` |经过身份验证的用户的电子邮件与邀请电子邮件不匹配 |
-| 422 | 422 `MISSING_EMAIL` |请求正文中缺少 `email` 字段 |
+| 409 | `ALREADY_ACCEPTED` | 无法撤销已接受的邀请 |
+| 422 | `EMAIL_MISMATCH` | 经过身份验证的用户的电子邮件与邀请电子邮件不匹配 |
+| 422 | `MISSING_EMAIL` | 请求正文中缺少 `email` 字段 |
 
 ---
 

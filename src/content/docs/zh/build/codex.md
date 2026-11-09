@@ -132,7 +132,9 @@ miosa run follow <run-id>
 
 ## 使其成为产品
 
-使用 `miosa prompt --harness codex` 在该客户的工作区中运行每个客户任务，并将事件流式传输到您自己的 UI 中。## 限制和成本
+使用 `miosa prompt --harness codex` 在该客户的工作区中运行每个客户任务，并将事件流式传输到您自己的 UI 中。
+
+## 限制和成本
 
 固定您测试的版本并刻意更新；这些工具变化很快。
 

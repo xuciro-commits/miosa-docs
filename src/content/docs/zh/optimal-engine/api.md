@@ -1,7 +1,7 @@
 ---
 slug: "optimal-engine/api"
-title: "最佳引擎 API 参考"
-description: "最佳引擎 HTTP API - 基本 URL、键、范围、分页、速率限制、错误以及工作区、摄取、搜索、询问、内存、声明和操作的主要路由，以及curl 示例。"
+title: "Optimal Engine API 参考"
+description: "Optimal Engine HTTP API - 基本 URL、键、范围、分页、速率限制、错误以及工作区、摄取、搜索、询问、内存、声明和操作的主要路由，以及curl 示例。"
 section: "Optimal Engine"
 order: 8008
 ---
@@ -9,13 +9,13 @@ order: 8008
 | | |
 |---|---|
 |基本网址 | `http://127.0.0.1:4200/api` 在自承载引擎上。 `/v1/...` 是 `/api/...` 的别名。 |
-|关于 MIOSA | `https://api.miosa.ai/api/v1/engines/<engine id>/engine-api/api/...` 带有引擎客户端密钥；请参阅[MIOSA 上的最佳引擎](/docs/optimal-engine/miosa#call-the-engine-api) |
+|关于 MIOSA | `https://api.miosa.ai/api/v1/engines/<engine id>/engine-api/api/...` 带有引擎客户端密钥；请参阅[MIOSA 上的Optimal Engine](/docs/optimal-engine/miosa#call-the-engine-api) |
 | API版本| `v1` |
 |授权 | `Authorization: Bearer <key>` 或 `X-API-Key: <key>` |
 |身体| JSON 与 `Content-Type: application/json` |
 |错误 | `{"error": "<code>"}`，有时带有 `detail` |
 
-Engine 有大约 300 条路线。
+引擎有大约 300 条路线。
 此页面涵盖了大多数应用程序和智能体使用的页面。
 完整的列表，以及每条路由所需的授权，从路由器生成到 [`docs/reference/api.md`](https://github.com/Miosa-osa/OptimalEngine/blob/main/docs/reference/api.md) 中，只要两者不一致，测试就会失败。
 
@@ -26,23 +26,23 @@ K="Authorization: Bearer $OPTIMAL_ENGINE_API_KEY"
 
 ## 键和错误
 
-当`OPTIMAL_AUTH_REQUIRED=true`时，每条路线都需要一个key，包括`/api/health`。
+当`OPTIMAL_AUTH_REQUIRED=true`时，每条路线都需要一个密钥，包括`/api/health`。
 
 |状态 | `error` |当 |
 |---|---|---|
 | 400 | `invalid_json`、`invalid_parameter`、`workspace_required` |请求格式错误，或者仅限于命名工作区的密钥未命名 |
-| 401 | 401 `missing_api_key`、`invalid_api_key`、`api_key_revoked`、`api_key_expired` |钥匙丢失或无法使用 |
-| 403 | 403 `workspace_scope_denied` |关键不包括该工作区 |
-| 403 | 403 `permission_scope_denied` |密钥不具有路由所需的范围 |
-| 404 | 404 `not found`, `workspace not found` |没有这样的路线，或其他租户的工作空间|
-| 413 | 413 `request_too_large` |正文超过 8 MB |
-| 426 | 426 `client_incompatible` |另一个主要版本的 `optimal` CLI 或 MCP 服务器 |
-| 429 | 429 `rate_limited` |超过密钥的速率限制；正文有 `retry_after_ms` |
-| 503 | 503 `busy` |商店很忙，例如刚开机后； `Retry-After` | 之后重试
+| 401 | `missing_api_key`、`invalid_api_key`、`api_key_revoked`、`api_key_expired` | 钥匙丢失或无法使用 |
+| 403 | `workspace_scope_denied` | 关键不包括该工作区 |
+| 403 | `permission_scope_denied` | 密钥不具有路由所需的范围 |
+| 404 | `not found`, `workspace not found` | 没有这样的路线，或其他租户的工作空间 |
+| 413 | `request_too_large` | 正文超过 8 MB |
+| 426 | `client_incompatible` | 另一个主要版本的 `optimal` CLI 或 MCP 服务器 |
+| 429 | `rate_limited` | 超过密钥的速率限制；正文有 `retry_after_ms` |
+| 503 | `busy` | 商店很忙，例如刚开机后；请在 `Retry-After` 之后重试 |
 
 ### 速率限制
 
-每个密钥都有自己的每分钟预算，由 [size profile](/docs/optimal-engine/operations#sizing) 设置：默认 `business` 配置文件上每分钟 1,200 个请求。
+每个密钥都有自己的每分钟预算，由[大小配置](/docs/optimal-engine/operations#sizing)设置：默认 `business` 配置文件上每分钟 1,200 个请求。
 没有有效密钥的请求共享其 IP 地址的预算。
 每个响应都包含 `X-RateLimit-Limit`、`X-RateLimit-Remaining` 和 `X-RateLimit-Reset`。
 `/api/health`、`/api/status` 和 `/api/metrics/prometheus` 不计算在内。
@@ -97,7 +97,7 @@ curl -s -X POST $E/api/workspaces -H "$K" -H "Content-Type: application/json" \
 ### 创建节点
 
 `POST /api/nodes` 与 `{"name", "kind", "slug", "workspace", "description"}` 回答 `{"ok": true, "id", "slug", "kind"}`。
-`kind` 是 [Concepts](/docs/optimal-engine/concepts#topology) 中的节点类型之一。
+`kind` 是[概念](/docs/optimal-engine/concepts#topology)中的节点类型之一。
 
 ## 摄取
 
@@ -141,19 +141,21 @@ curl -s "$E/api/search?q=refresh%20token&workspace=default:sales&limit=5" -H "$K
 ```
 
 当没有嵌入模型回答时，`mode=hybrid`回答`503 hybrid_unavailable`。
-错误的 `as_of` 答案 `400`。|路线 |它有什么作用 |
+错误的 `as_of` 答案 `400`。
+
+| 路线 | 它有什么作用 |
 |---|---|
-| `GET /api/grep?q=` | Matching chunks, with `intent`, `scale`, `modality`, `literal`, and `path` filters |
-| `GET /api/read?uri=&tier=` |一项由其 `optimal://` URI 表示； `tier` is `l0`, `l1`, or `full` |
-| `GET /api/recall/who`, `when`, `where`, `owns`, `actions` | Targeted recall over people, time, places, ownership, and actions |
-| `GET /api/profile` | A workspace profile: ground truth, recent activity, and top entities |
+| `GET /api/grep?q=` | 匹配的分块，带有 `intent`、`scale`、`modality`、`literal` 和 `path` 过滤器 |
+| `GET /api/read?uri=&tier=` |一项由其 `optimal://` URI 表示；`tier` 可以是 `l0`、`l1` 或 `full` |
+| `GET /api/recall/who`, `when`, `where`, `owns`, `actions` | 针对人物、时间、地点、所有权和操作的有目标召回 |
+| `GET /api/profile` | 工作区画像：事实基准、近期活动和主要实体 |
 | `GET /api/graph`, `/api/graph/hubs`, `/api/graph/clusters` |知识图谱|
 
 ## 询问并集合
 
-`POST /api/rag` returns context for one question; `GET /api/rag/stream` streams it as server-sent events.
-`POST /api/assemble` returns a tiered context package for an agent.
-See [Memory and retrieval](/docs/optimal-engine/memory-and-retrieval#ask) for fields and responses.
+`POST /api/rag` 为一个问题返回上下文；`GET /api/rag/stream` 以服务器发送事件的形式流式返回它。
+`POST /api/assemble` 为智能体返回分层上下文包。
+字段和响应请参阅[记忆与检索](/docs/optimal-engine/memory-and-retrieval#ask)。
 
 ```bash
 curl -s -X POST $E/api/rag -H "$K" -H "Content-Type: application/json" \
@@ -166,7 +168,7 @@ curl -N "$E/api/rag/stream?query=auth%20decision&workspace=default:sales" -H "$K
 
 |路线 |它有什么作用 |
 |---|---|
-| `POST /api/memory` |存储内存：`{"content", "workspace", "is_static", "audience", "citation_uri", "metadata"}`。 Answers `201` with the memory, its `version`, and `was_existing`. |
+| `POST /api/memory` |存储内存：`{"content", "workspace", "is_static", "audience", "citation_uri", "metadata"}`。以 `201` 返回该记忆、其 `version` 和 `was_existing`。 |
 | `POST /api/memory/remember` |通过门存放；答案`{"action", "memory", "pending_claim_id", "gate"}` |
 | `GET /api/memory` |列表; `q`、`audience`、`include_forgotten`、分页 |
 | `GET /api/memory/:id` |一份记忆|
@@ -203,7 +205,7 @@ curl -N "$E/api/rag/stream?query=auth%20decision&workspace=default:sales" -H "$K
 | `POST /api/backup` |立即备份 |
 | `GET /api/backup/offsite` |异地备份 |
 | `POST /api/workspaces/:id/bundle`, `POST /api/bundles/import` |导出或导入工作区包 |
-| `GET /api/stores`, `GET /api/storage` | Stores, providers, and usage against the size profile |
+| `GET /api/stores`, `GET /api/storage` | 存储、提供程序，以及对照大小配置的使用情况 |
 | `/api/sync/*` |复制；请参阅[操作](/docs/optimal-engine/operations#replication) |
 
 > **注意：应用程序数据**

@@ -115,12 +115,14 @@ jobs:
 在 GitHub 上，选择 **重新运行作业** 并启用调试日志记录以获取更多输出。
 `miosa ci jobs --json` 给出每个作业的状态、结论、持续时间和失败原因。
 
-## 命令行界面|命令 |它有什么作用 |
+## 命令行界面
+
+| 命令 | 作用 |
 |---|---|
-| `miosa ci connect` |打开 GitHub 安装链接并等待连接出现 |
-| `miosa ci status` |显示四个设置步骤和隔离说明 |
-| `miosa ci jobs` |列出最近的工作 |
-| `miosa ci disconnect <installation>` |断开 GitHub 帐户的连接；正在运行的作业完成 |
+| `miosa ci connect` | 打开 GitHub 安装链接并等待连接出现 |
+| `miosa ci status` | 显示四个设置步骤和隔离说明 |
+| `miosa ci jobs` | 列出最近的作业 |
+| `miosa ci disconnect <installation>` | 断开 GitHub 帐户的连接；正在运行的作业会跑完 |
 
 每个命令都采用 `--json`。
 

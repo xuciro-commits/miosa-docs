@@ -1,13 +1,13 @@
 ---
 slug: "optimal-engine/operations"
 title: "运行自托管优化引擎"
-description: "备份和恢复、升级和迁移、大小配置文件和速率限制、引擎之间的复制、移动工作区、擦除和保留以及自托管最佳引擎的指标。"
+description: "备份和恢复、升级和迁移、大小配置文件和速率限制、引擎之间的复制、移动工作区、擦除和保留以及自托管Optimal Engine的指标。"
 section: "Optimal Engine"
 order: 8004
 ---
 
 此页面适用于自托管引擎。
-在 MIOSA 上，备份、升级和调整大小都会为您完成；请参阅[MIOSA 上的最佳引擎](/docs/optimal-engine/miosa#backups-upgrades-and-size)。
+在 MIOSA 上，备份、升级和调整大小都会为您完成；请参阅[MIOSA 上的Optimal Engine](/docs/optimal-engine/miosa#backups-upgrades-and-size)。
 
 ## 备份
 
@@ -75,11 +75,11 @@ mix optimal.migrate --status
 
 `OPTIMAL_SIZE_PROFILE` 设置每个键的速率限制以及引擎自行测量的建议限制。
 
-|简介 |机器|磁盘 |向量|回忆 |每个键每分钟的 API 请求数 |
+|规格 |机器 |磁盘 |向量 |记忆 |每个密钥每分钟的 API 请求数 |
 |---|---|---|---|---|---|
-| `agent` | 1 个 vCPU，1 GiB | 2 GiB | 50,000 | 100,000 | 300 | 300
+| `agent` | 1 个 vCPU，1 GiB | 2 GiB | 50,000 | 100,000 | 300 |
 | `workspace` | 1 个 vCPU，2 GiB | 10 GiB | 250,000 | 500,000 | 600 |
-| `business`（默认）| 2 个 vCPU，4 GiB | 25 GiB | 1M | 2M | 1,200 | 1,200
+| `business`（默认）| 2 个 vCPU，4 GiB | 25 GiB | 1M | 2M | 1,200 |
 | `platform` | 4 个 vCPU，8 GiB | 100 GiB | 5M | 10M | 3,000 |
 | `scale` | 8 个 vCPU、16 GiB 或更多 | 250 GiB 或更多 |更多 |更多 | 6,000 |
 
@@ -93,13 +93,13 @@ mix optimal.migrate --status
 
 两个 SQLite 引擎可以保持工作空间同步。
 
-|路线 |它有什么作用 |
+|路由 |它有什么作用 |
 |---|---|
 | `POST /api/sync/enable` |开始记录工作区中的更改 |
 | `POST /api/sync/peers` |添加对等点： `{"workspace", "url", "api_key", "policy", "max_class"}` (`admin`) |
 | `POST /api/sync/run` |立即同步 |
 | `GET /api/sync/status`、`/changes`、`/conflicts` |状态、变更日志和冲突 |
-| `POST /api/sync/conflicts/:id/resolve` |解决一场冲突 |
+| `POST /api/sync/conflicts/:id/resolve` |解决一个冲突 |
 
 `policy` 是 `push`、`pull`、`both` 或 `none`。
 `max_class` 是可能留下的最敏感数据类：`public`、`internal`、`confidential`（默认）或 `restricted`。
@@ -109,7 +109,9 @@ mix optimal.migrate --status
 
 ## 移动工作空间
 
-工作区包是一个包含整个工作区的文件。|路线 |它有什么作用 |
+工作区包是一个包含整个工作区的文件。
+
+|路由 |它有什么作用 |
 |---|---|
 | `POST /api/workspaces/:id/bundle` |写一个包|
 | `POST /api/bundles/import` |导入一个|
@@ -130,11 +132,11 @@ mix optimal.compliance hold list
 mix optimal.compliance retention sweep --dry-run
 ```
 
-|行动|效果|
+|操作 |效果 |
 |---|---|
 | `dsar` |导出引擎保存的关于一个人的信息 |
 | `erase` |删除它以及从中衍生出的内容。 `--preview` 显示将会发生的事情； `--force` 优先于合法保留。 |
-| `hold` | Places, lists, or releases a legal hold that stops deletion |
+| `hold` | 设置、列出或解除阻止删除的合法保留 |
 | `retention sweep` |应用每个来源的保留规则 |
 | `POST /api/workspaces/:id/archive` |归档工作空间；它的行被保留|
 
@@ -143,13 +145,13 @@ SQLite 不会覆盖释放的页面，因此删除的文本可以保留在数据�
 
 ## 可观察性
 
-|路线 |它返回什么 |
+|路由 |它返回什么 |
 |---|---|
-| `GET /api/health` | `up`, `degraded`, or `down`, with the check that failed |
+| `GET /api/health` | `up`、`degraded` 或 `down`，以及失败的检查项 |
 | `GET /api/metrics` | JSON 计数器、延迟、连接器状态和大小计量表 |
 | `GET /api/metrics/prometheus` | Prometheus 文本，如 `optimal_engine_search_latency_ms`、`optimal_engine_memories_total`、`optimal_engine_uptime_seconds` |
 | `GET /api/viability` |关于工作区作为操作系统的报告，带有警报 |
 
-The Prometheus route needs a key when keys are required;它仅不受速率限制。
+在需要密钥时，Prometheus 路由同样需要密钥；它只是不受速率限制。
 存储库中的 `deploy/grafana-dashboard.json` 是一个现成的仪表板。
 日志以 `[level] message` 的形式发送到标准输出。

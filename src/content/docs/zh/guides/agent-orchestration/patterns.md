@@ -13,15 +13,15 @@ order: 6023
 ## 及时发货
 
 在运行时，编排主要意味着将提示分派到正确的位置
-device and streaming the result back.
+设备，并将结果流式返回。
 
 |提示目标|用它来 |命令示例 |
 |---|---|---|
 |沙盒|代码、文件、测试、构建、工件、预览服务器 | `miosa prompt --sandbox <id> "build the page"` |
-|电脑| browser, screenshots, clicks, form fill, visual QA | `miosa prompt --computer <id> "test signup"` |
-| BYOC/开放计算机 |私人本地文件、应用程序、网络、客户控制的硬件|有关主机范围的工作，请参阅 [OpenComputers](/docs/opencomputers) |
+|电脑| 浏览器、截图、点击、表单填写、视觉 QA | `miosa prompt --computer <id> "test signup"` |
+| BYOC/OpenComputers |私人本地文件、应用程序、网络、客户控制的硬件|有关主机范围的工作，请参阅 [OpenComputers](/docs/opencomputers) |
 
-Create reusable runtime profiles for the agents your product supports.一个
+为您产品支持的智能体创建可复用的运行时配置文件。一个
 配置文件可以是租户范围的或特定于工作区的，并且可以应用于沙箱
 工人、计算机智能体或两者兼而有之。
 
@@ -45,7 +45,7 @@ Nebula 风格的虚拟设备和 Lovable/Replit/Genspark 风格的应用程序构
 
 当一项产品任务分散为多个子运行时，请使用智能体运行组。
 该组为您的 UI 提供了一份持久记录，用于计数、状态、取消、
-child run lookup, and a group event stream.
+子运行查找，以及组事件流。
 
 ```text
 user task
@@ -57,12 +57,12 @@ user task
   -> artifacts, events, previews, screenshots, deployment URL
 ```
 
-当前的调度批次上限为每个 API 调用 100 次子运行。为数百人
-or thousands of logical agents, queue the work in your backend and dispatch in
-batches against one or more groups. Keep a separate concurrency policy per
+当前的调度批次上限为每个 API 调用 100 次子运行。对于数百个
+或数千个逻辑智能体，请在后端将工作排队，并以
+批次形式分派到一个或多个组。并发策略应按
 租户/工作区，因此一个客户无法消耗整个运行时池。
 
-The user-facing loop should be:
+面向用户的循环应该是：
 
 ```text
 create group
@@ -77,8 +77,8 @@ create group
 订阅一个组流，将事件规范化到您自己的任务时间表中，以及
 当沙箱和计算机智能体并行工作时，保持 UI 活跃。
 
-When a child run uses a sandbox process-backed runtime, cancellation stops the
-recorded sandbox process instead of only changing run status.用这个来
+当子运行使用由沙箱进程支撑的运行时，取消操作会停止
+已记录的沙箱进程，而不仅仅是更改运行状态。用这个来处理
 更长的构建、测试、抓取或工件生成任务，用户可以在这些任务中
 从您的用户界面取消。
 
@@ -231,37 +231,37 @@ for event in client.agent_run_groups.stream_events(group["id"]):
     )
 ```
 
-如果未传递显式配置文件，MIOSA 将解析工作区默认配置文件
-first, then the tenant default profile. Request-level `env` values override
-non-secret profile defaults. Secret provider keys should come from managed
-secrets or connectors, not from profile `env`.
+如果未传递显式配置文件，MIOSA 将按以下顺序解析：
+先解析工作区默认配置文件，然后是租户默认配置文件。请求级别的 `env` 值会覆盖
+非机密的配置文件默认值。提供程序密钥应来自受管理的
+密钥或连接器，而不是来自配置文件的 `env`。
 
-Recommended inheritance order:
+推荐的继承顺序：
 
 |层|继承进入运行|不应包含 |
 |---|---|---|
-|租户默认配置文件 | Organization-wide runtime, tool, and non-secret env defaults | Customer-specific provider keys |
-|工作区默认配置文件 | Company/customer runtime choice, cwd defaults, allowed tools |租户管理密钥 |
-|智能体简介 | Role instructions, connectors, approval policy, model hints | Browser-visible secrets |
-|运行请求 | Prompt, cwd, timeout, non-secret env overrides | Long-lived provider credentials |
+|租户默认配置文件 | 组织范围的运行时、工具和非机密环境变量默认值 | 客户特定的提供程序密钥 |
+|工作区默认配置文件 | 公司/客户的运行时选择、cwd 默认值、允许的工具 |租户管理密钥 |
+|智能体简介 | 角色指令、连接器、审批策略、模型提示 | 浏览器可见的机密 |
+|运行请求 | 提示、cwd、超时、非机密环境变量覆盖 | 长期有效的提供程序凭证 |
 
-Use managed secrets or connectors for anything that can spend money, access
-customer data, publish externally, or call a provider API.跑步应该
-receive a scoped MIOSA runtime token with tenant/workspace/user/run attribution,
-plus brokered provider access only for the endpoints the profile allows.
+对于任何可能花钱、访问
+客户数据、对外发布或调用提供程序 API 的操作，请使用受管理的机密或连接器。运行应该
+获得带有租户/工作区/用户/运行归属的限定范围 MIOSA 运行时令牌，
+并且仅对配置文件允许的端点获得代理的提供程序访问权限。
 
-Every dispatch should record:
+每次分派都应记录：
 
 - 提示
 - 运行时或运行框架
 - 设备 ID
-- scoped credentials and connectors
+- 限定范围的凭证和连接器
 - 审批政策
-- 流媒体事件
-- files, artifacts, screenshots, previews, or deployment outputs
+- 流式事件
+- 文件、工件、截图、预览或部署输出
 
-The user experience should be the same whether the prompt is handled by OSA,
-Codex, Claude Code, Hermes, OpenCode, OpenClaw, or a custom runtime.
+无论提示由 OSA、
+Codex、Claude Code、Hermes、OpenCode、OpenClaw 还是自定义运行时处理，用户体验都应相同。
 
 ---
 
@@ -279,20 +279,20 @@ Account / tenant
         -> subagent B: test runner
         -> subagent C: artifact generator
         -> subagent D: deploy verifier
-```The sandbox receives the environment and scoped credentials it needs.的
-subagents run inside `/workspace`, communicate through files, local processes,
-stdout, and MIOSA events, and report results back to the orchestrator.
+```沙箱会获得它所需的环境和限定范围的凭证。沙箱的
+子智能体在 `/workspace` 内运行，通过文件、本地进程、
+stdout 和 MIOSA 事件进行通信，并将结果报告回协调器。
 
-Good uses for sandbox-hosted subagents:
+沙箱托管的子智能体的典型用途：
 
 - 一个存储库内的并行代码审查智能体
-- test generation plus test execution
+- 测试生成加测试执行
 - 报告生成人员
-- 神器转换工人
+- 产物转换工人
 - 依赖安装/构建/lint/测试管道
 
-Avoid using one sandbox as an uncontrolled multi-tenant process host.一个沙箱
-should belong to one tenant/workspace/security boundary.
+避免把一个沙箱当作不受控的多租户进程主机。一个沙箱
+应属于一个租户/工作区/安全边界。
 
 ---
 
@@ -300,7 +300,7 @@ should belong to one tenant/workspace/security boundary.
 
 ## Sandbox-hosted orchestrators
 
-The orchestrator does not always have to live in your backend. MIOSA 沙箱
+协调器并不总是必须放在您的后端中。MIOSA 沙箱
 可以是根协调器工作区。
 
 ```text
@@ -316,11 +316,11 @@ Tenant account
       -> deployments
 ```
 
-This pattern is useful for autonomous coding systems, research systems,
-artifact factories, and customer-owned agent runtimes.根沙箱保留
-项目文件、智能体配置、运行历史记录和本地工具。的
-orchestrator process inside that sandbox can call MIOSA to launch additional
-当需要隔离的工作人员时，可以使用沙箱或计算机。
+这种模式适用于自主编码系统、研究系统、
+工件工厂以及客户拥有的智能体运行时。根沙箱保留
+项目文件、智能体配置、运行历史记录和本地工具。沙箱内的
+协调器进程可以调用 MIOSA，在需要隔离的工人时启动额外的
+沙箱或计算机。
 
 这种模式的好例子：
 
@@ -331,7 +331,7 @@ orchestrator process inside that sandbox can call MIOSA to launch additional
 - 根沙箱收集屏幕截图、日志和工件
 - 部署智能体发布验证结果
 
-The backend still owns tenant enforcement, billing, quotas, audit logging, and
+后端仍然负责租户强制执行、计费、配额、审计日志记录和
 代币铸造。沙箱托管的编排器拥有本地计划和执行
 该工作空间的策略。
 
@@ -437,7 +437,7 @@ MIOSA 在可能的情况下将工件字节捕获到托管存储中。如果一�
 
 |输出类型|最佳表面|
 |---|---|
-| HTML、PDF、DOCX、CSV、ZIP |神器下载|
+| HTML、PDF、DOCX、CSV、ZIP |产物下载|
 |网络应用程序 |沙盒预览，然后部署 |
 |屏幕截图或可视化 QA 结果 |工件预览和事件时间线 |
 |源代码更改 |文件面板、git diff、工件 ZIP |
@@ -490,13 +490,13 @@ MIOSA_RUN_ID=...
 
 |智能体|典型权限 |
 |---|---|
-|沙盒代码智能体 | sandbox files, exec, previews, snapshots |
-|神器智能体| sandbox files, exec, artifact export |
-|浏览器 QA 智能体 | computer screenshot, click, type, navigation |
-|部署智能体 | deployment publish, domains, rollback |
-|计费/支持智能体 | usage, credits, audit log |
+|沙盒代码智能体 | 沙箱文件、exec、预览、快照 |
+|产物智能体| 沙箱文件、exec、工件导出 |
+|浏览器 QA 智能体 | 计算机截图、点击、输入、导航 |
+|部署智能体 | 部署发布、域、回滚 |
+|计费/支持智能体 | 用量、额度、审计日志 |
 
-Use scoped workspace keys or server-side tokens. Do not put tenant admin keys in
+使用限定范围的工作区密钥或服务器端令牌。不要将租户管理密钥放在
 浏览器代码。
 
 ---

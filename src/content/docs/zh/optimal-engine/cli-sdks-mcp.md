@@ -1,6 +1,6 @@
 ---
 slug: "optimal-engine/cli-sdks-mcp"
-title: "最佳引擎 CLI、SDK 和 MCP"
+title: "Optimal Engine CLI、SDK 和 MCP"
 description: "最佳客户端 CLI、用于 Claude Code 和 Codex 的引擎 MCP 服务器、操作员的混合任务以及 TypeScript 和 Python 客户端 - 如何从存储库安装每个客户端并将其指向引擎。"
 section: "Optimal Engine"
 order: 8009
@@ -51,7 +51,7 @@ workspace=default:notes
 ```
 
 `optimal doctor` 报告每个设置的来源以及引擎是否响应。
-在 MIOSA 上，`miosa engine connect` 为您编写此配置文件；请参阅[MIOSA 上的最佳引擎](/docs/optimal-engine/miosa#from-a-terminal)。
+在 MIOSA 上，`miosa engine connect` 为您编写此配置文件；请参阅[MIOSA 上的Optimal Engine](/docs/optimal-engine/miosa#from-a-terminal)。
 
 ### 命令
 

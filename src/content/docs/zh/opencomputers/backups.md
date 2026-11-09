@@ -13,7 +13,7 @@ order: 3019
 
 ## 创建备份配置
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa host backup list <host>
@@ -70,7 +70,7 @@ miosa host backup rm <host> nightly --yes
 
 ## 快照
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa host backup snapshot list <host> nightly --limit 10
@@ -106,7 +106,7 @@ curl --fail-with-body -sS \
 
 ## 恢复快照
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa host backup snapshot fork <snapshot> --to-host <host> --to-path /restore

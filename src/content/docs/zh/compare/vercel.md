@@ -18,7 +18,7 @@ Vercel Sandbox 作为 Vercel 平台的一部分为 AI 智能体运行临时计�
 
 独立的 ComputeSDK 基准测试针对每个提供商运行相同的工作负载。这是这里唯一可以比较的数字。
 
-|公制|米奥萨 | Vercel 沙箱 |截至 |
+|公制|MIOSA | Vercel 沙箱 |截至 |
 |---|---|---|---|
 |突发启动、中位交互时间 | **57.09 毫秒（第 1 条，共 32 条）** | 718.35 毫秒 (#15) | 2026年10月23日 |
 | DAX 完整构建，2026-08-28 | **39.3 秒（第 1 条，共 19 条）** | 69.7 秒 | 2026-08-28 |
@@ -36,7 +36,7 @@ Vercel Sandbox 作为 Vercel 平台的一部分为 AI 智能体运行临时计�
 每个 MIOSA 答案都链接了记录它的页面。
 “未记录”意味着供应商的文档没有说明，而不是缺少该功能。
 
-|能力|米奥萨 | Vercel 沙箱 |来源 |
+|能力|MIOSA | Vercel 沙箱 |来源 |
 |---|---|---|---|
 |隔离| [默认情况下 Firecracker microVM](/docs/develop/sandboxes) |爆竹 microVM | [Vercel 沙盒文档](https://vercel.com/docs/sandbox/concepts) |
 |沙箱寿命 | 【空闲超时，默认1小时，最长24小时，可延长；计算机持续存在](/docs/develop/sandboxes/timeouts) |默认5分钟； Hobby 上最长 45 分钟，Pro 上 24 小时 | [Vercel 沙盒文档](https://vercel.com/docs/sandbox/pricing) |

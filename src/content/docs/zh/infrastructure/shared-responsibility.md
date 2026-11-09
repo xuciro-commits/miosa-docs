@@ -17,17 +17,17 @@ OpenComputers 包括本地服务器以及工作站和其他现有的客户控制
 
 |责任| MIOSA 管理 | OpenComputers，包括本地 |自带云 |
 |---|---|---|---|
-|控制平面服务 |米奥萨 |米奥萨 |米奥萨 |
-| Physical hardware or cloud account |米奥萨 |客户|客户|
+|控制平面服务 |MIOSA |MIOSA |MIOSA |
+| Physical hardware or cloud account |MIOSA |客户|客户|
 | Site power, cooling, and physical access | MIOSA 或其提供商 | Customer or its hosting provider |云提供商 |
-|主机操作系统|米奥萨 |客户|通过认证图像和客户帐户共享 |
-|主机容量|米奥萨 |客户|客户供应商资源，MIOSA理想状态|
-|网络周边|米奥萨 |客户主机网络| Customer VPC or subnetwork |
-|运行时生成|米奥萨 | Customer-approved agent update | MIOSA 签名生成、客户审核安装 |
+|主机操作系统|MIOSA |客户|通过认证图像和客户帐户共享 |
+|主机容量|MIOSA |客户|客户供应商资源，MIOSA理想状态|
+|网络周边|MIOSA |客户主机网络| Customer VPC or subnetwork |
+|运行时生成|MIOSA | Customer-approved agent update | MIOSA 签名生成、客户审核安装 |
 |工作负载安置| MIOSA 政策 |连接主机内的 MIOSA 策略 | MIOSA policy within enabled customer pools |
-|提供商计费 |米奥萨 | Customer hardware and network |客户云账单|
+|提供商计费 |MIOSA | Customer hardware and network |客户云账单|
 |应用数据和备份策略|应用程序所有者 |应用程序所有者，包括本地磁盘和服务 |应用程序所有者 |
-|消耗和工作负载证明 |米奥萨 | MIOSA plus 主机可用性 | MIOSA plus provider observation |
+|消耗和工作负载证明 |MIOSA | MIOSA plus 主机可用性 | MIOSA plus provider observation |
 
 ## MIOSA 职责
 

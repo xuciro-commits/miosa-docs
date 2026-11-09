@@ -77,7 +77,7 @@ const sbx = await miosa.sandboxes.create({
 const env = await sbx.env.list();
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 # Pass at create time (in the POST body)

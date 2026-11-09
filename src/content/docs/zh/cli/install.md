@@ -96,7 +96,9 @@ Windows 版本仅限 x64。没有 windows/arm64 存档。
 - **在 2.1 中恢复。** 多个 1.x 命令系列回归，并重命名为：`miosa device`（任何运行时类型）、`miosa mcp` 以及用于容器、网格、GitHub Actions 运行器、备份和隧道的 `miosa host` 系列。
 - **仍然从公共 CLI 中删除：**内部 OSA 工具 `actions`、`blueprint`、`changes`、`drift`、`evidence`、`capabilities` 和 `command-overview`。操作权限是服务器端的，`miosa --help`取代了`command-overview`。
 
-重命名的命令：| 1.x | 2.3 | 2.3
+重命名的命令：
+
+| 1.x | 2.3 |
 |---|---|
 | `miosa sandbox create` | `miosa create` |
 | `miosa sandbox exec` | `miosa exec` |
@@ -132,12 +134,12 @@ Windows 版本仅限 x64。没有 windows/arm64 存档。
 | `miosa containers` | `miosa host container` |
 | `miosa meshes` | `miosa host mesh` |
 | `miosa gha-runners` | `miosa host gha-runner` |
-| `miosa backups` | `miosa host backup`（`miosa host backup snapshot`下的快照）|
+| `miosa backups` | `miosa host backup`（快照位于 `miosa host backup snapshot` 下） |
 | `miosa tunnel open` | `miosa host tunnel` |
-| `miosa mcp ...` | `miosa mcp ...`（在2.1中恢复）|
+| `miosa mcp ...` | `miosa mcp ...`（在 2.1 中恢复） |
 | `miosa capabilities` | `miosa catalog` |
 | `miosa command-overview` | `miosa --help` |
-| `miosa actions ...` |已删除（权限是服务器端）|
+| `miosa actions ...` | 已移除（权限由服务端管理） |
 
 ## 更新
 

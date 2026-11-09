@@ -1,7 +1,7 @@
 ---
 slug: "build/emergent"
 title: "构建 Emergent 风格的应用程序"
-description: "紧急：提示变成运行具有真实基础设施的软件。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
+description: "Emergent：提示变成运行具有真实基础设施的软件。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
 section: "Build"
 order: 10006
 ---

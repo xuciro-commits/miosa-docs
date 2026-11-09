@@ -169,7 +169,7 @@ GET /api/v1/agent-runs/{run_id}/artifacts
 Authorization: Bearer msk_u_...
 ```
 
-下载一件神器：
+下载一件产物：
 
 ```http
 GET /api/v1/agent-runs/{run_id}/artifacts/{artifact_id}/download

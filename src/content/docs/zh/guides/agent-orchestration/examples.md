@@ -148,7 +148,7 @@ class AgentStep(TypedDict, total=False):
 - 命令完成
 - 预览就绪
 - 捕获的屏幕截图
-- 神器创建
+- 产物创建
 - 部署开始
 - 部署准备就绪
 

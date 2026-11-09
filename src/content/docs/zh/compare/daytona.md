@@ -1,6 +1,6 @@
 ---
 slug: "compare/daytona"
-title: "米奥萨 vs 代托纳"
+title: "MIOSA vs 代托纳"
 description: "使用截至 2026 年 10 月的独立 ComputeSDK 基准测试和 Daytona 的公共文档对 MIOSA 和 Daytona 进行事实比较。"
 section: "Optional"
 order: 17018
@@ -18,7 +18,7 @@ Daytona 提供了用于运行 AI 生成的代码的沙箱和基础设施，其�
 
 独立的 ComputeSDK 基准测试针对每个提供商运行相同的工作负载。这是这里唯一可以比较的数字。
 
-|公制|米奥萨 |代托纳 |截至 |
+|公制|MIOSA |代托纳 |截至 |
 |---|---|---|---|
 |突发启动、中位交互时间 | **57.09 毫秒（第 1 条，共 32 条）** | 1094.64 毫秒 (#19) | 2026年10月23日 |
 | DAX 完整构建，2026-08-28 | **39.3 秒（第 1 条，共 19 条）** | 141.3 秒 | 2026-08-28 |
@@ -36,7 +36,7 @@ Daytona 提供了用于运行 AI 生成的代码的沙箱和基础设施，其�
 每个 MIOSA 答案都链接了记录它的页面。
 “未记录”意味着供应商的文档没有说明，而不是缺少该功能。
 
-|能力|米奥萨 |代托纳 |来源 |
+|能力|MIOSA |代托纳 |来源 |
 |---|---|---|---|
 |隔离| [默认情况下 Firecracker microVM](/docs/develop/sandboxes) |容器或完整虚拟机，按沙箱类别 | [代托纳文档](https://www.daytona.io/docs/en/isolation.md) |
 |沙箱寿命 | 【空闲超时，默认1小时，最长24小时，可延长；计算机持续存在](/docs/develop/sandboxes/timeouts) |默认15分钟后自动停止，可禁用 | [代托纳文档](https://www.daytona.io/docs/en/sandboxes.md) |

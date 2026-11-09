@@ -147,7 +147,9 @@ miosa deploy domain-add ops-dashboard agents.example.net
 miosa deploy rollback ops-dashboard --to <version-id>
 ```
 
-预览是队友查看正在进行的工作的方式。他们将部署添加为书签。## 起点
+预览是队友查看正在进行的工作的方式。他们将部署添加为书签。
+
+## 起点
 
 您可以从今天开始使用两个开源存储库。
 
@@ -326,7 +328,9 @@ Northwind 是一家负责客户工作的机构。每个客户都是一个工作�
 - 使用 `miosa org caps` 限制每个成员的支出和并发。
 - 将 `workspace_id` 和 `project_id` 存储在您自己的 ID 旁边，以便协调使用、审核和计费。
 
-## 后续步骤- [设备选择](/docs/guides/agent-device-selection)：每个角色需要哪个运行时：沙箱、计算机或本地设备。
+## 后续步骤
+
+- [设备选择](/docs/guides/agent-device-selection)：每个角色需要哪个运行时：沙箱、计算机或本地设备。
 - [配置智能体](/docs/guides/configure-agent)：运行框架、模型、说明、连接以及智能体可以执行的操作。
 - [连接和托管连接器](/docs/guides/managed-connectors)：无需客户端提供的供应商令牌即可智能体提供程序访问。
 - [环境](/docs/cli/environments)：新机器继承的存储库、变量和秘密文件。

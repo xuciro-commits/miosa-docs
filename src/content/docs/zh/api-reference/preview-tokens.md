@@ -89,7 +89,7 @@ Authorization: Bearer msk_...
 
 ## 示例
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes/sbx_abc123/preview-token \

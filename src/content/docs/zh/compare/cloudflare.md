@@ -18,7 +18,7 @@ Cloudflare 的 Sandbox SDK 在 Cloudflare 的边缘运行沙盒代码执行，�
 
 独立的 ComputeSDK 基准测试针对每个提供商运行相同的工作负载。这是这里唯一可以比较的数字。
 
-|公制|米奥萨 | Cloudflare 沙箱 |截至 |
+|公制|MIOSA | Cloudflare 沙箱 |截至 |
 |---|---|---|---|
 |突发启动、中位交互时间 | **57.09 毫秒（第 1 条，共 32 条）** | 682.13 毫秒 (#12) | 2026年10月23日 |
 | DAX 完整构建，2026-08-28 | **39.3 秒（第 1 条，共 19 条）** |没有结果 | 2026-08-28 |
@@ -36,7 +36,7 @@ Cloudflare 的 Sandbox SDK 在 Cloudflare 的边缘运行沙盒代码执行，�
 每个 MIOSA 答案都链接了记录它的页面。
 “未记录”意味着供应商的文档没有说明，而不是缺少该功能。
 
-|能力|米奥萨 | Cloudflare 沙箱 |来源 |
+|能力|MIOSA | Cloudflare 沙箱 |来源 |
 |---|---|---|---|
 |隔离| [默认情况下 Firecracker microVM](/docs/develop/sandboxes) | Firecracker microVM 中的容器 | [Cloudflare 沙盒文档](https://developers.cloudflare.com/sandbox/concepts/) |
 |沙箱寿命 | 【空闲超时，默认1小时，最长24小时，可延长；计算机持续存在](/docs/develop/sandboxes/timeouts) |不活动后停止；不活动超时长达 6 小时 | [Cloudflare 沙盒文档](https://developers.cloudflare.com/sandbox/concepts/lifetime/) |
@@ -64,7 +64,7 @@ Cloudflare 的 Sandbox SDK 在 Cloudflare 的边缘运行沙盒代码执行，�
 ## 何时选择每个
 
 - **如果您基于 Cloudflare Workers 构建并希望代码执行接近边缘计算和数据，请选择 Cloudflare Sandboxes**。
-- **Choose MIOSA** if you want a runtime that covers sandboxes, full computers, agent runs, deployments, and managed data in one place, with a branded tenant surface and the measured startup figures above.
+- **选择 MIOSA**：如果您想要一个运行时，在一处覆盖沙箱、完整计算机、智能体运行、部署和托管数据，并带有品牌化的租户界面以及上文实测的启动数据。
 
 ## 来源
 

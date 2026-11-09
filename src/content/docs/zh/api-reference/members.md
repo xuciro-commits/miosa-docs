@@ -71,7 +71,7 @@ order: 13001
 }
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl https://api.miosa.ai/api/v1/workspaces/{id}/members \
@@ -135,7 +135,7 @@ List<Map<String,Object>> members = miosa.workspaceMembers().list("ws-uuid");
 
 ### 请求正文
 
-|领域|类型 |必填 |描述 |
+| 字段 | 类型 | 必填 | 描述 |
 |--------|------|----------|-------------|
 | `user_id` | UUID |是的 |用户 ID - 必须已经是租户成员 |
 | `role` |字符串|是的 | `owner`、`admin`、`member` 或 `viewer` |
@@ -156,14 +156,14 @@ List<Map<String,Object>> members = miosa.workspaceMembers().list("ws-uuid");
 
 ### 错误
 
-|状态 |代码|原因 |
+| 状态 | 代码 | 原因 |
 |--------|------|--------|
-| 422 | 422 `NOT_TENANT_MEMBER` |用户不是父组织的成员 |
-| 422 | 422 `MISSING_USER_ID` | `user_id` 字段缺失 |
-| 422 | 422 `MISSING_ROLE` | `role` 字段缺失 |
-| 409 | 409  - |用户已经是工作区成员 |
+| 422 | `NOT_TENANT_MEMBER` | 用户不是父组织的成员 |
+| 422 | `MISSING_USER_ID` | `user_id` 字段缺失 |
+| 422 | `MISSING_ROLE` | `role` 字段缺失 |
+| 409 |  -  | 用户已经是工作区成员 |
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/workspaces/{id}/members \
@@ -218,7 +218,7 @@ Map<String,Object> record = miosa.workspaceMembers().add("ws-uuid", "usr_def456"
 
 ### 请求正文
 
-|领域|类型 |必填 |描述 |
+| 字段 | 类型 | 必填 | 描述 |
 |--------|------|----------|-------------|
 | `role` |字符串|是的 |新角色：`owner`、`admin`、`member` 或 `viewer` |
 
@@ -228,12 +228,12 @@ Map<String,Object> record = miosa.workspaceMembers().add("ws-uuid", "usr_def456"
 
 ### 错误
 
-|状态 |代码|原因 |
+| 状态 | 代码 | 原因 |
 |--------|------|--------|
-| 404 | 404  - |用户不是此工作区的成员 |
-| 422 | 422 `MISSING_ROLE` | `role` 字段缺失 |
+| 404 |  -  | 用户不是此工作区的成员 |
+| 422 | `MISSING_ROLE` | `role` 字段缺失 |
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X PATCH https://api.miosa.ai/api/v1/workspaces/{id}/members/{user_id} \
@@ -291,12 +291,12 @@ Map<String,Object> updated = miosa.workspaceMembers().updateRole("ws-uuid", "usr
 
 ### 错误
 
-|状态 |代码|原因 |
+| 状态 | 代码 | 原因 |
 |--------|------|--------|
-| 404 | 404  - |用户不是此工作区的成员 |
-| 409 | 409 `LAST_OWNER` |无法删除最后一个工作区所有者 - 首先提升另一个成员 |
+| 404 |  -  | 用户不是此工作区的成员 |
+| 409 | `LAST_OWNER` | 无法移除最后一个工作区所有者 - 请先提升另一个成员 |
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X DELETE https://api.miosa.ai/api/v1/workspaces/{id}/members/{user_id} \
@@ -335,14 +335,16 @@ miosa.workspaceMembers().remove("ws-uuid", "usr_def456");
 
 ---
 
-## 常见错误|状态 |代码|原因 |
-|--------|------|--------|
-| 403 | 403  - |工作区属于不同的租户|
-| 404 | 404  - |未找到工作区或用户 |
-| 409 | 409 `LAST_OWNER` |拒绝删除唯一的工作区所有者 |
-| 422 | 422 `NOT_TENANT_MEMBER` |用户必须先加入组织，然后才能加入工作区 |
-| 422 | 422 `MISSING_USER_ID` | `user_id` 正文字段为必填 |
-| 422 | 422 `MISSING_ROLE` | `role` 正文字段为必填 |
+## 常见错误
+
+| 状态 | 代码 | 原因 |
+|--------|------|-------|
+| 403 |  -  | 工作区属于其他租户 |
+| 404 |  -  | 未找到工作区或用户 |
+| 409 | `LAST_OWNER` | 拒绝移除唯一的工作区所有者 |
+| 422 | `NOT_TENANT_MEMBER` | 用户必须先加入组织，才能加入工作区 |
+| 422 | `MISSING_USER_ID` | `user_id` 请求体字段为必填 |
+| 422 | `MISSING_ROLE` | `role` 请求体字段为必填 |
 
 ---
 

@@ -1,24 +1,24 @@
 ---
 slug: "optimal-engine/install"
-title: "安装和配置最佳引擎"
-description: "要求、安装自托管最佳引擎的三种方法（签出、Docker、发布）、它读取的每个设置、存储数据的位置、嵌入以及 API 密钥和范围如何工作。"
+title: "安装和配置Optimal Engine"
+description: "要求、安装自托管Optimal Engine的三种方法（签出、Docker、发布）、它读取的每个设置、存储数据的位置、嵌入以及 API 密钥和范围如何工作。"
 section: "Optimal Engine"
 order: 8003
 ---
 
 本页介绍了一个自托管引擎。
-MIOSA 上的托管引擎已为您设置；请参阅[MIOSA 上的最佳引擎](/docs/optimal-engine/miosa)。
+MIOSA 上的托管引擎已为您设置；请参阅[MIOSA 上的Optimal Engine](/docs/optimal-engine/miosa)。
 
 ## 要求
 
 |需要|版本或注释 |
 |---|---|
 | Erlang/OTP | 27 或更新。避免 OTP 28.0 至 28.2； Docker 镜像使用 28.5。 |
-|长生不老药 | 1.17 或更高版本 |
+| Elixir | 1.17 或更高版本 |
 |构建工具| git，一个 C 工具链，CMake。该映像还安装 zlib、zstd、lz4、bz2、snappy 和 SQLite 标头。 |
 | macOS | `brew install snappy` |
 |嵌入（可选）| [Ollama](https://ollama.com/) 与 `nomic-embed-text` 或任何 OpenAI 兼容的嵌入端点 |
-|媒体解析（可选）| `pdftotext` 用于 PDF，`tesseract` 用于图像文本，`ffmpeg` 用于视频，一个用于音频的 tweet.cpp 服务器 |
+|媒体解析（可选）| `pdftotext` 用于 PDF，`tesseract` 用于图像文本，`ffmpeg` 用于视频，用于音频的 whisper.cpp 服务器 |
 
 如果没有嵌入模型，引擎仍然可以工作：搜索仅是全文，并且一旦模型设置好，回填就会嵌入所有内容。
 如果没有媒体工具，此类文件将与其元数据和警告一起存储，而不是其文本。
@@ -41,12 +41,12 @@ OPTIMAL_API_ENABLED=true OPTIMAL_AUTH_REQUIRED=true mix run --no-halt
 
 `deploy/Dockerfile.engine` 在 Elixir 1.19.5 和 OTP 28.5 上构建 OTP 版本。
 
-|图片默认|价值|
+|镜像默认值 |值 |
 |---|---|
 |用户| `optimal`，UID 1000，不是 root |
 |数据| `/data`，唯一的卷。数据库是`/data/.optimal/index.db`。 |
 |港口| `4200`，绑定到容器内的 `0.0.0.0` |
-|应用程序接口 |打开，需要按键 (`OPTIMAL_AUTH_REQUIRED=true`) |
+| API |开启，且必须提供密钥（`OPTIMAL_AUTH_REQUIRED=true`）|
 |嵌入 | `OLLAMA_HOST=http://host.docker.internal:11434` |
 |健康检查| `GET /api/health` 与 `Authorization: Bearer $OPTIMAL_ENGINE_API_KEY` |
 
@@ -95,26 +95,28 @@ OPTIMAL_API_ENABLED=true OPTIMAL_AUTH_REQUIRED=true _build/prod/rel/optimal/bin/
 
 |变量|默认 |它有什么作用 |
 |---|---|---|
-| `OPTIMAL_API_ENABLED` |关闭（图像：打开）|仅值 `true` 启动 HTTP API |
-| `OPTIMAL_API_PORT` | `4200` |港口|
-| `OPTIMAL_API_INTERFACE` | `127.0.0.1`（图像：`0.0.0.0`）|绑定地址 |
-| `OPTIMAL_AUTH_REQUIRED` | `false`（图像：`true`）|每个请求都需要 API 密钥。仅采用 `true` 或 `false`。 |
+| `OPTIMAL_API_ENABLED` |关闭（镜像中：开启）|只有 `true` 才启动 HTTP API |
+| `OPTIMAL_API_PORT` | `4200` |端口 |
+| `OPTIMAL_API_INTERFACE` | `127.0.0.1`（镜像中：`0.0.0.0`）|绑定的地址 |
+| `OPTIMAL_AUTH_REQUIRED` | `false`（镜像中：`true`）|每个请求都必须提供 API 密钥。只接受 `true` 或 `false`。 |
 | `OPTIMAL_BOOTSTRAP_KEY` |无 |在启动时注册第一个键，格式为 `oe_<24 hex>_<secret of 32+ characters>`。更改它会旋转密钥。 |
 | `OPTIMAL_BOOTSTRAP_SCOPES` | `read,write` |引导键的范围 |
 | `OPTIMAL_BOOTSTRAP_WORKSPACES` | `*` |引导键的工作区 |
 | `OPTIMAL_BOOTSTRAP_TENANT` | `default` |引导密钥的租户 |
-| `OPTIMAL_REFUSE_OPEN_NETWORK` |关闭 |按键关闭时超出环回范围时拒绝启动 |
-| `OPTIMAL_OPEN_NETWORK_ACKNOWLEDGED` |关闭 |您在对每个请求进行身份验证的智能体后面运行 key-off |
-| `OPTIMAL_SIZE_PROFILE` | `business` |尺寸轮廓；请参阅[操作](/docs/optimal-engine/operations#sizing) |
+| `OPTIMAL_REFUSE_OPEN_NETWORK` |关闭 |在密钥关闭时绑定到回环以外的地址则拒绝启动 |
+| `OPTIMAL_OPEN_NETWORK_ACKNOWLEDGED` |关闭 |您在会认证每个请求的代理后面以关闭密钥的方式运行 |
+| `OPTIMAL_SIZE_PROFILE` | `business` |规格档位；请参阅[运维](/docs/optimal-engine/operations#sizing) |
 
-### 路径和存储|变量|默认 |它有什么作用 |
+### 路径和存储
+
+|变量 |默认 |它有什么作用 |
 |---|---|---|
 | `OPTIMAL_ENGINE_ROOT` |工作目录（图像：`/data`）|工作区文件夹的根目录 |
 | `OPTIMAL_ENGINE_DB` | `.optimal/index.db` | SQLite 数据库文件 |
 | `OPTIMAL_ENGINE_CACHE` | `.optimal/cache` |缓存，包括存储的嵌入 |
 | `OPTIMAL_BACKUP_DIR` |数据库旁边的`backups/` |备份写入的位置 |
-| `OPTIMAL_KNOWLEDGE_BACKEND` | `ets` |图形投影：内存中的`ets`，或磁盘上的`rocksdb` |
-| `OPTIMAL_ASSET_STORAGE` |文件系统 | `s3` 将上传的文件字节保留在 S3 兼容存储中 |
+| `OPTIMAL_KNOWLEDGE_BACKEND` | `ets` |图投影：内存中的 `ets`，或磁盘上的 `rocksdb` |
+| `OPTIMAL_ASSET_STORAGE` |文件系统 | `s3` 将上传的文件字节保存在兼容 S3 的存储中 |
 | `OPTIMAL_S3_ENDPOINT`、`OPTIMAL_S3_BUCKET`、`OPTIMAL_S3_ACCESS_KEY_ID`、`OPTIMAL_S3_SECRET_ACCESS_KEY` |无 | S3、MinIO、R2 或 Garage。还有`OPTIMAL_S3_REGION`（`us-east-1`）和`OPTIMAL_S3_PREFIX`。 |
 
 ### 秘密
@@ -131,7 +133,7 @@ OPTIMAL_API_ENABLED=true OPTIMAL_AUTH_REQUIRED=true _build/prod/rel/optimal/bin/
 
 |变量|默认 |它有什么作用 |
 |---|---|---|
-| `OLLAMA_HOST` | `http://localhost:11434` |奥拉马服务器 |
+| `OLLAMA_HOST` | `http://localhost:11434` | Ollama 服务器 |
 | `OPTIMAL_EMBED_MODEL` | `nomic-embed-text` |嵌入模型，768 个维度 |
 | `OPTIMAL_EMBED_URL` |无 |另一个端点。以 `/api/embed` 结尾的路径说 Ollama；其他任何东西都讲 OpenAI `/v1/embeddings`。 |
 | `OPTIMAL_EMBED_DIMENSIONS` | `768` |该模型的矢量大小 |
@@ -193,14 +195,16 @@ mix optimal.auth revoke <id>
 |范围 |允许 |
 |---|---|
 | `read`, `write` |在密钥的工作区中读取和写入 |
-| `admin` |钥匙、备份、维护和其他操作员路线 |
-| `claims:review` |促进和拒绝索赔|
+| `admin` |密钥、备份、维护和其他运维路由 |
+| `claims:review` |提升和拒绝声明 |
 | `topology:write` |更改工作区和节点 |
 | `connectors:write` |设置应用程序连接器 |
 | `sync` |复制|
-| `data:admin` |应用程序数据收集|
-| `authority:read`、`authority:enforce`、`authority:approve`、`authority:issue`、`authority:admin` |权威规则和资助|
-| `*` |一切|> **注意：钥匙关闭意味着打开**
+| `data:admin` |应用数据集合 |
+| `authority:read`、`authority:enforce`、`authority:approve`、`authority:issue`、`authority:admin` |授权规则和授予 |
+| `*` |一切 |
+
+> **注意：密钥关闭意味着开放**
 >
 > 使用 `OPTIMAL_AUTH_REQUIRED=false`，没有键的请求充当本地操作符并且可以执行任何操作。
 > 这在 `127.0.0.1` 上很好。

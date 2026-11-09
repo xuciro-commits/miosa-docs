@@ -66,17 +66,19 @@ miosa destroy "$ID" --yes
 
 ## 命令组
 
-每个顶级命令都按照 CLI 的组织方式进行分组。|集团|命令 |
+每个顶级命令都按照 CLI 的组织方式进行分组。
+
+| 分组 | 命令 |
 |---|---|
-|账户 | `login`、`logout`、`whoami`、`org`、`limits`、`profile`、`config`、`doctor`、`open`、`update`、 `version` |
-|生命周期 | `create`、`list`、`info`、`use`、`destroy`、`stop`、`pause`、`resume`、`fork`、`recover`、 `extend`、`tag`、`wait`、`usage`、`computer`、`device` |
-|内部工作| `exec`、`ssh`、`console`、`files`、`process` (`ps`)、`services`、`logs`、`events`、`ports`、 `preview`、`url`、`proxy`、`desktop` |
-|状态 | `snapshot`、`checkpoint`、`restore`、`env`、`policy` |
-|沙盒资源 | `sandbox` (`resources`, `resize`) |
-|智能体| `prompt`、`run`、`chat`、`agent`、`connections`、`mcp` |
-|平台| `deploy`、`batch`、`host`、`db`、`storage`、`volume`、`workflow`、`schedule`、`function`、`template`、 `project`、`workspace`、`forge`、`catalog`、`regions`、`egress`、`cloud`、`gateway` |
-|访问和计费| `api-key`、`service-account`、`webhook`、`member`、`billing`、`audit`、`alerts`、`notifications` |
-|原料| `api <METHOD> <path>` 与 `-d`（`@file` 或 `-`）和 `-H` |
+| 账户 | `login`、`logout`、`whoami`、`org`、`limits`、`profile`、`config`、`doctor`、`open`、`update`、`version` |
+| 生命周期 | `create`、`list`、`info`、`use`、`destroy`、`stop`、`pause`、`resume`、`fork`、`recover`、`extend`、`tag`、`wait`、`usage`、`computer`、`device` |
+| 内部操作 | `exec`、`ssh`、`console`、`files`、`process` (`ps`)、`services`、`logs`、`events`、`ports`、`preview`、`url`、`proxy`、`desktop` |
+| 状态 | `snapshot`、`checkpoint`、`restore`、`env`、`policy` |
+| 沙箱资源 | `sandbox` (`resources`, `resize`) |
+| 智能体 | `prompt`、`run`、`chat`、`agent`、`connections`、`mcp` |
+| 平台 | `deploy`、`batch`、`host`、`db`、`storage`、`volume`、`workflow`、`schedule`、`function`、`template`、`project`、`workspace`、`forge`、`catalog`、`regions`、`egress`、`cloud`、`gateway` |
+| 访问与计费 | `api-key`、`service-account`、`webhook`、`member`、`billing`、`audit`、`alerts`、`notifications` |
+| 原始 | `api <METHOD> <path>`，配合 `-d`（`@file` 或 `-`）和 `-H` |
 
 ## 机器参数
 

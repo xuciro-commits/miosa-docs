@@ -26,12 +26,12 @@ MIOSA 允许您构建智能体系统，其中不同的智能体使用正确的�
 授予工具和事件/工件使工作对用户可见。参见
 [MIOSA 智能体可以做什么](/docs/guides/agent-capabilities),
 [配置智能体](/docs/guides/configure-agent)，以及
-[Agent devices](/docs/guides/agent-devices) for the product model before
+[智能体设备](/docs/guides/agent-devices)，了解其产品模型，然后再
 扩展编排层。
 
 对于端到端的产品蓝图，包括Polsia式的公司运营商，
-联合创始人（coFounder.co）式的部门智能体、星云式的虚拟设备、
-Heuresis-style encoded workspaces, and prompt dispatch into devices, see
+联合创始人（coFounder.co）式的部门智能体、Nebula式的虚拟设备、
+Heuresis 风格的编码工作区，以及向设备分派提示，请参阅
 [建立智能体公司平台](/docs/guides/build-agent-company)。
 
 ---
@@ -46,7 +46,7 @@ Heuresis-style encoded workspaces, and prompt dispatch into devices, see
 | 1-10 名智能体商 |直接智能体循环根据需要创建/恢复沙箱 |
 | 10-100 名智能体 |具有沙箱池和每个工作空间限制的队列支持编排器 |
 | 100-1,000 名智能体商 |分片作业队列、区域沙箱池、范围令牌、显式并发控制 |
-| 1,000+ 智能体商 | Dedicated tenant capacity, rate-limit contracts, batch APIs, event aggregation, and backpressure |
+| 1,000+ 智能体商 | 专用租户容量、速率限制合约、批量 API、事件聚合和背压 |
 
 不要因为有10000个逻辑沙箱就启动10000个独立沙箱
 智能体。大多数产品应区分：
@@ -56,7 +56,7 @@ Heuresis-style encoded workspaces, and prompt dispatch into devices, see
 - **工作空间**：持久文件系统、秘密、快照、使用情况和
   归因边界。
 
-Many logical agents can share a queue and borrow runtime sessions from a pool.
+许多逻辑智能体可以共享一个队列，并从池中借用运行时会话。
 只有执行活动代码/浏览器工作的智能体才需要运行沙箱或
 那一刻的电脑。
 
@@ -97,18 +97,18 @@ flowchart LR
 |工作 |运行时|为什么 |
 |---|---|---|
 |编写应用程序代码 |沙盒|具有文件和执行功能的快速无头 Linux 工作区 |
-|安装依赖项 |沙盒| Dependency state stays in `/workspace` and snapshots |
-|运行测试/构建 |沙盒| Deterministic command execution and streamed output |
+|安装依赖项 |沙盒| 依赖状态保留在 `/workspace` 和快照中 |
+|运行测试/构建 |沙盒| 确定性的命令执行和流式输出 |
 |提供预览 |沙盒|将应用程序端口公开为预览 URL |
 |检查浏览器 UI |电脑|真实浏览器、截图、鼠标、键盘|
 |测试注册/登录流程 |电脑| Cookie、弹出窗口、OAuth、上传和视觉状态 |
 |生成 PDF/DOCX/图像 |沙盒| Python/Node 生成器生成工件 |
-|使用私有本地系统 | BYOC/开放计算机 | Data, network, apps, or local GPU capacity stays on the customer host |
+|使用私有本地系统 | BYOC/OpenComputers | 数据、网络、应用或本地 GPU 容量保留在客户主机上 |
 |发布生产应用 |部署或 Docker 主机 |稳定的URL、版本、回滚、路由 |
 
-> **Note: Sandbox and Computer are different products**
+> **注意：沙箱和计算机是不同的产品**
 >
-> Do not collapse sandboxes and computers into one concept.沙箱是为了
+> 不要把沙箱和计算机混为一谈。沙箱是为了
 > 无头代码和工件。计算机用于 GUI/浏览器工作。编排是
 > 让他们合作的层。
 
@@ -118,15 +118,17 @@ flowchart LR
 
 ## 通信原语
 
-Use explicit handoffs instead of hidden shared memory.|原始|制片人|消费者 |示例|
+使用显式的交接，而不是隐藏的共享内存。
+
+|原语 |生产者 |消费者 |示例 |
 |---|---|---|---|
 |文件 |沙盒智能体|沙盒智能体、部署智能体 | `/workspace/app/page.tsx` |
-|神器|沙盒智能体 |用户，另一个智能体 | `proposal.pdf`、`chart.png` |
-|预览网址 |沙盒智能体|计算机智能体、用户| `https://3000-...sandbox.miosa.ai` |
-|截图|电脑智能体|协调员，法学硕士 |浏览器 QA 发现 |
-|活动 |任意运行时间 | UI、协调器 | stdout、stderr、文件已更改、预览就绪 |
+|产物|沙盒智能体 |用户，另一个智能体 | `proposal.pdf`、`chart.png` |
+|预览 URL |沙盒智能体 |计算机智能体、用户 | `https://3000-...sandbox.miosa.ai` |
+|截图 |计算机智能体 |编排器、LLM |浏览器 QA 发现 |
+|事件 |任意运行时 | UI、编排器 | stdout、stderr、文件已更改、预览已就绪 |
 |快照|沙盒|沙盒智能体|危险重构前的检查点 |
-|部署|部署智能体 |用户，支持 |耐用生产网址 |
+|部署 |部署智能体 |用户、支持 |持久的生产 URL |
 
 编排器应该将这些存储为运行状态，以便前端可以重放什么
 发生了，下一个智能体有一个干净的输入。

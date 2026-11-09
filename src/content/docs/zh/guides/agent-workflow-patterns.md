@@ -6,7 +6,7 @@ section: "Agents"
 order: 6017
 ---
 
-MIOSA workflows scale from a single prompt to a fleet of long-running agents.
+MIOSA 工作流程可以从一个提示扩展到一支长期运行的智能体队伍。
 相同的原语适用于每个级别：
 
 ```text
@@ -49,7 +49,7 @@ miosa prompt --sandbox <sandbox-id> \
   "Build a Next.js landing page, run it on port 3000, and fix any errors."
 ```
 
-The agent should work inside `/workspace`:
+智能体应在 `/workspace` 内工作：
 
 - 写入文件
 - 安装依赖项
@@ -112,7 +112,7 @@ miosa prompt \
 
 ## 模式 4：分离的智能体会话
 
-Use this for tasks that continue after the first command returns.
+用于在第一条命令返回之后仍要继续的任务。
 
 ```bash
 miosa agent run builder \
@@ -121,7 +121,7 @@ miosa agent run builder \
   --json
 ```
 
-Then inspect and continue the session:
+然后检查并继续该会话：
 
 ```bash
 miosa run events <run-id>
@@ -135,12 +135,12 @@ miosa run stop <run-id>
 
 分离运行要求：
 
-- run id returned immediately (`--no-follow`)
-- events available over API and CLI
+- 立即返回运行 ID（`--no-follow`）
+- 事件可通过 API 和 CLI 获取
 - 可重新连接的流
-- durable transcript (`miosa run messages`)
-- artifacts linked to the run (`miosa run files`)
-- clean stop/cancel (`miosa run stop`)
+- 可持久保存的对话记录（`miosa run messages`）
+- 与运行关联的工件（`miosa run files`）
+- 干净的停止/取消（`miosa run stop`）
 - 类型化的故障状态
 - 清晰的信用使用情况
 
@@ -148,7 +148,7 @@ miosa run stop <run-id>
 
 ## 模式 5：应用程序构建器循环
 
-Use this for Lovable, Replit, v0, or Lumen-style app generation.
+用于 Lovable、Replit、v0 或 Lumen 风格的应用生成。
 
 ```text
 User prompt
@@ -174,7 +174,7 @@ User prompt
 - 版本历史
 - 信用使用
 
-Recommended backend records:
+推荐的后端记录：
 
 ```sql
 projects
@@ -195,7 +195,7 @@ agent_runs
 ## Pattern 6: artifact workspace
 
 将其用于克劳德桌面式工作，其中智能体创建文档，
-images, diagrams, or data files.
+图像、图表或数据文件。
 
 示例：
 
@@ -217,7 +217,7 @@ prompt -> sandbox -> generate file -> render/validate -> artifact -> version
 
 用户界面应显示：
 
-- live text/code generation
+- 实时的文本/代码生成
 - 生成的文件卡
 - 预览窗格
 - 下载按钮
@@ -228,7 +228,7 @@ prompt -> sandbox -> generate file -> render/validate -> artifact -> version
 
 ## Pattern 7: browser operator
 
-Use this for Nebula-style browser work or RPA-like workflows.
+用于 Nebula 风格的浏览器操作或类似 RPA 的工作流程。
 
 ```text
 prompt -> computer -> browser session -> screenshots/events -> report/action
@@ -238,25 +238,25 @@ prompt -> computer -> browser session -> screenshots/events -> report/action
 
 - 填写入职表格
 - 验证结帐
-- inspect admin dashboards
-- scrape authenticated data
+- 检查管理员仪表板
+- 抓取已认证的数据
 - 测试浏览器用户界面
-- run visual QA on previews
+- 对预览运行视觉 QA
 
-Human approval should be required before:
+在以下操作前应要求人工批准：
 
-- submitting external forms
+- 提交外部表单
 - 发送消息
 - 花钱
 - 删除数据
-- changing account settings
+- 更改账户设置
 - 使用管理员凭据
 
 ---
 
 ## Pattern 8: orchestrated agent team
 
-Use this for Cofounder (cofounder.co), Polsia, Agentfounder, or internal
+用于 Cofounder（cofounder.co）、Polsia、Agentfounder 或内部
 运营商产品。
 
 ```mermaid
@@ -275,22 +275,22 @@ flowchart LR
 
 协调者应该：
 
-- break the prompt into tasks
-- assign devices and runtimes
-- enforce budget and approvals
+- 把提示拆分成任务
+- 分配设备和运行时
+- 执行预算和审批
 - 流式传输每个孩子的跑步情况
 - 合并工件
-- ask for human approval on risky actions
-- produce one final status
+- 对高风险操作请求人工批准
+- 产出一份最终状态
 
-Use child devices only when they create real leverage.并非每个任务都需要
+仅当子设备能带来真正的杠杆时才使用它们。并非每个任务都需要
 新沙箱。
 
 ---
 
 ## Pattern 9: agent fleet
 
-Use this when the product launches tens, hundreds, or thousands of workers.
+当产品要启动数十、数百或数千个工作者时使用此模式。
 
 示例：
 
@@ -300,18 +300,20 @@ Use this when the product launches tens, hundreds, or thousands of workers.
 - 浏览器质量检查扫描
 - 基准运行
 - 研究爬行
-- parallel code migrations
+- 并行的代码迁移
 
-车队要求：|要求 |为什么这很重要 |
+机群要求：
+
+| 要求 | 为什么重要 |
 |---|---|
-|队列|避免无限制的设备创建 |
-|幂等性 |重试无重复资源 |
-|预算上限|停止失控的支出|
-|并发限制 |保护用户计划和平台容量 |
-|儿童举办的活动 |无需打开每个工人即可显示进度 |
-|聚合|将输出合并到一份报告中 |
-|取消 |快速阻止舰队|
-|部分结果 |失败后保留有用的工作|
+| 队列 | 避免无限制地创建设备 |
+| 幂等性 | 重试时不会产生重复资源 |
+| 预算上限 | 阻止支出失控 |
+| 并发限制 | 保护用户套餐和平台容量 |
+| 子运行事件 | 无需打开每个 worker 就能看到进度 |
+| 聚合 | 将输出合并成一份报告 |
+| 取消 | 快速停止整个机群 |
+| 部分结果 | 失败后保留有用的工作 |
 
 ---
 
@@ -323,11 +325,11 @@ Use this when the product launches tens, hundreds, or thousands of workers.
 |生成代码 |沙盒提示 |
 |测试浏览器流程 |电脑提示|
 |断开连接后继续工作 |独立会话 |
-|构建和预览应用程序 |应用程序构建器循环 |
+| 构建并预览应用 | 应用构建器循环 |
 |制作文档/图像/报告 |工件工作区 |
 |运营网站/仪表板 |浏览器运营商 |
 |经营公司/项目 |精心策划的智能体团队|
-|扩展许多工人|智能体车队|
+| 扩展大量 worker | 智能体机群 |
 
 ---
 
@@ -335,5 +337,5 @@ Use this when the product launches tens, hundreds, or thousands of workers.
 
 - [智能体产品模型](/docs/guides/agent-product-model)：智能体、设备、运行、事件、工件和信用的规范词汇。
 - [运行时路由](/docs/guides/agent-runtime-routing)：将提示路由到 OSA、Codex、Claude Code、Hermes、Pi 或自定义运行时。
-- [虚拟设备产品](/docs/cookbook/build-virtual-device-product)：使用文件、浏览器、作业和工件构建星云风格的持久工作空间。
+- [虚拟设备产品](/docs/cookbook/build-virtual-device-product)：使用文件、浏览器、作业和工件构建Nebula风格的持久工作空间。
 - [后端编排](/docs/integrations/backend-orchestration)：构建将提示分派到 MIOSA 设备的产品后端。

@@ -42,7 +42,7 @@ Custom domain:     https://portal.example.net
 
 推荐的白标 DNS：
 
-|记录类型 |名称 |价值|用于 |
+| 记录类型 | 名称 | 值 | 用途 |
 |---|---|---|---|
 | `CNAME` | `*` | `proxy.miosa.ai` |预览域，包括沙箱端口预览 |
 | `CNAME` | `*.apps` | `proxy.miosa.ai` |持久生成的应用程序 |
@@ -98,7 +98,7 @@ deployment = miosa.deployments.get(deployment_id)
 print(deployment["public_url"])
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/deployments/$DEP/domains \
@@ -150,12 +150,14 @@ curl -X POST https://api.miosa.ai/api/v1/deployments/$DEP/domains/$DOMAIN_ID/ver
 
 DNS 提供商对相同字段进行不同的标记。
 
-使用 MIOSA 返回的精确值并仅翻译字段名称：| MIOSA 指令 |常见的提供商标签 | `*.apps.example.com` | 的示例
+使用 MIOSA 返回的精确值，只翻译字段名称：
+
+| MIOSA 指令 | 常见的提供商标签 | `*.apps.example.com` 的示例 |
 |---|---|---|
-|记录类型 |类型 | `CNAME` |
-|主持人|姓名、主持人、别名 | `*.apps` |
-|目标|价值、指向、目的地 | `proxy.miosa.ai` |
-| TTL | TTL、缓存时间|自动或300秒|
+| 记录类型 | 类型 | `CNAME` |
+| 主机 | 名称、主机、别名 | `*.apps` |
+| 目标 | 值、指向、目的地 | `proxy.miosa.ai` |
+| TTL | TTL、缓存时间 | 自动或 300 秒 |
 
 请勿在 DNS 目标中输入 `https://`、路径或尾部斜杠。
 
@@ -204,11 +206,11 @@ flowchart LR
 
 对于通配符预览或应用程序域，将流量委托给 MIOSA：
 
-|领域|价值|
+| 字段 | 值 |
 |---|---|
 |类型 | `CNAME` |
-|主持人| `*`（通配符）|
-|价值| `proxy.miosa.ai` |
+| 主机 | `*`（通配符）|
+| 值 | `proxy.miosa.ai` |
 | TTL | `300` - `600` 秒 |
 |智能体状态（仅限 Cloudflare）| **仅限 DNS** - 灰云 |
 

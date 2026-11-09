@@ -127,7 +127,7 @@ print(result.deployment.public_url)
 print(result.version.kind, result.version.state)
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/deployments/$DEP/publish \
@@ -190,7 +190,7 @@ MIOSA 从源头选择构建模式。如果需要，您可以使用 `build_comman
 
 |模式|触发|会发生什么 |
 |---|---|---|
-| **Dockerfile** | `Dockerfile` 存在于 `output_path` | MIOSA打造容器式服务器神器 |
+| **Dockerfile** | `Dockerfile` 存在于 `output_path` | MIOSA打造容器式服务器产物 |
 | **自动检测** | `package.json` / `requirements.txt` / `pyproject.toml` / `go.mod` / `mix.exs` | MIOSA 选择安装/构建/启动默认值 |
 | **静态打包器** |输出中仅包含静态文件（未检测到服务器入口点）|文件存储为静态版本 |
 | **明确** |提供 `buildCommand` 和/或 `runCommand` | MIOSA 运行这些，然后打包 `output_path` | 中的所有内容。
@@ -259,7 +259,7 @@ miosa deploy requests <deployment-id>
 ## 另请参阅
 
 - [版本](/docs/docker-host/versions) - 发布产生什么
-- [发布](/docs/docker-host/releases) - 神器本身
+- [发布](/docs/docker-host/releases) - 产物本身
 - [运行时实例](/docs/docker-host/runtime-instances) - 用于动态部署
 - [Docker Host](/docs/docker-host/docker-deploy) - 用于工作区应用程序容器
 - [回滚](/docs/docker-host/rollback) - 当运行状况检查通过但应用程序损坏时

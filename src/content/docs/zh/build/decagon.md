@@ -8,15 +8,15 @@ order: 10058
 
 `~25 min` `TypeScript` `Python`
 
-> **What you're building**: Resolve tickets across chat and email, with handoff.
+> **您正在构建的内容**：跨聊天和电子邮件解决工单，并支持转交。
 >
 > **您将使用的原语**：沙箱、智能体和工具、Postgres、部署（Docker 主机）
 
 ## 你正在构建什么
 
-an AI customer-support agent that resolves tickets across channels Modelled on Decagon, by Decagon.
+一个跨渠道解决工单的 AI 客户支持智能体。以 Decagon 为原型，由 Decagon 制作。
 
-The agent resolves chat and email tickets by following your policies, calling your systems, and escalating with context.
+智能体按照您的策略解决聊天和电子邮件工单，调用您的系统，并在必要时带着上下文升级。
 
 您将使用的基元：沙箱·智能体和工具·Postgres·部署（App Engine）
 
@@ -32,7 +32,7 @@ The agent resolves chat and email tickets by following your policies, calling yo
 每一行都是在开始之前创建的一件事。该数字与使用它的步骤相匹配。
 
 1. 组织和 API 密钥 - 确定每次调用的范围；工作人员只需要一把工作区钥匙即可。 - `miosa api-key create app-key --preset agent` [文档](/docs/platform/api-keys)
-2. Sandbox - The isolated Linux workspace the agent writes code and runs commands in. - `miosa create app-box --template nextjs --wait` [Docs](/docs/develop/sandboxes)
+2. 沙箱 - 智能体在其中编写代码并运行命令的隔离 Linux 工作区。 - `miosa create app-box --template nextjs --wait` [文档](/docs/develop/sandboxes)
 3. Postgres - 托管关系数据，在机器和生产中作为 DATABASE_URL 注入。 - `miosa api POST /databases -d '{"name":"app-db","engine":"postgresql"}'` [文档](/docs/data/postgres)
 4. 每个客户一个工作区 - 隔离每个客户的机器、部署和数据。 - `miosa workspace create customer-1` [文档](/docs/platform/white-label)
 5. 品牌和白标签 - 您的名字和预览、部署和桌面上的 slug；顾客永远不会看到 MIOSA。 - `miosa org` [文档](/docs/platform/white-label)
@@ -64,11 +64,11 @@ sequenceDiagram
 
 执行域工作的智能体 -> 智能体在沙箱中运行 (`miosa prompt`, client.runs) 流事件，并使用您定义的可能调用的工具
 
-Domain records and history -> managed Postgres (`DATABASE_URL`) for records, citations and an audit trail
+域记录和历史 -> 托管 Postgres（`DATABASE_URL`），用于记录、引用和审计轨迹
 
-Each customer is isolated -> a workspace per customer (`miosa workspace create`)
+每个客户相互隔离 -> 每个客户一个工作区（`miosa workspace create`）
 
-Human review and escalation -> agent approvals (`miosa agent approvals`) and a review queue in your product
+人工审核和升级 -> 智能体审批（`miosa agent approvals`）以及您产品中的审核队列
 
 ## 数据和存储
 

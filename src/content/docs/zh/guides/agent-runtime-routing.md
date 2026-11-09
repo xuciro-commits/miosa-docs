@@ -55,7 +55,7 @@ type RuntimeRoute = {
 - 浏览器操作
 - 屏幕截图
 - 预览服务器
-- 神器生成
+- 产物生成
 - 部署准备
 
 ---
@@ -89,7 +89,7 @@ type RuntimeRoute = {
 推荐默认值：
 
 - 应用程序构建器：沙箱
-- 神器生成：沙箱
+- 产物生成：沙箱
 - 网络质量检查：计算机
 - 仪表板自动化：计算机
 - 私营企业任务：本地设备
@@ -146,7 +146,7 @@ MIOSA 的通用协议。
 |外壳输出 | `command.output` |
 |文件编辑 | `file.changed` |
 |浏览器截图| `browser.screenshot` |
-|神器已保存 | `artifact.created` |
+|产物已保存 | `artifact.created` |
 |需要人工确认| `approval.required` |
 |模型/工具故障 | `run.failed` |
 

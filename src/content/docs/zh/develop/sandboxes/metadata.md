@@ -29,7 +29,7 @@ const sandbox = await client.sandboxes.create({
 });
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes \

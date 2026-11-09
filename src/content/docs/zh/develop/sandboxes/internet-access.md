@@ -102,7 +102,7 @@ await client.networkPolicy.update(computerId, {
 });
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X PUT https://api.miosa.ai/api/v1/computers/$COMPUTER_ID/network-policy \

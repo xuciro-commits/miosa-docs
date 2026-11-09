@@ -32,7 +32,7 @@ const share = await client.sandboxes.shares.create('sbx_abc123', { expiresIn: 86
 console.log(share.shareUrl);
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes/sbx_abc123/shares \
@@ -59,7 +59,7 @@ for s in client.sandboxes.shares.list("sbx_abc123"):
 client.sandboxes.shares.delete("sbx_abc123", share.share_id)
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl https://api.miosa.ai/api/v1/sandboxes/sbx_abc123/shares \

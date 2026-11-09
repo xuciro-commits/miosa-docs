@@ -1,7 +1,7 @@
 ---
 slug: "optimal-engine/agents-and-workflows"
 title: "智能体和工作流程"
-description: "最佳引擎为智能体提供的内容 - 启动简报、开环、每日节奏、操作协议、允许、询问或拒绝规则、组织策略、计划分析、网络钩子和操作跟踪。"
+description: "Optimal Engine为智能体提供的内容 - 启动简报、开环、每日节奏、操作协议、允许、询问或拒绝规则、组织策略、计划分析、网络钩子和操作跟踪。"
 section: "Optimal Engine"
 order: 8007
 ---
@@ -26,7 +26,7 @@ optimal boot -w default:notes
 
 智能体应该在会话中的任何其他操作之前调用它。
 
-##日常操作
+## 日常操作
 
 |路线 |命令行 |它有什么作用 |
 |---|---|---|

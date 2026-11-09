@@ -18,7 +18,7 @@ order: 3004
 |---|---|---|
 |平台桌面按钮|登录 MIOSA 用户 |正常 MIOSA 会话和工作区权限 |
 |嵌入式流票 |您的应用程序后端和前端 |您的后端使用 MIOSA API 密钥创建一个短暂的 URL |
-|原始外部桌面 URL |紧急或直接查看者访问 |观众密码门 |
+|原始外部桌面 URL |Emergent或直接查看者访问 |观众密码门 |
 
 将嵌入用于您自己的 UI。
 仅对原始外部桌面查看器链接使用 `viewer_password()` / `rotate_viewer_password()`。
@@ -135,7 +135,7 @@ print(urls["desktop_url"])
 print(urls["expires_at"])
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl https://api.miosa.ai/api/v1/computers/$CID/urls \

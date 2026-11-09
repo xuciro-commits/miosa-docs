@@ -84,7 +84,7 @@ wss://api.miosa.ai/api/v1/sandboxes/$SANDBOX_ID/browser/stream?token=$STREAM_AUT
 
 在[实时查看器](/docs/browser-use/live-viewer)中控制或共享仅供查看的链接。
 
-**剧作家（TypeScript）**
+**Playwright（TypeScript）**
 
 ```javascript
 import { chromium } from "playwright"
@@ -101,7 +101,7 @@ console.log(await page.title())
 await browserConn.close()   // detaches; it does not stop the sandbox browser
 ```
 
-**剧作家（Python）**
+**Playwright（Python）**
 
 ```python
 from playwright.sync_api import sync_playwright
@@ -128,7 +128,7 @@ with sync_playwright() as p:
 |---|---|
 |启动和停止浏览器 | [快速入门](/docs/browser-use/quickstart) |
 |观察并掌控| [实时查看器](/docs/browser-use/live-viewer) |
-|与智能体一起驾驶 | [通过 CDP](/docs/browser-use/cdp) 驱动它
+| 与智能体一起驾驶 | [通过 CDP](/docs/browser-use/cdp) 驱动它 |
 |使用经过验证的客户端 | [集成](/docs/browser-use/integrations) |
 |检查限额和计费 | [限制、计费和安全性](/docs/browser-use/limits) |
 |了解模型 | [浏览器的使用方式](/docs/browser-use/how-it-works) |

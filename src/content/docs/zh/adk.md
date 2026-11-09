@@ -200,7 +200,7 @@ const provider = surplusProvider({
 Surplus 使用与 OpenAI 兼容的聊天完成合约。平台内
 运行时配置文件，更喜欢通过 MIOSA 的智能 API/模型路由进行路由，因此
 密钥可以被计量、审计、撤销，并用作克劳德代码的后备燃料，
-Codex、Hermes、OSA 或 MIOSA 沙箱内的自定义安全带。
+Codex、Hermes、OSA 或 MIOSA 沙箱内的自定义运行框架。
 
 **MIOSA路线**
 

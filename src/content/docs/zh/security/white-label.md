@@ -131,7 +131,7 @@ client.secrets.set(
 6. Tenant-wide secret
 ```
 
-First match wins. If nothing matches, the placeholder stays in the request and the upstream call fails (the right behavior  -  better than silently leaking).
+先匹配者胜出。如果没有任何匹配，占位符会留在请求中，上游调用随之失败（这才是正确的行为——总比悄悄泄露要好）。
 
 ## 白标 OAuth（使用您的品牌，而不是 MIOSA 的）
 

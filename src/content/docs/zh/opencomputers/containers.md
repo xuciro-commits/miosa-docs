@@ -13,7 +13,7 @@ MIOSA 不会为您构建形象。您的图像必须已可由主机的运行时�
 
 ## 运行容器
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa host container run <host> --image nginx:alpine --name web --set PORT=8080
@@ -55,7 +55,7 @@ curl --fail-with-body -sS \
 
 ## 日志
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa host container logs <host> <container>
@@ -76,7 +76,7 @@ curl -N --fail-with-body -sS \
 
 ## 统计数据
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa host container stats <host> <container>

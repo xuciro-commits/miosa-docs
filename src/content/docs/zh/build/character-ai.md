@@ -120,7 +120,7 @@ miosa workspace create character-ai-customer-1
    检查：后端在Postgres中读取和写入消息。
 4. 将每个角色（系统提示、样式、边界）存储为版本化行，并将其加载到每个回合中。
    检查：编辑角色会更改下一个回复，而不是过去的回复。
-5. 处理回合：加载角色、最近的消息和回忆，调用模型，流式传输回复，存储两条消息。使用安全带进行需要工具的转弯；普通聊天轮流可以直接致电提供商。
+5. 处理回合：加载角色、最近的消息和回忆，调用模型，流式传输回复，存储两条消息。使用运行框架进行需要工具的转弯；普通聊天轮流可以直接致电提供商。
    ```bash
    miosa prompt --sandbox character-ai-box --harness osa --model <anthropic-model-id> --chat <chat-id> "Reply to the user as the persona. Use tools only when the message needs them"
    ```

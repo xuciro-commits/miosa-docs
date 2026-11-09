@@ -139,5 +139,5 @@ curl -X DELETE https://api.miosa.ai/api/v1/sandboxes/$SANDBOX_ID/browser \
 ## 下一步
 
 - [实时查看器](/docs/browser-use/live-viewer) - 控制、共享、全屏。
-- [通过 CDP](/docs/browser-use/cdp) 驱动它 - 剧作家和木偶师。
+- [通过 CDP](/docs/browser-use/cdp) 驱动它 - Playwright和Puppeteer。
 - [限制、计费、安全性](/docs/browser-use/limits) - 最小大小和执行。

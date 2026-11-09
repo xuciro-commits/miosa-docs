@@ -6,18 +6,18 @@ section: "Self-hosting"
 order: 15004
 ---
 
-MIOSA runs your workloads on its own cloud by default, and it can also run them on hardware you own or operate yourself.
+MIOSA 默认在自己的云上运行您的工作负载，也可以在您拥有或自行运营的硬件上运行它们。
 今天支持两种自带路径。
 目前**不**支持连接第三方沙箱或桌面提供商（例如 Orgo、E2B 或 Daytona）：这些适配器不是产品的一部分。
 
 ## 计算可以运行的地方
 
-|来源 |状态 |它在哪里运行 |
+| 来源 | 状态 | 在哪里运行 |
 |---|---|---|
-| MIOSA云|可用 | MIOSA 管理的沙箱和计算机 |
-|开放计算机 |可用 |您拥有或租用的硬件，通过出站 WebSocket 连接
-|自带云 |可用，通过入职 | Worker capacity inside your own AWS or Google Cloud account |
-|第三方提供商适配器|不提供 | - |
+| MIOSA 云 | 可用 | MIOSA 管理的沙箱和计算机 |
+| OpenComputers | 可用 | 你自己拥有或租用的硬件，通过出站 WebSocket 连接 |
+| 自带云 | 可用，需完成接入流程 | 你自己 AWS 或 Google Cloud 帐户内的 Worker 容量 |
+| 第三方提供商适配器 | 不提供 | - |
 
 沙箱默认在 Firecracker 上运行。
 SOMA 可供每个客户使用，`auto` 让平台选择。
@@ -32,7 +32,7 @@ SOMA 可供每个客户使用，`auto` 让平台选择。
 
 ## 在您自己的云帐户中运行
 
-For worker capacity inside your own AWS or Google Cloud account, MIOSA has a separate onboarding path.
+如果您需要在自己 AWS 或 Google Cloud 帐户内运行 Worker 容量，MIOSA 提供了单独的入职流程。
 请参阅[自带云](/docs/infrastructure/byoc/overview)。
 
 ## 不提供什么
@@ -42,7 +42,7 @@ MIOSA 目前不提供连接第三方计算提供商的适配器。
 
 > **注意：请改用支持的路径**
 >
-> 如果您需要 MIOSA 云之外的容量，请在您控制的硬件上使用 [OpenComputers](/docs/opencomputers)，或在您自己的云帐户中使用 [Bring your own cloud](/docs/infrastructure/byoc/overview)。
+> 如果您需要 MIOSA 云之外的容量，请在您控制的硬件上使用 [OpenComputers](/docs/opencomputers)，或在您自己的云帐户中使用[自带云](/docs/infrastructure/byoc/overview)。
 
 ## 另请参阅
 

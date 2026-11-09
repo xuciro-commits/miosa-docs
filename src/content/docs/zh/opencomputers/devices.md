@@ -19,7 +19,7 @@ order: 3021
 
 ## 列出并检查
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa device list
@@ -63,7 +63,7 @@ curl --fail-with-body -sS "https://api.miosa.ai/api/v1/devices/$DEVICE_ID/capabi
 
 ## 运行命令
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa device exec <device> -- uname -a
@@ -89,7 +89,7 @@ curl --fail-with-body -sS \
 
 ## 文件
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa device files <device> --path /workspace

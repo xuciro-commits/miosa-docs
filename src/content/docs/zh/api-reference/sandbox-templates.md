@@ -46,12 +46,12 @@ curl "https://api.miosa.ai/api/v1/sandbox-templates?include_aliases=true" \
 
 列出了五个模板，所有五个模板都运行一个图像：
 
-| `template_id` |亲切 |它是什么 |
+| `template_id` |类型 |它是什么 |
 |---|---|---|
 | `miosa-sandbox` | `image` |默认沙箱。里面的所有内容，以及省略 `template_id` 时得到的内容。 |
-| `nextjs` | `starter` |在沙箱中暂存 Next.js 应用程序并在端口 3000 上启动它。
+| `nextjs` | `starter` |在沙箱中暂存一个 Next.js 应用并在端口 3000 上启动它。 |
 | `nextjs-postgres` | `starter` |端口 3000 上带有 Postgres 客户端工具的 Next.js 应用程序；绑定`DATABASE_URL`。 |
-| `static-html` | `starter` |静态 HTML、CSS 和 JavaScript 由端口 8000 上的 `/workspace` 提供服务。
+| `static-html` | `starter` |静态 HTML、CSS 和 JavaScript，从 `/workspace` 在端口 8000 上提供服务。 |
 | `fastapi-auth` | `starter` |一个 FastAPI 启动器，在端口 8000 上具有注册、登录、me 和仪表板路由。其运行状况检查尚不工作。 |
 
 四个入门模板仅在映像内添加内容：脚手架、安装命令和启动命令。
@@ -96,13 +96,13 @@ curl "https://api.miosa.ai/api/v1/sandbox-templates?include_aliases=true" \
 
 |状态 |代码|原因 |
 |--------|------|--------|
-| 404 | 404 `not_found` |模板ID不存在 |
+| 404 | `not_found` |模板 ID 不存在 |
 
 ---
 
 ## 示例
 
-**卷曲**
+**curl**
 
 ```bash
 # List templates, including the legacy alias ids

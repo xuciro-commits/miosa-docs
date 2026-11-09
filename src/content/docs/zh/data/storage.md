@@ -47,7 +47,7 @@ await s3.send(new PutObjectCommand({
 
 > 存储调用需要具有 `storage:read` / `storage:write` 范围的 API 密钥。使用 `POST /api/v1/api-keys {"scopes": ["storage:read","storage:write"]}` 创建一个。普通密钥会收到 403 错误消息，告诉您缺少哪个作用域。
 
-**原始API（卷曲）：**
+**原始API（curl）：**
 ```bash
 # Create a bucket
 curl -X POST https://api.miosa.ai/api/v1/storage/buckets \

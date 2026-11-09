@@ -1,6 +1,6 @@
 ---
 slug: "api-reference/open-computers"
-title: "开放计算机API"
+title: "OpenComputersAPI"
 description: "通过 MIOSA API - exec、文件、隧道、AI 智能体、推理集群和机密，注册和控制客户拥有的计算机，包括本地服务器。"
 section: "API reference"
 order: 12031
@@ -169,14 +169,16 @@ data: {"type":"status_change","host_id":"host_abc","data":{"status":"online"},"t
 
 ## 文件系统
 
-管理已注册主机上的文件和目录。|端点|方法|描述 |
+管理已注册主机上的文件和目录。
+
+| 端点 | 方法 | 描述 |
 |----------|--------|-------------|
-| `/opencomputers/hosts/{id}/fs/list` |获取 |列出目录 (`?path=`) |
-| `/opencomputers/hosts/{id}/fs/stat` |获取 |统计路径 (`?path=`) |
-| `/opencomputers/hosts/{id}/fs/download` |获取 |下载文件 (`?path=`) |
-| `/opencomputers/hosts/{id}/fs/upload` |发布 |上传文件（多部分，`?path=`）|
-| `/opencomputers/hosts/{id}/fs/delete` |删除|删除文件/目录 (`?path=`) |
-| `/opencomputers/hosts/{id}/fs/mkdir` |发布 |创建目录(`{"path":"..."}`) |
+| `/opencomputers/hosts/{id}/fs/list` | GET |列出目录 (`?path=`) |
+| `/opencomputers/hosts/{id}/fs/stat` | GET |统计路径 (`?path=`) |
+| `/opencomputers/hosts/{id}/fs/download` | GET |下载文件 (`?path=`) |
+| `/opencomputers/hosts/{id}/fs/upload` | POST |上传文件（多部分，`?path=`）|
+| `/opencomputers/hosts/{id}/fs/delete` | DELETE |删除文件/目录 (`?path=`) |
+| `/opencomputers/hosts/{id}/fs/mkdir` | POST |创建目录(`{"path":"..."}`) |
 
 **列出回复：**
 ```json
@@ -395,16 +397,18 @@ POST {inference_url}/chat/completions
 
 |端点|方法|描述 |
 |----------|--------|-------------|
-| `/opencomputers/secrets` |获取 |列出租户秘密 |
-| `/opencomputers/secrets` |发布 |创造一个秘密|
-| `/opencomputers/secrets/{id}` |补丁 |更新值或描述 |
-| `/opencomputers/secrets/{id}` |删除 |删除秘密 |
+| `/opencomputers/secrets` | GET |列出租户秘密 |
+| `/opencomputers/secrets` | POST |创造一个秘密|
+| `/opencomputers/secrets/{id}` | PATCH |更新值或描述 |
+| `/opencomputers/secrets/{id}` | DELETE |删除秘密 |
 
-### 主机范围内的秘密|端点|方法|描述 |
+### 主机范围内的秘密
+
+| 端点 | 方法 | 描述 |
 |----------|--------|-------------|
-| `/opencomputers/hosts/{id}/secrets` |获取 |列出主机机密 |
-| `/opencomputers/hosts/{id}/secrets` |发布 |创建主机机密 |
-| `/opencomputers/hosts/{id}/secrets/{secret_id}` |删除 |删除主机机密 |
+| `/opencomputers/hosts/{id}/secrets` | GET |列出主机机密 |
+| `/opencomputers/hosts/{id}/secrets` | POST |创建主机机密 |
+| `/opencomputers/hosts/{id}/secrets/{secret_id}` | DELETE |删除主机机密 |
 
 **创建请求：**
 ```json
@@ -555,11 +559,11 @@ System.out.println("Public URL: " + tunnel.publicUrl);
 
 |状态 |代码|原因 |
 |--------|------|--------|
-| 404 | 404 `NOT_FOUND` |此租户中不存在主机或资源 |
-| 403 | 403 `FORBIDDEN` |已认证但未授权 |
+| 404 | `NOT_FOUND` | 此租户中不存在主机或资源 |
+| 403 | `FORBIDDEN` | 已认证但未授权 |
 | 400 | `INVALID_ID` |路径参数不是有效的 ID |
-| 409 | 409  - |主机离线；无法发送命令 |
-| 502 | 502  - |主机智能体无法访问 |
+| 409 |  -  | 主机离线；无法发送命令 |
+| 502 |  -  | 主机智能体无法访问 |
 
 ---
 

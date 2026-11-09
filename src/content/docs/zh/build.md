@@ -49,7 +49,7 @@ MIOSA 是人工智能产品下面的执行层。核心思想贯穿于每一个�
 - [构建 v0 风格的应用程序 根据提示生成 UI 并发布它。](/docs/build/v0)
 - [构建 Replit-Agent 风格的应用程序 云工作区，其中提示成为正在运行的应用程序。](/docs/build/replit)
 - [构建一个 Base44 风格的应用程序 描述一个应用程序，获取一个工作的、预览过的应用程序。](/docs/build/base44)
-- [构建一个紧急风格的应用程序提示成为具有真实基础设施的运行软件。](/docs/build/emergent)
+- [构建一个Emergent风格的应用程序提示成为具有真实基础设施的运行软件。](/docs/build/emergent)
 - [构建 Rork 风格的应用程序 提示您可以预览的移动应用程序。](/docs/build/rork)
 - [构建任何类型的应用程序 提示工作网络或移动应用程序。](/docs/build/anything)
 - [构建相同风格的应用程序从屏幕截图或 URL 克隆并重建 UI。](/docs/build/same-new)

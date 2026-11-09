@@ -63,7 +63,7 @@ journalctl -u osa-opencomputers.service -n 50 --no-pager
 
 |症状|检查什么 |
 |---|---|
-| `cmd is required` |将 `cmd` 字段发送到 exec 端点； `command` 是较新的 `POST .../jobs` 路线上的字段名称，而不是 `/exec` | 上的字段名称
+| `cmd is required` |将 `cmd` 字段发送到 exec 端点；`command` 是较新的 `POST .../jobs` 路由上的字段名，不是 `/exec` 上的字段名 |
 | `409 host_not_connected` |主机离线。发货前先调出智能体 |
 | `422 invalid_command` |命令为空或超过 8192 个字符 |
 | `422 invalid_args` |超过 256 个参数或非字符串参数 |
@@ -83,7 +83,9 @@ curl --fail-with-body -sS \
 超时或客户端断开连接并不能证明进程已停止。
 避免仅仅因为客户端断开连接而重试部署、支付、文件突变或其他具有副作用的操作。
 
-## 容器|症状|检查什么 |
+## 容器
+
+|症状 |检查什么 |
 |---|---|
 | `503 host_not_connected` |容器运行时由主机上的智能体管理；离线主机无法创建或启动容器 |
 | `402 plan_limit_reached` |容器和组合槽预算已满；请参阅[计费和限制](/docs/opencomputers/billing) |

@@ -41,7 +41,7 @@ order: 12022
 将字节作为多部分表单数据发送。
 这是 SDK 使用的路线，也是目前唯一的上传路线。
 
-|领域|类型 |必填 |描述 |
+| 字段 | 类型 | 必填 | 描述 |
 |---|---|---|---|
 | `file` |文件|是的 |要写入的字节。缺少部分答案 `400 MISSING_FILE`。 |
 | `path` |字符串|没有 |目的地。默认为 `/home/user/`。尾部斜杠附加上传的文件名；如果没有，`path` 就是确切的目的地。 |
@@ -59,7 +59,7 @@ curl -X POST https://api.miosa.ai/api/v1/sandboxes/$SBX/fs/upload \
 |---|---|---|
 | 400 | `MISSING_FILE` |没有 `file` 部分。 |
 | 400 | `INVALID_PATH` | `path` 包含空字节。 |
-| 413 | 413 `FILE_TOO_LARGE` |上传超出大小限制。 |
+| 413 | `FILE_TOO_LARGE` | 上传超出大小限制。 |
 
 > **注意**
 >
@@ -168,7 +168,7 @@ Authorization: Bearer msk_...
 }
 ```
 
-|领域|类型 |必填 |描述 |
+| 字段 | 类型 | 必填 | 描述 |
 |--------|------|----------|-------------|
 | `files[].path` |字符串|是的 |沙箱内的绝对路径 |
 | `files[].content` |字符串|是的 |文件内容（UTF-8 文本或 base64 编码的二进制）|
@@ -232,18 +232,20 @@ data: {"path":"/workspace/src/new-file.ts","event":"created","ts":"2026-05-26T10
 : heartbeat
 ```
 
-**`data.event` 的事件值：**|价值|触发|
-|--------|---------|
-| `created` |新文件或目录|
-| `modified` |文件内容已更改 |
-| `deleted` |文件或目录已删除 |
-| `renamed` |文件已移动或重命名 |
+**`data.event` 的事件值：**
+
+| 值 | 触发条件 |
+|-------|---------|
+| `created` | 新的文件或目录 |
+| `modified` | 文件内容发生变化 |
+| `deleted` | 文件或目录被移除 |
+| `renamed` | 文件被移动或重命名 |
 
 ---
 
 ## 示例
 
-**卷曲**
+**curl**
 
 ```bash
 # File tree (depth 2)

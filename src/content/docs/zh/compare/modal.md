@@ -1,6 +1,6 @@
 ---
 slug: "compare/modal"
-title: "MIOSA 与 莫代尔"
+title: "MIOSA 与 Modal"
 description: "使用截至 2026 年 10 月的独立 ComputeSDK 基准和 Modal 公共文档对 MIOSA 和 Modal 进行事实比较。"
 section: "Optional"
 order: 17019
@@ -18,7 +18,7 @@ Modal 是一个无服务器云平台，用于运行 AI 工作负载的计算，�
 
 独立的 ComputeSDK 基准测试针对每个提供商运行相同的工作负载。这是这里唯一可以比较的数字。
 
-|公制|米奥萨 |莫代尔|截至 |
+|公制|MIOSA |Modal|截至 |
 |---|---|---|---|
 |突发启动、中位交互时间 | **57.09 毫秒（第 1 条，共 32 条）** | 1070.58 毫秒 (#17) | 2026年10月23日 |
 | DAX 完整构建，2026-08-28 | **39.3 秒（第 1 条，共 19 条）** | 97.7 秒 | 2026-08-28 |
@@ -36,7 +36,7 @@ Modal 是一个无服务器云平台，用于运行 AI 工作负载的计算，�
 每个 MIOSA 答案都链接了记录它的页面。
 “未记录”意味着供应商的文档没有说明，而不是缺少该功能。
 
-|能力|米奥萨 |莫代尔|来源 |
+|能力|MIOSA |Modal|来源 |
 |---|---|---|---|
 |隔离| [默认情况下 Firecracker microVM](/docs/develop/sandboxes) | gVisor，或虚拟机运行时 | [模态文档](https://modal.com/docs/guide/sandboxes.md) |
 |沙箱寿命 | 【空闲超时，默认1小时，最长24小时，可延长；计算机持续存在](/docs/develop/sandboxes/timeouts) |默认5分钟，最长24小时 | [模态文档](https://modal.com/docs/guide/sandboxes.md) |
@@ -63,14 +63,14 @@ Modal 是一个无服务器云平台，用于运行 AI 工作负载的计算，�
 - **具有连接注入的托管数据**：Postgres、MySQL、Redis、MongoDB、Qdrant。请参阅[数据](/docs/data/overview)。
 - **区域和 OpenComputers** 适用于您拥有的机器。请参阅[区域](/docs/regions)和[OpenComputers](/docs/opencomputers)。
 
-## 何时选择每个- **Choose Modal** if you need serverless GPU compute, model serving, or general batch infrastructure alongside sandboxes.
+## 何时选择每个- **选择 Modal**：如果您需要在沙箱之外获得无服务器 GPU 计算、模型服务或通用批处理基础设施。
 - **如果您的产品是智能体和应用程序型的：沙箱、完整计算机、智能体运行、部署、托管数据和白标签表面，以及上面测量的启动数据，请选择 MIOSA**。
 
 ## 来源
 
-- Modal public documentation: https://modal.com/docs (as of October 2026).
+- Modal 公开文档：https://modal.com/docs（截至 2026 年 10 月）。
 - ComputeSDK 基准测试结果，来自[我们的基准测试页面](/docs/benchmarks)（2026 年 10 月 23 日）。
 - MIOSA 功能，如本网站所述。
 
-- [MIOSA vs Vercel Sandbox](/docs/compare/vercel): The next comparison.
+- [MIOSA 与 Vercel Sandbox](/docs/compare/vercel)：下一项比较。
 - [所有比较](/docs/compare)：对每个提供商 MIOSA 进行衡量。

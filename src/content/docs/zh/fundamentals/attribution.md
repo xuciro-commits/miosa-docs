@@ -71,7 +71,7 @@ const sandboxes = await miosa.sandboxes.list({
 });
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 # Create

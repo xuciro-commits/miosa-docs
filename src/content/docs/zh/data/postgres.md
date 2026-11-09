@@ -44,7 +44,7 @@ await miosa.projects.dataServices.create(projectId, {
 
 您不需要 SDK。可以通过三种方式创建和使用相同的托管数据库。所有这些都使用相同的 API。
 
-**原始API（卷曲）：**
+**原始API（curl）：**
 ```bash
 # 1. Create a Postgres database
 curl -X POST https://api.miosa.ai/api/v1/databases \

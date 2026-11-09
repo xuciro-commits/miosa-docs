@@ -145,7 +145,7 @@ Last-Event-ID: evt_01hwxyz...
 
 ## 示例
 
-**卷曲**
+**curl**
 
 ```bash
 # All events

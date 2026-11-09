@@ -284,7 +284,7 @@ MIOSA 在大约 15.5 小时内（24 小时窗口内）进行最多 8 次递送�
 | `deployment.created` |部署已创建 |
 | `deployment.building` |构建开始 |
 | `deployment.build_started` |构建步骤开始执行 |
-| `deployment.build_succeeded` |构建产生了一个神器|
+| `deployment.build_succeeded` |构建产生了一个产物|
 | `deployment.build_failed` |构建失败 |
 | `deployment.ready` |部署服务流量 |
 | `deployment.error` |部署失败或崩溃 |
@@ -323,7 +323,7 @@ MIOSA 在大约 15.5 小时内（24 小时窗口内）进行最多 8 次递送�
 
 ## 示例
 
-**卷曲**
+**curl**
 
 ```bash
 # Create

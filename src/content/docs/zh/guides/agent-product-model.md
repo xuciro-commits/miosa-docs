@@ -6,16 +6,16 @@ section: "Agents"
 order: 6014
 ---
 
-MIOSA lets builders create products where agents do real work in cloud devices.
-The product model is deliberately small:
+MIOSA 让构建者创建这样的产品：智能体在云设备中完成真实工作。
+产品模型刻意保持精简：
 
 ```text
 Agent + Device + Tools + Run stream + Artifacts + Credits
 ```
 
-That model supports simple one-shot commands, generated app builders, browser
-automation, artifact workspaces, 24/7 company operators, white-label SaaS
-backends, and multi-agent fleets.
+该模型支持简单的一次性命令、生成式应用构建器、浏览器
+自动化、工件工作区、7×24 公司运营者、白标 SaaS
+后端，以及多智能体集群。
 
 使用此页面作为基于 MIOSA 构建的产品的规范词汇。
 
@@ -25,15 +25,15 @@ backends, and multi-agent fleets.
 
 |原始|意义|拥有者 |
 |---|---|---|
-|智能体| The worker identity: instructions, runtime, model, tools, memory, policy |您的产品或 MIOSA |
-|运行时| The implementation that reasons and acts: OSA, Codex, Claude Code, Hermes, Pi, custom |智能体配置|
-|设备|工作发生的机器：沙箱、计算机或本地设备 |米奥萨 |
-|运行| A prompt dispatched to an agent on a device |您的产品和 MIOSA |
-|会议| A long-lived run that can receive more tasks |智能体运行时 |
+|智能体|工作身份：指令、运行时、模型、工具、记忆、策略 |您的产品或 MIOSA |
+|运行时|负责推理与执行的实现：OSA、Codex、Claude Code、Hermes、Pi 或自定义 |智能体配置|
+|设备|工作发生的机器：沙箱、计算机或本地设备 |MIOSA |
+|运行|派发到设备上某个智能体的提示 |您的产品和 MIOSA |
+|会话|可接收更多任务的长期运行 |智能体运行时 |
 |工具|功能：文件、执行、浏览器、连接器、部署、工件、MCP |运行时和策略|
 |活动 |工作流式记录：工具调用、命令输出、文件更改、屏幕截图 | MIOSA 流 |
-|神器|持久的输出：文件、图像、PDF、DOCX、报告、预览、应用程序 URL | MIOSA 存储 |
-|快照| Saved filesystem/device state for resume, fork, or rollback |米奥萨 |
+|产物|持久的输出：文件、图像、PDF、DOCX、报告、预览、应用程序 URL | MIOSA 存储 |
+|快照|保存的文件系统/设备状态，用于恢复、分叉或回滚 |MIOSA |
 |学分|模型使用、设备运行时间、工具、存储和托管的计量单元 |帐单 |
 
 > **注意：不要将运行时与设备混淆**
@@ -59,27 +59,27 @@ flowchart LR
   P --> UI[Product UI]
 ```
 
-Your product backend decides:
+您的产品后端决定：
 
 - 用户是谁
-- what workspace, project, and budget apply
+- 适用哪个工作区、项目和预算
 - 应该运行哪个智能体
-- which runtime should power the agent
-- which device the agent can use
-- which tools and connectors are allowed
-- which actions require approval
-- how events appear in your UI
+- 由哪个运行时为智能体提供动力
+- 智能体可以使用哪台设备
+- 允许使用哪些工具和连接器
+- 哪些操作需要批准
+- 事件在您的 UI 中如何呈现
 
 MIOSA 提供：
 
 - 沙箱生命周期
 - 计算机生命周期
 - 本地设备配对
-- filesystem and exec APIs
-- browser/desktop execution
+- 文件系统与 exec API
+- 浏览器/桌面执行
 - 预览和路由
-- snapshots and persistence
-- artifacts and downloads
+- 快照与持久化
+- 工件与下载
 - 部署和 Docker 主机
 - 事件流
 - 信用计量挂钩
@@ -93,11 +93,11 @@ MIOSA 提供：
 - **工件工作区**：智能体创建 PDF、DOCX 文件、图表、图像、报告、ZIP 和
   HTML 预览，然后存储每个输出的版本历史记录。
 - **浏览器操作员**：智能体使用计算机单击、键入、登录、填写表格、检查页面，
-  capture screenshots, and verify workflows.
+  捕获截图，并验证工作流。
 - **虚拟设备产品**：用户和智能体共享持久设备，包括文件、浏览器状态、作业、
   预览、连接的应用程序和可恢复的会话。
 - **智能体公司平台**：协调器将工作委托给跨沙箱的部门智能体，
-  computers, connectors, and scheduled jobs.
+  计算机、连接器和定时任务。
 - **白标 SaaS 后端**：您的平台将用户的提示路由到 MIOSA 资源，同时
   保留您自己的工作区、项目和计费模型。
 
@@ -117,8 +117,8 @@ MIOSA 提供：
 |事件流 |实时进度、标准输出、屏幕截图、工件、错误 |
 |帐单 |按型号、设备、连接器、存储、部署划分的积分 |
 
-The product UI should make the run visible. Users should see what the agent is
-doing, not only a final chat answer.
+产品 UI 应让运行过程可见。用户应当看到智能体正在
+做什么，而不只是最终的聊天回答。
 
 推荐窗格：
 
@@ -126,7 +126,7 @@ doing, not only a final chat answer.
 - 当前计划
 - 实时工具调用
 - 命令输出
-- file tree or artifact list
+- 文件树或工件列表
 - 预览/浏览器面板
 - 批准
 - 使用的积分
@@ -134,7 +134,9 @@ doing, not only a final chat answer.
 
 ---
 
-## 规范运行形状```typescript
+## 规范运行形状
+
+```typescript
 type AgentRun = {
   id: string;
   tenantId: string;

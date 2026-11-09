@@ -19,7 +19,7 @@ order: 3012
 |哪里 |任何沙箱，任何模板|您创建并启动的计算机|
 |设置 | On by default;创建时无需选择|创建计算机，然后启动它 |
 | Live viewer |在沙盒页面上：控制、仅查看共享链接、全屏 |可嵌入短期 URL 的流式桌面 |
-| Agent access | Over CDP - 剧作家、木偶师 |屏幕截图和控制 API：鼠标、键盘、窗口、辅助功能 |
+| Agent access | Over CDP - Playwright、Puppeteer |屏幕截图和控制 API：鼠标、键盘、窗口、辅助功能 |
 |人类接管| The browser view | The whole desktop |
 | Other apps |否 - 仅浏览器 |是的 - 任何已安装的 Linux 应用程序 |
 | Persistence |保留暂停和恢复 |经受停止和启动|
@@ -31,7 +31,7 @@ order: 3012
 - 该任务完全存在于网页上。
 - 您想要最便宜的隔离环境：您已经用于代码的沙箱。
 - 一个人应该能够观看、控制或共享仅供查看的链接。
-- 剧作家或木偶师是你的司机。
+- Playwright或Puppeteer是你的司机。
 
 ## 选择计算机使用时间
 

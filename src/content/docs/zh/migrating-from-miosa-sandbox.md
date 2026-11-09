@@ -40,7 +40,7 @@ const client = new Miosa({ apiKey: process.env.MIOSA_API_KEY! });
 | `CreateSandboxOptions` | `SandboxCreateParams` |
 | `CreateComputerOptions` | `ComputerCreateParams` |
 
-##Python
+## Python
 
 ```bash
 pip install miosa
@@ -62,7 +62,7 @@ with Miosa(api_key="msk_...") as client:
 
 `MIOSA` 和 `AsyncMIOSA` 保存在兼容包中，并返回规范的 `miosa` 资源类；异步类变为 `AsyncMiosa`。
 
-## 去
+## Go
 
 ```bash
 go get github.com/Miosa-osa/miosa-go/v2

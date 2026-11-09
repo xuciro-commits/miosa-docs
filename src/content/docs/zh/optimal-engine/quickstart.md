@@ -1,6 +1,6 @@
 ---
 slug: "optimal-engine/quickstart"
-title: "最佳引擎快速入门"
+title: "Optimal Engine快速入门"
 description: "在您自己的计算机上运行 Optimal Engine、创建 API 密钥、创建工作区、存储源并进行搜索（通过结帐或使用 Docker）以及 MIOSA 上的最短路径。"
 section: "Optimal Engine"
 order: 8002
@@ -202,4 +202,4 @@ miosa engine connect notes-brain
 optimal search "supplier renewal"
 ```
 
-请参阅 [MIOSA 上的最佳引擎](/docs/optimal-engine/miosa) 了解其中包含的内容以及如何请求访问。
+请参阅 [MIOSA 上的Optimal Engine](/docs/optimal-engine/miosa) 了解其中包含的内容以及如何请求访问。

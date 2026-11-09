@@ -53,9 +53,9 @@ MIOSA 绝不会使用自己的模型密钥为您的智能体提供支持。
 
 运行按以下顺序查找帐户，并在找到的第一个帐户处停止：
 
-1.最终用户自己的连接。
+1. 最终用户自己的连接。
 2. 工作区的连接。
-3.组织的联系。
+3. 组织的联系。
 
 最终用户是运行所使用的机器上的用户。
 创建机器时，您可以使用 `externalUserId` 标记机器，该 ID 与平台中其他任何地方使用的 ID 相同（[所有权和归属 ](/docs/platform/attribution)）。
@@ -221,7 +221,9 @@ miosa connections signin wait SIGNIN_ID --external-user cus_123
 |模式|计划|用户做什么 |你做什么|
 |---|---|---|---|
 | `paste_code` |克劳德|在链接处批准，然后复制页面显示的代码。 |将该代码传递给 `submitCode`。 |
-| `device_code` | ChatGPT，基米 |打开链接并输入 `userCode`。 |在计时器上调用 `wait()` 或 `poll()`。 |`wait()` 在连接计划时解析。
+| `device_code` | ChatGPT，基米 |打开链接并输入 `userCode`。 |在计时器上调用 `wait()` 或 `poll()`。 |
+
+`wait()` 在连接计划时解析。
 如果登录失败、过期或被取消，则会拒绝 `SubscriptionSignInError`。
 `poll()` 永远不会因为登录失败而拒绝：读取其 `status`。
 `cancel()` 结束登录。
@@ -426,7 +428,9 @@ miosa connections use codex --model gpt-6.1-sol --effort high
 
 ```bash
 miosa prompt --harness opencode --model gpt-6.1-sol --sandbox my-box "add a health check"
-````miosa prompt --harness` 获取平台列出的每个工具，包括 CLI 发布后添加的工具。
+```
+
+`miosa prompt --harness` 获取平台列出的每个工具，包括 CLI 发布后添加的工具。
 `miosa connections harnesses opencode` 列出了该运行框架的型号以及可与所连接的设备配合使用的型号。
 
 ## 将其构建到您的产品中
@@ -493,7 +497,7 @@ app.post("/api/connect/claude/code", async (req, res) => {
 | `NOT_FOUND` | 404 | 404在这个范围内没有任何联系。 |
 | `UNKNOWN_CREDENTIAL` | 404 | 404 MIOSA 不知道任何凭证。 |
 | `UNKNOWN_TOOL_KEY` | 404 | 404没有工具服务器引用该秘密名称。 |
-| `OWN_CREDENTIALS_REQUIRED` | 422 | 422跑步开始时没有连接任何安全带。 |
+| `OWN_CREDENTIALS_REQUIRED` | 422 | 422跑步开始时没有连接任何运行框架。 |
 
 ## 底层的API
 
@@ -516,7 +520,9 @@ SDK 和 CLI 是薄包装器。
 | `GET /connections` |模型、应用程序和工具服务器位于一个列表中。 |
 | `GET /agents/settings` |在范围内做好准备。 |
 
-＃＃ 下一个- [智能体驱动的构建](/docs/quickstart/agent-driven-build)：连接帐户后针对沙箱运行智能体。
+## 后续步骤
+
+- [智能体驱动的构建](/docs/quickstart/agent-driven-build)：连接帐户后针对沙箱运行智能体。
 - [所有权和归属](/docs/platform/attribution)：用您自己的客户 ID 标记每台机器。
 - [产品中的智能体](/docs/platform/agents-in-your-product)：每个用户一台机器，有一个智能体在其中工作。
 - [智能体操作指南](/docs/guides/agent-operating-guide)：调度工作并收集结果。

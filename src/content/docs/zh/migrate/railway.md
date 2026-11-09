@@ -1,7 +1,7 @@
 ---
 slug: "migrate/railway"
-title: "从铁路搬家"
-description: "将铁路项目带到 MIOSA，其中包括一份经过审查的计划、每个环境都有自己的部署目标、已停止创建的服务以及一份保留的内容和您手动完成的内容的准确列表。"
+title: "从Railway搬家"
+description: "将Railway项目带到 MIOSA，其中包括一份经过审查的计划、每个环境都有自己的部署目标、已停止创建的服务以及一份保留的内容和您手动完成的内容的准确列表。"
 section: "Services & projects"
 order: 1013
 ---
@@ -32,7 +32,7 @@ miosa --version
 miosa connections add apps github
 ```
 
-- 假设铁路项目中的每个秘密都已泄露。
+- 假设Railway项目中的每个秘密都已泄露。
   Railway 于 2026 年 10 月 21 日披露，其秘密已被暴露，因此导入会复制名称，而不是值，除非您明确提出其他要求。
 
 ## 步骤
@@ -54,7 +54,7 @@ miosa service deploy acme-api api --deploy-target production
 
 ## 适用的是什么
 
-- 它创建项目，然后为每个铁路环境部署一个目标，重用已存在的目标。
+- 它创建项目，然后为每个Railway环境部署一个目标，重用已存在的目标。
 - 它在其环境的 Deploy 目标中创建每个服务，因此 `production` 和 `development` 保留单独的服务、变量和设置。
 - 它创建了每项服务**停止**。
   在使用 `miosa service deploy` 部署它或使用 `--deploy` 应用之前，不会构建或运行任何内容。
@@ -75,26 +75,28 @@ miosa service deploy acme-api api --deploy-target production
   诸如 `@acme/web` 之类的包名称将变为 `acme-web`，并对其进行引用。
   长度超过 40 个字符的 slug 会使用名称的短哈希进行缩短，每次运行都相同。
 
-## 继承什么|铁路|米奥萨 |
+## 继承什么
+
+| Railway | MIOSA |
 |---|---|
-|项目|项目|
-|环境 |具有相同名称的部署目标，具有自己的服务和变量 |
-|服务 | Web 服务、Worker 或 Schedule，在其环境的 Deploy 目标中 |
-|存储库、分支、根目录 |服务来源； GitHub 存储库通过您的 GitHub 连接进行链接 |
+| 项目 | 项目 |
+| 环境 | 同名的 Deploy 目标，拥有自己的服务和变量 |
+| 服务 | 环境所属 Deploy 目标中的 Web 服务、Worker 或 Schedule |
+| 存储库、分支、根目录 | 服务来源；GitHub 仓库通过你的 GitHub 连接关联 |
 | Dockerfile 路径 | `source.dockerfile`，相对于根目录 |
-|构建命令 | `source.build_command` |
-|启动命令 | `start_command` |
-|预部署命令（例如 `alembic upgrade head`、`drizzle-kit migrate`）| `pre_deploy_command` |
-|健康检查路径及超时 | `healthcheck_path` 和 `healthcheck_timeout_s` |
-|重新启动策略并重试 | `restart_policy` 和 `max_retries` |
-|复制品| `replicas`（1 到 50）|
-|计划任务 |日程服务|
-| `railway.json`、`railway.toml` |通过Railway从存储库中读取；文件胜过服务设置，就像铁路 |
-|变量|名称，构建可见，如在铁路上一样； `${{Service.VAR}}` 参考文献，在 MIOSA 名称不同的地方重写 |
-|共享变量 |同一部署目标的共享变量（名称） |
-| Postgres、Redis、MySQL 模板图像和插件 |具有托管数据库的数据库服务 |
-|域目标端口 |健康检查和公网地址使用的服务端口 |
-|自定义域 |上市；附有 `--attach-domains`，一旦 DNS 指向此处，就由 MIOSA 提供服务 |
+| 构建命令 | `source.build_command` |
+| 启动命令 | `start_command` |
+| 预部署命令（例如 `alembic upgrade head`、`drizzle-kit migrate`） | `pre_deploy_command` |
+| 健康检查路径与超时 | `healthcheck_path` 和 `healthcheck_timeout_s` |
+| 重启策略与重试次数 | `restart_policy` 和 `max_retries` |
+| 副本数 | `replicas`（1 到 50） |
+| Cron 计划 | 一个 Schedule 服务 |
+| `railway.json`、`railway.toml` | 通过 Railway 从仓库读取；文件优先于服务设置，与 Railway 上的行为一致 |
+| 变量 | 名称，构建时可见，与 Railway 上一致；`${{Service.VAR}}` 引用会在 MIOSA 名称不同处被改写 |
+| 共享变量 | 同一 Deploy 目标的共享变量（按名称） |
+| Postgres、Redis、MySQL 模板镜像和插件 | 带托管数据库的数据库服务 |
+| 域名目标端口 | 服务端口，健康检查和公网地址都使用它 |
+| 自定义域名 | 会列出；用 `--attach-domains` 附加，一旦其 DNS 指向此处，就由 MIOSA 提供服务 |
 
 每个设置都取自第一个位置：存储库的配置文件，然后是服务设置，然后是最新部署运行的内容。
 该计划记录了每种设置的哪一个。
@@ -104,7 +106,7 @@ miosa service deploy acme-api api --deploy-target production
 MIOSA 使用与 Railway 相同的 `${{Service.NAME}}` 引用语法。
 导入重写了不同的名称：
 
-|铁路参考|成为|
+| Railway 中的叫法 | 对应为 |
 |---|---|
 | `${{Redis.REDISHOST}}`、`REDISPORT`、`REDISPASSWORD` | `${{Redis.REDIS_HOST}}`、`REDIS_PORT`、`REDIS_PASSWORD` |
 | `${{Redis.REDISUSER}}` | `default` |
@@ -140,29 +142,31 @@ miosa service vars set <project> <service> NEXT_PUBLIC_API_URL=https://api.examp
 miosa service vars set <project> <service> STRIPE_KEY=<new value> --no-build
 ```
 
-## 什么不保留|铁路|该怎么办 |
+## 什么不保留
+
+| Railway | 需要做什么 |
 |---|---|
-|变量值 |为 MIOSA 设定新的价值观；见下文|
-|美国以外的区域（例如 `asia-southeast1`、`europe-west4`）| MIOSA 在 `us-east`、`us-west` 和 `us-mia` 中运行；该评论列出了所有此类服务和应用需求 `--region` |
-|生成器（Nixpacks）|如果存储库有 Dockerfile，MIOSA 会构建 Dockerfile，否则使用 Railpack 检测堆栈；检查第一个版本 |
-|手表图案| MIOSA 建立在每一次推动之上；评论列出了它们|
-|闲置时睡眠 |未携带；导入后设置 `sleep` 设置 |
-|数据库数据和卷内容 |未复制；审查列出了每个卷及其大小，然后您移动数据 |
-|服务量 |使用 `miosa volume create` 命令和要附加的安装路径列出 |
-| `*.up.railway.app` 域 |铁路所属DNS； MIOSA 分配 `<label>.<org>.miosa.app` |
-|使用 Railway CLI 上传的服务（无存储库或图像）|无源创建；使用 `miosa service deploy <project> <service> --dir <path>` | 上传代码
-| MongoDB 插件 |使用 `miosa db create --engine mongodb` | 创建 MongoDB 数据库
+| 变量值 | 在 MIOSA 上设置新的值；见下文 |
+| 美国以外的区域（例如 `asia-southeast1`、`europe-west4`） | MIOSA 运行在 `us-east`、`us-west` 和 `us-mia`；审核清单会列出每个此类服务，apply 时需要 `--region` |
+| 构建器（Nixpacks） | 若仓库中有 Dockerfile，MIOSA 会构建 Dockerfile，否则用 Railpack 检测技术栈；请检查首次构建 |
+| 监视模式 | MIOSA 在每次 push 时构建；审核清单会列出这些模式 |
+| 空闲休眠 | 不迁移；导入后设置 `sleep` 设置 |
+| 数据库数据和卷内容 | 不复制；审核清单会列出每个卷及其大小，数据由你自行迁移 |
+| 服务卷 | 会连同 `miosa volume create` 命令和需要挂载的挂载路径一起列出 |
+| `*.up.railway.app` 域名 | Railway 自有的 DNS；MIOSA 分配 `<label>.<org>.miosa.app` |
+| 用 Railway CLI 上传的服务（没有仓库或镜像） | 创建时没有来源；用 `miosa service deploy <project> <service> --dir <path>` 上传代码 |
+| MongoDB 插件 | 用 `miosa db create --engine mongodb` 创建 MongoDB 数据库 |
 
 ## 轮换秘密
 
 当变量没有值时，Apply 拒绝运行，除非您传递 `--allow-missing-values`，这会将这些变量创建为空。
 不管怎样，服务都会停止，所以任何事情都不会从丢失或泄露的秘密开始。
 
-1. 假设铁路项目中的每个秘密都已泄露。
+1. 假设Railway项目中的每个秘密都已泄露。
 2.导入时不要复制值；在 MIOSA 上设置新的。
 3. 首先轮换提供程序（数据库密码、Stripe、SMTP、API 密钥），然后将新值粘贴到 MIOSA 中。
 4. 设置新值后进行部署。
-5. MIOSA 通车后，删除旧的铁路项目。
+5. MIOSA 通车后，删除旧的Railway项目。
 
 ```bash
 miosa service vars set <project> <service> STRIPE_KEY=<new value> --deploy-target production
@@ -194,9 +198,9 @@ miosa import railway --cleanup --state .miosa/import-railway-acme-api.json --yes
 `--cleanup` 准确打印它将首先删除的内容，并仅删除那些 id。
 中断的应用以 `--resume` 继续。
 
-## 铁路术语、MIOSA 名称
+## Railway术语、MIOSA 名称
 
-|铁路说| MIOSA 称之为 |
+| Railway 的说法 | MIOSA 的叫法 |
 |---|---|
 |项目|项目|
 |环境 |部署目标 |

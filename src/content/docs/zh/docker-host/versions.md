@@ -88,7 +88,7 @@ for (const v of versions.data) {
 }
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl https://api.miosa.ai/api/v1/deployments/$DEP/versions?state=ready \
@@ -106,7 +106,7 @@ const result = await miosa.deployments.versions.promote(deploymentId, versionId)
 console.log(result.deployment.active_version_id) // === versionId
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/deployments/$DEP/versions/$VER/promote \

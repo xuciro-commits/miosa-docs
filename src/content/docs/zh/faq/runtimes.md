@@ -8,7 +8,7 @@ order: 16005
 
 关于启动沙箱的运行时的简短答案。
 
-##什么是SOMA？
+## 什么是 SOMA？
 
 SOMA（安全优化机器架构）是 MIOSA 在 Linux KVM 上自己的开源 Rust VMM，为每个沙箱提供一个具有自己内核的硬件隔离 VM。
 请参阅[SOMA](/docs/soma)。

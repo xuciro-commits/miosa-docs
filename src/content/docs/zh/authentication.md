@@ -153,7 +153,7 @@ curl https://api.miosa.ai/api/v1/computers \
 在几秒钟内强制执行 - 后续请求返回 `401 Unauthorized`。
 撤销是不可逆转的；如果您需要恢复访问权限，请创建一个新密钥。
 
-### 管理密钥
+### 管理员密钥
 
 `msk_a_*` 键解锁操作员管理员端点。
 `msk_p_*` 密钥是受信任的租户自动化凭据，但它们不会自动使调用者成为 MIOSA 操作员。
@@ -284,7 +284,9 @@ console.log(share.url); // Hand this URL to the end user.
 
 请参阅 [Sandbox Shares API 参考 ](/docs/api-reference/sandbox-shares) 和 [集成：预览令牌 ](/docs/develop/previews)。
 
----## 代币比较
+---
+
+## 代币比较
 
 |代币|范围 | TTL |谁使用它 |
 |---|---|---|---|

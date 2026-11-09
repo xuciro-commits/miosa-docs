@@ -1,6 +1,6 @@
 ---
 slug: "optimal-engine"
-title: "最佳引擎"
+title: "Optimal Engine"
 description: "Optimal Engine 是工作区背后的自托管内存和知识引擎 - 它保留源证据，构建经过审查的内存，并通过 HTTP、CLI 和 MCP 将引用的上下文返回给人员和智能体。"
 section: "Optimal Engine"
 order: 8000
@@ -10,7 +10,7 @@ order: 8000
 它保留您提供的来源，将其转化为某人已审阅的记忆，并将引用的上下文返回给人员和智能体。
 它是在 Apache 2.0 许可证下开源的，位于 [github.com/Miosa-osa/OptimalEngine](https://github.com/Miosa-osa/OptimalEngine)。
 
-最佳引擎不是最佳聊天智能体。
+Optimal Engine不是最佳聊天智能体。
 [Optimal](/docs/optimal) 是您在控制台中聊天的智能体。
 Optimal Engine 是它记住的存储：您自己运行的服务器，或者 MIOSA 上托管的服务器。
 
@@ -30,16 +30,16 @@ Optimal Engine 是它记住的存储：您自己运行的服务器，或者 MIOS
 
 ## 两种运行方式
 
-| |自托管 |关于 MIOSA |
+| |自托管 |在 MIOSA 上 |
 |---|---|---|
 |它在哪里运行 |您的机器、服务器或容器| MIOSA 工作区中的私人计算机 |
-|谁来运营？您：安装、密钥、备份、升级 | MIOSA：配置、备份、升级、运行状况检查 |
+|谁来运营 |您：安装、密钥、备份、升级 | MIOSA：配置、备份、升级、运行状况检查 |
 |搜索 |全文以及使用您自己的嵌入模型的矢量搜索 |全文|
-|如何达到目标 | `http://127.0.0.1:4200` 或您自己的域 | **内存**页面、最佳聊天、`miosa engine` 命令和工作区中的机器 |
+|如何访问它 | `http://127.0.0.1:4200` 或您自己的域 | **Memory** 页面、Optimal 聊天、`miosa engine` 命令和工作区中的机器 |
 |可用性 |任何人，来自存储库 |每个组织启用 |
 
 自托管不需要 MIOSA 的任何帮助。
-请参阅[自托管快速入门](/docs/optimal-engine/quickstart)或[MIOSA](/docs/optimal-engine/miosa)上的最佳引擎。
+请参阅[自托管快速入门](/docs/optimal-engine/quickstart)或[MIOSA](/docs/optimal-engine/miosa)上的Optimal Engine。
 
 > **注意：当前版本**
 >
@@ -53,4 +53,4 @@ Optimal Engine 是它记住的存储：您自己运行的服务器，或者 MIOS
 - [安装和配置](/docs/optimal-engine/install)：要求、Docker、设置、存储和 API 密钥。
 - [记忆和检索](/docs/optimal-engine/memory-and-retrieval)：如何搜索、询问和审查索赔。
 - [API 参考](/docs/optimal-engine/api)：身份验证、错误和主要路由示例。
-- [MIOSA](/docs/optimal-engine/miosa) 上的最佳引擎：工作区内存、托管引擎和 CLI 的密钥。
+- [MIOSA](/docs/optimal-engine/miosa) 上的Optimal Engine：工作区内存、托管引擎和 CLI 的密钥。

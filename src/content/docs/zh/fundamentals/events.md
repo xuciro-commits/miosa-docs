@@ -41,7 +41,7 @@ const source = new EventSource(url);
 source.onmessage = (e) => console.log(JSON.parse(e.data));
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 # 1. Mint a ticket
@@ -82,7 +82,7 @@ curl -N "https://api.miosa.ai/api/v1/sandboxes/sbx_abc123/events?ticket=$TICKET"
 |---|---|
 | `deployment.created` |已创建部署对象 |
 | `deployment.build_started` | Builder VM 已启动，构建正在进行中 |
-| `deployment.build_succeeded` |发布神器准备就绪 |
+| `deployment.build_succeeded` |发布产物准备就绪 |
 | `deployment.build_failed` |构建退出非零 |
 | `deployment.published` |活动版本更新，流量割断 |
 | `deployment.rollback` |活动版本重置为之前的版本 |

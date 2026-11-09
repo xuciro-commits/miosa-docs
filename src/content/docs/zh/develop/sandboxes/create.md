@@ -72,7 +72,7 @@ console.log(run.exec.stdout);
 console.log(run.timings.server_wait_and_exec_ms);
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes/run \
@@ -165,7 +165,7 @@ const sbx = await miosa.sandboxes.create({
 console.log(sbx.id, sbx.state, sbx.boot_ms);
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes \
@@ -242,7 +242,7 @@ const sbx = await miosa.sandboxes.get("sbx_a1b2c3d4");
 const sbx = await miosa.sandboxes.getByName("my-dev-env");
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl https://api.miosa.ai/api/v1/sandboxes/sbx_a1b2c3d4 \
@@ -279,7 +279,7 @@ const named   = await miosa.sandboxes.list({ name: "my-dev" });
 const byCorp  = await miosa.sandboxes.list({ externalWorkspaceId: "acme-corp" });
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl "https://api.miosa.ai/api/v1/sandboxes?status=running" \

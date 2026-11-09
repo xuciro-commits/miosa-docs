@@ -192,7 +192,9 @@ const computer = await miosa.computers.create({
   name: "browser-worker",
   agentRuntimeProfileId: "9f4b3d8e-0000-0000-0000-000000000000",
 })
-``````python
+```
+
+```python
 sandbox = client.sandboxes.create(
     template_id="nextjs",
     agent_runtime_profile_id="9f4b3d8e-0000-0000-0000-000000000000",
@@ -238,7 +240,7 @@ computer = client.computers.create(
 |构建应用程序 |文件、执行、实时预览、快照、工件、发布 |
 |浏览器质量检查 |浏览器、屏幕截图、点击、表单填写、预览访问 |
 |研究|网页搜索、页面提取、Refero 设计研究、笔记文件 |
-|神器工厂|文件、执行、媒体转换、工件、版本历史记录 |
+|产物工厂|文件、执行、媒体转换、工件、版本历史记录 |
 |集成|连接帐户、网络钩子、应用程序操作 |
 |操作员|计算机、浏览器、终端、长时间运行的作业 |
 

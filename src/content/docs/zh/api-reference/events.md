@@ -88,7 +88,7 @@ id: <monotonic ULID>
 |---|---|---|
 | `deployment.publish.queued` | `{version_id}` |发布已接受，等待构建器 |
 | `deployment.publish.building` | `{version_id, stage}` |生成器运行 |
-| `deployment.publish.uploading` | `{version_id, size_bytes}` |发布神器上传|
+| `deployment.publish.uploading` | `{version_id, size_bytes}` |发布产物上传|
 | `deployment.publish.promoting` | `{version_id}` |切换活动版本 |
 | `deployment.publish.completed` | `{version_id, deployment_id, url}` |直播 |
 | `deployment.publish.failed` | `{version_id, error_code, message}` |构建或运行状况检查失败 |

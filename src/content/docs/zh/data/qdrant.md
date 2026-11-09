@@ -97,7 +97,7 @@ await miosa.projects.dataServices.create(projectId, {
 })
 ```
 
-**卷曲：**
+**curl：**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/projects/$PROJECT_ID/data-services \

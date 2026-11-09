@@ -115,7 +115,7 @@ Authorization: Bearer msk_...
 
 ## 示例
 
-**卷曲**
+**curl**
 
 ```bash
 # Set

@@ -23,7 +23,7 @@ console.log(preview.url)
 // → https://3000-abc12345.sandbox.miosa.ai
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes/$SBX/previews \
@@ -60,7 +60,7 @@ console.log(share.share_url)
 //   <iframe src={shareUrl} sandbox="allow-same-origin allow-scripts" />
 ```
 
-**卷曲**
+**curl**
 
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes/$SBX/previews/$PREVIEW/share \
@@ -137,9 +137,9 @@ sequenceDiagram
 | |预览 |部署 URL |
 |---|---|---|
 |它指向什么 |实时沙盒端口 |不可变的部署版本 |
-|实时更新？ |是的 - 沙箱编辑立即反映 |否 - 仅在回滚/重新升级时进行更改 |
-|终身|绑在沙箱上 |坚持不懈|
-|用它来 |构建循环，共享正在进行的工作 |生产流量|
+|实时更新？ |是 - 沙箱中的编辑立即反映 |否 - 仅在回滚/重新升级时更改 |
+|生命周期 |与沙箱绑定 |持久 |
+|用途 |构建循环、共享进行中的工作 |生产流量 |
 
 您不会将预览升级为部署。您从沙箱发布（沙箱生成具有自己的 URL 的部署版本）。预览会一直存在，直到沙箱消失。
 
@@ -216,12 +216,14 @@ const share = await client.sandboxes.preview.share("sbx_abc123", preview.id, {
 const embedUrl = share.shareUrl; // pass this to the browser
 ```
 
-### TTL策略|使用案例 |推荐TTL |
+### TTL 策略
+
+|使用案例 |推荐的 TTL |
 |---|---|
 |互动工作会议 | 3 600 秒（1 小时）- 用户返回时刷新 |
 |简短演示或分享链接 | 900 秒（15 分钟）|
 |明确到期的公开共享 |长达 86 400 秒（24 小时）|
-|永久分享 |无 TTL - 使用`sandbox.share.create()`，无到期日，手动管理吊销 |
+|永久分享 |无 TTL - 使用不带到期时间的 `sandbox.share.create()`，手动管理吊销 |
 
 当令牌过期时，iframe 会显示来自预览智能体的“会话过期”消息。您的 UI 应捕获 iframe 中的 `message` 事件并透明地重新生成令牌。
 
@@ -237,10 +239,10 @@ const embedUrl = share.shareUrl; // pass this to the browser
 ></iframe>
 ```
 
-|旗帜|必需的？ |原因 |
+|标志 |必需？ |原因 |
 |---|---|---|
 | `allow-scripts` |是的 |预览内容运行 JavaScript。 |
-| `allow-same-origin` |是的 |让预览智能体设置会话 cookie。 |
+| `allow-same-origin` |是 |让预览代理可以设置会话 cookie。 |
 | `allow-forms` |推荐|许多沙盒应用程序都会提交表单。 |
 | `allow-popups` |可选|仅当您的沙盒应用程序打开新窗口时。 |
 | `allow-downloads` |可选|仅当您的沙盒应用程序提供文件下载服务时。 |
@@ -292,7 +294,7 @@ const token = await client.browserTokens.create({
 
 可用权限范围：
 
-|范围 |补助金 |
+|范围 |授予权限 |
 |---|---|
 | `sandbox:read` |读取沙箱元数据和状态 |
 | `sandbox:exec` |在沙箱内运行命令 |

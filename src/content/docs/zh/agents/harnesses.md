@@ -9,7 +9,7 @@ order: 6008
 运行框架是在机器上运行的编码智能体 MIOSA，以您自己的帐户运行。
 MIOSA 永远不会退回到自己的钥匙。
 
-## 安全带
+## 运行框架
 
 |运行框架| `runner` |
 |---|---|
@@ -29,7 +29,7 @@ MIOSA 永远不会退回到自己的钥匙。
 
 运行速度很快，因为机器很少在运行时安装任何东西。
 
-|准备好 |安全带|
+|准备好 |运行框架|
 |---|---|
 |机器镜像中预烘焙 |克劳德代码，法典，OSA |
 |首次使用时安装 | pi、OpenCode、Prime Agent、Kimi Code、Mistral Vibe |
@@ -85,4 +85,4 @@ MIOSA 运行该平台固定的 Hermes 版本，并且从不安装更新的版本
 
 - [快速入门](/docs/quickstart)：在沙箱中运行智能体。
 - [智能体、聊天和运行](/docs/cli/agents)：CLI 界面。
-- [与机器上的智能体聊天](/docs/agents/chat-on-a-machine)：从聊天中选择一个安全带。
+- [与机器上的智能体聊天](/docs/agents/chat-on-a-machine)：从聊天中选择一个运行框架。

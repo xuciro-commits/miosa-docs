@@ -13,7 +13,7 @@ MIOSA 在您的计算机上安装并监督运行程序进程，以便工作流�
 
 ## 注册一个跑步者
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa host gha-runner list <host>
@@ -70,7 +70,7 @@ CLI 标志名称与 API 字段名称不同：`--repo` 映射到 `repo_url`，`--
 
 ## 观看跑步者
 
-**米奥萨 CLI**
+**MIOSA CLI**
 
 ```bash
 miosa host gha-runner events <host> <runner>

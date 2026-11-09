@@ -1,12 +1,12 @@
 ---
 slug: "optimal-engine/concepts"
-title: "最佳发动机概念"
-description: "最佳引擎的对象是由租户、工作空间、节点、信号、源包、声明、事实、记忆、上下文包和投影构建的，以及源如何成为审查记忆。"
+title: "Optimal Engine概念"
+description: "Optimal Engine的对象是由租户、工作空间、节点、信号、源包、声明、事实、记忆、上下文包和投影构建的，以及源如何成为审查记忆。"
 section: "Optimal Engine"
 order: 8001
 ---
 
-最佳引擎将三件事分开：您提供的证据、从该证据中接受的真相以及它为读者构建的观点。
+Optimal Engine将三件事分开：您提供的证据、从该证据中接受的真相以及它为读者构建的观点。
 下面的每个对象都属于这三个对象之一。
 
 ## 拓扑结构
@@ -91,11 +91,13 @@ Signal = Mode + Genre + Type + Format + Structure
 
 `POST /api/memory/remember` 是门控方式：它对新记忆进行新颖性和显着性评分，然后添加它、更新类似记忆、跳过它或将其作为主张提出。
 
-## 读取内存|对象|它是什么 |
+## 读取内存
+
+| 对象 | 它是什么 |
 |---|---|
-|上下文包 |读者在一项任务中可能会看到什么：所使用的事实和记忆、它们的来源、置信度和有效性。这是一种观点，而不是真理。 |
-|活动内存池|一项任务的工作记忆，以及执行过程中进行的观察。 |
-|检索策略| `tiered`、`reconstructive` 或 `hybrid`。请参阅[内存和检索](/docs/optimal-engine/memory-and-retrieval)。 |
+| 上下文包 | 一个读者在一次任务中可能看到的内容：所使用的事实和记忆、它们的来源、置信度和有效期。它是一种视图，而不是真相。 |
+| 活动内存池 | 一次任务的工作记忆，以及在执行期间做出的观察。 |
+| 检索策略 | `tiered`、`reconstructive` 或 `hybrid`。参见[内存与检索](/docs/optimal-engine/memory-and-retrieval)。 |
 
 ## 预测
 

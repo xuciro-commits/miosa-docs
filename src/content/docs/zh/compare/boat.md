@@ -23,7 +23,7 @@ Boat 是一款用于 AI 智能体的云沙箱产品：带有 SSH 的持久 Ubunt
 
 ## 并排的功能
 
-|能力|米奥萨 |船|船源|
+| 能力 | MIOSA | boat | boat source |
 |---|---|---|---|
 |持久 Linux 机器 | [是的，沙箱和计算机](/docs/sandboxes-or-computers) |是的，支持 SSH 的 Ubuntu VM | [boat.dev](https://boat.dev/) |
 |机器内部的Docker | [是](/docs/develop/sandboxes/docker) |是的 | [boat.dev](https://boat.dev/) |
@@ -37,8 +37,8 @@ Boat 是一款用于 AI 智能体的云沙箱产品：带有 SSH 的持久 Ubunt
 |托管数据库| [Postgres、MySQL、Redis、MongoDB、Qdrant](/docs/data/overview) |不在文档索引中 | [llms.txt](https://docs.boat.dev/llms.txt) |
 | SDK | [TypeScript、Python、Go、Elixir、Java、Rust](/docs/sdks) | Python、TypeScript | [快速入门](https://docs.boat.dev/quickstart.md) |
 |命令行 | [是](/docs/cli) |是的 | [CLI 参考](https://docs.boat.dev/cli-reference.md) |
-|计费| [运行时每秒，每种尺寸一个价格](/docs/pricing) |运行时每秒；每月 20 至 2000 美元的计划将作为计算回来[定价](https://docs.boat.dev/pricing) |
-|地区 | [美国东部、美国西部、美国米亚](/docs/regions) |仅限欧盟 | [定价](https://docs.boat.dev/pricing) |
+| 计费 | [运行时每秒，每种尺寸一个价格](/docs/pricing) | 运行时每秒；每月 20 至 2000 美元的计划将作为计算回来 | [定价](https://docs.boat.dev/pricing) |
+| 地区 | [us-east、us-west、us-mia](/docs/regions) | 仅限欧盟 | [定价](https://docs.boat.dev/pricing) |
 
 ## 船通向何处
 

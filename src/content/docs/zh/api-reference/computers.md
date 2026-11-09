@@ -52,7 +52,7 @@ order: 12029
 健康。配置文件连接器通过 MIOSA 出口绑定为不透明
 `miosa-tok-*` 占位符标记。
 
-### 响应 - `201 Created`
+### 响应  -  `201 Created`
 ```json
 {
   "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -133,7 +133,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers \
 | `external_user_id` |字符串|按您的最终用户 ID 进行过滤。 |
 | `external_project_id` |字符串|按您的项目/应用程序/文档 ID 进行过滤。 |
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 ```json
 {
   "computers": [
@@ -174,11 +174,13 @@ curl "https://api.miosa.ai/api/v1/computers?project_id=770e8400-e29b-41d4-a716-4
 |------------|------|-------------|
 | `id` | UUID |计算机 ID |
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 
 完整的计算机对象（与创建响应相同，具有当前状态）。
 
-### 错误|状态 |错误 |原因 |
+### 错误
+
+| 状态 | 错误 | 原因 |
 |--------|--------|--------|
 | 400 | `invalid computer id` |不是有效的 UUID |
 | 404 | 404 `computer not found` |不存在或属于不同的租户 |
@@ -201,7 +203,7 @@ curl https://api.miosa.ai/api/v1/computers/{id} \
 |--------|------|-------------|
 | `agent_session_id` |字符串|链接 AI 智能体会话 |
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 
 更新的计算机对象。
 ```bash
@@ -219,7 +221,7 @@ curl -X PATCH https://api.miosa.ai/api/v1/computers/{id} \
 
 永久销毁虚拟机并删除计算机记录。
 
-### 响应 - `202 Accepted`
+### 响应  -  `202 Accepted`
 
 返回计算机对象；它的 `state` 反映了正在进行的破坏。
 
@@ -242,7 +244,7 @@ curl -X DELETE https://api.miosa.ai/api/v1/computers/{id} \
 
 恢复停止或暂停的计算机。
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 
 使用 `status: "running"` 更新了计算机对象。
 
@@ -265,7 +267,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/start \
 
 暂停正在运行的计算机。稍后可以重新启动。
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 
 使用 `status: "stopped"` 更新了计算机对象。
 
@@ -287,7 +289,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/stop \
 
 停止并立即重新启动正在运行的计算机。
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 
 更新的计算机对象。
 
@@ -307,7 +309,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/restart \
 
 **`GET /api/v1/computers/{id}/auto-stop`**
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 ```json
 {
   "auto_stop_seconds": 3600,
@@ -331,7 +333,7 @@ curl https://api.miosa.ai/api/v1/computers/{id}/auto-stop \
 |--------|------|-------------|
 | `seconds` |整数 |自动停止前不活动的秒数。 `0` 禁用。 |
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 
 更新了自动停止配置。
 ```bash
@@ -349,7 +351,7 @@ curl -X PATCH https://api.miosa.ai/api/v1/computers/{id}/auto-stop \
 
 返回直接桌面流访问的凭据。
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 ```json
 {
   "desktop_url": "https://my-computer.computer.miosa.ai/desktop/index.html",
@@ -373,7 +375,7 @@ curl https://api.miosa.ai/api/v1/computers/{id}/vnc-credentials \
 
 返回桌面和终端 WebSocket 连接的有时间限制的身份验证令牌。
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 ```json
 {
   "token": "stream_auth_token",
@@ -393,7 +395,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/stream-token \
 
 返回计算机的所有连接 URL。
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 ```json
 {
   "desktop_url": "https://my-computer.computer.miosa.ai/desktop/index.html",
@@ -415,7 +417,7 @@ curl https://api.miosa.ai/api/v1/computers/{id}/urls \
 
 返回计算机上安装的应用程序列表。
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 
 包含已安装应用程序列表的响应。
 ```bash
@@ -439,7 +441,7 @@ curl https://api.miosa.ai/api/v1/computers/{id}/apps \
 | `memory_mb` |整数 |没有 |目标内存（以 MiB 为单位）|
 | `disk_gb` |整数 |没有 |目标磁盘（以 GiB 为单位）|
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 
 使用新分配更新了计算机对象。
 
@@ -464,7 +466,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/resize \
 |--------|------|----------|-------------|
 | `workspace_id` |字符串|是的 |目标工作区 ID |
 
-### 响应 - `200 OK`
+### 响应  -  `200 OK`
 
 使用新的 `workspace_id` 更新了计算机对象。
 
@@ -487,7 +489,9 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/move \
 
 |参数|类型 |描述 |
 |------------|------|-------------|
-| `window` |字符串|时间窗口：`"1h"`（默认）、`"24h"`、`"7d"` |### 响应 - `200 OK`
+| `window` |字符串|时间窗口：`"1h"`（默认）、`"24h"`、`"7d"` |
+
+### 响应  -  `200 OK`
 
 ```json
 {

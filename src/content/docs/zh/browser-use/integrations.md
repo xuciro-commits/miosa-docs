@@ -15,8 +15,8 @@ order: 2028
 
 |客户|语言 |版本 |状态 |
 |---|---|---|---|
-|剧作家 | JavaScript | 1.64.0 | **经过测试** |
-|剧作家 |蟒蛇 | 1.63.0 | **经过测试** |
+|Playwright | JavaScript | 1.64.0 | **经过测试** |
+|Playwright |蟒蛇 | 1.63.0 | **经过测试** |
 |傀儡师 | JavaScript | 25.13.0 | **经过测试** |
 |原始 CDP |节点（无库）|节点 24 | **经过测试** |
 |舞台工作人员| JavaScript | 3.7.3 | **经过测试** |
@@ -54,7 +54,7 @@ wss://api.miosa.ai/api/v1/sandboxes/{id}/browser/cdp
 
 ## 客户端示例
 
-**剧作家（JavaScript）**
+**Playwright（JavaScript）**
 
 ```javascript
 import { chromium } from "playwright"
@@ -80,7 +80,7 @@ const browserConn = await chromium.connectOverCDP(browser.cdp_url, {
 })
 ```
 
-**剧作家（Python）**
+**Playwright（Python）**
 
 ```python
 from playwright.sync_api import sync_playwright
