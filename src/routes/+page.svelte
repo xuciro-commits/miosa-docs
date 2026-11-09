@@ -148,13 +148,15 @@
 		font-weight: 550;
 	}
 	.home-section {
-		max-width: 1280px;
-		margin: auto;
-		border-top: 1px solid #292d3455;
+		margin: 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
 		position: relative;
 	}
 	.infrastructure {
-		padding: 125px 0 145px;
+		padding: 8rem clamp(1.25rem, 7vw, 7.5rem);
+		background: #07080b8a;
+		-webkit-backdrop-filter: blur(5px);
+		backdrop-filter: blur(5px);
 	}
 	.section-heading {
 		display: grid;
@@ -181,7 +183,7 @@
 		grid-template-columns: repeat(3, 1fr);
 		gap: 65px;
 		margin-top: 75px;
-		border-top: 1px solid #25272c;
+		border-top: 1px solid rgba(255, 255, 255, 0.14);
 		padding-top: 35px;
 	}
 	.infrastructure-steps a {
@@ -215,12 +217,15 @@
 		opacity: 1;
 	}
 	.customer-section {
-		padding: 160px 0;
+		padding: 7rem clamp(1.25rem, 7vw, 7.5rem);
+		background: #07080b70;
+		-webkit-backdrop-filter: blur(4px);
+		backdrop-filter: blur(4px);
 		display: grid;
 		grid-template-columns: 1.5fr 1fr;
 		align-items: center;
 		gap: 95px;
-		min-height: 610px;
+		min-height: 68svh;
 	}
 	.customer-section h2 {
 		font-size: 62px;
@@ -231,7 +236,11 @@
 		padding: 13px 20px;
 	}
 	.closing-section {
-		padding: 110px 0 120px;
+		padding: 7rem clamp(1.25rem, 7vw, 7.5rem);
+		min-height: 31rem;
+		background: #050608c2;
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);
 		text-align: center;
 	}
 	.closing-section h2 {
@@ -294,17 +303,7 @@
 		color: #c1c8d2;
 		font-size: 11px;
 	}
-	@media (max-width: 1400px) {
-		.home-section {
-			margin-left: 100px;
-			margin-right: 100px;
-		}
-	}
 	@media (max-width: 1000px) {
-		.home-section {
-			margin-left: 55px;
-			margin-right: 55px;
-		}
 		.home-section h2 {
 			font-size: 50px;
 		}
@@ -322,10 +321,6 @@
 		}
 	}
 	@media (max-width: 650px) {
-		.home-section {
-			margin-left: 25px;
-			margin-right: 25px;
-		}
 		.benchmark-link {
 			font-size: 9px;
 			align-items: flex-start;
@@ -333,9 +328,6 @@
 		}
 		.benchmark-link > span {
 			max-width: 220px;
-		}
-		.infrastructure {
-			padding: 80px 0;
 		}
 		.section-heading,
 		.customer-section {
@@ -366,11 +358,7 @@
 			opacity: 1;
 		}
 		.customer-section {
-			padding: 90px 0;
 			min-height: 0;
-		}
-		.closing-section {
-			padding: 80px 0;
 		}
 		.closing-section h2 {
 			font-size: 37px;

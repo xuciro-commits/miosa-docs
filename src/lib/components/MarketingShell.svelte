@@ -345,6 +345,34 @@
 	.system-status i.error {
 		background: #d5a17e;
 	}
+	.marketing-page:not(.pricing) .marketing-footer {
+		max-width: none;
+		margin: 0;
+		padding: 5rem clamp(1.25rem, 7vw, 7.5rem) 2rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		background: #050608db;
+		-webkit-backdrop-filter: blur(12px);
+		backdrop-filter: blur(12px);
+	}
+	.marketing-page:not(.pricing) .footer-statement {
+		border-bottom: 0;
+		padding-bottom: 3.5rem;
+	}
+	.marketing-page:not(.pricing) .marketing-footer-grid {
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 3.5rem 0 4rem;
+		gap: 2.5rem 2rem;
+	}
+	.marketing-page:not(.pricing) .marketing-base {
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		padding-top: 2rem;
+	}
+	@media (max-width: 480px) {
+		.marketing-page:not(.pricing) .marketing-footer {
+			padding-inline: 1rem;
+		}
+	}
+
 	.pricing {
 		--pr-radius-card: 12px;
 		--pr-radius-control: 8px;

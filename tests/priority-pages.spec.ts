@@ -307,3 +307,39 @@ test('reduced-motion product field is static and opens the first selected guide 
 	const markdown = await request.get('/docs/build/lovable.md');
 	expect(await markdown.text()).toContain('Run, observe, and publish');
 });
+
+test('homepage sections preserve the reference overlays and full-width dividers', async ({
+	page
+}) => {
+	const layers = [
+		['.home-hero', 'rgba(0, 0, 0, 0)', 'none'],
+		['.infrastructure', 'rgba(7, 8, 11, 0.54)', 'blur(5px)'],
+		['.customer-section', 'rgba(7, 8, 11, 0.44)', 'blur(4px)'],
+		['.closing-section', 'rgba(5, 6, 8, 0.76)', 'blur(10px)'],
+		['.marketing-footer', 'rgba(5, 6, 8, 0.86)', 'blur(12px)']
+	];
+	for (const width of [1440, 390]) {
+		await page.setViewportSize({ width, height: 1000 });
+		await ready(page, '/');
+		for (const [selector, background, blur] of layers) {
+			const section = page.locator(selector);
+			await expect(section).toHaveCSS('background-color', background);
+			await expect(section).toHaveCSS('backdrop-filter', blur);
+			await expect(section).toHaveCSS('opacity', '1');
+			const bounds = await section.evaluate((el) => {
+				const r = el.getBoundingClientRect();
+				return {
+					left: r.left,
+					right: r.right,
+					viewport: document.body.getBoundingClientRect().right
+				};
+			});
+			expect(bounds.left).toBe(0);
+			expect(bounds.right).toBe(bounds.viewport);
+			if (selector !== '.home-hero') {
+				await expect(section).toHaveCSS('border-top-color', 'rgba(255, 255, 255, 0.1)');
+				await expect(section).toHaveCSS('border-top-width', '1px');
+			}
+		}
+	}
+});
