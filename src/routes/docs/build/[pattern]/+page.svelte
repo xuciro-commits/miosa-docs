@@ -1,11 +1,11 @@
 <script lang="ts">
 	import RequestBuilder from '#lib/components/RequestBuilder.svelte';
 	import Callout from '#lib/components/Callout.svelte';
-	import { t } from '#lib/i18n.svelte.js';
+	import { i18n, t } from '#lib/i18n.svelte.js';
 	let { data } = $props();
 	const product = $derived(data.product);
 	const Content = $derived(data.Content);
-	const html = $derived(data.html);
+	const html = $derived(i18n.locale === 'zh' ? data.htmlZh : data.html);
 	const computer = $derived(
 		!!product && /computer|desktop|browser|persistent/.test(product.blurb)
 	);

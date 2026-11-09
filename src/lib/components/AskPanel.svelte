@@ -3,10 +3,10 @@
 	import { page } from '$app/state';
 	import { X, ArrowUp, Square, BookOpen, ArrowUpRight, RotateCcw } from '@lucide/svelte';
 	import { preferences } from '#lib/preferences.svelte.js';
-	import { t } from '#lib/i18n.svelte.js';
+	import { i18n, t } from '#lib/i18n.svelte.js';
 	import { staticSite } from '#lib/site-mode.js';
 	import { searchDocuments } from '#lib/search.js';
-	import { searchIndex, type SearchEntry } from '#lib/content/catalog.js';
+	import { searchIndex, searchIndexZh, type SearchEntry } from '#lib/content/catalog.js';
 	let question = $state('');
 	let busy = $state(false);
 	let error = $state('');
@@ -53,7 +53,7 @@
 		controller = new AbortController();
 		try {
 			if (staticSite) {
-				const index: SearchEntry[] = searchIndex;
+				const index: SearchEntry[] = i18n.locale === 'zh' ? searchIndexZh : searchIndex;
 				const keywords = text
 					.replace(/[^\p{L}\p{N}\s-]/gu, ' ')
 					.split(/\s+/)

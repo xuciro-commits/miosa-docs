@@ -14,7 +14,12 @@ export async function load({ params }) {
 	const slug = `build/${params.pattern}`;
 	const article = articles.find((item) => item.slug === slug);
 	if (article?.generated) {
-		return { html: marked.parse(article.raw) as string, product: null, Content: null };
+		return {
+			html: marked.parse(article.raw) as string,
+			htmlZh: marked.parse(article.rawZh ?? article.raw) as string,
+			product: null,
+			Content: null
+		};
 	}
 	if (article?.path) {
 		const module = (await components[article.path]()) as {

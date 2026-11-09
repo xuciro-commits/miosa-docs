@@ -2,12 +2,13 @@
 export type NavNode = {
 	slug?: string;
 	title: string;
+	titleZh?: string;
 	icon: string;
 	count?: string;
 	children?: NavNode[];
 };
 export type NavItem = NavNode & { group: string; href: string };
-export const generatedNavigation: { title: string; count?: string; items: NavNode[] }[] = [
+export const generatedNavigation: { title: string; titleZh?: string; count?: string; items: NavNode[] }[] = [
 	{
 		title: "Get started",
 		count: "9",

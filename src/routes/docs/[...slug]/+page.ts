@@ -15,7 +15,11 @@ export async function load({ params }) {
 			'This page does not exist. Search the documentation or choose a page from the sidebar.'
 		);
 	if (article.generated) {
-		return { html: marked.parse(article.raw) as string, Content: null };
+		return {
+		html: marked.parse(article.raw) as string,
+		htmlZh: marked.parse(article.rawZh ?? article.raw) as string,
+		Content: null
+	};
 	}
 	if (!article.path) error(404, 'Page content is unavailable');
 	const module = (await components[article.path]()) as { default: import('svelte').Component };

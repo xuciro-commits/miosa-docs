@@ -3,7 +3,7 @@
 	import { i18n, translateContent } from '#lib/i18n.svelte.js';
 	let { data } = $props();
 	const Content = $derived(data.Content);
-	const html = $derived(data.html);
+	const html = $derived(i18n.locale === 'zh' ? data.htmlZh : data.html);
 	let article = $state<HTMLElement>();
 
 	// Translate rendered text nodes with the content dictionary. Keeping the
@@ -11,6 +11,7 @@
 	$effect(() => {
 		void data.Content;
 		void data.html;
+		void data.htmlZh;
 		const locale = i18n.locale;
 		const root = article;
 		if (!root) return;

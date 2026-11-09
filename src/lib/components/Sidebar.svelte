@@ -12,6 +12,8 @@
 	} from '@lucide/svelte';
 	import { navigation } from '#lib/content/navigation.js';
 	import type { NavNode } from '#lib/content/generated-navigation.js';
+	import { navLabelsZh } from '#lib/i18n/nav-labels-zh.js';
+	import { navSlugZh } from '#lib/i18n/nav-slug-zh.js';
 	import { preferences } from '#lib/preferences.svelte.js';
 	import { progress } from '#lib/learning.svelte.js';
 	import { i18n, t } from '#lib/i18n.svelte.js';
@@ -40,7 +42,8 @@
 		Help: 'docs.nav.group.help'
 	};
 
-	function groupLabel(title: string): string {
+	function groupLabel(title: string, titleZh?: string): string {
+		if (i18n.locale === 'zh' && titleZh) return titleZh;
 		const key = groupKeys[title];
 		return key ? t(key) : title;
 	}
@@ -52,7 +55,14 @@
 		const translated = t(navKey(slug));
 		return translated === navKey(slug) ? fallback : translated;
 	}
-	function itemLabel(item: { slug?: string; title: string }): string {
+	function itemLabel(item: { slug?: string; title: string; titleZh?: string }): string {
+		if (i18n.locale === 'zh') {
+			if (item.titleZh) return item.titleZh;
+			const translated = item.slug ? navSlugZh[item.slug] : undefined;
+			if (translated) return translated;
+			const structural = navLabelsZh[item.title];
+			if (structural) return structural;
+		}
 		return item.slug ? navLabel(item.slug, item.title) : item.title;
 	}
 	function containsSlug(item: NavNode, slug: string): boolean {
@@ -102,7 +112,7 @@
 					.filter((item): item is NonNullable<typeof item> => item !== null);
 				return {
 					...group,
-					label: groupLabel(group.title),
+					label: groupLabel(group.title, group.titleZh),
 					items
 				};
 			})

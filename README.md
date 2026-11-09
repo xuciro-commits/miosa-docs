@@ -29,7 +29,7 @@ MIOSA 发布校验会扫描公开示例中的环境变量引用。文档使用 `
 
 ## 多语言
 
-站点提供 English / 简体中文切换。页头的语言按钮会把选择写入 `localStorage`（`miosa-locale`），并在刷新和页面切换后保持。界面文案使用 `src/lib/i18n/messages/` 下的命名空间字典；文章内容仍保留单一英文 SVX 源文件，由 `src/lib/i18n.svelte.ts` 的 `translateContent` 在运行时按内容字典翻译，避免复制页面代码。
+站点提供 English / 简体中文切换。页头的语言按钮会把选择写入 `localStorage`（`miosa-locale`），并在刷新和页面切换后保持。界面文案使用 `src/lib/i18n/messages/` 下的命名空间字典；每篇文档对应 `src/content/docs/en/<slug>.md` 和 `src/content/docs/zh/<slug>.md` 两个独立 Markdown 文件，由页面按当前语言直接渲染，不使用运行时字符串替换。
 
 ## 启动
 

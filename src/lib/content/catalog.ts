@@ -6,6 +6,8 @@ export type DocMeta = {
 	description: string;
 	section: string;
 	order: number;
+	titleZh?: string;
+	descriptionZh?: string;
 };
 export type SearchEntry = {
 	slug: string;
@@ -15,7 +17,12 @@ export type SearchEntry = {
 	text: string;
 	href: string;
 };
-export type Article = DocMeta & { path?: string; raw: string; generated?: boolean };
+export type Article = DocMeta & {
+	path?: string;
+	raw: string;
+	rawZh?: string;
+	generated?: boolean;
+};
 
 const rawFiles = import.meta.glob('/src/content/docs/**/*.md', {
 	eager: true,
@@ -23,7 +30,7 @@ const rawFiles = import.meta.glob('/src/content/docs/**/*.md', {
 	import: 'default'
 }) as Record<string, string>;
 
-function parseFrontmatter(source: string): Article {
+function parseFrontmatter(source: string): Omit<Article, 'path'> {
 	const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
 	const body = match ? source.slice(match[0].length) : source;
 	const fields: Record<string, string> = {};
@@ -47,8 +54,30 @@ function parseFrontmatter(source: string): Article {
 	};
 }
 
-export const articles: Article[] = Object.entries(rawFiles)
-	.map(([path, source]) => ({ ...parseFrontmatter(source), path }))
+type ParsedFile = ReturnType<typeof parseFrontmatter> & { lang: 'en' | 'zh'; path: string };
+const parsedFiles: ParsedFile[] = Object.entries(rawFiles).map(([path, source]) => ({
+	...parseFrontmatter(source),
+	lang: path.includes('/zh/') ? 'zh' : 'en',
+	path
+}));
+const bySlug = new Map<string, { en?: ParsedFile; zh?: ParsedFile }>();
+for (const file of parsedFiles) {
+	const entry = bySlug.get(file.slug) ?? {};
+	if (file.lang === 'zh') entry.zh = file;
+	else entry.en = file;
+	bySlug.set(file.slug, entry);
+}
+export const articles: Article[] = [...bySlug.values()]
+	.filter((entry) => entry.en)
+	.map(({ en, zh }) => ({
+		...en!,
+		raw: en!.raw,
+		rawZh: zh?.raw,
+		titleZh: zh?.title,
+		descriptionZh: zh?.description,
+		path: en!.path,
+		generated: true
+	}))
 	.sort((a, b) => a.order - b.order);
 
 export const specialPages: DocMeta[] = [
@@ -149,11 +178,25 @@ export function plainText(source: string) {
 		.trim();
 }
 
-export const searchIndex: SearchEntry[] = documents.map((doc) => ({
-	slug: doc.slug,
-	title: doc.title,
-	description: doc.description,
-	section: doc.section,
-	text: plainText(articles.find((a) => a.slug === doc.slug)?.raw ?? doc.description).slice(0, 240),
-	href: `/docs${doc.slug ? '/' + doc.slug : ''}`
-}));
+function makeSearchIndex(locale: 'en' | 'zh'): SearchEntry[] {
+	return documents.map((doc) => {
+		const article = articles.find((a) => a.slug === doc.slug);
+		return {
+			slug: doc.slug,
+			title: locale === 'zh' ? doc.titleZh ?? article?.titleZh ?? doc.title : doc.title,
+			description:
+				locale === 'zh'
+					? doc.descriptionZh ?? article?.descriptionZh ?? doc.description
+					: doc.description,
+			section: doc.section,
+			text: plainText(
+				locale === 'zh'
+					? article?.rawZh ?? article?.raw ?? doc.description
+					: article?.raw ?? doc.description
+			).slice(0, 240),
+			href: `/docs${doc.slug ? '/' + doc.slug : ''}`
+		};
+	});
+}
+export const searchIndex = makeSearchIndex('en');
+export const searchIndexZh = makeSearchIndex('zh');

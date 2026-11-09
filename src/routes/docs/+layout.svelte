@@ -6,6 +6,8 @@
 	import products from '#lib/content/products.json';
 	import { preferences } from '#lib/preferences.svelte.js';
 	import { i18n, t } from '#lib/i18n.svelte.js';
+	import { navSlugZh } from '#lib/i18n/nav-slug-zh.js';
+	import { sectionZh } from '#lib/i18n/nav-labels-zh.js';
 	import Header from '#lib/components/Header.svelte';
 	import Sidebar from '#lib/components/Sidebar.svelte';
 	import TableOfContents from '#lib/components/TableOfContents.svelte';
@@ -33,9 +35,19 @@
 		'CLI, SDKs & MCP': 'docs.nav.group.cliSdksMcp',
 		'API reference': 'docs.nav.group.apiReference',
 		'Organization & security': 'docs.nav.group.organizationSecurity',
-		Build: 'docs.nav.build'
+		Optimal: 'docs.nav.group.optimal',
+		'Optimal Engine': 'docs.nav.group.optimalEngine',
+		'Platform builders': 'docs.nav.group.platformBuilders',
+		Build: 'docs.nav.group.build',
+		'Organization & billing': 'docs.nav.group.organizationBilling',
+		'Security & compliance': 'docs.nav.group.securityCompliance',
+		'Self-hosting': 'docs.nav.group.selfHosting',
+		Compare: 'docs.nav.group.compare',
+		Reference: 'docs.nav.group.reference',
+		Help: 'docs.nav.group.help'
 	};
 	function sectionLabel(section: string): string {
+		if (i18n.locale === 'zh') return sectionZh[section] ?? section;
 		const key = sectionKeys[section];
 		return key ? t(key) : section;
 	}
@@ -64,8 +76,9 @@
 		const translated = t(key);
 		return translated === key ? product.name : translated;
 	}
-	function pageTitle(slugValue: string, fallback: string): string {
+	function pageTitle(slugValue: string, fallback: string, fallbackZh?: string): string {
 		if (i18n.locale === 'en') return fallback;
+		if (fallbackZh) return fallbackZh;
 		if (slugValue.startsWith('build/')) {
 			const prefix = fallback.startsWith('Run ')
 				? t('docs.page.build.runPrefix')
@@ -75,8 +88,9 @@
 		}
 		return translatedPageText(slugValue, 'title', fallback);
 	}
-	function pageDescription(slugValue: string, fallback: string): string {
+	function pageDescription(slugValue: string, fallback: string, fallbackZh?: string): string {
 		if (i18n.locale === 'en') return fallback;
+		if (fallbackZh) return fallbackZh;
 		if (slugValue.startsWith('build/')) {
 			const product = productFor(slugValue);
 			if (product) {
@@ -87,15 +101,17 @@
 		}
 		return translatedPageText(slugValue, 'description', fallback);
 	}
-	function navTitle(slugValue: string, fallback: string): string {
+	function navTitle(slugValue: string, fallback: string, fallbackZh?: string): string {
 		if (i18n.locale === 'en') return fallback;
+		if (slugValue && navSlugZh[slugValue]) return navSlugZh[slugValue];
+		if (fallbackZh) return fallbackZh;
 		const key = `docs.nav.${slugValue ? slugValue.replaceAll('/', '.') : 'introduction'}`;
 		const value = t(key);
 		return value === key ? fallback : value;
 	}
-	const currentTitle = $derived(pageTitle(slug, doc?.title ?? t('docs.layout.pageNotFound')));
+	const currentTitle = $derived(pageTitle(slug, doc?.title ?? t('docs.layout.pageNotFound'), doc?.titleZh));
 	const currentDescription = $derived(
-		pageDescription(slug, doc?.description ?? t('docs.layout.pageNotFoundDescription'))
+		pageDescription(slug, doc?.description ?? t('docs.layout.pageNotFoundDescription'), doc?.descriptionZh)
 	);
 </script>
 
@@ -137,11 +153,11 @@
 					>
 						{#if previous}<a href={previous.href}
 								><small>{t('docs.layout.previous')}</small><span
-									><ArrowLeft size={13} />{navTitle(previous.slug ?? '', previous.title)}</span
+									><ArrowLeft size={13} />{navTitle(previous.slug ?? '', previous.title, previous.titleZh)}</span
 								></a
 							>{:else}<span></span>{/if}{#if next}<a href={next.href} class="next"
 								><small>{t('docs.layout.next')}</small><span
-									>{navTitle(next.slug ?? '', next.title)}<ArrowRight size={13} /></span
+									>{navTitle(next.slug ?? '', next.title, next.titleZh)}<ArrowRight size={13} /></span
 								></a
 							>{/if}
 					</nav>{/if}

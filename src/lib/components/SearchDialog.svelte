@@ -12,13 +12,14 @@
 	} from '@lucide/svelte';
 	import { goto } from '$app/navigation';
 	import { preferences, ask } from '#lib/preferences.svelte.js';
-	import { t } from '#lib/i18n.svelte.js';
+	import { i18n, t } from '#lib/i18n.svelte.js';
+	import { sectionZh } from '#lib/i18n/nav-labels-zh.js';
 	import { searchDocuments } from '#lib/search.js';
-	import { searchIndex, type SearchEntry } from '#lib/content/catalog.js';
+	import { searchIndex, searchIndexZh, type SearchEntry } from '#lib/content/catalog.js';
 	import products from '#lib/content/products.json';
 	let query = $state('');
 	let section = $state('All');
-	let index = $state<SearchEntry[]>(searchIndex);
+	const index = $derived((i18n.locale === 'zh' ? searchIndexZh : searchIndex) as SearchEntry[]);
 	let loading = $state(false);
 	let failed = $state(false);
 	let selected = $state(0);
@@ -41,6 +42,7 @@
 		Build: 'docs.search.section.build'
 	};
 	function sectionLabel(value: string): string {
+		if (i18n.locale === 'zh') return sectionZh[value] ?? value;
 		const key = docSectionKeys[value];
 		return key ? t(key) : value;
 	}
@@ -78,21 +80,7 @@
 		return translated === key ? fallback : translated;
 	}
 	$effect(() => {
-		if (preferences.searchOpen) {
-			requestAnimationFrame(() => input?.focus());
-			if (!index.length && !loading && !failed) {
-				loading = true;
-				failed = false;
-				fetch('/docs-search.json')
-					.then((response) => {
-						if (!response.ok) throw new Error('Search unavailable');
-						return response.json();
-					})
-					.then((data) => (index = data))
-					.catch(() => (failed = true))
-					.finally(() => (loading = false));
-			}
-		}
+		if (preferences.searchOpen) requestAnimationFrame(() => input?.focus());
 	});
 	$effect(() => {
 		query;
