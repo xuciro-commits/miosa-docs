@@ -1,4 +1,4 @@
 # Build on GitHub Actions and upload the verified static output to MIOSA.
 # The workflow is .github/workflows/deploy-miosa.yml.
-build_command: npm run build:static
+build_command: npm run build:spa
 output_dir: build-static

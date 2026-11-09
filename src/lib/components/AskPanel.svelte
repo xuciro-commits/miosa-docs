@@ -6,7 +6,7 @@
 	import { t } from '#lib/i18n.svelte.js';
 	import { staticSite } from '#lib/site-mode.js';
 	import { searchDocuments } from '#lib/search.js';
-	import type { SearchEntry } from '#lib/content/catalog.js';
+	import { searchIndex, type SearchEntry } from '#lib/content/catalog.js';
 	let question = $state('');
 	let busy = $state(false);
 	let error = $state('');
@@ -53,9 +53,7 @@
 		controller = new AbortController();
 		try {
 			if (staticSite) {
-				const response = await fetch('/docs-search.json', { signal: controller.signal });
-				if (!response.ok) throw new Error(t('docs.ask.indexUnavailable'));
-				const index: SearchEntry[] = await response.json();
+				const index: SearchEntry[] = searchIndex;
 				const keywords = text
 					.replace(/[^\p{L}\p{N}\s-]/gu, ' ')
 					.split(/\s+/)

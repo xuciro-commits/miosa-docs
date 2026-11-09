@@ -34,12 +34,14 @@ jobs:
       - name: Check and build static site
         run: |
           npm run check
-          npm run build:static
+          npm run build:spa
 
       - name: Install browser
         run: npx playwright install --with-deps chromium
 
       - name: Verify built site in a browser
+        env:
+          SPA: '1'
         run: |
           node scripts/serve-static.mjs > "$RUNNER_TEMP/static-preview.log" 2>&1 &
           preview_pid=$!
@@ -53,6 +55,7 @@ jobs:
         id: release
         env:
           MIOSA_API_KEY: ${{ secrets.MIOSA_API_KEY }}
+          SPA: '1'
         run: |
           miosa deploy push "$MIOSA_DEPLOYMENT_ID" --dir build-static --no-promote --wait --json > "$RUNNER_TEMP/miosa-release.json"
           version_id=$(jq -er '.data.version_id' "$RUNNER_TEMP/miosa-release.json")
@@ -65,6 +68,7 @@ jobs:
         env:
           MIOSA_API_KEY: ${{ secrets.MIOSA_API_KEY }}
           VERSION_ID: ${{ steps.release.outputs.version_id }}
+          SPA: '1'
         run: |
           miosa deploy promote "$VERSION_ID" --deployment "$MIOSA_DEPLOYMENT_ID" --json
           node scripts/verify-deployment.mjs "$SITE_URL"

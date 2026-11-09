@@ -5,7 +5,7 @@
 	import { navItems } from '#lib/content/navigation.js';
 	import products from '#lib/content/products.json';
 	import { preferences } from '#lib/preferences.svelte.js';
-	import { t } from '#lib/i18n.svelte.js';
+	import { i18n, t } from '#lib/i18n.svelte.js';
 	import Header from '#lib/components/Header.svelte';
 	import Sidebar from '#lib/components/Sidebar.svelte';
 	import TableOfContents from '#lib/components/TableOfContents.svelte';
@@ -35,6 +35,10 @@
 		'Organization & security': 'docs.nav.group.organizationSecurity',
 		Build: 'docs.nav.build'
 	};
+	function sectionLabel(section: string): string {
+		const key = sectionKeys[section];
+		return key ? t(key) : section;
+	}
 	function pageKey(slugValue: string, part: 'title' | 'description'): string {
 		if (slugValue.startsWith('learn/final/')) return `docs.page.checkUnderstanding.${part}`;
 		if (slugValue.startsWith('learn/labs/')) return `docs.page.learningLab.${part}`;
@@ -45,6 +49,9 @@
 		part: 'title' | 'description',
 		fallback: string
 	): string {
+		// Generated pages already carry the target page title and description.
+		// Do not let the older hand-written key catalogue overwrite them in English.
+		if (i18n.locale === 'en') return fallback;
 		const key = pageKey(slugValue, part);
 		const value = t(key);
 		return value === key ? fallback : value;
@@ -58,6 +65,7 @@
 		return translated === key ? product.name : translated;
 	}
 	function pageTitle(slugValue: string, fallback: string): string {
+		if (i18n.locale === 'en') return fallback;
 		if (slugValue.startsWith('build/')) {
 			const prefix = fallback.startsWith('Run ')
 				? t('docs.page.build.runPrefix')
@@ -68,6 +76,7 @@
 		return translatedPageText(slugValue, 'title', fallback);
 	}
 	function pageDescription(slugValue: string, fallback: string): string {
+		if (i18n.locale === 'en') return fallback;
 		if (slugValue.startsWith('build/')) {
 			const product = productFor(slugValue);
 			if (product) {
@@ -110,7 +119,7 @@
 							<a href="/docs">{t('docs.layout.docs')}</a><span>/</span
 							>{#if doc?.section && doc.section !== 'Get started'}<a
 									href={doc.section === 'Learn' ? '/docs/learn' : '/docs'}
-									>{t(sectionKeys[doc.section])}</a
+									>{sectionLabel(doc.section)}</a
 								><span>/</span>{/if}<span aria-current="page">{currentTitle}</span>
 						</nav>
 						<PageActions />

@@ -20,7 +20,8 @@
 		"format:check": "prettier --check .",
 		"build:static": "node scripts/build-static.mjs",
 		"preview:static": "node scripts/serve-static.mjs",
-		"verify:deployment": "node scripts/verify-deployment.mjs"
+		"verify:deployment": "node scripts/verify-deployment.mjs",
+		"build:spa": "node scripts/build-spa.mjs"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.65.0",

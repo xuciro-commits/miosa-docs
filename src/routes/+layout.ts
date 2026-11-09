@@ -1,4 +1,4 @@
-import { staticSite } from '#lib/site-mode.js';
+const staticBuild = process.env.STATIC_BUILD === '1';
 
-export const prerender = staticSite ? 'auto' : false;
-export const trailingSlash = staticSite ? 'always' : 'never';
+export const prerender = staticBuild;
+export const trailingSlash = staticBuild ? 'always' : 'never';

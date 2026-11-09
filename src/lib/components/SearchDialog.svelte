@@ -14,11 +14,11 @@
 	import { preferences, ask } from '#lib/preferences.svelte.js';
 	import { t } from '#lib/i18n.svelte.js';
 	import { searchDocuments } from '#lib/search.js';
-	import type { SearchEntry } from '#lib/content/catalog.js';
+	import { searchIndex, type SearchEntry } from '#lib/content/catalog.js';
 	import products from '#lib/content/products.json';
 	let query = $state('');
 	let section = $state('All');
-	let index = $state<SearchEntry[]>([]);
+	let index = $state<SearchEntry[]>(searchIndex);
 	let loading = $state(false);
 	let failed = $state(false);
 	let selected = $state(0);

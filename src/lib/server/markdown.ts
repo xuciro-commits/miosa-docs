@@ -9,7 +9,9 @@ export function renderMarkdown(path: string) {
 	let body =
 		article?.raw.replace(/^---[\s\S]*?---\s*/, '').replace(/<script[\s\S]*?<\/script>\s*/g, '') ??
 		'';
-	if (slug === '')
+	if (body) {
+		// The generated Markdown is the canonical copy for every target page.
+	} else if (slug === '')
 		body = `## Build on MIOSA\n\n[Quickstart](/docs/quickstart) · [API reference](/docs/api)\n\n## The building blocks\n\n${articles
 			.filter((a) => a.slug)
 			.map((a) => `- [${a.title}](/docs/${a.slug}): ${a.description}`)
@@ -33,7 +35,7 @@ export function renderMarkdown(path: string) {
 			.join('\n\n');
 	else if (slug === 'learn/videos')
 		body = `## Lessons planned\n\n${videos.map((v) => `- ${v}: not available yet`).join('\n')}`;
-	else if (!body)
+	else
 		body = `[Learn the words](/docs/glossary) · [Try the labs](/docs/learn/games) · [Follow the quickstart](/docs/quickstart)`;
 	return new Response(`# ${document.title}\n\n${document.description}\n\n${body}\n`, {
 		headers: { 'Content-Type': 'text/markdown; charset=utf-8' }

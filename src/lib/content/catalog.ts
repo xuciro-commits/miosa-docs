@@ -1,4 +1,5 @@
 import products from '#lib/content/products.json';
+import generatedData from '#lib/content/generated-docs.json';
 export type DocMeta = {
 	slug: string;
 	title: string;
@@ -14,6 +15,8 @@ export type SearchEntry = {
 	text: string;
 	href: string;
 };
+type GeneratedDoc = DocMeta & { slug: string; markdown: string };
+type Article = DocMeta & { path?: string; raw: string; generated?: boolean };
 const modules = import.meta.glob('/src/content/*.svx', {
 	eager: true,
 	import: 'metadata'
@@ -23,9 +26,19 @@ const raw = import.meta.glob('/src/content/*.svx', {
 	query: '?raw',
 	import: 'default'
 }) as Record<string, string>;
-export const articles = Object.entries(modules)
+const allArticles: Article[] = Object.entries(modules)
 	.map(([path, metadata]) => ({ ...metadata, path, raw: raw[path] }))
 	.sort((a, b) => a.order - b.order);
+const generatedDocs = (generatedData.pages as GeneratedDoc[]).map((doc) => ({
+	...doc,
+	raw: doc.markdown,
+	generated: true
+})) as Article[];
+const generatedSlugs = new Set(generatedDocs.map((article) => article.slug));
+export const articles: Article[] = [
+	...allArticles.filter((article) => !generatedSlugs.has(article.slug)),
+	...generatedDocs
+].sort((a, b) => a.order - b.order);
 export const specialPages: DocMeta[] = [
 	{
 		slug: 'learn',
@@ -79,13 +92,15 @@ export const specialPages: DocMeta[] = [
 export const documents: DocMeta[] = [
 	...articles,
 	...specialPages,
-	...products.map((product) => ({
-		slug: product.href.replace('/docs/', ''),
-		title: (product.run ? 'Run ' : 'Build your own ') + product.name,
-		description: product.blurb,
-		section: 'Build',
-		order: 30
-	}))
+	...products
+		.filter((product) => !articles.some((article) => article.slug === product.href.replace('/docs/', '')))
+		.map((product) => ({
+			slug: product.href.replace('/docs/', ''),
+			title: (product.run ? 'Run ' : 'Build your own ') + product.name,
+			description: product.blurb,
+			section: 'Build',
+			order: 30
+		}))
 ].sort((a, b) => a.order - b.order);
 export function getDocument(slug: string): DocMeta | undefined {
 	if (slug.startsWith('learn/final/'))
@@ -123,6 +138,6 @@ export const searchIndex: SearchEntry[] = documents.map((doc) => ({
 	title: doc.title,
 	description: doc.description,
 	section: doc.section,
-	text: plainText(articles.find((a) => a.slug === doc.slug)?.raw ?? doc.description),
+	text: plainText(articles.find((a) => a.slug === doc.slug)?.raw ?? doc.description).slice(0, 240),
 	href: `/docs${doc.slug ? '/' + doc.slug : ''}`
 }));

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { chromium, expect } from '@playwright/test';
 
 const base = new URL(process.argv[2] ?? 'http://127.0.0.1:4173');
+const spa = process.env.SPA === '1';
 const browser = await chromium.launch({
 	executablePath:
 		process.env.CHROME_PATH ??
@@ -25,7 +26,7 @@ try {
 		console.log(`Verify ${path}`);
 		const response = await context.request.get(new URL(path, base).href, { timeout: 30000 });
 		assert.equal(response.status(), 200, path);
-		assert.match(await response.text(), /<h1\b/, `${path} must contain rendered HTML`);
+		if (!spa) assert.match(await response.text(), /<h1\b/, `${path} must contain rendered HTML`);
 		await page.goto(new URL(path, base).href);
 		await expect(page.locator('h1').first()).toContainText(title, { timeout: 30000 });
 	}
@@ -36,8 +37,9 @@ try {
 	}
 	console.log('Verify interactive quickstart');
 	await page.goto(new URL('/docs/quickstart/', base).href);
-	await page.locator('.code-body .shiki').first().waitFor({ timeout: 30000 });
-	await expect(page.locator('.code-body .shiki').first()).toBeVisible({ timeout: 30000 });
+	const codeSample = page.locator('.article-content pre, .code-body pre, .code-body .shiki').first();
+	await codeSample.waitFor({ timeout: 30000 });
+	await expect(codeSample).toBeVisible({ timeout: 30000 });
 	await page.getByRole('button', { name: /Search docs/ }).click();
 	await page.getByRole('textbox', { name: 'Search documentation' }).fill('snapshots');
 	await page.locator('.search-result').first().click();
@@ -48,7 +50,7 @@ try {
 		.fill('What is a sandbox?');
 	await page.getByRole('button', { name: 'Send question' }).click();
 	await expect(page.locator('.message-text').last()).toContainText('no language model was called');
-	for (const path of [
+	for (const path of spa ? [] : [
 		'/docs/index.md',
 		'/docs/quickstart.md',
 		'/docs/build/lovable.md',

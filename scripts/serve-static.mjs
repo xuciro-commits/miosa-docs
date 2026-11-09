@@ -34,8 +34,15 @@ http
 			res.writeHead(200, { 'content-type': types[extname(file)] ?? 'application/octet-stream' });
 			res.end(req.method === 'HEAD' ? undefined : data);
 		} catch {
-			res.writeHead(404, { 'content-type': 'text/plain' });
-			res.end('Not found');
+			// SPA fallback: unknown routes hydrate from the single index bundle.
+			try {
+				const data = await readFile(resolve(root, 'index.html'));
+				res.writeHead(200, { 'content-type': 'text/html' });
+				res.end(req.method === 'HEAD' ? undefined : data);
+			} catch {
+				res.writeHead(404, { 'content-type': 'text/plain' });
+				res.end('Not found');
+			}
 		}
 	})
 	.listen(Number(process.env.PORT ?? 4173), '127.0.0.1', () =>
