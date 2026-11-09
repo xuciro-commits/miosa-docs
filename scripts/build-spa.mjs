@@ -52,7 +52,7 @@ try {
 	// Give every published docs route a small static HTML entry so a static host
 	// returns 200 without duplicating the rendered article body. The SPA reads
 	// the route from the URL and renders the canonical Markdown from its bundle.
-	const generated = JSON.parse(readFileSync('src/lib/content/generated-docs.json', 'utf8'));
+	const generated = JSON.parse(readFileSync('src/lib/content/docs-manifest.json', 'utf8'));
 	const routeEntries = [
 		'docs',
 		...generated.pages.map((page) => `docs/${page.slug}`),

@@ -1,5 +1,5 @@
 import products from '#lib/content/products.json';
-import generatedData from '#lib/content/generated-docs.json';
+
 export type DocMeta = {
 	slug: string;
 	title: string;
@@ -15,30 +15,42 @@ export type SearchEntry = {
 	text: string;
 	href: string;
 };
-type GeneratedDoc = DocMeta & { slug: string; markdown: string };
-type Article = DocMeta & { path?: string; raw: string; generated?: boolean };
-const modules = import.meta.glob('/src/content/*.svx', {
-	eager: true,
-	import: 'metadata'
-}) as Record<string, DocMeta>;
-const raw = import.meta.glob('/src/content/*.svx', {
+export type Article = DocMeta & { path?: string; raw: string; generated?: boolean };
+
+const rawFiles = import.meta.glob('/src/content/docs/**/*.md', {
 	eager: true,
 	query: '?raw',
 	import: 'default'
 }) as Record<string, string>;
-const allArticles: Article[] = Object.entries(modules)
-	.map(([path, metadata]) => ({ ...metadata, path, raw: raw[path] }))
+
+function parseFrontmatter(source: string): Article {
+	const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+	const body = match ? source.slice(match[0].length) : source;
+	const fields: Record<string, string> = {};
+	for (const line of (match?.[1] ?? '').split(/\r?\n/)) {
+		const colon = line.indexOf(':');
+		if (colon < 0) continue;
+		const key = line.slice(0, colon).trim();
+		let value = line.slice(colon + 1).trim();
+		if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'")))
+			value = value.slice(1, -1);
+		fields[key] = value;
+	}
+	return {
+		slug: fields.slug ?? '',
+		title: fields.title ?? fields.slug ?? 'Documentation',
+		description: fields.description ?? '',
+		section: fields.section ?? '',
+		order: Number(fields.order ?? 500000),
+		raw: body,
+		generated: true
+	};
+}
+
+export const articles: Article[] = Object.entries(rawFiles)
+	.map(([path, source]) => ({ ...parseFrontmatter(source), path }))
 	.sort((a, b) => a.order - b.order);
-const generatedDocs = (generatedData.pages as GeneratedDoc[]).map((doc) => ({
-	...doc,
-	raw: doc.markdown,
-	generated: true
-})) as Article[];
-const generatedSlugs = new Set(generatedDocs.map((article) => article.slug));
-export const articles: Article[] = [
-	...allArticles.filter((article) => !generatedSlugs.has(article.slug)),
-	...generatedDocs
-].sort((a, b) => a.order - b.order);
+
 export const specialPages: DocMeta[] = [
 	{
 		slug: 'learn',
@@ -89,6 +101,7 @@ export const specialPages: DocMeta[] = [
 		order: 40
 	}
 ];
+
 export const documents: DocMeta[] = [
 	...articles,
 	...specialPages,
@@ -102,6 +115,7 @@ export const documents: DocMeta[] = [
 			order: 30
 		}))
 ].sort((a, b) => a.order - b.order);
+
 export function getDocument(slug: string): DocMeta | undefined {
 	if (slug.startsWith('learn/final/'))
 		return {
@@ -122,6 +136,7 @@ export function getDocument(slug: string): DocMeta | undefined {
 		};
 	return documents.find((doc) => doc.slug === slug);
 }
+
 export function plainText(source: string) {
 	return source
 		.replace(/^---[\s\S]*?---/, '')
@@ -133,6 +148,7 @@ export function plainText(source: string) {
 		.replace(/\s+/g, ' ')
 		.trim();
 }
+
 export const searchIndex: SearchEntry[] = documents.map((doc) => ({
 	slug: doc.slug,
 	title: doc.title,

@@ -11,10 +11,12 @@
 		Check
 	} from '@lucide/svelte';
 	import { navigation } from '#lib/content/navigation.js';
+	import type { NavNode } from '#lib/content/generated-navigation.js';
 	import { preferences } from '#lib/preferences.svelte.js';
 	import { progress } from '#lib/learning.svelte.js';
-	import { t } from '#lib/i18n.svelte.js';
+	import { i18n, t } from '#lib/i18n.svelte.js';
 	import Icon from './Icon.svelte';
+
 	const groupKeys: Record<string, string> = {
 		'Get started': 'docs.nav.group.getStarted',
 		Learn: 'docs.nav.group.learn',
@@ -24,10 +26,20 @@
 		'Databases & storage': 'docs.nav.group.databasesStorage',
 		'Networking & domains': 'docs.nav.group.networkingDomains',
 		Agents: 'docs.nav.group.agents',
+		Optimal: 'docs.nav.group.optimal',
+		'Optimal Engine': 'docs.nav.group.optimalEngine',
+		'Platform builders': 'docs.nav.group.platformBuilders',
+		Build: 'docs.nav.group.build',
 		'CLI, SDKs & MCP': 'docs.nav.group.cliSdksMcp',
 		'API reference': 'docs.nav.group.apiReference',
-		'Organization & security': 'docs.nav.group.organizationSecurity'
+		'Organization & billing': 'docs.nav.group.organizationBilling',
+		'Security & compliance': 'docs.nav.group.securityCompliance',
+		'Self-hosting': 'docs.nav.group.selfHosting',
+		Compare: 'docs.nav.group.compare',
+		Reference: 'docs.nav.group.reference',
+		Help: 'docs.nav.group.help'
 	};
+
 	function groupLabel(title: string): string {
 		const key = groupKeys[title];
 		return key ? t(key) : title;
@@ -36,38 +48,65 @@
 		return `docs.nav.${slug ? slug.replaceAll('/', '.') : 'introduction'}`;
 	}
 	function navLabel(slug: string, fallback: string): string {
+		if (i18n.locale === 'en') return fallback;
 		const translated = t(navKey(slug));
 		return translated === navKey(slug) ? fallback : translated;
 	}
+	function itemLabel(item: { slug?: string; title: string }): string {
+		return item.slug ? navLabel(item.slug, item.title) : item.title;
+	}
+	function containsSlug(item: NavNode, slug: string): boolean {
+		if (item.slug === slug) return true;
+		return !!item.children?.some((child) => containsSlug(child, slug));
+	}
+	function findAncestorKeys(items: NavNode[], slug: string, groupTitle: string, keys: string[] = []): string[] {
+		for (const item of items) {
+			if (!item.children?.length) continue;
+			if (containsSlug(item, slug)) {
+				keys.push(subgroupKey(groupTitle, item.title));
+				findAncestorKeys(item.children, slug, groupTitle, keys);
+			}
+		}
+		return keys;
+	}
+	function subgroupKey(groupTitle: string, itemTitle: string): string {
+		return `${groupTitle}::${itemTitle}`;
+	}
+
 	let filter = $state('');
-	let expanded = $state<string[]>([
-		navigation.find((group) =>
-			group.items.some((item) => `/docs${item.slug ? '/' + item.slug : ''}` === page.url.pathname)
-		)?.title ?? 'Learn'
-	]);
+	let expanded = $state<string[]>([]);
+	let expandedSub = $state<string[]>([]);
 	let previousPath = '';
 	let dragging = $state(false);
 	const currentSlug = $derived(page.url.pathname.replace(/^\/docs\/?/, '').replace(/\/$/, ''));
-	const groups = $derived(
-		navigation
-			.map((group) => ({
-				...group,
-				label: groupLabel(group.title),
-				items: group.items
-					.map((item) => ({ ...item, label: navLabel(item.slug, item.title) }))
-					.filter((item) => item.label.toLowerCase().includes(filter.toLowerCase()))
-			}))
-			.filter((group) => group.items.length)
-	);
-	onMount(() => {
-		const value = localStorage.getItem('miosa-nav-v1');
-		if (value) {
-			try {
-				expanded = JSON.parse(value).filter((name: unknown) => typeof name === 'string');
-			} catch {
-				localStorage.removeItem('miosa-nav-v1');
-			}
-		}
+	const groups = $derived.by(() => {
+		const needle = filter.trim().toLowerCase();
+		return navigation
+			.map((group) => {
+				const items = group.items
+					.map((item) => {
+						const label = itemLabel(item);
+						const matchingChildren = item.children
+							? item.children
+									.map((child) => ({ ...child, label: itemLabel(child) }))
+									.filter((child) => !needle || child.label.toLowerCase().includes(needle))
+							: undefined;
+						const matches = !needle || label.toLowerCase().includes(needle);
+						if (!matches && !matchingChildren?.length) return null;
+						return {
+							...item,
+							label,
+							children: matchingChildren
+						};
+					})
+					.filter((item): item is NonNullable<typeof item> => item !== null);
+				return {
+					...group,
+					label: groupLabel(group.title),
+					items
+				};
+			})
+			.filter((group) => group.items.length);
 	});
 	function toggle(title: string) {
 		expanded = expanded.includes(title)
@@ -75,19 +114,80 @@
 			: [...expanded, title];
 		localStorage.setItem('miosa-nav-v1', JSON.stringify(expanded));
 	}
+	function toggleSub(key: string) {
+		expandedSub = expandedSub.includes(key)
+			? expandedSub.filter((name) => name !== key)
+			: [...expandedSub, key];
+		localStorage.setItem('miosa-nav-sub-v1', JSON.stringify(expandedSub));
+	}
 	function resize(event: PointerEvent) {
 		if (dragging) preferences.sidebarWidth = Math.max(220, Math.min(340, event.clientX));
 	}
+	onMount(() => {
+		for (const [key, setter] of [
+			['miosa-nav-v1', (value: string[]) => (expanded = value)],
+			['miosa-nav-sub-v1', (value: string[]) => (expandedSub = value)]
+		] as const) {
+			const value = localStorage.getItem(key);
+			if (!value) continue;
+			try {
+				const parsed = JSON.parse(value);
+				if (Array.isArray(parsed)) setter(parsed.filter((name: unknown) => typeof name === 'string'));
+			} catch {
+				localStorage.removeItem(key);
+			}
+		}
+	});
 	$effect(() => {
 		const path = page.url.pathname;
 		if (path === previousPath) return;
 		previousPath = path;
-		const group = navigation.find((group) =>
-			group.items.some((item) => `/docs${item.slug ? '/' + item.slug : ''}` === path)
-		);
+		const group = navigation.find((group) => group.items.some((item) => containsSlug(item, currentSlug)));
 		if (group && !expanded.includes(group.title)) expanded = [...expanded, group.title];
+		const parentGroup = navigation.find((group) => group.items.some((item) => containsSlug(item, currentSlug)));
+		if (parentGroup) {
+			for (const key of findAncestorKeys(parentGroup.items, currentSlug, parentGroup.title)) {
+				if (!expandedSub.includes(key)) expandedSub = [...expandedSub, key];
+			}
+		}
 	});
 </script>
+
+
+
+{#snippet navItems(items: NavNode[], groupTitle: string)}
+	{#each items as item}
+		{#if item.children?.length}
+			{@const subKey = subgroupKey(groupTitle, item.title)}
+			<li>
+				<button
+					class="nav-sub-toggle"
+					class:sub-active={containsSlug(item, currentSlug) && item.slug !== currentSlug}
+					aria-expanded={expandedSub.includes(subKey)}
+					onclick={() => toggleSub(subKey)}
+				>
+					<Icon name={item.icon} size={14} /><span>{itemLabel(item)}</span>
+					{#if item.count}<small>{item.count}</small>{/if}
+					{#if expandedSub.includes(subKey)}<ChevronDown size={12} />{:else}<ChevronRight size={12} />{/if}
+				</button>
+				{#if expandedSub.includes(subKey)}
+					<ul class="nav-sub-list">{@render navItems(item.children, groupTitle)}</ul>
+				{/if}
+			</li>
+		{:else}
+			<li>
+				<a
+					class:active={currentSlug === item.slug}
+					href={`/docs${item.slug ? '/' + item.slug : ''}`}
+					aria-current={currentSlug === item.slug ? 'page' : undefined}
+					onclick={() => (preferences.sidebarOpen = false)}
+					><Icon name={item.icon} size={14} /><span>{itemLabel(item)}</span
+					>{#if 'badge' in item}<small class="nav-badge">{item.badge}</small>{/if}</a
+				>
+			</li>
+		{/if}
+	{/each}
+{/snippet}
 
 <aside
 	class="sidebar"
@@ -120,22 +220,11 @@
 			{@const open = !!filter || expanded.includes(group.title)}
 			<section class="nav-group">
 				<button class="group-toggle" aria-expanded={open} onclick={() => toggle(group.title)}
-					><span>{group.label}</span><small>{group.items.length}</small>{#if open}<ChevronDown
+					><span>{group.label}</span><small>{group.count ?? group.items.length}</small>{#if open}<ChevronDown
 							size={12}
 						/>{:else}<ChevronRight size={12} />{/if}</button
 				>
-				{#if open}<ul>
-						{#each group.items as item}<li>
-								<a
-									class:active={currentSlug === item.slug}
-									href={`/docs${item.slug ? '/' + item.slug : ''}`}
-									aria-current={currentSlug === item.slug ? 'page' : undefined}
-									onclick={() => (preferences.sidebarOpen = false)}
-									><Icon name={item.icon} size={14} /><span>{item.label}</span
-									>{#if 'badge' in item}<small class="nav-badge">{item.badge}</small>{/if}</a
-								>
-							</li>{/each}
-					</ul>{/if}
+				{#if open}<ul class="nav-list">{@render navItems(group.items, group.title)}</ul>{/if}
 			</section>
 		{/each}
 		{#if groups.length === 0}<p class="no-pages">{t('docs.sidebar.noPages')}</p>{/if}
@@ -369,6 +458,42 @@
 		font-size: 12px;
 		color: var(--muted);
 		padding: 12px;
+	}
+	.nav-sub-toggle {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		width: 100%;
+		min-height: 30px;
+		padding: 4px 9px;
+		border-radius: 8px;
+		color: var(--text);
+		font-size: 12px;
+		text-align: left;
+	}
+	.nav-sub-toggle > :global(svg) {
+		color: var(--muted);
+	}
+	.nav-sub-toggle > span {
+		flex: 1;
+	}
+	.nav-sub-toggle:hover,
+	.nav-sub-toggle.sub-active {
+		background: var(--hover);
+	}
+	.nav-sub-toggle small {
+		color: var(--muted);
+		font-size: 9px;
+	}
+	.nav-sub-list {
+		margin: 2px 0 4px 14px;
+		padding-left: 8px;
+		border-left: 1px solid var(--border);
+	}
+	.nav-sub-list li a {
+		min-height: 27px;
+		padding: 3px 8px;
+		font-size: 11.5px;
 	}
 	@media (max-width: 1100px) {
 		.sidebar {

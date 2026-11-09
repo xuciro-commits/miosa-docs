@@ -88,6 +88,7 @@
 		return translatedPageText(slugValue, 'description', fallback);
 	}
 	function navTitle(slugValue: string, fallback: string): string {
+		if (i18n.locale === 'en') return fallback;
 		const key = `docs.nav.${slugValue ? slugValue.replaceAll('/', '.') : 'introduction'}`;
 		const value = t(key);
 		return value === key ? fallback : value;
@@ -136,11 +137,11 @@
 					>
 						{#if previous}<a href={previous.href}
 								><small>{t('docs.layout.previous')}</small><span
-									><ArrowLeft size={13} />{navTitle(previous.slug, previous.title)}</span
+									><ArrowLeft size={13} />{navTitle(previous.slug ?? '', previous.title)}</span
 								></a
 							>{:else}<span></span>{/if}{#if next}<a href={next.href} class="next"
 								><small>{t('docs.layout.next')}</small><span
-									>{navTitle(next.slug, next.title)}<ArrowRight size={13} /></span
+									>{navTitle(next.slug ?? '', next.title)}<ArrowRight size={13} /></span
 								></a
 							>{/if}
 					</nav>{/if}

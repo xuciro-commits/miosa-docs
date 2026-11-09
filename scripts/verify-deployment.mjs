@@ -53,7 +53,7 @@ async function get(url) {
 	await page.getByRole('button', { name: /Search docs/ }).click();
 	await page.getByRole('textbox', { name: 'Search documentation' }).fill('snapshots');
 	await page.locator('.search-result').first().click();
-	await expect(page.locator('#article-body>h1')).toHaveText('Snapshots and persistence');
+	await expect(page.locator('#article-body>h1')).toHaveText('Snapshots, restore, pause, and forks');
 	await page.getByRole('button', { name: 'Ask OSA', exact: true }).click();
 	await page
 		.getByRole('textbox', { name: 'Ask a documentation question' })

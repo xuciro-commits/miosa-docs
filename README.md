@@ -62,9 +62,9 @@ npm start
 | ------------------------------ | ---------------------------------------------------------------------------------------------- |
 | 主页 / 文档首页 / 定价页       | `src/routes/+page.svelte` / `src/routes/docs/+page.svelte` / `src/routes/pricing/+page.svelte` |
 | 原站文档颜色、字体、圆角、阴影 | `src/lib/styles/reference-tokens.css`                                                          |
-| 文章与元数据                   | `src/content/*.svx`                                                                            |
-| 内容索引与搜索数据             | `src/lib/content/catalog.ts`                                                                   |
-| 侧栏分组                       | `src/lib/content/navigation.ts`                                                                |
+| 文章与元数据                   | `src/content/docs/en/*.md`                                                                            |
+| 内容索引与搜索数据             | `src/lib/content/catalog.ts` / `src/lib/content/docs-manifest.json`                                                                   |
+| 侧栏分组与图标                 | `src/lib/content/generated-navigation.ts` / `src/lib/components/Icon.svelte`                                                                |
 | 首页产品与卡片数据             | `src/lib/content/products.json` / `landing.ts`                                                 |
 | 价格快照 / 竞品来源            | `src/lib/content/pricing-snapshot.json` / `providers.json`                                     |
 | 定价计算                       | `src/lib/pricing.ts`                                                                           |
