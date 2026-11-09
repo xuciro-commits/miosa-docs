@@ -18,13 +18,23 @@ page.setDefaultNavigationTimeout(60000);
 const errors = [];
 page.on('pageerror', (error) => errors.push(error.message));
 try {
+async function get(url) {
+	let last;
+	for (let attempt = 0; attempt < 8; attempt += 1) {
+		last = await context.request.get(url, { timeout: 30000 });
+		if (last.status() === 200) return last;
+		await new Promise((resolve) => setTimeout(resolve, 3000));
+	}
+	return last;
+}
+
 	for (const [path, title] of [
 		['/', 'Infrastructure for'],
 		['/docs/', 'Build on MIOSA'],
 		['/pricing/', 'Pay per second']
 	]) {
 		console.log(`Verify ${path}`);
-		const response = await context.request.get(new URL(path, base).href, { timeout: 30000 });
+		const response = await get(new URL(path, base).href);
 		assert.equal(response.status(), 200, path);
 		if (!spa) assert.match(await response.text(), /<h1\b/, `${path} must contain rendered HTML`);
 		await page.goto(new URL(path, base).href);
@@ -32,7 +42,7 @@ try {
 	}
 	for (const path of ['/docs/quickstart/', '/docs/build/lovable/', '/docs/learn/labs/sandbox/']) {
 		console.log(`Verify ${path}`);
-		const response = await context.request.get(new URL(path, base).href, { timeout: 30000 });
+		const response = await get(new URL(path, base).href);
 		assert.equal(response.status(), 200, path);
 	}
 	console.log('Verify interactive quickstart');
@@ -57,13 +67,13 @@ try {
 		'/docs/learn/labs/sandbox.md'
 	]) {
 		console.log(`Verify ${path}`);
-		const response = await context.request.get(new URL(path, base).href, { timeout: 30000 });
+		const response = await get(new URL(path, base).href);
 		assert.equal(response.status(), 200, path);
 		assert.match(await response.text(), /^# /);
 	}
-	const schema = await (await context.request.get(new URL('/openapi.json', base).href)).json();
+	const schema = await (await get(new URL('/openapi.json', base).href)).json();
 	assert.equal(schema.servers[0].url, '/');
-	const release = await (await context.request.get(new URL('/release.json', base).href)).json();
+	const release = await (await get(new URL('/release.json', base).href)).json();
 	if (process.env.GITHUB_SHA)
 		assert.equal(
 			release.commit,
