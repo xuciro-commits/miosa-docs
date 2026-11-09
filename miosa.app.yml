@@ -1,0 +1,4 @@
+# Reference settings for the Miosa static deployment.
+# The push workflow runs `node scripts/build-spa.mjs` and uploads `build-static`.
+build_command: npm run build:spa
+output_dir: build-static

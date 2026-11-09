@@ -2,6 +2,18 @@
 
 本地运行的 MIOSA 学习项目，重点重建主页、文档首页和定价页。SvelteKit + Svelte 5 + TypeScript；文档用 MDsveX。原站技术调查见 [RESEARCH](docs/RESEARCH.md)，具体颜色、字体、阴影、滚动区域见 [样式核对](docs/STYLE_AUDIT.md)。
 
+## 部署到 MIOSA
+
+已部署为 Miosa 静态站点：
+
+- 线上地址：<https://miosa-docs.msru.miosa.app>
+- GitHub Actions：`.github/workflows/deploy-miosa.yml`
+- 触发：push 到 `main`
+- 构建：`node scripts/build-spa.mjs`
+- 发布：`miosa deploy push miosa-docs --dir build-static --wait`
+
+线上使用单 bundle 的 SPA 构建（`vite.spa.config.ts`），保留首页、文档和定价页的客户端交互；`/docs-search.json`、`/openapi.json`、`/api/status` 由构建脚本生成静态文件。Miosa 的静态上传限制比本地构建产物更严格，所以发布目录保持为少量文件。
+
 ## 启动
 
 需要 Node.js 22.12+。
