@@ -217,11 +217,11 @@
 		<p>{t('docs.landing.machine.description')}</p>
 	</div>
 	<div class="machine-links">
-		<a href="/llms.txt" target="_blank" data-sveltekit-reload>llms.txt<ArrowRight size={13} /></a><a
-			href="/llms-full.txt"
+		<a href="https://miosa.ai/llms.txt" target="_blank" rel="noreferrer">llms.txt<ArrowRight size={13} /></a><a
+			href="https://miosa.ai/llms-full.txt"
 			target="_blank"
 			data-sveltekit-reload>{t('docs.landing.machine.fullContext')}<ArrowRight size={13} /></a
-		><a href="/docs/index.md" target="_blank" data-sveltekit-reload
+		><a href="https://miosa.ai/docs.md" target="_blank" data-sveltekit-reload
 			>{t('docs.landing.machine.markdown')}<ArrowRight size={13} /></a
 		>
 	</div>
