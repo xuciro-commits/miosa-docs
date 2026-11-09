@@ -53,7 +53,15 @@ try {
 	// returns 200 without duplicating the rendered article body. The SPA reads
 	// the route from the URL and renders the canonical Markdown from its bundle.
 	const generated = JSON.parse(readFileSync('src/lib/content/generated-docs.json', 'utf8'));
-	const routeEntries = ['docs', ...generated.pages.map((page) => `docs/${page.slug}`), 'pricing', 'status'];
+	const routeEntries = [
+		'docs',
+		...generated.pages.map((page) => `docs/${page.slug}`),
+		...['words', 'model', 'sandbox', 'shipping', 'fleet', 'connections', 'product'].map(
+			(unit) => `docs/learn/labs/${unit}`
+		),
+		'pricing',
+		'status'
+	];
 	for (const route of routeEntries) {
 		const dir = join(root, 'build-static', route);
 		mkdirSync(dir, { recursive: true });
