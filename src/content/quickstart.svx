@@ -23,7 +23,7 @@ For a working local request, use the [API explorer](/docs/api). For a visual sim
 
 Name the workspace explicitly. Treat the returned resource identifier as the identity of your sandbox and use it for subsequent operations.
 
-<CodeTabs examples={{TypeScript:'import { Miosa } from "@miosa/sdk";\n\nconst miosa = new Miosa({ apiKey: process.env.MIOSA_API_KEY! });\nconst sandbox = await miosa.sandboxes.create({\n  workspaceSlug: "default",\n  templateId: "miosa-sandbox",\n});\nconsole.log(sandbox.id);',Python:'import os\nfrom miosa import Miosa\n\nclient = Miosa(api_key=os.environ["MIOSA_API_KEY"])\nsandbox = client.sandboxes.create(\n    workspace_slug="default",\n    template_id="miosa-sandbox",\n)\nprint(sandbox.id)',Shell:'export MIOSA_API_KEY="your-key"\nmiosa sandbox create --workspace default --template miosa-sandbox'}} />
+<CodeTabs examples={{TypeScript:'import { Miosa } from "@miosa/sdk";\n\nconst miosa = new Miosa({ apiKey: \"YOUR_API_KEY\" });\nconst sandbox = await miosa.sandboxes.create({\n  workspaceSlug: "default",\n  templateId: "miosa-sandbox",\n});\nconsole.log(sandbox.id);',Python:'from miosa import Miosa\n\nclient = Miosa(api_key="YOUR_API_KEY")\nsandbox = client.sandboxes.create(\n    workspace_slug="default",\n    template_id="miosa-sandbox",\n)\nprint(sandbox.id)',Shell:'miosa login\nmiosa sandbox create --workspace default --template miosa-sandbox'}} />
 
 ## 2. Run your application
 

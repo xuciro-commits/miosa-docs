@@ -23,13 +23,8 @@
 		const code = source;
 		const language = selected.toLowerCase() === 'shell' ? 'bash' : selected.toLowerCase();
 		let current = true;
-		import('shiki/bundle/web')
-			.then(({ codeToHtml }) =>
-				codeToHtml(code, {
-					lang: language,
-					themes: { light: 'github-light', dark: 'github-dark-dimmed' }
-				})
-			)
+		import('#lib/highlight.js')
+			.then(({ highlight }) => highlight(code, language))
 			.then((result) => {
 				if (current) html = result;
 			})

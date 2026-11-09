@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import { page } from '$app/state';
+	import { staticSite } from '#lib/site-mode.js';
 	import { onMount } from 'svelte';
 	import { ArrowUpRight, RotateCcw } from '@lucide/svelte';
 	import ComputeScene from './ComputeScene.svelte';
@@ -131,7 +132,9 @@
 				'loading'
 					? 'Checking local status'
 					: status === 'ready'
-						? 'Local preview operational'
+						? staticSite
+							? 'Documentation available'
+							: 'Local preview operational'
 						: 'Status unavailable · retry'}{#if status === 'error'}<RotateCcw
 						size={10}
 					/>{/if}</button

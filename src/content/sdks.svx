@@ -18,7 +18,7 @@ The installation and cloud examples are reference snippets. This documentation d
 
 Keep the credential in the server environment. Create a client where the application can reuse its configuration rather than scattering keys through handlers.
 
-<CodeTabs examples={{TypeScript:'import { Miosa } from "@miosa/sdk";\n\nconst miosa = new Miosa({\n  apiKey: process.env.MIOSA_API_KEY!,\n});',Python:'import os\nfrom miosa import Miosa\n\nclient = Miosa(\n    api_key=os.environ["MIOSA_API_KEY"],\n)'}} />
+<CodeTabs examples={{TypeScript:'import { Miosa } from "@miosa/sdk";\n\nconst miosa = new Miosa({\n  apiKey: \"YOUR_API_KEY\",\n});',Python:'from miosa import Miosa\n\nclient = Miosa(\n    api_key="YOUR_API_KEY",\n)'}} />
 
 ## Keep the returned identity
 

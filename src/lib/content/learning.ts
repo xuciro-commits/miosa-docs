@@ -156,7 +156,8 @@ export const terms: Term[] = [
 		word: 'Environment variable',
 		category: 'runtimes',
 		definition: 'A named configuration value available to a process when it runs.',
-		example: 'Set DATABASE_URL in configuration instead of hard-coding it.'
+		example:
+			'Keep your database connection string in server configuration instead of hard-coding it.'
 	},
 	{
 		word: 'Usage',

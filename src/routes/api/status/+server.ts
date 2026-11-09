@@ -5,3 +5,6 @@ export function GET() {
 		{ headers: { 'Cache-Control': 'no-store' } }
 	);
 }
+
+export const prerender = process.env.STATIC_BUILD === '1';
+export const trailingSlash = 'never';

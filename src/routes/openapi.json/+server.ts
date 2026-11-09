@@ -26,7 +26,7 @@ export function GET({ url }) {
 			description:
 				'A working local API for this documentation project. It creates synthetic sandbox records in process memory. It does not operate real cloud resources. Restarting the server clears these examples.'
 		},
-		servers: [{ url: url.origin, description: 'Your local documentation server' }],
+		servers: [{ url: '/', description: 'Your local documentation server' }],
 		tags: [{ name: 'Sandboxes', description: 'Create and inspect local example resources.' }],
 		paths: {
 			'/api/sandboxes': {
@@ -110,3 +110,6 @@ export function GET({ url }) {
 		components: { schemas: { Sandbox: sandbox } }
 	});
 }
+
+export const prerender = process.env.STATIC_BUILD === '1';
+export const trailingSlash = 'never';

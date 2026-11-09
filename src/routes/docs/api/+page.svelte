@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { staticSite } from '#lib/site-mode.js';
 	import '@scalar/api-reference/style.css';
 	import { ExternalLink, RotateCcw } from '@lucide/svelte';
 	let mount: HTMLDivElement;
@@ -17,6 +18,7 @@
 					layout: 'modern',
 					hideDarkModeToggle: true,
 					hideClientButton: true,
+					hideTestRequestButton: staticSite,
 					showSidebar: false,
 					defaultOpenAllTags: true,
 					hideModels: false,
@@ -36,10 +38,12 @@
 </script>
 
 <div class="api-notice">
-	<span class="api-dot"></span><span>Working local API · example resources only</span><a
-		href="/openapi.json"
-		target="_blank"
-		rel="noreferrer">OpenAPI schema<ExternalLink size={11} /></a
+	<span class="api-dot"></span><span
+		>{staticSite
+			? 'Static documentation · run the Node server locally to send API requests'
+			: 'Working local API · example resources only'}</span
+	><a href="/openapi.json" target="_blank" rel="noreferrer"
+		>OpenAPI schema<ExternalLink size={11} /></a
 	>
 </div>
 {#if loading}<div class="api-loading">

@@ -3,6 +3,9 @@
 	import { page } from '$app/state';
 	import { X, ArrowUp, Square, BookOpen, ArrowUpRight, RotateCcw } from '@lucide/svelte';
 	import { preferences } from '#lib/preferences.svelte.js';
+	import { staticSite } from '#lib/site-mode.js';
+	import { searchDocuments } from '#lib/search.js';
+	import type { SearchEntry } from '#lib/content/catalog.js';
 	let question = $state('');
 	let busy = $state(false);
 	let error = $state('');
@@ -38,6 +41,51 @@
 		const position = messages.length - 1;
 		controller = new AbortController();
 		try {
+			if (staticSite) {
+				const response = await fetch('/docs-search.json', { signal: controller.signal });
+				if (!response.ok) throw new Error('The documentation index is unavailable. Try again.');
+				const index: SearchEntry[] = await response.json();
+				const keywords = text
+					.replace(/[^\p{L}\p{N}\s-]/gu, ' ')
+					.split(/\s+/)
+					.filter(
+						(word) =>
+							word &&
+							!new Set([
+								'what',
+								'is',
+								'a',
+								'an',
+								'the',
+								'how',
+								'do',
+								'i',
+								'does',
+								'can',
+								'to',
+								'this',
+								'my',
+								'me',
+								'about',
+								'explain',
+								'summarize'
+							]).has(word.toLowerCase())
+					)
+					.join(' ');
+				let relevant = searchDocuments(index, keywords).slice(0, 3);
+				if (!relevant.length)
+					relevant = index
+						.filter((entry) => entry.href === page.url.pathname)
+						.map((entry) => ({ ...entry, score: 0 }));
+				messages[position].sources = relevant.map((entry) => ({
+					title: entry.title,
+					href: entry.href
+				}));
+				messages[position].text = relevant.length
+					? `Here are the relevant passages from this documentation:\n\n${relevant.map((entry) => `${entry.title}\n${entry.text.slice(0, 700)}`).join('\n\n')}\n\nOpen a source below for the full guide. This response was found locally; no language model was called.`
+					: 'I could not find a matching passage. Try a specific term such as sandbox, deployment or snapshot.';
+				return;
+			}
 			const response = await fetch('/api/docs/ask', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },

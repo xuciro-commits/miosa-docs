@@ -4,15 +4,28 @@
 
 ## 部署到 MIOSA
 
-已部署为 Miosa 静态站点：
+线上地址：<https://miosa-docs.msru.miosa.app>。推送到 `main` 会触发 `.github/workflows/deploy-miosa.yml`：
 
-- 线上地址：<https://miosa-docs.msru.miosa.app>
-- GitHub Actions：`.github/workflows/deploy-miosa.yml`
-- 触发：push 到 `main`
-- 构建：`node scripts/build-spa.mjs`
-- 发布：`miosa deploy push miosa-docs --dir build-static --wait`
+1. 检查类型，运行 `npm run build:static`，预渲染文档与页面，并生成 Markdown、搜索索引和机器文档。
+2. 在真正的静态文件服务器上，用浏览器验证页面、搜索、深层路由、Markdown 与本地 OSA 检索。
+3. 上传未提升的 MIOSA 预览版本，再次进行浏览器验收，检查构建提交号。
+4. 验收通过后提升为正式版本，再检查线上地址。失败的预览不会替换当前正式版本。
 
-线上使用单 bundle 的 SPA 构建（`vite.spa.config.ts`），保留首页、文档和定价页的客户端交互；`/docs-search.json`、`/openapi.json`、`/api/status` 由构建脚本生成静态文件。Miosa 的静态上传限制比本地构建产物更严格，所以发布目录保持为少量文件。
+构建发生在 GitHub Actions，静态文件托管在 MIOSA。仓库 Secret `MIOSA_API_KEY` 用于发布，不进入静态产物。`release.json` 记录该版本的 Git 提交号。
+
+```sh
+npm ci --legacy-peer-deps
+npm run build:static
+npm run preview:static
+# 另一个终端：
+npm run verify:deployment
+```
+
+静态构建保留 HTML 首屏，并把 API explorer、图表、代码高亮和3D场景分别加载。旧方案把全部依赖合为16.2MB首屏脚本，会在脚本下载完成前白屏，已经移除。
+
+静态版 OSA 在浏览器中检索文档，不调用服务器模型。API explorer 可以阅读接口，但发送示例资源请求需要运行本地 Node 服务。页面不会声称静态托管提供了这些后端接口。
+
+MIOSA 发布校验会扫描公开示例中的环境变量引用。文档使用 `YOUR_API_KEY` 占位值，CLI 示例使用 `miosa login`；不要为通过校验而把真实云密钥放进页面。此前完整文档产物被拒绝的实际原因是示例中的未绑定环境变量引用，不是已确认的文件数量限制。
 
 ## 启动
 

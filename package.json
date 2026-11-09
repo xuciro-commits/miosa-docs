@@ -19,7 +19,8 @@
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"build:static": "node scripts/build-static.mjs",
-		"build:spa": "node scripts/build-spa.mjs"
+		"preview:static": "node scripts/serve-static.mjs",
+		"verify:deployment": "node scripts/verify-deployment.mjs"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.65.0",
@@ -40,6 +41,8 @@
 	"dependencies": {
 		"@lucide/svelte": "^1.70.0",
 		"@scalar/api-reference": "^1.77.0",
+		"@shikijs/langs": "^4.6.0",
+		"@shikijs/themes": "^4.6.0",
 		"bits-ui": "^2.20.6",
 		"mermaid": "^12.3.0",
 		"shiki": "^4.6.0",

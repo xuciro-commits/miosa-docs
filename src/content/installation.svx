@@ -24,7 +24,7 @@ These are reference installation examples. Check the provider’s current instal
 Keep a production API key on the server or in the CLI environment. A browser should receive only the limited credentials that its task actually requires.
 
 ```bash
-export MIOSA_API_KEY="your-key"
+miosa login
 ```
 
 <Callout title="This site needs no cloud key">Run this reconstruction with <code>npm run dev</code>. Its local learning flows, search and sandbox API work without a MIOSA account.</Callout>
