@@ -1,0 +1,28 @@
+---
+slug: "data"
+title: "Data and bindings"
+description: "Choose storage by the shape and lifetime of the data, then connect it explicitly to the application."
+section: "Databases & storage"
+order: 23
+---
+
+## Match the data to the resource
+
+| Data | Starting point |
+| --- | --- |
+| Customer records and relationships | Relational database |
+| Files that change during a workload | Persistent volume |
+| Uploaded images and exported artifacts | Object storage |
+| A recoverable environment state | Snapshot |
+
+## A binding is a connection
+
+The application should receive the right endpoint and credentials through configuration. Keep the binding attached to the application and environment it serves, so a staging release does not accidentally use production data.
+
+## Separate identity from location
+
+A returned URL tells you where to connect. A resource identifier tells you what is being connected. Keep both when recording an operation.
+
+## Check recovery assumptions
+
+Test the recovery path for the data that matters. An application rollback does not necessarily roll back database changes. Read [snapshots](/docs/snapshots) and [deployment recovery](/docs/deployments) as different responsibilities.

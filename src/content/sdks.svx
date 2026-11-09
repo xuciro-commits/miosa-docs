@@ -1,0 +1,33 @@
+---
+slug: "sdks"
+title: "SDKs"
+description: "Use the same resource model from application code. Pick a language and keep identifiers and failures explicit."
+section: "CLI, SDKs & MCP"
+order: 31
+---
+
+<script>import CodeTabs from '#lib/components/CodeTabs.svelte';</script>
+
+## Install your client
+
+<CodeTabs examples={{TypeScript:'npm install @miosa/sdk',Python:'pip install miosa'}} />
+
+The installation and cloud examples are reference snippets. This documentation does not execute them or require an API key to read them.
+
+## Create a client
+
+Keep the credential in the server environment. Create a client where the application can reuse its configuration rather than scattering keys through handlers.
+
+<CodeTabs examples={{TypeScript:'import { Miosa } from "@miosa/sdk";\n\nconst miosa = new Miosa({\n  apiKey: process.env.MIOSA_API_KEY!,\n});',Python:'import os\nfrom miosa import Miosa\n\nclient = Miosa(\n    api_key=os.environ["MIOSA_API_KEY"],\n)'}} />
+
+## Keep the returned identity
+
+An SDK makes a request easier to express; it does not remove the need to inspect its result. Keep the resource identifier and state returned by a create operation. Use that exact identifier in later requests.
+
+## Handle the operation you started
+
+For a long-running operation, preserve its identity and inspect its state. A timeout in the calling process is not evidence that nothing happened on the server.
+
+## Explore the local contract
+
+The [API explorer](/docs/api) provides working requests against this reconstruction’s local example API. Its schema describes that example surface rather than claiming full compatibility with the production SDK.

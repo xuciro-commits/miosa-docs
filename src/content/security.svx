@@ -1,0 +1,23 @@
+---
+slug: "security"
+title: "Permissions and secrets"
+description: "Make the ownership boundary visible, keep credentials out of browser bundles, and preserve useful failures."
+section: "Organization & security"
+order: 45
+---
+
+## Begin at the boundary
+
+A workspace, tenant or project identifies the resources an action is allowed to affect. A display name alone does not establish permission. Send the exact resource identity required by the contract.
+
+## Put credentials in the right place
+
+Server credentials stay on the server. Browser integrations should use limited credentials intended for that surface. Do not include secrets in query strings, copied examples or source control.
+
+## Preserve refusal
+
+A failed or refused operation is part of the system’s behavior. Show the reason and the next useful action instead of changing an error into a generic success state.
+
+## Local project behavior
+
+Learning progress stays in the current browser. The sample sandbox API stores only synthetic resources in memory. The optional model key is read only by the server-side assistant route. No MIOSA account is connected.

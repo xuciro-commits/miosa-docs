@@ -1,0 +1,39 @@
+---
+slug: "sandboxes"
+title: "Sandboxes"
+description: "An isolated place for code and tools. Create it for a task, keep the state you need, and stop it when the task is finished."
+section: "Sandboxes"
+order: 20
+---
+
+<script>import Callout from '#lib/components/Callout.svelte';</script>
+
+## Start with a purpose
+
+A sandbox is useful for a build, a test, a coding agent or a short-lived development environment. Choose its template, workspace and resource size for the workload you intend to run.
+
+## Understand the lifecycle
+
+The local lab uses four visible actions: create, pause, resume and remove. Pausing keeps the simulated machine available to resume. Removing it ends that instance. A saved snapshot is a separate recovery point.
+
+| Action | What to check |
+| --- | --- |
+| Create | The returned identifier and initial state |
+| Execute | Exit status, stdout and stderr |
+| Pause | Whether work is still running and what state is retained |
+| Snapshot | The saved version and its resource scope |
+| Remove | Whether required data was stored elsewhere |
+
+## Inspect readiness
+
+“Running” does not necessarily mean an application is ready to serve requests. Check the process, the listening port, and an application-level response. Use the platform’s readiness contract where one is available.
+
+<Callout title="Disposable compute, deliberate persistence" kind="tip">Put data that must survive an instance into a persistent resource, or save a documented recovery point. Do not rely on a temporary filesystem by accident.</Callout>
+
+## Try the local sandbox API
+
+The [API explorer](/docs/api) can create and list example resources in a process-local store. It is intentionally isolated from real cloud infrastructure. Restarting the app clears these API examples.
+
+## Practice
+
+Open [Your first sandbox](/docs/learn/labs/sandbox) to try the lifecycle visually, then read [snapshots and persistence](/docs/snapshots).

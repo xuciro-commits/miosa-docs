@@ -1,0 +1,3 @@
+# MIOSA documentation
+
+See /docs for the documentation index.

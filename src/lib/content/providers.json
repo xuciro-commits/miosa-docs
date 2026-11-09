@@ -1,0 +1,556 @@
+[
+	{
+		"id": "boat",
+		"name": "boat",
+		"products": ["sandbox", "desktop"],
+		"source": "https://docs.boat.dev/pricing",
+		"checked": "2026-10-28",
+		"tag": "flat per size",
+		"price": {
+			"kind": "sizes",
+			"nearest": false,
+			"sizes": [
+				{
+					"vcpu": 2,
+					"ramGib": 4,
+					"usdHour": 0.018,
+					"diskGib": 51
+				},
+				{
+					"vcpu": 4,
+					"ramGib": 8,
+					"usdHour": 0.036,
+					"diskGib": 51
+				},
+				{
+					"vcpu": 8,
+					"ramGib": 16,
+					"usdHour": 0.072,
+					"diskGib": 111
+				},
+				{
+					"vcpu": 16,
+					"ramGib": 32,
+					"usdHour": 0.2,
+					"diskGib": 251
+				}
+			]
+		},
+		"disk": {
+			"kind": "included"
+		},
+		"plans": [
+			{
+				"name": "$20/mo",
+				"usdMonth": 20,
+				"concurrency": 100,
+				"maxVcpu": 8,
+				"minimum": true
+			},
+			{
+				"name": "$100/mo",
+				"usdMonth": 100,
+				"concurrency": 300,
+				"minimum": true
+			},
+			{
+				"name": "$500/mo",
+				"usdMonth": 500,
+				"concurrency": 1000,
+				"minimum": true
+			},
+			{
+				"name": "$2000/mo",
+				"usdMonth": 2000,
+				"concurrency": 2000,
+				"minimum": true
+			}
+		]
+	},
+	{
+		"id": "e2b",
+		"name": "E2B",
+		"products": ["sandbox", "desktop"],
+		"source": "https://e2b.dev/pricing",
+		"checked": "2026-10-18",
+		"tag": "full size",
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0.0504,
+			"gibH": 0.0162,
+			"maxVcpu": 8,
+			"maxRamGib": 8
+		},
+		"disk": {
+			"kind": "included",
+			"upToGib": 20
+		},
+		"plans": [
+			{
+				"name": "Hobby",
+				"usdMonth": 0,
+				"concurrency": 20,
+				"maxSessionH": 1
+			},
+			{
+				"name": "Pro",
+				"usdMonth": 150,
+				"concurrency": 1100,
+				"maxSessionH": 24,
+				"addOnAbove": 100
+			}
+		]
+	},
+	{
+		"id": "daytona",
+		"name": "Daytona",
+		"products": ["sandbox"],
+		"source": "https://www.daytona.io/pricing",
+		"checked": "2026-10-18",
+		"tag": "full size",
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0.0504,
+			"gibH": 0.0162
+		},
+		"disk": {
+			"kind": "running",
+			"usdPerGibHour": 0.000108,
+			"freeGib": 5
+		}
+	},
+	{
+		"id": "blaxel",
+		"name": "Blaxel",
+		"products": ["sandbox"],
+		"source": "https://blaxel.ai/pricing",
+		"checked": "2026-10-18",
+		"tag": "by memory, while active",
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0,
+			"gibH": 0.0414,
+			"maxVcpu": 4,
+			"maxRamGib": 8
+		},
+		"disk": {
+			"kind": "unlisted"
+		}
+	},
+	{
+		"id": "cloudflare",
+		"name": "Cloudflare",
+		"products": ["sandbox"],
+		"source": "https://developers.cloudflare.com/containers/pricing/",
+		"checked": "2026-10-18",
+		"tag": "active CPU",
+		"activeCpu": true,
+		"price": {
+			"kind": "sizes",
+			"nearest": true,
+			"cpuActiveVcpuH": 0.07200000000000001,
+			"sizes": [
+				{
+					"vcpu": 1,
+					"ramGib": 6,
+					"diskGib": 12,
+					"usdHour": 0.057024000000000005,
+					"label": "standard-2"
+				},
+				{
+					"vcpu": 2,
+					"ramGib": 8,
+					"diskGib": 16,
+					"usdHour": 0.076032,
+					"label": "standard-3"
+				},
+				{
+					"vcpu": 4,
+					"ramGib": 12,
+					"diskGib": 20,
+					"usdHour": 0.11304000000000002,
+					"label": "standard-4"
+				}
+			]
+		},
+		"disk": {
+			"kind": "included"
+		},
+		"plans": [
+			{
+				"name": "Workers Paid",
+				"usdMonth": 5
+			}
+		]
+	},
+	{
+		"id": "novita",
+		"name": "Novita",
+		"products": ["sandbox"],
+		"source": "https://novita.ai/pricing",
+		"checked": "2026-10-18",
+		"tag": "full size",
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0.03528,
+			"gibH": 0.011519999999999999,
+			"maxVcpu": 8,
+			"maxRamGib": 8
+		},
+		"disk": {
+			"kind": "running",
+			"usdPerGibHour": 0.00009,
+			"freeGib": 60
+		},
+		"plans": [
+			{
+				"name": "free tier",
+				"usdMonth": 0,
+				"concurrency": 5,
+				"maxSessionH": 1
+			},
+			{
+				"name": "paid tier",
+				"usdMonth": 0,
+				"concurrency": 100,
+				"maxSessionH": 24
+			}
+		]
+	},
+	{
+		"id": "freestyle",
+		"name": "Freestyle",
+		"products": ["sandbox"],
+		"source": "https://www.freestyle.sh/pricing",
+		"checked": "2026-10-18",
+		"tag": "full size",
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0.04032,
+			"gibH": 0.0129,
+			"maxVcpu": 32,
+			"maxRamGib": 64
+		},
+		"disk": {
+			"kind": "running",
+			"usdPerGibHour": 0.000086
+		},
+		"plans": [
+			{
+				"name": "Hobby",
+				"usdMonth": 50,
+				"concurrency": 40,
+				"maxVcpu": 8,
+				"minimum": true
+			},
+			{
+				"name": "Pro",
+				"usdMonth": 500,
+				"concurrency": 400,
+				"maxVcpu": 32,
+				"minimum": true
+			}
+		]
+	},
+	{
+		"id": "runloop",
+		"name": "Runloop",
+		"products": ["sandbox"],
+		"source": "https://www.runloop.ai/pricing",
+		"checked": "2026-10-18",
+		"tag": "full size",
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0.108,
+			"gibH": 0.0252
+		},
+		"disk": {
+			"kind": "running",
+			"usdPerGibHour": 0.00034236
+		}
+	},
+	{
+		"id": "agentcore",
+		"name": "AWS AgentCore",
+		"products": ["sandbox"],
+		"source": "https://aws.amazon.com/bedrock/agentcore/pricing/",
+		"checked": "2026-10-18",
+		"tag": "active CPU · used RAM",
+		"activeCpu": true,
+		"usedRam": true,
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0.0895,
+			"gibH": 0.00945
+		},
+		"disk": {
+			"kind": "unlisted"
+		}
+	},
+	{
+		"id": "islo",
+		"name": "Islo",
+		"products": ["sandbox"],
+		"source": "https://islo.dev/pricing/",
+		"checked": "2026-10-18",
+		"tag": "full size",
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0.07,
+			"gibH": 0.04
+		},
+		"disk": {
+			"kind": "unlisted"
+		}
+	},
+	{
+		"id": "vercel",
+		"name": "Vercel Sandbox",
+		"products": ["sandbox"],
+		"source": "https://vercel.com/docs/vercel-sandbox/pricing",
+		"checked": "2026-10-18",
+		"tag": "active CPU",
+		"activeCpu": true,
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0.128,
+			"gibH": 0.0212,
+			"maxVcpu": 8
+		},
+		"disk": {
+			"kind": "unlisted"
+		},
+		"plans": [
+			{
+				"name": "Hobby",
+				"usdMonth": 0,
+				"concurrency": 10,
+				"maxSessionH": 0.75
+			},
+			{
+				"name": "Pro",
+				"usdMonth": 20,
+				"concurrency": 10000,
+				"maxSessionH": 24
+			}
+		]
+	},
+	{
+		"id": "modal",
+		"name": "Modal",
+		"products": ["sandbox", "desktop"],
+		"source": "https://modal.com/pricing",
+		"checked": "2026-10-18",
+		"tag": "full size",
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0.07095599999999999,
+			"gibH": 0.024012
+		},
+		"disk": {
+			"kind": "unlisted"
+		}
+	},
+	{
+		"id": "railway-vm",
+		"name": "Railway",
+		"products": ["sandbox"],
+		"source": "https://railway.com/pricing",
+		"checked": "2026-10-18",
+		"tag": "active CPU · used RAM",
+		"activeCpu": true,
+		"usedRam": true,
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0.0684931506849315,
+			"gibH": 0.0684931506849315,
+			"maxVcpu": 32,
+			"maxRamGib": 32
+		},
+		"disk": {
+			"kind": "unlisted"
+		},
+		"plans": [
+			{
+				"name": "Hobby",
+				"usdMonth": 5,
+				"minimum": true
+			}
+		]
+	},
+	{
+		"id": "fly",
+		"name": "Fly.io",
+		"products": ["sandbox", "app"],
+		"source": "https://fly.io/pricing",
+		"checked": "2026-10-18",
+		"tag": "full size",
+		"price": {
+			"kind": "sizes",
+			"nearest": false,
+			"sizes": [
+				{
+					"vcpu": 1,
+					"ramGib": 2,
+					"usdHour": 0.0458
+				},
+				{
+					"vcpu": 2,
+					"ramGib": 4,
+					"usdHour": 0.0917
+				},
+				{
+					"vcpu": 4,
+					"ramGib": 8,
+					"usdHour": 0.1833
+				},
+				{
+					"vcpu": 8,
+					"ramGib": 16,
+					"usdHour": 0.3667
+				},
+				{
+					"vcpu": 16,
+					"ramGib": 32,
+					"usdHour": 0.7334
+				}
+			]
+		},
+		"disk": {
+			"kind": "month",
+			"usdPerGibMonth": 0.15
+		}
+	},
+	{
+		"id": "railway",
+		"name": "Railway",
+		"products": ["app", "database"],
+		"source": "https://railway.com/pricing",
+		"checked": "2026-10-18",
+		"tag": "active CPU · used RAM",
+		"activeCpu": true,
+		"usedRam": true,
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0.0273972602739726,
+			"gibH": 0.0136986301369863,
+			"maxVcpu": 32,
+			"maxRamGib": 32
+		},
+		"disk": {
+			"kind": "month",
+			"usdPerGibMonth": 0.15
+		},
+		"plans": [
+			{
+				"name": "Hobby",
+				"usdMonth": 5,
+				"minimum": true
+			}
+		]
+	},
+	{
+		"id": "render",
+		"name": "Render",
+		"products": ["app"],
+		"source": "https://render.com/pricing",
+		"checked": "2026-10-18",
+		"tag": "flat per size",
+		"price": {
+			"kind": "sizes",
+			"nearest": true,
+			"sizes": [
+				{
+					"vcpu": 1,
+					"ramGib": 2,
+					"usdHour": 0.03424657534246575
+				},
+				{
+					"vcpu": 2,
+					"ramGib": 4,
+					"usdHour": 0.11643835616438356
+				},
+				{
+					"vcpu": 4,
+					"ramGib": 8,
+					"usdHour": 0.23972602739726026
+				},
+				{
+					"vcpu": 8,
+					"ramGib": 16,
+					"usdHour": 0.410958904109589
+				},
+				{
+					"vcpu": 12,
+					"ramGib": 48,
+					"usdHour": 1.095890410958904,
+					"label": "12c-48g"
+				}
+			]
+		},
+		"disk": {
+			"kind": "month",
+			"usdPerGibMonth": 0.25
+		}
+	},
+	{
+		"id": "render-pg",
+		"name": "Render Postgres",
+		"products": ["database"],
+		"source": "https://render.com/pricing",
+		"checked": "2026-10-18",
+		"tag": "flat per size",
+		"price": {
+			"kind": "sizes",
+			"nearest": true,
+			"sizes": [
+				{
+					"vcpu": 1,
+					"ramGib": 2,
+					"usdHour": 0.0547945205479452
+				},
+				{
+					"vcpu": 2,
+					"ramGib": 4,
+					"usdHour": 0.10273972602739725
+				},
+				{
+					"vcpu": 4,
+					"ramGib": 16,
+					"usdHour": 0.273972602739726,
+					"label": "4c-16g"
+				},
+				{
+					"vcpu": 4,
+					"ramGib": 32,
+					"usdHour": 0.4794520547945205,
+					"label": "4c-32g"
+				}
+			]
+		},
+		"disk": {
+			"kind": "month",
+			"usdPerGibMonth": 0.3,
+			"freeGib": 1
+		}
+	},
+	{
+		"id": "neon",
+		"name": "Neon",
+		"products": ["database"],
+		"source": "https://neon.com/pricing",
+		"checked": "2026-10-18",
+		"tag": "per compute unit",
+		"note": "a compute unit is about 1 vCPU and 4 GB",
+		"price": {
+			"kind": "rates",
+			"vcpuH": 0.106,
+			"gibH": 0,
+			"maxVcpu": 16
+		},
+		"disk": {
+			"kind": "month",
+			"usdPerGibMonth": 0.35
+		}
+	}
+]

@@ -1,0 +1,242 @@
+[
+	{
+		"id": "dots",
+		"name": "dots",
+		"tile": "dots",
+		"href": "/docs/build/dots",
+		"blurb": "Always-on agents that each get their own cloud computer and browser, working in the background.",
+		"label": "dots by OpenAI",
+		"logoAlt": "dots by OpenAI icon",
+		"src": "/docs-assets/brands/dots.svg"
+	},
+	{
+		"id": "grokbot",
+		"name": "Grok Bot",
+		"tile": "grokbot",
+		"href": "/docs/build/grok-bot",
+		"blurb": "Named agents, each with its own cloud computer, teaming up to get work done around the clock.",
+		"label": "Grok Bot",
+		"logoAlt": "Grok Bot app icon",
+		"src": "/docs-assets/brands/grokbot.png",
+		"icon": true
+	},
+	{
+		"id": "manus",
+		"name": "Manus",
+		"tile": "manus",
+		"href": "/docs/build/manus",
+		"blurb": "A general computer-use agent: full Linux desktops with browser, files, and human handoff.",
+		"label": "Manus",
+		"logoAlt": "Manus logo",
+		"src": "/docs-assets/brands/manus.svg",
+		"icon": true
+	},
+	{
+		"id": "genspark",
+		"name": "Genspark",
+		"tile": "genspark",
+		"href": "/docs/build/genspark",
+		"blurb": "A super-agent product that plans, researches, and produces finished work for your users.",
+		"label": "Genspark",
+		"logoAlt": "Genspark logo",
+		"src": "/docs-assets/brands/genspark.png",
+		"icon": true
+	},
+	{
+		"id": "claude",
+		"name": "Claude Code",
+		"tile": "claude",
+		"href": "/docs/build/claude-code",
+		"blurb": "Coding harnesses running in sandboxes, with streamed events and collected artifacts.",
+		"run": true,
+		"label": "Claude Code",
+		"logoAlt": "Claude logo",
+		"src": "/docs-assets/brands/claude.svg"
+	},
+	{
+		"id": "lovable",
+		"name": "Lovable",
+		"tile": "lovable",
+		"href": "/docs/build/lovable",
+		"blurb": "A prompt-to-app builder: the agent writes the app in a sandbox and you publish it.",
+		"label": "Lovable",
+		"logoAlt": "Lovable logo",
+		"src": "/docs-assets/brands/lovable.svg"
+	},
+	{
+		"id": "devin",
+		"name": "Devin",
+		"tile": "devin",
+		"href": "/docs/build/devin",
+		"blurb": "An autonomous software engineer: dispatch long-running agent runs and stream their work.",
+		"label": "Devin",
+		"logoAlt": "Devin logo",
+		"src": "/docs-assets/brands/devin.svg",
+		"mono": true
+	},
+	{
+		"id": "openswarm",
+		"name": "OpenSwarm",
+		"tile": "openswarm",
+		"href": "/docs/build/openswarm",
+		"blurb": "An AI desktop where every user gets a personal agent with a real computer behind it.",
+		"label": "OpenSwarm",
+		"logoAlt": "OpenSwarm logo",
+		"src": "/docs-assets/brands/openswarm.png",
+		"pixel": true
+	},
+	{
+		"id": "replit",
+		"name": "Replit Agent",
+		"tile": "replit",
+		"href": "/docs/build/replit",
+		"blurb": "A cloud workspace where an agent builds, runs, and previews apps in isolated sandboxes.",
+		"label": "Replit Agent",
+		"logoAlt": "Replit logo",
+		"src": "/docs-assets/brands/replit.svg"
+	},
+	{
+		"id": "openai",
+		"name": "An agent like ChatGPT agent",
+		"tile": "openai",
+		"href": "/docs/build/chatgpt-agent",
+		"blurb": "Build an agent that browses, clicks and fills forms in a real browser session you can watch.",
+		"label": "ChatGPT agent",
+		"logoAlt": "OpenAI logo",
+		"src": "/docs-assets/brands/openai.svg",
+		"mono": true
+	},
+	{
+		"id": "perplexity",
+		"name": "Perplexity Comet",
+		"tile": "perplexity",
+		"href": "/docs/build/comet",
+		"blurb": "An agentic browser: navigate, extract, and act on the web with a live viewer.",
+		"label": "Perplexity Comet",
+		"logoAlt": "Perplexity logo",
+		"src": "/docs-assets/brands/perplexity.svg"
+	},
+	{
+		"id": "openclaw",
+		"name": "OpenClaw",
+		"tile": "openclaw",
+		"href": "/docs/build/openclaw",
+		"blurb": "A personal agent that lives on a persistent virtual device and works while you are away.",
+		"run": true,
+		"label": "OpenClaw",
+		"logoAlt": "OpenClaw logo",
+		"src": "/docs-assets/brands/openclaw.svg"
+	},
+	{
+		"id": "hermes",
+		"name": "Hermes Agent",
+		"tile": "hermes",
+		"href": "/docs/build/hermes-agent",
+		"blurb": "An open agent that runs for businesses: many agents, each with tools and its own workspace.",
+		"run": true,
+		"label": "Hermes Agent",
+		"logoAlt": "Hermes Agent logo",
+		"src": "/docs-assets/brands/hermes.png",
+		"icon": true
+	},
+	{
+		"id": "gemini",
+		"name": "An agent like Gemini agent",
+		"tile": "gemini",
+		"href": "/docs/build/gemini-agent",
+		"blurb": "Build an orchestrator that plans and delegates work to sub-agents.",
+		"label": "Gemini agent",
+		"logoAlt": "Gemini logo",
+		"src": "/docs-assets/brands/googlegemini.svg"
+	},
+	{
+		"id": "cursor",
+		"name": "Cursor agents",
+		"tile": "cursor",
+		"href": "/docs/build/cursor",
+		"blurb": "Fleets of coding agents working in parallel on isolated machines, coordinated from one place.",
+		"run": true,
+		"label": "Cursor agents",
+		"logoAlt": "Cursor logo",
+		"src": "/docs-assets/brands/cursor.svg",
+		"srcDark": "/docs-assets/brands/cursor-dark.svg",
+		"icon": true
+	},
+	{
+		"id": "v0",
+		"name": "v0",
+		"tile": "v0",
+		"href": "/docs/build/v0",
+		"blurb": "Generate a UI from a prompt and publish it to a stable URL in one step.",
+		"label": "v0",
+		"logoAlt": "v0 logo",
+		"src": "/docs-assets/brands/v0.svg",
+		"mono": true
+	},
+	{
+		"id": "bolt",
+		"name": "Bolt",
+		"tile": "bolt",
+		"href": "/docs/build/bolt",
+		"blurb": "Full-stack apps from a prompt, running on dynamic runtimes with real servers.",
+		"label": "Bolt",
+		"logoAlt": "Bolt logo",
+		"src": "/docs-assets/brands/bolt.svg",
+		"icon": true
+	},
+	{
+		"id": "windsurf",
+		"name": "Windsurf",
+		"tile": "windsurf",
+		"href": "/docs/build/windsurf",
+		"blurb": "An agentic IDE: run its agents against isolated sandboxes instead of a laptop.",
+		"label": "Windsurf",
+		"logoAlt": "Windsurf logo",
+		"src": "/docs-assets/brands/windsurf.svg",
+		"mono": true
+	},
+	{
+		"id": "copilot",
+		"name": "GitHub Copilot agent",
+		"tile": "copilot",
+		"href": "/docs/build/github-copilot",
+		"blurb": "A coding agent that takes an issue, works in a sandbox, and opens a pull request.",
+		"label": "GitHub Copilot agent",
+		"logoAlt": "GitHub Copilot logo",
+		"src": "/docs-assets/brands/githubcopilot.svg",
+		"mono": true
+	},
+	{
+		"id": "openhands",
+		"name": "OpenHands",
+		"tile": "openhands",
+		"href": "/docs/build/openhands",
+		"blurb": "An open-source software agent with a sandboxed workspace for every task.",
+		"run": true,
+		"label": "OpenHands",
+		"logoAlt": "OpenHands logo",
+		"src": "/docs-assets/brands/openhands.svg",
+		"icon": true
+	},
+	{
+		"id": "emergent",
+		"name": "Emergent",
+		"tile": "emergent",
+		"href": "/docs/build/emergent",
+		"blurb": "A full-stack app builder: prompts become running software with real infrastructure.",
+		"label": "Emergent",
+		"logoAlt": "Emergent logo",
+		"src": "/docs-assets/brands/emergent.png",
+		"icon": true
+	},
+	{
+		"id": "base44",
+		"name": "Base44",
+		"tile": "base44",
+		"href": "/docs/build/base44",
+		"blurb": "Describe an app, get a working one: generated, previewed, and published for you.",
+		"label": "Base44",
+		"logoAlt": "Base44 logo",
+		"src": "/docs-assets/brands/base44.png"
+	}
+]

@@ -1,0 +1,32 @@
+---
+slug: "snapshots"
+title: "Snapshots and persistence"
+description: "Save the state you intend to recover, understand what the snapshot includes, and verify the restored instance."
+section: "Sandboxes"
+order: 21
+---
+
+## Decide what must survive
+
+An environment contains several kinds of state: source files, installed software, configuration, and application data. A snapshot may cover some of these while a database or external storage covers others. Read the scope before treating a snapshot as a complete backup.
+
+## Save a recovery point
+
+Use a descriptive name and record the source resource. A useful recovery record identifies the saved version and explains when you would restore it.
+
+## Restore and inspect
+
+After restoring, verify the files, configuration and application behavior that matter to the task. A successful restore response is not a substitute for checking the application.
+
+## Snapshot or volume?
+
+| Need | Useful starting point |
+| --- | --- |
+| Recreate an environment at a known state | Snapshot |
+| Keep changing files across process restarts | Persistent volume |
+| Query application records | Database |
+| Store exported artifacts | Object storage |
+
+## Practice recovery
+
+In the [sandbox lab](/docs/learn/labs/sandbox), create a machine, save a snapshot, remove the machine and restore it. The lab makes the distinction between an active instance and a saved state visible.

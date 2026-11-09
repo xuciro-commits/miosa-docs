@@ -1,0 +1,23 @@
+---
+slug: "mcp"
+title: "MCP"
+description: "Expose defined capabilities to an agent client without making the client guess how to call your service."
+section: "CLI, SDKs & MCP"
+order: 32
+---
+
+## Tools describe actions
+
+An MCP server advertises capabilities with structured inputs. The client can discover these tools, request an action and read its result. This makes the integration boundary visible.
+
+## Configuration belongs to the client
+
+A local server may communicate over standard input and output. A hosted server may use an HTTP transport. Follow the selected client’s configuration format rather than copying a configuration for a different product.
+
+## Keep credentials scoped
+
+A server can hold a credential on behalf of a client, but that does not justify exposing every operation. Give the integration the resource and action scope the task needs.
+
+## This project’s boundary
+
+The documentation assistant is an HTTP endpoint, not an MCP server. Craft Anything was used to inspect the reference site; it is not a runtime dependency of this documentation application.

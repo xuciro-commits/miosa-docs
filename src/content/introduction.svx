@@ -1,0 +1,48 @@
+---
+slug: ""
+title: "Build on MIOSA"
+description: "Understand the building blocks. Run code in a sandbox, inspect a preview, and publish a version you can return to."
+section: "Get started"
+order: 0
+---
+
+<script>
+  import Callout from '#lib/components/Callout.svelte';
+  import Diagram from '#lib/components/Diagram.svelte';
+</script>
+
+## Start with the building blocks
+
+A workspace gives your resources a home. A sandbox gives code an isolated place to run. A deployment turns a tested application into a version people can use. A computer adds a desktop when a task needs one.
+
+You can learn these ideas without connecting an account. The examples and labs in this project run locally; production cloud operations belong to your own backend integration.
+
+<Diagram label="From an idea to a running application" source={'flowchart LR\n A[Workspace] --> B[Sandbox]\n B --> C[Preview]\n C --> D[Verified version]\n D --> E[Deployment]'} />
+
+## Choose your path
+
+| You want to… | Start here |
+| --- | --- |
+| Build a first application | [Follow the quickstart](/docs/quickstart) |
+| Understand unfamiliar terms | [Learn the words](/docs/glossary) |
+| Explore through practice | [Open the learning labs](/docs/learn/games) |
+| Read an API contract | [Open the API explorer](/docs/api) |
+| Make this documentation your own | [Customize this site](/docs/customization) |
+
+## A small set of useful ideas
+
+Keep **building**, **publishing**, and **operating** separate. During building, change code freely in a sandbox. During publishing, produce and verify a specific version. During operation, watch the running version and keep a clear route back to a known good release.
+
+This separation helps a person or an agent reason about what changed. A preview is evidence to inspect; a published release is a decision to serve that version.
+
+<Callout title="A local learning reconstruction" kind="info">This project recreates documentation patterns for study. Practice progress stays in your browser. The displayed learning credits are illustrative and have no monetary value.</Callout>
+
+## Find your way around
+
+Use the sidebar filter to narrow the page list, or press **⌘ K** to search the documentation. The right-hand rail follows the section you are reading. Code examples share their selected language, so you can follow a tutorial in one language throughout.
+
+The Markdown menu gives you an editable source view. Themes, navigation preferences and practice progress survive a page refresh on the same device.
+
+## Take the next step
+
+[Build your first application](/docs/quickstart), or [start learning at your own pace](/docs/learn).

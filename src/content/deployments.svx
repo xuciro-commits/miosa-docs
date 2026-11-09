@@ -1,0 +1,29 @@
+---
+slug: "deployments"
+title: "Deployments and rollback"
+description: "Publish a specific version, verify that version, and retain a clear route to the last known good release."
+section: "Services & projects"
+order: 14
+---
+
+## Candidate, preview, release
+
+A candidate is the built version you intend to publish. A preview lets you inspect it. A release makes a verified version active. Treat these as separate states rather than three names for one button.
+
+## Verify before promotion
+
+Check the application route, required configuration, data connections and the main user task. Save the release identifier that passed those checks.
+
+```bash
+miosa app preview ./app --json
+miosa app verify <release-id> ./app --json
+miosa app promote <release-id> ./app --yes --json
+```
+
+## Recover the right thing
+
+A failed operation may be recoverable without rebuilding. A broken active release may require a rollback. Inspect the current operation and release states before choosing either action.
+
+## Practice the order
+
+The [Shipping lab](/docs/learn/labs/shipping) makes the sequence explicit. It records local practice completion after you put the steps in the right order.

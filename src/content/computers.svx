@@ -1,0 +1,23 @@
+---
+slug: "computers"
+title: "Computers"
+description: "Use a desktop when the task depends on visual applications, browser state or direct interaction."
+section: "Computers"
+order: 22
+---
+
+## When a desktop helps
+
+Some tasks are naturally expressed through files and commands. Others require a visual browser, a native application or a screen that a person and agent can inspect together. Choose a computer for that second group.
+
+## Make readiness observable
+
+A machine can be running while its desktop or application is still starting. Check the surface the task actually needs, and keep the session attached to the correct computer identifier.
+
+## Separate viewing from control
+
+A live viewer shows what is happening. Input control changes the machine. A product should make that distinction clear, especially when a person and an agent share a session.
+
+## Choose the smallest useful surface
+
+Use a [sandbox](/docs/sandboxes) for code execution alone. Use a computer when a desktop is part of the task. Store important output in a persistent resource before ending the session.

@@ -1,0 +1,28 @@
+---
+slug: "agents"
+title: "Models, harnesses and tools"
+description: "An agent is easier to understand when its reasoning, execution loop and machine are separate concepts."
+section: "Agents"
+order: 25
+---
+
+## Four pieces, four responsibilities
+
+| Piece | Responsibility |
+| --- | --- |
+| Model | Generate the next response or action request |
+| Harness | Coordinate the execution loop |
+| Tool | Perform a defined action |
+| Machine | Provide the execution environment |
+
+## Give actions a useful boundary
+
+A tool should expose a clear input and result. The harness should preserve failures and operation identifiers so later steps do not invent success from an incomplete response.
+
+## Keep context grounded
+
+Give an agent the resource identifiers, files and observations relevant to the task. Separate an instruction from a document that is merely being read.
+
+## Learn the vocabulary
+
+Open the [Agents glossary category](/docs/glossary?category=agents), or read [MCP](/docs/mcp) for a standard way to expose tools to a client.

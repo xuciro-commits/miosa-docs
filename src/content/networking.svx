@@ -1,0 +1,23 @@
+---
+slug: "networking"
+title: "Domains and previews"
+description: "Understand what a temporary preview exposes and what a stable domain promises to its users."
+section: "Networking & domains"
+order: 24
+---
+
+## From a port to a preview
+
+An application listens on a port. A preview routes a browser request to that application so a person can inspect it. Check both the process and the application response before sharing a link.
+
+## A domain is a stable entry
+
+A custom domain gives people a recognizable address. Configure its DNS and platform binding, then verify the returned public route. Do not guess a deployment address from a name.
+
+## Access is a separate decision
+
+A reachable address does not imply that everyone should have permission to use it. Decide whether the route is public, authenticated or shared through a limited token.
+
+## Connect the right resource
+
+The [Connections lab](/docs/learn/labs/connections) helps distinguish a domain, a database binding and a persistent volume. Each connection has a different job.

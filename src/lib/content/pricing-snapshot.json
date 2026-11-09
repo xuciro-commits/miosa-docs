@@ -1,0 +1,564 @@
+{
+	"currency": "usd",
+	"month_hours": 730,
+	"resources": {
+		"free_disk_gib": 0,
+		"disk_usd_per_gib_month": 0.09,
+		"egress_usd_per_gb": 0.054,
+		"object_storage_usd_per_gib_month": 0.0162,
+		"snapshot_usd_per_gib_month": 0.018,
+		"disk_usd_per_gib_second": 3.4247e-8
+	},
+	"plans": [
+		{
+			"id": "free",
+			"name": "Free",
+			"description": "Try MIOSA with $1 of usage every month.",
+			"price_cents": 0,
+			"monthly_commitment_cents": 0,
+			"welcome_credit_credits": 0,
+			"monthly_grant_credits": 100,
+			"overage_enabled": false,
+			"approval_required": false,
+			"spending_limit_cents": null,
+			"allowed_sizes": ["xs", "small", "medium"],
+			"allowed_sandbox_sizes": ["tiny", "xs", "small", "medium"],
+			"budget_cents": 100,
+			"concurrency": {
+				"sandboxes": 5,
+				"computers": 1
+			},
+			"max_computer": {
+				"memory_mb": 8192,
+				"vcpu": 4,
+				"disk_mb": 30720
+			},
+			"max_sandbox": {
+				"memory_mb": 8192,
+				"vcpu": 4,
+				"disk_mb": 30720
+			},
+			"retained": {
+				"sandboxes": 5,
+				"computers": 1
+			},
+			"limits": {
+				"always_on": false,
+				"databases": 1,
+				"sandboxes": 5,
+				"computers": 1,
+				"projects": 1,
+				"seats": 1,
+				"computer_idle_minutes": 15,
+				"dedicated_vcpu": false,
+				"egress_gb_month": 5,
+				"image_mb_max": 4096,
+				"replica_ram_mb_max": 512,
+				"replica_vcpu_max": 1,
+				"replicas_max": 1,
+				"running_ram_mb": 8192,
+				"running_vcpu": 4,
+				"sandbox_stop_minutes": 30,
+				"service_ram_mb_max": 512,
+				"service_vcpu_max": 1,
+				"volume_mb_max": 512
+			},
+			"concurrent_builds": 2,
+			"build_minutes_month": 1500
+		},
+		{
+			"id": "developer",
+			"name": "Developer",
+			"description": "$20 a month with $20 of usage included, then pay as you go.",
+			"price_cents": 2000,
+			"monthly_commitment_cents": 2000,
+			"welcome_credit_credits": 0,
+			"monthly_grant_credits": 0,
+			"overage_enabled": true,
+			"approval_required": false,
+			"spending_limit_cents": null,
+			"allowed_sizes": ["xs", "small", "medium"],
+			"allowed_sandbox_sizes": ["tiny", "xs", "small", "medium"],
+			"budget_cents": 2000,
+			"concurrency": {
+				"sandboxes": 50,
+				"computers": 5
+			},
+			"max_computer": {
+				"memory_mb": 8192,
+				"vcpu": 4,
+				"disk_mb": 30720
+			},
+			"max_sandbox": {
+				"memory_mb": 8192,
+				"vcpu": 4,
+				"disk_mb": 30720
+			},
+			"retained": {
+				"sandboxes": 50,
+				"computers": 5
+			},
+			"limits": {
+				"always_on": true,
+				"databases": 5,
+				"sandboxes": 50,
+				"computers": 5,
+				"projects": 10,
+				"seats": 1,
+				"computer_idle_minutes": null,
+				"dedicated_vcpu": false,
+				"egress_gb_month": 100,
+				"image_mb_max": 20480,
+				"replica_ram_mb_max": 8192,
+				"replica_vcpu_max": 4,
+				"replicas_max": 10,
+				"running_ram_mb": 131072,
+				"running_vcpu": 64,
+				"sandbox_stop_minutes": null,
+				"service_ram_mb_max": 16384,
+				"service_vcpu_max": 10,
+				"volume_mb_max": 10240
+			},
+			"concurrent_builds": 2,
+			"build_minutes_month": 1500
+		},
+		{
+			"id": "business",
+			"name": "Business",
+			"description": "Production infrastructure with metered usage and predictable limits.",
+			"price_cents": 50000,
+			"monthly_commitment_cents": 50000,
+			"welcome_credit_credits": 0,
+			"monthly_grant_credits": 0,
+			"overage_enabled": true,
+			"approval_required": false,
+			"spending_limit_cents": null,
+			"allowed_sizes": ["xs", "small", "medium", "large"],
+			"allowed_sandbox_sizes": ["tiny", "xs", "small", "medium", "large"],
+			"budget_cents": 50000,
+			"concurrency": {
+				"sandboxes": 250,
+				"computers": 50
+			},
+			"max_computer": {
+				"memory_mb": 65536,
+				"vcpu": 16,
+				"disk_mb": 51200
+			},
+			"max_sandbox": {
+				"memory_mb": 16384,
+				"vcpu": 8,
+				"disk_mb": 40960
+			},
+			"retained": {
+				"sandboxes": 250,
+				"computers": 50
+			},
+			"limits": {
+				"always_on": true,
+				"databases": 25,
+				"sandboxes": 250,
+				"computers": 50,
+				"projects": null,
+				"seats": 10,
+				"computer_idle_minutes": null,
+				"dedicated_vcpu": true,
+				"egress_gb_month": 1024,
+				"image_mb_max": 51200,
+				"replica_ram_mb_max": 16384,
+				"replica_vcpu_max": 8,
+				"replicas_max": 50,
+				"running_ram_mb": 524288,
+				"running_vcpu": 256,
+				"sandbox_stop_minutes": null,
+				"service_ram_mb_max": 65536,
+				"service_vcpu_max": 50,
+				"volume_mb_max": 256000
+			},
+			"concurrent_builds": 3,
+			"build_minutes_month": 3000
+		},
+		{
+			"id": "enterprise",
+			"name": "Enterprise",
+			"description": "Maximum capacity, enterprise controls, and priority operations.",
+			"price_cents": 200000,
+			"monthly_commitment_cents": 200000,
+			"welcome_credit_credits": 0,
+			"monthly_grant_credits": 0,
+			"overage_enabled": true,
+			"approval_required": false,
+			"spending_limit_cents": null,
+			"allowed_sizes": ["xs", "small", "medium", "large", "xl"],
+			"allowed_sandbox_sizes": ["tiny", "xs", "small", "medium", "large", "xl"],
+			"budget_cents": 200000,
+			"concurrency": {
+				"sandboxes": 1000,
+				"computers": 200
+			},
+			"max_computer": {
+				"memory_mb": 131072,
+				"vcpu": 32,
+				"disk_mb": 51200
+			},
+			"max_sandbox": {
+				"memory_mb": 32768,
+				"vcpu": 16,
+				"disk_mb": 81920
+			},
+			"retained": {
+				"sandboxes": 1000,
+				"computers": 200
+			},
+			"limits": {
+				"always_on": true,
+				"databases": 100,
+				"sandboxes": 1000,
+				"computers": 200,
+				"projects": null,
+				"seats": null,
+				"computer_idle_minutes": null,
+				"dedicated_vcpu": true,
+				"egress_gb_month": 5120,
+				"image_mb_max": null,
+				"replica_ram_mb_max": 32768,
+				"replica_vcpu_max": 16,
+				"replicas_max": 100,
+				"running_ram_mb": 1048576,
+				"running_vcpu": 512,
+				"sandbox_stop_minutes": null,
+				"service_ram_mb_max": 131072,
+				"service_vcpu_max": 100,
+				"volume_mb_max": 1048576
+			},
+			"concurrent_builds": 3,
+			"build_minutes_month": 3000
+		}
+	],
+	"price_version": "launch-2026-11-03",
+	"as_of": "2026-11-09T10:17:01Z",
+	"ai": {
+		"description": "Billed per million tokens processed, by model. Input and output are metered separately.",
+		"tiers": [
+			{
+				"model": "optimal-fast",
+				"model_tier": "fast",
+				"input_cents_per_1m_tokens": 60,
+				"model_class": "DeepSeek V4.1 Flash",
+				"output_cents_per_1m_tokens": 240
+			},
+			{
+				"model": "optimal",
+				"model_tier": "standard",
+				"input_cents_per_1m_tokens": 190,
+				"model_class": "Kimi K2.6",
+				"output_cents_per_1m_tokens": 800
+			}
+		],
+		"models": [
+			{
+				"default": true,
+				"name": "Kimi K2.6",
+				"aliases": ["optimal", "optimal-pro", "ollama/kimi-k2.6-cloud"],
+				"context_window": 262144,
+				"model": "kimi-k2.6",
+				"vision": true,
+				"good_for": "Best all-rounder and the default: agents, coding and general work, with vision.",
+				"input_cents_per_1m_tokens": 190,
+				"output_cents_per_1m_tokens": 800,
+				"input_usd_per_1m_tokens": 1.9,
+				"output_usd_per_1m_tokens": 8.0
+			},
+			{
+				"default": false,
+				"name": "Kimi K2.7 Code",
+				"aliases": [],
+				"context_window": 262144,
+				"model": "kimi-k2.7-code",
+				"vision": true,
+				"good_for": "Coding agents: Kimi K2.6 tuned for code, with about 30% fewer thinking tokens.",
+				"input_cents_per_1m_tokens": 190,
+				"output_cents_per_1m_tokens": 800,
+				"input_usd_per_1m_tokens": 1.9,
+				"output_usd_per_1m_tokens": 8.0
+			},
+			{
+				"default": false,
+				"name": "DeepSeek V4.1 Flash",
+				"aliases": ["optimal-fast"],
+				"context_window": 1048576,
+				"model": "deepseek-v4.1-flash",
+				"vision": true,
+				"good_for": "Cheap and fast, with a 1M-token context: high volume and long inputs.",
+				"input_cents_per_1m_tokens": 60,
+				"output_cents_per_1m_tokens": 240,
+				"input_usd_per_1m_tokens": 0.6,
+				"output_usd_per_1m_tokens": 2.4
+			},
+			{
+				"default": false,
+				"name": "GLM-5.3",
+				"aliases": [],
+				"context_window": 1048576,
+				"model": "glm-5.3",
+				"vision": false,
+				"good_for": "Long-horizon coding and agentic work, with a 1M-token context (no vision).",
+				"input_cents_per_1m_tokens": 280,
+				"output_cents_per_1m_tokens": 880,
+				"input_usd_per_1m_tokens": 2.8,
+				"output_usd_per_1m_tokens": 8.8
+			}
+		]
+	},
+	"machines": {
+		"database": {
+			"meter": "services",
+			"sizes": [
+				{
+					"size": "tiny",
+					"vcpus": 1,
+					"usd_per_hour": 0.0359,
+					"memory_gib": 1.0,
+					"usd_per_month": 26.22
+				},
+				{
+					"size": "xs",
+					"vcpus": 1,
+					"usd_per_hour": 0.0446,
+					"memory_gib": 2.0,
+					"usd_per_month": 32.58
+				},
+				{
+					"size": "small",
+					"vcpus": 2,
+					"usd_per_hour": 0.0893,
+					"memory_gib": 4.0,
+					"usd_per_month": 65.16
+				},
+				{
+					"size": "medium",
+					"vcpus": 4,
+					"usd_per_hour": 0.1785,
+					"memory_gib": 8.0,
+					"usd_per_month": 130.32
+				},
+				{
+					"size": "large",
+					"vcpus": 8,
+					"usd_per_hour": 0.357,
+					"memory_gib": 16.0,
+					"usd_per_month": 260.65
+				},
+				{
+					"size": "xl",
+					"vcpus": 16,
+					"usd_per_hour": 0.7141,
+					"memory_gib": 32.0,
+					"usd_per_month": 521.29
+				}
+			],
+			"price_kind": "maximum",
+			"capped_by_meter": "sandboxes"
+		},
+		"computer": {
+			"meter": "computers",
+			"sizes": [
+				{
+					"size": "xs",
+					"vcpus": 1,
+					"usd_per_hour": 0.0446,
+					"memory_gib": 2.0,
+					"usd_per_month": 32.58
+				},
+				{
+					"size": "small",
+					"vcpus": 2,
+					"usd_per_hour": 0.0893,
+					"memory_gib": 4.0,
+					"usd_per_month": 65.16
+				},
+				{
+					"size": "medium",
+					"vcpus": 4,
+					"usd_per_hour": 0.1785,
+					"memory_gib": 8.0,
+					"usd_per_month": 130.32
+				},
+				{
+					"size": "large",
+					"vcpus": 8,
+					"usd_per_hour": 0.357,
+					"memory_gib": 16.0,
+					"usd_per_month": 260.65
+				},
+				{
+					"size": "xl",
+					"vcpus": 16,
+					"usd_per_hour": 0.7141,
+					"memory_gib": 32.0,
+					"usd_per_month": 521.29
+				}
+			],
+			"price_kind": "flat"
+		},
+		"sandbox": {
+			"meter": "sandboxes",
+			"sizes": [
+				{
+					"size": "micro",
+					"vcpus": 1,
+					"usd_per_hour": 0.0316,
+					"memory_gib": 0.5,
+					"usd_per_month": 23.05
+				},
+				{
+					"size": "tiny",
+					"vcpus": 1,
+					"usd_per_hour": 0.0359,
+					"memory_gib": 1.0,
+					"usd_per_month": 26.22
+				},
+				{
+					"size": "xs",
+					"vcpus": 1,
+					"usd_per_hour": 0.0446,
+					"memory_gib": 2.0,
+					"usd_per_month": 32.58
+				},
+				{
+					"size": "small",
+					"vcpus": 2,
+					"usd_per_hour": 0.0893,
+					"memory_gib": 4.0,
+					"usd_per_month": 65.16
+				},
+				{
+					"size": "quad",
+					"vcpus": 4,
+					"usd_per_hour": 0.1437,
+					"memory_gib": 4.0,
+					"usd_per_month": 104.9
+				},
+				{
+					"size": "medium",
+					"vcpus": 4,
+					"usd_per_hour": 0.1785,
+					"memory_gib": 8.0,
+					"usd_per_month": 130.32
+				},
+				{
+					"size": "large",
+					"vcpus": 8,
+					"usd_per_hour": 0.357,
+					"memory_gib": 16.0,
+					"usd_per_month": 260.65
+				},
+				{
+					"size": "xl",
+					"vcpus": 16,
+					"usd_per_hour": 0.7141,
+					"memory_gib": 32.0,
+					"usd_per_month": 521.29
+				}
+			],
+			"price_kind": "flat"
+		},
+		"app": {
+			"meter": "services",
+			"sizes": [
+				{
+					"size": "micro",
+					"vcpus": 1,
+					"usd_per_hour": 0.0316,
+					"memory_gib": 0.5,
+					"usd_per_month": 23.05
+				},
+				{
+					"size": "tiny",
+					"vcpus": 1,
+					"usd_per_hour": 0.0359,
+					"memory_gib": 1.0,
+					"usd_per_month": 26.22
+				},
+				{
+					"size": "xs",
+					"vcpus": 1,
+					"usd_per_hour": 0.0446,
+					"memory_gib": 2.0,
+					"usd_per_month": 32.58
+				},
+				{
+					"size": "small",
+					"vcpus": 2,
+					"usd_per_hour": 0.0893,
+					"memory_gib": 4.0,
+					"usd_per_month": 65.16
+				},
+				{
+					"size": "medium",
+					"vcpus": 4,
+					"usd_per_hour": 0.1785,
+					"memory_gib": 8.0,
+					"usd_per_month": 130.32
+				},
+				{
+					"size": "large",
+					"vcpus": 8,
+					"usd_per_hour": 0.357,
+					"memory_gib": 16.0,
+					"usd_per_month": 260.65
+				},
+				{
+					"size": "xl",
+					"vcpus": 16,
+					"usd_per_hour": 0.7141,
+					"memory_gib": 32.0,
+					"usd_per_month": 521.29
+				}
+			],
+			"price_kind": "maximum",
+			"capped_by_meter": "sandboxes"
+		}
+	},
+	"meters": {
+		"services": {
+			"basis": "measured_use",
+			"memory_floor_fraction": 0.0,
+			"cap": {
+				"cpu": "provisioned_vcpus",
+				"memory": "provisioned_size"
+			},
+			"usd_per_gib_month": 10.953,
+			"usd_per_vcpu_month": 21.915,
+			"billed_while": "running",
+			"stopped_usd": 0.0,
+			"memory_floor_mib": 32,
+			"usd_per_gib_second": 4.167808e-6,
+			"usd_per_vcpu_second": 8.339041e-6
+		},
+		"sandboxes": {
+			"basis": "flat_size",
+			"usd_per_gib_hour": 0.0087075,
+			"usd_per_vcpu_hour": 0.027216,
+			"usd_per_gib_month": 6.3565,
+			"usd_per_vcpu_month": 19.8677,
+			"billed_while": "running",
+			"stopped_usd": 0.0
+		},
+		"computers": {
+			"basis": "flat_size",
+			"usd_per_gib_hour": 0.0087075,
+			"usd_per_vcpu_hour": 0.027216,
+			"usd_per_gib_month": 6.3565,
+			"usd_per_vcpu_month": 19.8677,
+			"billed_while": "running",
+			"stopped_usd": 0.0
+		}
+	},
+	"build": {
+		"free": true,
+		"basis": "build_minutes",
+		"usd_per_build_minute": 0.0
+	},
+	"source": "https://api.miosa.ai/api/v1/compute/pricing"
+}

@@ -1,0 +1,42 @@
+---
+slug: "installation"
+title: "Install the CLI or SDK"
+description: "Pick the interface that matches your workflow, configure credentials once, and verify the connection before making changes."
+section: "Get started"
+order: 2
+---
+
+<script>
+ import CodeTabs from '#lib/components/CodeTabs.svelte';
+ import Callout from '#lib/components/Callout.svelte';
+</script>
+
+## Choose an interface
+
+The CLI is useful when a person or coding agent works in a terminal. An SDK is useful inside an application. MCP exposes defined capabilities to an agent through its client’s tool interface.
+
+<CodeTabs examples={{TypeScript:'npm install @miosa/sdk',Python:'pip install miosa',Shell:'brew install Miosa-osa/tap/miosa'}} />
+
+These are reference installation examples. Check the provider’s current installation documentation before connecting a production account.
+
+## Configure credentials
+
+Keep a production API key on the server or in the CLI environment. A browser should receive only the limited credentials that its task actually requires.
+
+```bash
+export MIOSA_API_KEY="your-key"
+```
+
+<Callout title="This site needs no cloud key">Run this reconstruction with <code>npm run dev</code>. Its local learning flows, search and sandbox API work without a MIOSA account.</Callout>
+
+## Verify the selected account
+
+Before creating resources, inspect the account, organization and workspace selected by your client. Make this step explicit in automation so a default profile does not silently choose the wrong environment.
+
+## Use structured output
+
+Prefer structured output when a script needs to read a result. Capture the returned resource or operation identifier and pass that value to the next step. Avoid parsing a human-readable status sentence when a JSON field is available.
+
+## Next steps
+
+Read the [CLI workflow](/docs/cli), compare [SDK examples](/docs/sdks), or follow the [quickstart](/docs/quickstart).

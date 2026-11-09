@@ -1,0 +1,40 @@
+---
+slug: "api-reference"
+title: "API fundamentals"
+description: "Read the resource contract, send an explicit request, and inspect the exact response before taking the next action."
+section: "API reference"
+order: 39
+---
+
+<script>import Callout from '#lib/components/Callout.svelte';</script>
+
+## The local API surface
+
+This project provides a small, working sandbox API for learning. It is described by its own OpenAPI document and is independent of the MIOSA production API.
+
+| Method | Path | Behavior |
+| --- | --- | --- |
+| GET | `/api/sandboxes` | List local example sandboxes |
+| POST | `/api/sandboxes` | Create an example sandbox |
+| GET | `/api/sandboxes/{id}` | Inspect one example |
+| DELETE | `/api/sandboxes/{id}` | Remove one example |
+
+## Create an example
+
+```bash
+curl -X POST http://localhost:5173/api/sandboxes \
+  -H 'Content-Type: application/json' \
+  -d '{"name":"hello-docs","template":"node"}'
+```
+
+The response includes an identifier, a name, a template and a state. Use the returned identifier to inspect or delete that exact example.
+
+## Errors
+
+Malformed JSON and invalid fields return a 400 response with a concrete message. An unknown identifier returns 404. The interactive explorer shows request and response bodies so you can compare the contract with the behavior.
+
+<Callout title="Process-local examples">The sample API stores records in this Node process. Restarting it resets those examples. Browser learning progress is separate and remains in localStorage.</Callout>
+
+## Explore the schema
+
+Open the [interactive reference](/docs/api) to send a request, or inspect [the OpenAPI document](/openapi.json) directly.

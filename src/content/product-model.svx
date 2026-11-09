@@ -1,0 +1,36 @@
+---
+slug: "product-model"
+title: "The product model"
+description: "A small resource vocabulary makes the system easier to understand. Give every resource a clear owner, lifetime and purpose."
+section: "Get started"
+order: 3
+---
+
+<script>import Diagram from '#lib/components/Diagram.svelte';</script>
+
+## Ownership comes first
+
+An organization owns workspaces. A workspace groups resources and controls who can use them. A project can group resources for one application. These boundaries should be explicit in requests and visible in the interface.
+
+<Diagram label="Resource ownership" source={'flowchart TD\n O[Organization] --> W[Workspace]\n W --> P[Project]\n P --> S[Sandbox]\n P --> D[Deployment]\n P --> B[Database]\n W --> C[Computer]'} />
+
+## Separate resources by lifetime
+
+| Resource | Main job | Lifetime |
+| --- | --- | --- |
+| Sandbox | Build, test and execute code | Often disposable |
+| Computer | Operate desktop applications | Task or session based |
+| Deployment | Serve a published application | Managed release |
+| Database or volume | Keep application state | Persistent |
+
+## Connect with bindings
+
+A binding records how an application uses another resource. It might supply a database URL, a storage location or a scoped capability. Keeping these connections explicit makes deployment and recovery easier to inspect.
+
+## Keep identities stable
+
+A name is useful to a person, but a returned identifier names the actual resource. Keep the identifier in operation records. Reusing a familiar display name does not mean you are operating on the same instance.
+
+## Learn by doing
+
+[Practice the resource model](/docs/learn/labs/model), or [explore the glossary](/docs/glossary).

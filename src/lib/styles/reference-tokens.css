@@ -1,0 +1,93 @@
+/* Exact source values: https://miosa.ai/_app/immutable/assets/29.DLqYOYQS.css
+   Captured 2026-11-09; aliases keep local components on the same source tokens. */
+:root {
+	--docs-canvas: #0a0a0b;
+	--docs-panel-border: rgba(255, 255, 255, 0.06);
+	--docs-shadow-k: 1;
+	--docs-shadow-panel:
+		inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 1px 0 rgba(0, 0, 0, calc(0.4 * var(--docs-shadow-k)));
+	--docs-shadow-nav:
+		inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 1px 0 rgba(0, 0, 0, calc(0.4 * var(--docs-shadow-k)));
+	--docs-shadow-pill: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+	--docs-shadow-card:
+		inset 0 1px 0 rgba(255, 255, 255, 0.03),
+		0 1px 2px rgba(0, 0, 0, calc(0.4 * var(--docs-shadow-k)));
+	--docs-focus-ring: rgba(255, 255, 255, 0.25);
+	--doc-code-bg: #0f0f10;
+	--docs-radius-panel: 16px;
+	--docs-body-fs: 15px;
+	--docs-body-lh: 1.7;
+	--docs-heading-track: -0.02em;
+	--doc-font-heading: var(--doc-font-sans);
+	--docs-heading-weight: 600;
+	--docs-font-features: 'ss01', 'cv11';
+	--docs-heading-vs: normal;
+	--dt: #fafafa;
+	--dt2: #b4b4ba;
+	--dt3: #8a8a92;
+	--dt4: #5c5c64;
+	--dbg: #111113;
+	--dbg2: #161618;
+	--dbg3: #1d1d20;
+	--dbd: #26262a;
+	--dbd2: #1b1b1e;
+	--doc-font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	--doc-font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, 'JetBrains Mono', Menlo, monospace;
+	--doc-accent: #9f8cff;
+	--doc-radius-card: 6px;
+	--doc-radius-card-lg: 12px;
+	--doc-radius-pill: 100px;
+	--doc-radius-pill-full: 9999px;
+	--doc-elev-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+	--text: var(--dt);
+	--muted: var(--dt3);
+	--faint: var(--dt4);
+	--canvas: var(--docs-canvas);
+	--surface: var(--dbg);
+	--surface-2: var(--dbg2);
+	--surface-3: var(--dbg3);
+	--border: var(--dbd);
+	--hover: color-mix(in srgb, var(--dt) 4%, transparent);
+	--active: color-mix(in srgb, var(--dt) 6%, transparent);
+	--button: var(--dt);
+	--button-text: var(--dbg);
+	--shadow: var(--docs-shadow-card);
+	--green: #83dca7;
+	--green-bg: #18382a;
+	--sidebar-width: 260px;
+	--head-height: 72px;
+	color-scheme: dark;
+}
+:root:not([data-theme='dark']):not([data-theme='glass-dark']) {
+	--docs-canvas: #f4f4f5;
+	--docs-panel-border: rgba(0, 0, 0, 0.06);
+	--docs-shadow-panel:
+		0 0 0 1px rgba(0, 0, 0, calc(0.05 * var(--docs-shadow-k))),
+		0 1px 2px rgba(0, 0, 0, calc(0.05 * var(--docs-shadow-k))),
+		0 6px 12px -4px rgba(0, 0, 0, calc(0.06 * var(--docs-shadow-k))),
+		0 24px 56px -16px rgba(0, 0, 0, calc(0.14 * var(--docs-shadow-k)));
+	--docs-shadow-nav:
+		0 0 0 1px rgba(0, 0, 0, calc(0.05 * var(--docs-shadow-k))),
+		0 1px 2px rgba(0, 0, 0, calc(0.05 * var(--docs-shadow-k))),
+		0 4px 10px -4px rgba(0, 0, 0, calc(0.08 * var(--docs-shadow-k)));
+	--docs-shadow-pill:
+		0 1px 2px rgba(0, 0, 0, calc(0.06 * var(--docs-shadow-k))),
+		inset 0 1px 0 rgba(255, 255, 255, 0.6);
+	--docs-shadow-card: 0 1px 2px rgba(0, 0, 0, calc(0.04 * var(--docs-shadow-k)));
+	--docs-focus-ring: rgba(0, 0, 0, 0.18);
+	--doc-code-bg: #fafafa;
+	--dt: #09090b;
+	--dt2: #3f3f46;
+	--dt3: #71717a;
+	--dt4: #a1a1aa;
+	--dbg: #ffffff;
+	--dbg2: #fafafa;
+	--dbg3: #f4f4f5;
+	--dbd: #e4e4e7;
+	--dbd2: #efeff1;
+	--doc-accent: #5b3df5;
+	--doc-elev-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+	--green: #157449;
+	--green-bg: #e8f5ed;
+	color-scheme: light;
+}

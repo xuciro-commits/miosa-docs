@@ -1,0 +1,25 @@
+---
+slug: "changelog"
+title: "Changelog"
+description: "Changes to this local documentation reconstruction."
+section: "Organization & security"
+order: 60
+---
+
+## November 9, 2026
+
+### Documentation foundation
+
+Added a responsive SvelteKit documentation shell, MDsveX content, shared language examples, code copying, a live table of contents and five appearance choices.
+
+### Learning workspace
+
+Added glossary practice, category checks, seven interactive lab units and browser-local progress. Video lessons remain explicitly unavailable until real material is supplied.
+
+### Developer surfaces
+
+Added a working example sandbox API, Scalar reference, Markdown exports and a documentation finder with an optional server-side model connection.
+
+## What this release does not connect
+
+This is an independent local study project. It does not authenticate to MIOSA, grant account credits or operate real cloud resources.

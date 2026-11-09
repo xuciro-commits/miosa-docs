@@ -1,0 +1,62 @@
+---
+slug: "quickstart"
+title: "Sandbox to deployment"
+description: "A complete first workflow: create an environment, write an application, inspect it, and publish a version with a clear rollback path."
+section: "Get started"
+order: 1
+---
+
+<script>
+  import CodeTabs from '#lib/components/CodeTabs.svelte';
+  import Callout from '#lib/components/Callout.svelte';
+  import Diagram from '#lib/components/Diagram.svelte';
+  import RequestBuilder from '#lib/components/RequestBuilder.svelte';
+</script>
+
+## Before you start
+
+For a real cloud workflow, install your provider’s CLI or SDK and configure an account with the permissions you need. The following examples describe the MIOSA workflow; they do not execute a production request from this page.
+
+For a working local request, use the [API explorer](/docs/api). For a visual simulation, use the [sandbox lab](/docs/learn/labs/sandbox).
+
+## 1. Create a sandbox
+
+Name the workspace explicitly. Treat the returned resource identifier as the identity of your sandbox and use it for subsequent operations.
+
+<CodeTabs examples={{TypeScript:'import { Miosa } from "@miosa/sdk";\n\nconst miosa = new Miosa({ apiKey: process.env.MIOSA_API_KEY! });\nconst sandbox = await miosa.sandboxes.create({\n  workspaceSlug: "default",\n  templateId: "miosa-sandbox",\n});\nconsole.log(sandbox.id);',Python:'import os\nfrom miosa import Miosa\n\nclient = Miosa(api_key=os.environ["MIOSA_API_KEY"])\nsandbox = client.sandboxes.create(\n    workspace_slug="default",\n    template_id="miosa-sandbox",\n)\nprint(sandbox.id)',Shell:'export MIOSA_API_KEY="your-key"\nmiosa sandbox create --workspace default --template miosa-sandbox'}} />
+
+## 2. Run your application
+
+Install dependencies inside the sandbox, then start the application on a known port. Read its output before assuming it is ready.
+
+<CodeTabs examples={{TypeScript:'const result = await sandbox.exec("node --version");\nconsole.log(result.stdout);\n\nawait sandbox.exec("npm install");',Python:'result = sandbox.exec("node --version")\nprint(result.stdout)\n\nsandbox.exec("npm install")',Shell:'miosa sandbox exec <sandbox-id> -- node --version\nmiosa sandbox exec <sandbox-id> -- npm install'}} />
+
+<Callout title="Keep secrets in configuration" kind="tip">Use environment variables or a secrets binding for credentials. Do not put a production key into a browser bundle, a copied tutorial or a committed file.</Callout>
+
+## 3. Inspect the preview
+
+A successful command is one piece of evidence. Also open the application, exercise its main task, and inspect its logs. Check the candidate that you intend to publish rather than an unrelated development instance.
+
+<Diagram label="The verification boundary" source={'flowchart LR\n A[Source change] --> B[Candidate version]\n B --> C[Preview and checks]\n C --> D{Verified?}\n D -->|Yes| E[Promote release]\n D -->|No| A'} />
+
+## 4. Publish a version
+
+Publishing should identify an immutable candidate. Verify that candidate, then promote that same identifier. Save the returned deployment address rather than constructing a URL from a guessed naming pattern.
+
+```bash
+miosa app preview ./app --json
+miosa app verify <release-id> ./app --json
+miosa app promote <release-id> ./app --yes --json
+```
+
+## 5. Keep a way back
+
+Record the active release and the previous known good version. When a release fails, inspect the exact failed operation. A retry, recovery and rollback solve different problems; choose the one that matches the state you can observe.
+
+Read [deployments and rollback](/docs/deployments) next, or put the sequence into practice in [Shipping](/docs/learn/labs/shipping).
+
+## Make the example yours
+
+Change these values to see a parameterized example. The selected language stays synchronized with the rest of the tutorial.
+
+<RequestBuilder />

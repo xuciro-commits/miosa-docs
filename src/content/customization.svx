@@ -1,0 +1,52 @@
+---
+slug: "customization"
+title: "Make this documentation your own"
+description: "Replace the content, adjust the tokens, and connect only the services you need. The reading experience works on its own."
+section: "Organization & security"
+order: 50
+---
+
+## Add an article
+
+Create a `.svx` file in `src/content`. Its frontmatter supplies the title, description, slug, section and order. The content registry discovers that metadata and the article body.
+
+```yaml
+---
+slug: your-first-guide
+title: Your first guide
+description: A short, useful description of the task.
+section: Get started
+order: 4
+---
+```
+
+Add its slug to `src/lib/content/navigation.ts` to place it in the sidebar. The search index, Markdown output and page metadata use the content registry.
+
+## Use interactive content
+
+Import `CodeTabs`, `Callout` or `Diagram` in an article’s script. CodeTabs accepts a record of language names and code strings. Examples share a language preference; set `sync={false}` for an independent example.
+
+## Change the visual system
+
+`src/app.css` owns the color tokens, typography and common primitives. Component styles own their layout. Keep the light, dark and glass token sets aligned rather than adding theme conditions to every control.
+
+## Replace learning content
+
+`src/lib/content/learning.ts` defines glossary categories, terms, lab units and sequence exercises. Browser progress references stable identifiers. Change the storage version deliberately when you replace those identities.
+
+## Connect an assistant
+
+Without configuration, Ask OSA finds matching passages from local documentation. To connect a model, set `DOCS_AI_BASE_URL`, `DOCS_AI_KEY` and `DOCS_AI_MODEL` on the server. The base URL should expose an OpenAI-compatible `/chat/completions` endpoint.
+
+Keys never go into browser code. The response identifies whether it came from the configured model or the local document finder. If a service request fails, the panel offers a retry and keeps the question visible.
+
+## Build and run
+
+```bash
+npm install
+npm run check
+npm run build
+node build
+```
+
+Use the Node adapter for the API and assistant routes. A purely static export would need those endpoints moved to another service.

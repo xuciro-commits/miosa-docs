@@ -1,0 +1,23 @@
+---
+slug: "projects"
+title: "Projects"
+description: "Group the resources for one application without hiding who owns them."
+section: "Services & projects"
+order: 12
+---
+
+## Give the application a home
+
+A project groups related services and resources inside a workspace. Use a name that helps the next person recognize the application, then keep its persistent identifier in deployment records.
+
+## Model environments explicitly
+
+Development, staging and production have different jobs. Give each environment its own configuration and data bindings. A shared source repository does not require a shared production database.
+
+## Keep the resource map readable
+
+List the web service, worker, database and storage used by the application. A person should be able to inspect that map without reconstructing it from environment-variable names.
+
+## Start small
+
+Follow the [quickstart](/docs/quickstart), then read [services](/docs/services) and [data bindings](/docs/data).

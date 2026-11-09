@@ -1,0 +1,29 @@
+---
+slug: "services"
+title: "Services"
+description: "Choose a web process, a worker or a scheduled job according to the work it does."
+section: "Services & projects"
+order: 13
+---
+
+## Choose a service shape
+
+A web service accepts requests. A worker consumes background tasks. A scheduled job runs at defined times. Name the role before selecting the resources.
+
+| Shape | Input | Readiness evidence |
+| --- | --- | --- |
+| Web service | HTTP requests | A healthy application response |
+| Worker | Queue messages | A connected consumer and successful work |
+| Scheduled job | A schedule | A completed run with a recorded result |
+
+## Configure before release
+
+Set the start command, environment and resource bindings deliberately. Keep secret values out of source control. Verify the application using the same configuration shape it will use when published.
+
+## Observe behavior
+
+Logs describe individual events. Metrics describe behavior over time. Use both to understand whether a deployment is healthy, and keep the active release identifier attached to observations.
+
+## Publish a known version
+
+Read [deployments and rollback](/docs/deployments) before promoting the first production release.

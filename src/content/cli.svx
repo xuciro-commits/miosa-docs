@@ -1,0 +1,29 @@
+---
+slug: "cli"
+title: "CLI workflow"
+description: "Use explicit resources and structured output to make terminal workflows readable and repeatable."
+section: "CLI, SDKs & MCP"
+order: 30
+---
+
+## Inspect before changing
+
+Start by checking the active account and workspace. Inspect existing resources before creating replacements. The resource returned by a previous operation is usually more useful than a guessed name.
+
+## Capture identifiers
+
+When a command returns a resource or operation identifier, store it for the next step. Prefer JSON output to a script that extracts values from a status sentence.
+
+```bash
+miosa capabilities --json
+miosa app inspect ./app --json
+miosa app plan ./app --goal deploy --json
+```
+
+## Read failures as state
+
+An interrupted client does not necessarily mean the server operation stopped. Inspect the recorded operation before retrying it. A retry must not silently create a second resource.
+
+## Choose the interface
+
+Use the CLI for terminal work, the [SDKs](/docs/sdks) for application code, and [MCP](/docs/mcp) for a client that needs a tool interface.
