@@ -4,7 +4,7 @@
 
 ## 部署到 MIOSA
 
-线上地址：<https://miosa-docs.msru.miosa.app>。推送到 `main` 会触发 `.github/workflows/deploy-miosa.yml`：
+线上地址：<https://docs.norsky.cn>。推送到 `main` 会触发 `.github/workflows/deploy-miosa.yml`：
 
 1. 检查类型，运行 `npm run build:static`，预渲染文档与页面，并生成 Markdown、搜索索引和机器文档。
 2. 在真正的静态文件服务器上，用浏览器验证页面、搜索、深层路由、Markdown 与本地 OSA 检索。
