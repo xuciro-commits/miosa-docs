@@ -8,32 +8,29 @@
 		Play,
 		Rocket
 	} from '@lucide/svelte';
+	import { t } from '#lib/i18n.svelte.js';
 	import { progress } from '#lib/learning.svelte.js';
 	const paths = [
 		{
-			title: 'Learn the words',
-			text: 'A vocabulary you can use. Explore plain-language definitions, practice the ideas, and check each category.',
+			key: 'words',
 			href: '/docs/glossary',
 			icon: BookOpen,
 			amount: 20
 		},
 		{
-			title: 'Play the games',
-			text: 'Learn by changing things. Seven hands-on labs make resource lifecycles, publishing and customer boundaries visible.',
+			key: 'games',
 			href: '/docs/learn/games',
 			icon: Gamepad2,
 			amount: 50
 		},
 		{
-			title: 'Watch the videos',
-			text: 'Short, focused lessons for the ideas behind the platform. This track will open when real lessons are available.',
+			key: 'videos',
 			href: '/docs/learn/videos',
 			icon: Play,
 			amount: 30
 		},
 		{
-			title: 'Build something',
-			text: 'Put the ideas to work. Follow a guide from a first sandbox to a tested application and a published version.',
+			key: 'build',
 			href: '/docs/quickstart',
 			icon: Rocket,
 			amount: 0
@@ -42,49 +39,54 @@
 </script>
 
 <p class="intro">
-	You do not have to understand everything at once. Start with a word, try a small experiment, and
-	connect the pieces as you go.
+	{t('learning.home.intro')}
 </p>
 <section class="how panel">
-	<h2 id="how-earning-works">How learning works</h2>
+	<h2 id="how-earning-works">{t('learning.home.howTitle')}</h2>
 	<ol>
 		<li>
 			<span>1</span>
-			<p><b>Read or play.</b> Every learning path is open from the start.</p>
+			<p><b>{t('learning.home.step1Title')}</b> {t('learning.home.step1Text')}</p>
 		</li>
 		<li>
 			<span>2</span>
-			<p><b>Practice freely.</b> Repeat an exercise until the idea feels familiar.</p>
+			<p><b>{t('learning.home.step2Title')}</b> {t('learning.home.step2Text')}</p>
 		</li>
 		<li>
 			<span>3</span>
 			<p>
-				<b>Check your understanding.</b> Your completed checks and labs stay saved in this browser.
+				<b>{t('learning.home.step3Title')}</b> {t('learning.home.step3Text')}
 			</p>
 		</li>
 	</ol>
-	<a href="/docs/learn/earn" class="button">See your progress<ArrowRight size={12} /></a>
+	<a href="/docs/learn/earn" class="button"
+		>{t('learning.common.seeYourProgress')}<ArrowRight size={12} /></a
+	>
 </section>
 <section class="progress-card panel">
 	<div>
 		<CircleDollarSign size={23} />
-		<h2 id="your-progress">One workspace for<br />everything you learn</h2>
-		<a href="/docs/learn/earn" class="button primary">Keep learning<ArrowRight size={13} /></a>
+		<h2 id="your-progress">
+			{t('learning.home.progressTitle1')}<br />{t('learning.home.progressTitle2')}
+		</h2>
+		<a href="/docs/learn/earn" class="button primary"
+			>{t('learning.common.keepLearning')}<ArrowRight size={13} /></a
+		>
 	</div>
-	<p>
-		Words +$20, games +$50, videos +$30 when available. Practice credits have no monetary value.
-	</p>
+	<p>{t('learning.home.creditsNote')}</p>
 	<div class="progress-track"><span style={`width:${progress.credits}%`}></span></div>
-	<small>${progress.credits} / $100 practice credits</small>
+	<small>{t('learning.common.creditsProgress', { value: progress.credits })}</small>
 </section>
 <div class="learning-paths">
 	{#each paths as path, i}<a class="path panel" href={path.href}
 			><span class="path-number">{i + 1}</span>
 			<div>
 				<h2>
-					{path.title}{#if path.amount}<span class="pill">Up to · ${path.amount}</span>{/if}
+					{t(`learning.home.path.${path.key}.title`)}{#if path.amount}<span class="pill"
+							>{t('learning.common.upTo', { amount: path.amount })}</span
+						>{/if}
 				</h2>
-				<p>{path.text}</p>
+				<p>{t(`learning.home.path.${path.key}.text`)}</p>
 				{#if i === 0 || i === 1}<div class="path-progress">
 						<div class="progress-track">
 							<span
@@ -92,17 +94,26 @@
 							></span>
 						</div>
 						<small
-							>{i === 0 ? `${progress.words} of 8 categories` : `${progress.games} of 7 units`} completed</small
+							>{i === 0
+								? t('learning.home.categoriesProgress', {
+										done: progress.words,
+										total: 8
+									})
+								: t('learning.home.unitsProgress', {
+										done: progress.games,
+										total: 7
+									})}</small
 						>
 					</div>{/if}
 			</div>
 			<ArrowRight size={15} /></a
 		>{/each}
 </div>
-<h2 id="prefer-to-read">Prefer to read? Five steps from idea to production</h2>
+<h2 id="prefer-to-read">{t('learning.home.readingTitle')}</h2>
 <div class="reading-path panel">
-	{#each [['The product model', 'product-model'], ['Choose your sandbox', 'sandboxes'], ['Build your first app', 'quickstart'], ['Publish a version', 'deployments'], ['Connect your data', 'data']] as [title, slug], i}<a
-			href={`/docs/${slug}`}><span>{i + 1}</span><b>{title}</b><ArrowRight size={13} /></a
+	{#each [['productModel', 'product-model'], ['sandboxes', 'sandboxes'], ['quickstart', 'quickstart'], ['deployments', 'deployments'], ['data', 'data']] as [key, slug], i}<a
+			href={`/docs/${slug}`}><span>{i + 1}</span><b>{t(`learning.home.reading.${key}`)}</b
+			><ArrowRight size={13} /></a
 		>{/each}
 </div>
 

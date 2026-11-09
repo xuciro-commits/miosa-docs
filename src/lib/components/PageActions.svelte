@@ -3,6 +3,7 @@
 	import { page } from '$app/state';
 	import { Copy, Check, ChevronDown, FileText, MessageCircle, ExternalLink } from '@lucide/svelte';
 	import { ask, notify } from '#lib/preferences.svelte.js';
+	import { t } from '#lib/i18n.svelte.js';
 	let copied = $state(false);
 	let menu: HTMLDetailsElement;
 	const markdownUrl = $derived(
@@ -13,15 +14,15 @@
 			() => null
 		);
 		if (!response?.ok) {
-			notify('Could not copy this page. Try again.');
+			notify(t('docs.pageActions.copyFailed'));
 			return;
 		}
 		copied = await copyText(await response.text());
 		if (!copied) {
-			notify('Clipboard unavailable. Open View Markdown to copy manually.');
+			notify(t('docs.pageActions.clipboardUnavailable'));
 			return;
 		}
-		notify('Page copied as Markdown');
+		notify(t('docs.pageActions.copiedToast'));
 		setTimeout(() => (copied = false), 1800);
 	}
 </script>
@@ -29,24 +30,24 @@
 <div class="page-actions">
 	<button class="copy-button" onclick={copy}
 		>{#if copied}<Check size={13} />{:else}<Copy size={13} />{/if}<span
-			>{copied ? 'Copied' : 'Copy page'}</span
+			>{copied ? t('docs.pageActions.copied') : t('docs.pageActions.copyPage')}</span
 		></button
 	>
 	<details bind:this={menu}>
-		<summary aria-label="More page actions"><ChevronDown size={13} /></summary>
+		<summary aria-label={t('docs.pageActions.more')}><ChevronDown size={13} /></summary>
 		<div class="actions-menu">
 			<button
 				onclick={() => {
 					copy();
 					menu.open = false;
-				}}><Copy size={14} />Copy as Markdown</button
+				}}><Copy size={14} />{t('docs.pageActions.copyMarkdown')}</button
 			><a href={markdownUrl} data-sveltekit-reload target="_blank"
-				><FileText size={14} />View Markdown<ExternalLink size={11} /></a
+				><FileText size={14} />{t('docs.pageActions.viewMarkdown')}<ExternalLink size={11} /></a
 			><button
 				onclick={() => {
-					ask(`Explain this page: ${page.url.pathname}`);
+					ask(t('docs.pageActions.explainPrompt', { path: page.url.pathname }));
 					menu.open = false;
-				}}><MessageCircle size={14} />Ask about this page</button
+				}}><MessageCircle size={14} />{t('docs.pageActions.askAbout')}</button
 			>
 		</div>
 	</details>

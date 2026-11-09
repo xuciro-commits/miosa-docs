@@ -1,240 +1,360 @@
 <script lang="ts">
 	import { Check, ArrowUpRight, ArrowRight } from '@lucide/svelte';
+	import { i18n, t } from '#lib/i18n.svelte.js';
 	import MarketingShell from '#lib/components/MarketingShell.svelte';
 	import RateTable from '#lib/components/RateTable.svelte';
 	import PriceComparison from '#lib/components/PriceComparison.svelte';
 	import { priceBook, money } from '#lib/pricing.js';
 	const plans = priceBook.plans;
-	const featureRows = [
-		{ group: 'Capacity' },
+	function planName(id: string, fallback: string) {
+		const key = `marketing.pricing.planNames.${id}`;
+		const value = t(key);
+		return value === key ? fallback : value;
+	}
+	function planDescription(id: string) {
+		return t(`marketing.pricing.plans.description.${id}`);
+	}
+	const featureRows = $derived([
+		{ group: t('marketing.pricing.comparison.group.capacity') },
 		{
-			label: 'Sandboxes at once',
+			label: t('marketing.pricing.comparison.sandboxesAtOnce'),
 			values: plans.map((plan) => plan.concurrency.sandboxes.toLocaleString())
 		},
 		{
-			label: 'Computers at once',
+			label: t('marketing.pricing.comparison.computersAtOnce'),
 			values: plans.map((plan) => plan.concurrency.computers.toLocaleString())
 		},
 		{
-			label: 'Largest sandbox',
+			label: t('marketing.pricing.comparison.largestSandbox'),
 			values: plans.map(
 				(plan) => `${plan.max_sandbox.vcpu} vCPU / ${plan.max_sandbox.memory_mb / 1024} GB`
 			)
 		},
 		{
-			label: 'Largest computer',
+			label: t('marketing.pricing.comparison.largestComputer'),
 			values: plans.map(
 				(plan) => `${plan.max_computer.vcpu} vCPU / ${plan.max_computer.memory_mb / 1024} GB`
 			)
 		},
 		{
-			label: 'Running memory',
+			label: t('marketing.pricing.comparison.runningMemory'),
 			values: plans.map((plan) => `${plan.limits.running_ram_mb / 1024} GB`)
 		},
-		{ label: 'Running vCPU', values: plans.map((plan) => String(plan.limits.running_vcpu)) },
-		{ group: 'Services' },
 		{
-			label: 'Replicas per service',
+			label: t('marketing.pricing.comparison.runningVcpu'),
+			values: plans.map((plan) => String(plan.limits.running_vcpu))
+		},
+		{ group: t('marketing.pricing.comparison.group.services') },
+		{
+			label: t('marketing.pricing.comparison.replicas'),
 			values: plans.map((plan) => String(plan.limits.replicas_max))
 		},
-		{ label: 'Projects', values: plans.map((plan) => String(plan.limits.projects)) },
-		{ label: 'Databases', values: plans.map((plan) => String(plan.limits.databases)) },
 		{
-			label: 'Dedicated vCPU',
-			values: plans.map((plan) => (plan.limits.dedicated_vcpu ? 'Included' : '—'))
-		},
-		{ group: 'Workspace' },
-		{
-			label: 'Seats',
+			label: t('marketing.pricing.comparison.projects'),
 			values: plans.map((plan) =>
-				plan.limits.seats === null ? 'Unlimited' : String(plan.limits.seats)
+				plan.limits.projects === null
+					? t('marketing.pricing.comparison.unlimited')
+					: String(plan.limits.projects)
 			)
 		},
 		{
-			label: 'Egress allowance / month',
+			label: t('marketing.pricing.comparison.databases'),
+			values: plans.map((plan) =>
+				plan.limits.databases === null
+					? t('marketing.pricing.comparison.unlimited')
+					: String(plan.limits.databases)
+			)
+		},
+		{
+			label: t('marketing.pricing.comparison.dedicatedVcpu'),
+			values: plans.map((plan) =>
+				plan.limits.dedicated_vcpu ? t('marketing.pricing.comparison.included') : '—'
+			)
+		},
+		{ group: t('marketing.pricing.comparison.group.workspace') },
+		{
+			label: t('marketing.pricing.comparison.seats'),
+			values: plans.map((plan) =>
+				plan.limits.seats === null
+					? t('marketing.pricing.comparison.unlimited')
+					: String(plan.limits.seats)
+			)
+		},
+		{
+			label: t('marketing.pricing.comparison.egress'),
 			values: plans.map((plan) => `${plan.limits.egress_gb_month} GB`)
 		},
 		{
-			label: 'Included monthly usage',
+			label: t('marketing.pricing.comparison.monthlyUsage'),
 			values: plans.map((plan) =>
 				money((plan.monthly_commitment_cents || plan.monthly_grant_credits) / 100, 0)
 			)
 		},
-		{ label: 'Per-resource rates', values: plans.map(() => 'Same rates') },
 		{
-			label: 'At a zero balance',
-			values: plans.map((plan) => (plan.overage_enabled ? 'Metered usage' : 'Compute pauses'))
+			label: t('marketing.pricing.comparison.perResourceRates'),
+			values: plans.map(() => t('marketing.pricing.comparison.sameRates'))
+		},
+		{
+			label: t('marketing.pricing.comparison.zeroBalance'),
+			values: plans.map((plan) =>
+				plan.overage_enabled
+					? t('marketing.pricing.comparison.meteredUsage')
+					: t('marketing.pricing.comparison.computePauses')
+			)
 		}
-	];
-	const faq = [
-		[
-			'What is a credit?',
-			'A credit is a unit of usage balance. In the captured MIOSA price book, one credit represents $0.01. The practice credits shown in this local documentation are separate and have no monetary value.'
-		],
-		[
-			'How is usage billed?',
-			'Compute is recorded by the second while the resource runs. A flat-size sandbox and a usage-metered service use different meters. Storage is separate, and a paid plan’s credited commitment acts as a monthly minimum.'
-		],
-		[
-			'What happens at a $0 balance?',
-			'The Free plan does not allow automatic overage. The published plan description says machines pause when the balance reaches zero; additional credit can be purchased on the official service.'
-		],
-		[
-			'Is there a free plan?',
-			'Yes. The captured rate sheet lists a $0 Free plan with a small monthly usage allowance and lower capacity limits. Check the comparison table for the exact published limits.'
-		],
-		[
-			'Do idle sandboxes keep billing?',
-			'A running sandbox is still a running resource. Pausing stops its compute meter, while retained disk or other persistent resources can continue to have their own charges.'
-		],
-		[
-			'Do builds cost anything?',
-			'The structured build-price field captured for this reconstruction marks builds as free. The original service controls actual billing; use its current price book when making a purchase.'
-		]
-	];
-	const commands = [
-		['miosa create', 'Create an isolated sandbox'],
-		['miosa exec', 'Run a command'],
-		['miosa ssh', 'Open a shell session'],
-		['miosa preview create', 'Inspect a listening port'],
-		['miosa prompt', 'Run an agent task'],
-		['miosa pause / resume', 'Control a resource’s lifecycle'],
-		['miosa files cp', 'Move a file or artifact'],
-		['miosa deploy', 'Publish your application']
-	];
+	]);
+	const faq = $derived([
+		[t('marketing.pricing.faq.credit.question'), t('marketing.pricing.faq.credit.answer')],
+		[t('marketing.pricing.faq.billing.question'), t('marketing.pricing.faq.billing.answer')],
+		[t('marketing.pricing.faq.zero.question'), t('marketing.pricing.faq.zero.answer')],
+		[t('marketing.pricing.faq.free.question'), t('marketing.pricing.faq.free.answer')],
+		[t('marketing.pricing.faq.idle.question'), t('marketing.pricing.faq.idle.answer')],
+		[t('marketing.pricing.faq.builds.question'), t('marketing.pricing.faq.builds.answer')]
+	]);
+	const commands = $derived([
+		['miosa create', t('marketing.pricing.api.create')],
+		['miosa exec', t('marketing.pricing.api.exec')],
+		['miosa ssh', t('marketing.pricing.api.ssh')],
+		['miosa preview create', t('marketing.pricing.api.preview')],
+		['miosa prompt', t('marketing.pricing.api.prompt')],
+		['miosa pause / resume', t('marketing.pricing.api.lifecycle')],
+		['miosa files cp', t('marketing.pricing.api.files')],
+		['miosa deploy', t('marketing.pricing.api.deploy')]
+	]);
+	const includedFeatures = $derived([
+		t('marketing.pricing.included.webServices'),
+		t('marketing.pricing.included.dataServices'),
+		t('marketing.pricing.included.previews'),
+		t('marketing.pricing.included.domains'),
+		t('marketing.pricing.included.logs'),
+		t('marketing.pricing.included.access')
+	]);
+	const otherRates = $derived([
+		{
+			name: t('marketing.pricing.other.disk'),
+			price: t('marketing.pricing.other.perGiBMonth', {
+				price: money(priceBook.resources.disk_usd_per_gib_month)
+			}),
+			note: t('marketing.pricing.other.diskNote')
+		},
+		{
+			name: t('marketing.pricing.other.snapshots'),
+			price: t('marketing.pricing.other.perGiBMonth', {
+				price: money(priceBook.resources.snapshot_usd_per_gib_month, 3)
+			}),
+			note: t('marketing.pricing.other.snapshotsNote')
+		},
+		{
+			name: t('marketing.pricing.other.objectStorage'),
+			price: t('marketing.pricing.other.perGiBMonth', {
+				price: money(priceBook.resources.object_storage_usd_per_gib_month, 4)
+			}),
+			note: t('marketing.pricing.other.objectStorageNote')
+		},
+		{
+			name: t('marketing.pricing.other.egress'),
+			price: t('marketing.pricing.other.perGb', {
+				price: money(priceBook.resources.egress_usd_per_gb, 3)
+			}),
+			note: t('marketing.pricing.other.egressNote')
+		},
+		{
+			name: t('marketing.pricing.other.builds'),
+			price: priceBook.build.free
+				? t('marketing.pricing.other.free')
+				: t('marketing.pricing.other.metered'),
+			note: t('marketing.pricing.other.buildNote')
+		}
+	]);
+	const byocItems = $derived([
+		{
+			title: t('marketing.pricing.byoc.account.title'),
+			text: t('marketing.pricing.byoc.account.text')
+		},
+		{
+			title: t('marketing.pricing.byoc.bill.title'),
+			text: t('marketing.pricing.byoc.bill.text')
+		},
+		{
+			title: t('marketing.pricing.byoc.estimate.title'),
+			text: t('marketing.pricing.byoc.estimate.text')
+		}
+	]);
+	const rateSnapshotDate = $derived(
+		new Intl.DateTimeFormat(i18n.locale === 'zh' ? 'zh-CN' : 'en-US', {
+			month: 'short',
+			day: 'numeric',
+			year: 'numeric',
+			timeZone: 'UTC'
+		}).format(new Date(priceBook.as_of))
+	);
 </script>
 
 <svelte:head
-	><title>Pricing · MIOSA</title><meta
+	><title>{t('marketing.pricing.meta.title')}</title><meta
 		name="description"
-		content="Published plan and machine rates, with interactive workload and budget comparisons."
+		content={t('marketing.pricing.meta.description')}
 	/></svelte:head
 >
 <MarketingShell
 	><div class="pricing-container">
 		<header class="pricing-hero">
-			<p class="eyebrow">MIOSA pricing</p>
-			<h1>Pay per second<br /> for what you run.</h1>
-			<p>Compute is billed while a machine runs. Stop the machine to stop its compute meter.</p>
+			<p class="eyebrow">{t('marketing.pricing.hero.eyebrow')}</p>
+			<h1>
+				{t('marketing.pricing.hero.titleLine1')}<br />
+				{t('marketing.pricing.hero.titleLine2')}
+			</h1>
+			<p>{t('marketing.pricing.hero.lead')}</p>
 		</header>
 		<section class="plans-section" id="plans">
-			<p class="eyebrow">Plans</p>
-			<h2>Four plans. One price list.</h2>
-			<p class="section-description">
-				Begin with a small free allowance. Paid plans apply their monthly commitment toward resource
-				usage.
-			</p>
+			<p class="eyebrow">{t('marketing.pricing.plans.eyebrow')}</p>
+			<h2>{t('marketing.pricing.plans.title')}</h2>
+			<p class="section-description">{t('marketing.pricing.plans.description')}</p>
 			<div class="plan-grid">
 				{#each plans as plan}<article class:featured={plan.id === 'developer'}>
 						<div class="plan-top">
 							<p class="plan-name">
-								{plan.name}{#if plan.id === 'developer'}<span>Popular</span>{/if}
+								{planName(plan.id, plan.name)}{#if plan.id === 'developer'}<span
+										>{t('marketing.pricing.plans.popular')}</span
+									>{/if}
 							</p>
 							<div class="plan-price">
 								<b>{money(plan.price_cents / 100, 0)}</b><small
-									>{plan.price_cents ? '/ mo.' : 'no monthly charge'}</small
+									>{plan.price_cents
+										? t('marketing.pricing.plans.perMonth')
+										: t('marketing.pricing.plans.noMonthlyCharge')}</small
 								>
 							</div>
-							<h3>{plan.concurrency.sandboxes.toLocaleString()} sandboxes at once</h3>
+							<h3>
+								{t(
+									plan.concurrency.sandboxes === 1
+										? 'marketing.pricing.plans.sandboxOne'
+										: 'marketing.pricing.plans.sandboxesMany',
+									{ count: plan.concurrency.sandboxes.toLocaleString() }
+								)}
+							</h3>
 							<p class="plan-sub">
-								{plan.concurrency.computers}
-								{plan.concurrency.computers === 1 ? 'computer' : 'computers'} · up to {plan
-									.max_sandbox.vcpu} vCPU / {plan.max_sandbox.memory_mb / 1024} GB per machine
+								{t(
+									plan.concurrency.computers === 1
+										? 'marketing.pricing.plans.computerOne'
+										: 'marketing.pricing.plans.computersMany',
+									{
+										count: plan.concurrency.computers,
+										vcpu: plan.max_sandbox.vcpu,
+										memory: plan.max_sandbox.memory_mb / 1024
+									}
+								)}
 							</p>
-							<p class="plan-description">
-								{plan.id === 'free'
-									? 'A small workspace for a first experiment.'
-									: plan.id === 'developer'
-										? 'Room for development, prototypes and agent workloads.'
-										: plan.id === 'business'
-											? 'Higher limits for teams running production workloads.'
-											: 'The largest published capacity and workspace limits.'}
-							</p>
+							<p class="plan-description">{planDescription(plan.id)}</p>
 						</div>
 						<div class="plan-features">
 							<p>
 								{plan.price_cents
-									? `${money(plan.monthly_commitment_cents / 100, 0)} a month, credited toward usage`
-									: `${money(plan.monthly_grant_credits / 100, 0)} of usage each month`}
+									? t('marketing.pricing.plans.commitment', {
+											amount: money(plan.monthly_commitment_cents / 100, 0)
+										})
+									: t('marketing.pricing.plans.grant', {
+											amount: money(plan.monthly_grant_credits / 100, 0)
+										})}
 							</p>
 							<ul>
 								<li>
-									<Check size={13} />Running total: {plan.limits.running_ram_mb / 1024} GB · {plan
-										.limits.running_vcpu} vCPU
+									<Check size={13} />{t('marketing.pricing.plans.runningTotal', {
+										memory: plan.limits.running_ram_mb / 1024,
+										vcpu: plan.limits.running_vcpu
+									})}
 								</li>
-								<li><Check size={13} />Replicas per service: {plan.limits.replicas_max}</li>
-								<li><Check size={13} />Seats: {plan.limits.seats ?? 'Unlimited'}</li>
 								<li>
-									<Check size={13} />Egress / month: {plan.limits.egress_gb_month >= 1000
-										? `${plan.limits.egress_gb_month / 1000} TB`
-										: `${plan.limits.egress_gb_month} GB`}
+									<Check size={13} />{t('marketing.pricing.plans.replicas', {
+										count: plan.limits.replicas_max
+									})}
 								</li>
-								<li><Check size={13} />Same resource rates across plans</li>
+								<li>
+									<Check size={13} />{t('marketing.pricing.plans.seats', {
+										seats: plan.limits.seats ?? t('marketing.pricing.comparison.unlimited')
+									})}
+								</li>
+								<li>
+									<Check size={13} />{t('marketing.pricing.plans.egress', {
+										amount:
+											plan.limits.egress_gb_month >= 1000
+												? `${plan.limits.egress_gb_month / 1000} TB`
+												: `${plan.limits.egress_gb_month} GB`
+									})}
+								</li>
+								<li><Check size={13} />{t('marketing.pricing.plans.sameRates')}</li>
 								<li>
 									<Check size={13} />{plan.overage_enabled
-										? 'Usage beyond the commitment is metered.'
-										: 'No automatic overage at a zero balance.'}
+										? t('marketing.pricing.plans.metered')
+										: t('marketing.pricing.plans.noOverage')}
 								</li>
 							</ul>
 						</div>
 						<a
 							href={`https://miosa.ai/register${plan.id === 'free' ? '' : '?plan=' + plan.id}`}
 							class="plan-button"
-							>{plan.id === 'developer' ? 'Start developing' : `Choose ${plan.name}`}<ArrowUpRight
-								size={12}
-							/></a
+							>{plan.id === 'developer'
+								? t('marketing.pricing.plans.startDeveloping')
+								: t('marketing.pricing.plans.choosePlan', {
+										plan: planName(plan.id, plan.name)
+									})}<ArrowUpRight size={12} /></a
 						>
 					</article>{/each}
 			</div>
 			<div class="included">
-				<h3>Included on every plan</h3>
+				<h3>{t('marketing.pricing.included.title')}</h3>
 				<ul>
-					{#each ['Web services, workers and schedules', 'Managed data services', 'Pull-request previews', 'Custom domains', 'Logs and metrics', 'Access protection'] as feature}<li
-						>
-							{feature}
-						</li>{/each}
+					{#each includedFeatures as feature}<li>{feature}</li>{/each}
 				</ul>
-				<p>Business and Enterprise include dedicated vCPU sizes.</p>
+				<p>{t('marketing.pricing.included.dedicatedNote')}</p>
 			</div>
 		</section>
 		<RateTable
-			title="Sandboxes"
+			titleKey="marketing.pricing.rates.sandboxes.title"
 			kind="sandbox"
-			description="A flat compute rate for each size, measured by the second while it runs."
+			descriptionKey="marketing.pricing.rates.sandboxes.description"
 		/><RateTable
-			title="Desktops"
+			titleKey="marketing.pricing.rates.desktops.title"
 			kind="computer"
-			description="The same resource model, with a desktop for visual work and shared sessions."
+			descriptionKey="marketing.pricing.rates.desktops.description"
 		/><RateTable
-			title="Apps & databases"
+			titleKey="marketing.pricing.rates.apps.title"
 			kind="app"
-			description="Measured CPU and memory usage, with a full-size ceiling."
+			descriptionKey="marketing.pricing.rates.apps.description"
 		/>
 		<section class="other-rates">
-			<h2>Everything else</h2>
-			<p>Persistent resources have their own meter, separate from running compute.</p>
+			<h2>{t('marketing.pricing.other.title')}</h2>
+			<p>{t('marketing.pricing.other.description')}</p>
 			<div class="simple-table">
 				<table>
 					<tbody
-						>{#each [['Disk', money(priceBook.resources.disk_usd_per_gib_month) + '/ GiB-month', 'Provisioned persistent disk'], ['Snapshots', money(priceBook.resources.snapshot_usd_per_gib_month, 3) + '/ GiB-month', 'Stored snapshot data'], ['Object storage', money(priceBook.resources.object_storage_usd_per_gib_month, 4) + '/ GiB-month', 'Stored application artifacts'], ['Outbound transfer', money(priceBook.resources.egress_usd_per_gb, 3) + '/ GB', 'Network egress'], ['Builds', priceBook.build.free ? 'Free' : 'Metered', 'Structured rate-book setting']] as [name, price, note]}<tr
-								><td>{name}</td><td><b>{price}</b></td><td>{note}</td></tr
+						>{#each otherRates as row}<tr
+								><td>{row.name}</td><td><b>{row.price}</b></td><td>{row.note}</td></tr
 							>{/each}</tbody
 					>
 				</table>
 			</div>
 		</section>
 		<section class="model-rates">
-			<p class="eyebrow">Models</p>
-			<h2>Models, priced per million tokens.</h2>
-			<p>Input and output have separate rates. The model’s context window is a capacity limit.</p>
+			<p class="eyebrow">{t('marketing.pricing.models.eyebrow')}</p>
+			<h2>{t('marketing.pricing.models.title')}</h2>
+			<p>{t('marketing.pricing.models.description')}</p>
 			<div class="simple-table">
 				<table>
 					<thead
-						><tr><th>Model</th><th>Input / 1M</th><th>Output / 1M</th><th>Context</th></tr></thead
+						><tr
+							><th>{t('marketing.pricing.models.model')}</th><th
+								>{t('marketing.pricing.models.input')}</th
+							><th>{t('marketing.pricing.models.output')}</th><th
+								>{t('marketing.pricing.models.context')}</th
+							></tr
+						></thead
 					><tbody
 						>{#each priceBook.ai.models as model}<tr
 								><td
-									><b>{model.name}</b>{#if model.default}<small>Default</small>{/if}</td
+									><b>{model.name}</b>{#if model.default}<small
+											>{t('marketing.pricing.models.default')}</small
+										>{/if}</td
 								><td>{money(model.input_usd_per_1m_tokens)}</td><td
 									>{money(model.output_usd_per_1m_tokens)}</td
 								><td>{model.context_window >= 1000000 ? '1M' : '256k'}</td></tr
@@ -245,8 +365,8 @@
 		</section>
 		<PriceComparison />
 		<section class="api-section">
-			<p class="eyebrow">For developers</p>
-			<h2>Simple API</h2>
+			<p class="eyebrow">{t('marketing.pricing.api.eyebrow')}</p>
+			<h2>{t('marketing.pricing.api.title')}</h2>
 			<div class="command-grid">
 				{#each commands as [command, description]}<a href="/docs/cli"
 						><code><span>$</span> {command}</code>
@@ -255,24 +375,31 @@
 					>{/each}
 			</div>
 			<p class="api-note">
-				Continue with the <a href="/docs/api">API explorer</a>,
-				<a href="/docs/sdks">SDK examples</a>, or <a href="/docs/cli">CLI guide</a>.
+				{t('marketing.pricing.api.notePrefix')}<a href="/docs/api"
+					>{t('marketing.pricing.api.apiExplorer')}</a
+				>{t('marketing.pricing.api.listSeparator')}<a href="/docs/sdks"
+					>{t('marketing.pricing.api.sdkExamples')}</a
+				>{t('marketing.pricing.api.orSeparator')}<a href="/docs/cli"
+					>{t('marketing.pricing.api.cliGuide')}</a
+				>{t('marketing.pricing.api.noteSuffix')}
 			</p>
 		</section>
 		<section class="plan-comparison">
-			<p class="eyebrow">Capacity</p>
-			<h2>Compare plans</h2>
+			<p class="eyebrow">{t('marketing.pricing.comparison.eyebrow')}</p>
+			<h2>{t('marketing.pricing.comparison.title')}</h2>
 			<!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table region supports keyboard horizontal scrolling.) -->
 			<div
 				class="simple-table plan-table"
 				tabindex="0"
 				role="region"
-				aria-label="Plan feature comparison"
+				aria-label={t('marketing.pricing.comparison.regionLabel')}
 			>
 				<table>
 					<thead
 						><tr
-							><th>Feature</th>{#each plans as plan}<th>{plan.name}</th>{/each}</tr
+							><th>{t('marketing.pricing.comparison.feature')}</th>{#each plans as plan}<th
+									>{planName(plan.id, plan.name)}</th
+								>{/each}</tr
 						></thead
 					><tbody
 						>{#each featureRows as row}{#if 'group' in row}<tr class="feature-group"
@@ -285,12 +412,11 @@
 			</div>
 		</section>
 		<section class="byoc-section">
-			<p class="eyebrow">Your infrastructure</p>
-			<h2>Run MIOSA on your own cloud</h2>
-			<p>Keep the resource model while choosing where the work runs.</p>
+			<p class="eyebrow">{t('marketing.pricing.byoc.eyebrow')}</p>
+			<h2>{t('marketing.pricing.byoc.title')}</h2>
+			<p>{t('marketing.pricing.byoc.description')}</p>
 			<div class="byoc-grid">
-				{#each [{ title: 'Your account', text: 'Keep the cloud resources in the account your organization owns.' }, { title: 'Your cloud bill', text: 'Compute and storage remain visible on the infrastructure provider’s bill.' }, { title: 'Get an estimate', text: 'Confirm the control-plane contract and capacity requirements before deploying.' }] as item}<article
-					>
+				{#each byocItems as item}<article>
 						<h3>{item.title}</h3>
 						<p>{item.text}</p>
 					</article>{/each}
@@ -299,13 +425,13 @@
 				class="small-link"
 				href="https://miosa.ai/docs/infrastructure/byoc/overview"
 				target="_blank"
-				rel="noreferrer">Read the official BYOC guide<ArrowUpRight size={12} /></a
+				rel="noreferrer">{t('marketing.pricing.byoc.link')}<ArrowUpRight size={12} /></a
 			>
 		</section>
 		<section class="faq-section">
 			<div>
-				<p class="eyebrow">FAQ</p>
-				<h2>Questions</h2>
+				<p class="eyebrow">{t('marketing.pricing.faq.eyebrow')}</p>
+				<h2>{t('marketing.pricing.faq.title')}</h2>
 			</div>
 			<div class="faq-list">
 				{#each faq as [question, answer], i}<details open={i === 0}>
@@ -315,13 +441,11 @@
 			</div>
 		</section>
 		<p class="pricing-date">
-			Rate snapshot: {new Date(priceBook.as_of).toLocaleDateString('en-US', {
-				month: 'short',
-				day: 'numeric',
-				year: 'numeric',
-				timeZone: 'UTC'
-			})}. This is a local interface reconstruction. Account and plan actions continue on
-			<a href="https://miosa.ai/pricing" target="_blank" rel="noreferrer">miosa.ai</a>.
+			{t('marketing.pricing.date.prefix', { date: rateSnapshotDate })}<a
+				href="https://miosa.ai/pricing"
+				target="_blank"
+				rel="noreferrer">{t('marketing.pricing.date.link')}</a
+			>{t('marketing.pricing.date.suffix')}
 		</p>
 	</div></MarketingShell
 >

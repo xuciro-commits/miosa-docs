@@ -1,15 +1,19 @@
 <script lang="ts">
 	import { ArrowRight, CodeXml } from '@lucide/svelte';
 	import type { factCards } from '#lib/content/landing.js';
+	import { i18n } from '#lib/i18n.svelte.js';
+	import { messages } from '#lib/i18n/messages/index.js';
 	let { card }: { card: (typeof factCards)[number] } = $props();
+	/** Exact-source lookup; falls back to the canonical card data. */
+	const tr = (value: string) => (i18n.locale === 'zh' ? ((messages.zh as Record<string, string>)[value] ?? value) : value);
 </script>
 
 <div class="fact-card" style={`--card-bg:${card.background};--card-color:${card.color}`}>
-	<div class="card-label"><span>{card.tag}</span><CodeXml size={14} /></div>
-	<h3>{card.title}</h3>
-	<p>{card.description}</p>
+	<div class="card-label"><span>{tr(card.tag)}</span><CodeXml size={14} /></div>
+	<h3>{tr(card.title)}</h3>
+	<p>{tr(card.description)}</p>
 	<pre>{card.code}</pre>
-	<div class="card-link">{card.link}<ArrowRight size={13} /></div>
+	<div class="card-link">{tr(card.link)}<ArrowRight size={13} /></div>
 </div>
 
 <style>

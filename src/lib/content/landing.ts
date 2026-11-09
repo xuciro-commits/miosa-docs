@@ -1,5 +1,8 @@
-export const factCards = [
+import { t } from '#lib/i18n.svelte.js';
+
+const cards = [
 	{
+		key: 'build',
 		tag: 'BUILD',
 		title: 'Your agent platform\nin a few lines.',
 		description: 'Create a sandbox, run code, share a live preview.',
@@ -10,6 +13,7 @@ export const factCards = [
 		color: '#22100a'
 	},
 	{
+		key: 'sdks',
 		tag: 'SDKs',
 		title: 'Your language.\nYour infrastructure.',
 		description: 'One resource model, from your first request to production.',
@@ -20,6 +24,7 @@ export const factCards = [
 		color: '#10261a'
 	},
 	{
+		key: 'computers',
 		tag: 'COMPUTERS',
 		title: 'A real computer.\nFor every agent.',
 		description: 'A browser, a desktop, and a human handoff when you need one.',
@@ -30,6 +35,7 @@ export const factCards = [
 		color: '#0c2236'
 	},
 	{
+		key: 'snapshots',
 		tag: 'SNAPSHOTS',
 		title: 'A point you can\ncome back to.',
 		description: 'Save the environment, branch the work, and keep building.',
@@ -40,6 +46,7 @@ export const factCards = [
 		color: '#0f2238'
 	},
 	{
+		key: 'deploy',
 		tag: 'DEPLOY',
 		title: 'From an idea\nto a stable URL.',
 		description: 'Preview a change, verify the result, publish a version.',
@@ -50,6 +57,7 @@ export const factCards = [
 		color: '#20242a'
 	},
 	{
+		key: 'api',
 		tag: 'API',
 		title: 'Every building block.\nOne API.',
 		description: 'Explore requests, change parameters, and inspect the response.',
@@ -60,6 +68,7 @@ export const factCards = [
 		color: '#fff'
 	},
 	{
+		key: 'learn',
 		tag: 'LEARN',
 		title: 'Learn by doing.\nKeep your progress.',
 		description: 'Words, practical labs, and a clear path through the platform.',
@@ -69,4 +78,20 @@ export const factCards = [
 		background: 'linear-gradient(145deg, #f6d6cf, #eba99c)',
 		color: '#3a130b'
 	}
-];
+] as const;
+
+export const factCards = cards.map((card) => ({
+	...card,
+	get tag() {
+		return t(`marketing.landing.${card.key}.tag`);
+	},
+	get title() {
+		return t(`marketing.landing.${card.key}.title`);
+	},
+	get description() {
+		return t(`marketing.landing.${card.key}.description`);
+	},
+	get link() {
+		return t(`marketing.landing.${card.key}.link`);
+	}
+}));

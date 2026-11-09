@@ -1,40 +1,41 @@
 <script lang="ts">
 	import { ArrowUpRight, CodeXml as Github } from '@lucide/svelte';
+	import { t } from '#lib/i18n.svelte.js';
 	const columns = [
 		{
-			title: 'Get started',
+			titleKey: 'docs.footer.column.getStarted',
 			links: [
-				['Introduction', ''],
-				['Quickstart', 'quickstart'],
-				['Install the CLI or SDK', 'installation'],
-				['The product model', 'product-model']
+				{ key: 'docs.footer.link.introduction', slug: '' },
+				{ key: 'docs.footer.link.quickstart', slug: 'quickstart' },
+				{ key: 'docs.footer.link.installation', slug: 'installation' },
+				{ key: 'docs.footer.link.productModel', slug: 'product-model' }
 			]
 		},
 		{
-			title: 'Learn',
+			titleKey: 'docs.footer.column.learn',
 			links: [
-				['Start learning', 'learn'],
-				['Learn and earn', 'learn/earn'],
-				['The words', 'glossary'],
-				['Interactive labs', 'learn/games']
+				{ key: 'docs.footer.link.learn', slug: 'learn' },
+				{ key: 'docs.footer.link.learnEarn', slug: 'learn/earn' },
+				{ key: 'docs.footer.link.glossary', slug: 'glossary' },
+				{ key: 'docs.footer.link.labs', slug: 'learn/games' }
 			]
 		},
 		{
-			title: 'Build',
+			titleKey: 'docs.footer.column.build',
 			links: [
-				['Sandboxes', 'sandboxes'],
-				['Computers', 'computers'],
-				['Deployments', 'deployments'],
-				['Data and bindings', 'data']
+				{ key: 'docs.footer.link.sandboxes', slug: 'sandboxes' },
+				{ key: 'docs.footer.link.computers', slug: 'computers' },
+				{ key: 'docs.footer.link.deployments', slug: 'deployments' },
+				{ key: 'docs.footer.link.data', slug: 'data' }
 			]
 		},
 		{
-			title: 'Developers',
+			titleKey: 'docs.footer.column.developers',
 			links: [
-				['SDKs', 'sdks'],
-				['CLI & MCP', 'cli'],
-				['API reference', 'api'],
-				['Customize this site', 'customization']
+				{ key: 'docs.footer.link.sdks', slug: 'sdks' },
+				{ key: 'docs.footer.link.cli', slug: 'cli' },
+				{ key: 'docs.footer.link.api', slug: 'api' },
+				{ key: 'docs.footer.link.customization', slug: 'customization' }
 			]
 		}
 	];
@@ -44,23 +45,26 @@
 	<div class="footer-top">
 		<div>
 			<a class="footer-brand" href="/docs"><img src="/brand/osa-orb.png" alt="" /><b>MIOSA</b></a>
-			<p>Documentation for building,<br />understanding and shipping.</p>
+			<p>{t('docs.footer.taglineLine1')}<br />{t('docs.footer.taglineLine2')}</p>
 		</div>
-		<a class="button" href="/docs/customization">Make it your own<ArrowUpRight size={13} /></a>
+		<a class="button" href="/docs/customization"
+			>{t('docs.footer.makeOwn')}<ArrowUpRight size={13} /></a
+		>
 	</div>
-	<nav class="footer-columns" aria-label="Footer">
+	<nav class="footer-columns" aria-label={t('docs.footer.aria')}>
 		{#each columns as column}<div>
-				<h3>{column.title}</h3>
-				{#each column.links as [title, slug]}<a href={`/docs${slug ? '/' + slug : ''}`}>{title}</a
+				<h3>{t(column.titleKey)}</h3>
+				{#each column.links as link}<a href={`/docs${link.slug ? '/' + link.slug : ''}`}
+						>{t(link.key)}</a
 					>{/each}
 			</div>{/each}
 	</nav>
 	<div class="footer-bottom">
-		<span>© 2026 · Independent learning reconstruction</span><a
+		<span>{t('docs.footer.copyright')}</span><a
 			href="https://github.com/Miosa-osa/foundation"
 			target="_blank"
 			rel="noreferrer"
-			aria-label="Foundation source"><Github size={14} /></a
+			aria-label={t('docs.footer.github')}><Github size={14} /></a
 		>
 	</div>
 </footer>

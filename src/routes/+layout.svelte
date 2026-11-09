@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { preferences, type Theme } from '#lib/preferences.svelte.js';
 	import { loadProgress } from '#lib/learning.svelte.js';
+	import { initI18n } from '#lib/i18n.svelte.js';
 	import SearchDialog from '#lib/components/SearchDialog.svelte';
 	import AskPanel from '#lib/components/AskPanel.svelte';
 	import type { LayoutProps } from './$types';
@@ -11,6 +12,7 @@
 	let { children }: LayoutProps = $props();
 	let ready = $state(false);
 	onMount(() => {
+		initI18n();
 		const theme = localStorage.getItem('miosa-theme');
 		if (theme && ['system', 'light', 'dark', 'glass', 'glass-dark'].includes(theme))
 			preferences.theme = theme as Theme;

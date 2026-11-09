@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { copyText } from '#lib/clipboard.js';
 	import { preferences, notify } from '#lib/preferences.svelte.js';
+	import { t } from '#lib/i18n.svelte.js';
 	import { Copy, Check } from '@lucide/svelte';
 	let {
 		examples,
@@ -37,14 +38,18 @@
 	});
 	async function copy() {
 		copied = await copyText(source);
-		if (!copied) notify('Clipboard unavailable. Select the code to copy it manually.');
+		if (!copied) notify(t('docs.codeTabs.clipboardUnavailable'));
 		setTimeout(() => (copied = false), 1600);
 	}
 </script>
 
 <div class="code-block">
 	<div class="code-bar">
-		<div class="code-tabs" role="tablist" aria-label={filename || 'Example language'}>
+		<div
+			class="code-tabs"
+			role="tablist"
+			aria-label={filename || t('docs.codeTabs.exampleLanguage')}
+		>
 			{#each languages as language}<button
 					role="tab"
 					aria-selected={language === selected}
@@ -55,12 +60,16 @@
 					}}>{language}</button
 				>{/each}
 		</div>
-		<button class="icon-button" aria-label="Copy code" onclick={copy}
+		<button class="icon-button" aria-label={t('docs.codeTabs.copy')} onclick={copy}
 			>{#if copied}<Check size={14} />{:else}<Copy size={14} />{/if}</button
 		>
 	</div>
 	{#if filename}<div class="filename">{filename}</div>{/if}
-	<div class="code-body" role="tabpanel" aria-label={`${selected} example`}>
+	<div
+		class="code-body"
+		role="tabpanel"
+		aria-label={t('docs.codeTabs.exampleAria', { language: selected })}
+	>
 		{#if html}{@html html}{:else}<pre><code>{source}</code></pre>{/if}
 	</div>
 </div>

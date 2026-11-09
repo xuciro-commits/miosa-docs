@@ -1,25 +1,39 @@
 <script lang="ts">
 	import { priceBook, money } from '#lib/pricing.js';
+	import { t } from '#lib/i18n.svelte.js';
 	let {
-		title,
+		titleKey,
 		kind,
-		description
-	}: { title: string; kind: 'sandbox' | 'computer' | 'app'; description: string } = $props();
+		descriptionKey
+	}: { titleKey: string; kind: 'sandbox' | 'computer' | 'app'; descriptionKey: string } = $props();
 	const rows = $derived(priceBook.machines[kind].sizes);
+	const title = $derived(t(titleKey));
 </script>
 
 <section class="rate-section">
 	<h2>{title}</h2>
-	<p>{description}</p>
+	<p>{t(descriptionKey)}</p>
 	<!-- svelte-ignore a11y_no_noninteractive_tabindex (Scrollable table region supports keyboard horizontal scrolling.) -->
-	<div class="rate-scroll" tabindex="0" role="region" aria-label={`${title} resource rates`}>
+	<div
+		class="rate-scroll"
+		tabindex="0"
+		role="region"
+		aria-label={t('marketing.pricing.rates.regionLabel', { title })}
+	>
 		<table>
 			<thead
-				><tr><th>Size</th><th>vCPU</th><th>Memory</th><th>Price</th><th>Always on</th></tr></thead
+				><tr
+					><th>{t('marketing.pricing.rates.size')}</th><th>{t('marketing.pricing.rates.vcpu')}</th
+					><th>{t('marketing.pricing.rates.memory')}</th><th
+						>{t('marketing.pricing.rates.price')}</th
+					><th>{t('marketing.pricing.rates.alwaysOn')}</th></tr
+				></thead
 			><tbody
 				>{#each rows as row}<tr class:popular={row.size === 'small'}
 						><td
-							>{row.size}{#if row.size === 'small'}<span>Popular</span>{/if}</td
+							>{row.size}{#if row.size === 'small'}<span
+									>{t('marketing.pricing.rates.popular')}</span
+								>{/if}</td
 						><td>{row.vcpus}</td><td>{row.memory_gib} GB</td><td
 							><b>{money(row.usd_per_hour, 4)}/h</b></td
 						><td>{money(row.usd_per_month)}/mo</td></tr
@@ -27,9 +41,7 @@
 			>
 		</table>
 	</div>
-	{#if kind === 'app'}<small
-			>CPU and memory are metered by use, up to the full-size ceiling shown above.</small
-		>{/if}
+	{#if kind === 'app'}<small>{t('marketing.pricing.rates.appNote')}</small>{/if}
 </section>
 
 <style>

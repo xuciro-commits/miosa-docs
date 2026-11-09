@@ -4,6 +4,7 @@
 	import { onMount, tick } from 'svelte';
 	import { Copy, FileText, ThumbsUp, ThumbsDown, Flag, ArrowUp } from '@lucide/svelte';
 	import { ask, notify } from '#lib/preferences.svelte.js';
+	import { t } from '#lib/i18n.svelte.js';
 	let headings = $state<{ id: string; text: string; level: number }[]>([]);
 	let active = $state('');
 	let feedback = $state('');
@@ -90,21 +91,21 @@
 		if (response?.ok) {
 			notify(
 				(await copyText(await response.text()))
-					? 'Page copied as Markdown'
-					: 'Clipboard unavailable. Open the Markdown view to copy manually.'
+					? t('docs.toc.copySuccess')
+					: t('docs.toc.copyUnavailable')
 			);
 		}
 	}
 </script>
 
-<aside class="toc-rail" aria-label="On this page">
+<aside class="toc-rail" aria-label={t('docs.toc.aria')}>
 	<div class="toc-sticky">
 		<div class="toc-label">
-			<span>On this page</span><svg
+			<span>{t('docs.toc.label')}</span><svg
 				width="15"
 				height="15"
 				viewBox="0 0 18 18"
-				aria-label={`${Math.round(readProgress)}% read`}
+				aria-label={t('docs.toc.percentRead', { percent: Math.round(readProgress) })}
 				><circle cx="9" cy="9" r="7" fill="none" stroke="var(--border)" stroke-width="1.5" /><circle
 					cx="9"
 					cy="9"
@@ -126,35 +127,36 @@
 				>{/each}
 		</nav>
 		<div class="rail-actions">
-			<button onclick={copy}><Copy size={13} />Copy page as Markdown</button><button
-				onclick={() => ask(`Summarize ${page.url.pathname}`)}
-				><FileText size={13} />Explain this page</button
-			><a href="/docs/customization"><Flag size={13} />Improve this documentation</a>
+			<button onclick={copy}><Copy size={13} />{t('docs.toc.copyPage')}</button><button
+				onclick={() => ask(t('docs.toc.summarizePrompt', { path: page.url.pathname }))}
+				><FileText size={13} />{t('docs.toc.explainPage')}</button
+			><a href="/docs/customization"><Flag size={13} />{t('docs.toc.improve')}</a>
 		</div>
 		<div class="feedback">
-			<span>Was this page helpful?</span><button
+			<span>{t('docs.toc.wasHelpful')}</span><button
 				class:chosen={feedback === 'yes'}
-				aria-label="This page was helpful"
+				aria-label={t('docs.toc.helpful')}
 				aria-pressed={feedback === 'yes'}
 				onclick={() => {
 					feedback = 'yes';
-					notify('Thanks for your feedback');
+					notify(t('docs.toc.thanks'));
 				}}><ThumbsUp size={13} /></button
 			><button
 				class:chosen={feedback === 'no'}
-				aria-label="This page needs improvement"
+				aria-label={t('docs.toc.needsImprovement')}
 				aria-pressed={feedback === 'no'}
 				onclick={() => {
 					feedback = 'no';
-					notify('Feedback noted for this session');
+					notify(t('docs.toc.feedbackNoted'));
 				}}><ThumbsDown size={13} /></button
 			>
 		</div>
 		<button class="help-button" onclick={() => ask()}
-			><img src="/brand/osa-orb.png" alt="" /><span><b>Need help?</b><small>Ask OSA</small></span
+			><img src="/brand/osa-orb.png" alt="" /><span
+				><b>{t('docs.toc.needHelp')}</b><small>{t('docs.toc.askOsa')}</small></span
 			></button
 		><button class="back-top" onclick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-			><ArrowUp size={12} />Back to top</button
+			><ArrowUp size={12} />{t('docs.toc.backToTop')}</button
 		>
 	</div>
 </aside>

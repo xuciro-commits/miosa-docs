@@ -1,4 +1,8 @@
 <script lang="ts">
+	import { i18n } from '#lib/i18n.svelte.js';
+	import { messages } from '#lib/i18n/messages/index.js';
+	/** Exact-source lookup for labels supplied by callers. */
+	const tr = (value: string) => (i18n.locale === 'zh' ? ((messages.zh as Record<string, string>)[value] ?? value) : value);
 	let {
 		label,
 		options,
@@ -17,8 +21,8 @@
 </script>
 
 <div class="segment-field">
-	<span class="segment-label">{label}</span>
-	<div class="segments" role="radiogroup" aria-label={label}>
+	<span class="segment-label">{tr(label)}</span>
+	<div class="segments" role="radiogroup" aria-label={tr(label)}>
 		{#each options as option, i}<button
 				role="radio"
 				aria-checked={value === option.value}
@@ -38,7 +42,7 @@
 						(event.currentTarget.parentElement?.children[next] as HTMLButtonElement)?.focus();
 					}
 				}}
-				><span>{option.label}</span>{#if option.detail}<small>{option.detail}</small>{/if}</button
+				><span>{tr(option.label)}</span>{#if option.detail}<small>{tr(option.detail)}</small>{/if}</button
 			>{/each}
 	</div>
 </div>

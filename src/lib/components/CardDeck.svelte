@@ -2,7 +2,11 @@
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
 	import { factCards } from '#lib/content/landing.js';
+	import { i18n, t } from '#lib/i18n.svelte.js';
+	import { messages } from '#lib/i18n/messages/index.js';
 	import FactCard from './FactCard.svelte';
+	/** Exact-source lookup for copy supplied by content data. */
+	const tr = (value: string) => (i18n.locale === 'zh' ? ((messages.zh as Record<string, string>)[value] ?? value) : value);
 	let index = $state(0),
 		drag = $state(0),
 		held = $state(false),
@@ -47,7 +51,7 @@
 <div
 	class="deck"
 	role="group"
-	aria-label="Featured documentation cards"
+	aria-label={tr('Featured documentation cards')}
 	onmouseenter={() => (held = true)}
 	onmouseleave={() => (held = false)}
 	onfocusin={() => (focused = true)}
@@ -60,7 +64,7 @@
 			class="deck-front"
 			class:dragging
 			style={`transform:translateX(${drag}px) rotate(${-1 + drag * 0.035}deg)`}
-			aria-label={`${current.title.replace('\n', ' ')}. Open ${current.link}`}
+			aria-label={`${tr(current.title).replace('\n', ' ')}. ${tr(current.link)}`}
 			onpointerdown={(event) => {
 				if (event.button !== 0) return;
 				start = event.clientX;
@@ -89,14 +93,14 @@
 			}}><FactCard card={current} /></button
 		>
 	</div>
-	<div class="deck-dots" aria-label="Documentation cards">
+	<div class="deck-dots" aria-label={tr('Documentation cards')}>
 		{#each factCards as card, i}<button
-				aria-label={`Show card ${i + 1}: ${card.tag}`}
+				aria-label={t('learning.cardDeck.showCard', { index: i + 1, tag: tr(card.tag) })}
 				aria-pressed={index === i}
 				onclick={() => choose(i)}
 			></button>{/each}
 	</div>
-	<p class="deck-hint">Drag or use ← → · click to open</p>
+	<p class="deck-hint">{tr('Drag or use ← → · click to open')}</p>
 </div>
 
 <style>

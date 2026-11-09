@@ -2,7 +2,16 @@
 	import { page } from '$app/state';
 	import { Search, ArrowRight, ChevronRight, RotateCcw, Check, BookOpen, X } from '@lucide/svelte';
 	import { categories, terms } from '#lib/content/learning.js';
-	import { learning, saveProgress } from '#lib/learning.svelte.js';
+	import {
+		learning,
+		saveProgress,
+		categoryName,
+		categoryDescription,
+		termWord,
+		termDefinition,
+		termExample
+	} from '#lib/learning.svelte.js';
+	import { t } from '#lib/i18n.svelte.js';
 	let category = $state('core');
 	let query = $state('');
 	let practicing = $state(false);
@@ -14,11 +23,18 @@
 		if (requested && categories.some((c) => c.id === requested)) category = requested;
 	});
 	const current = $derived(categories.find((c) => c.id === category)!);
-	const categoryTerms = $derived(terms.filter((term) => term.category === category));
+	const localizedTerms = $derived(
+		terms.map((term) => ({
+			...term,
+			word: termWord(term),
+			definition: termDefinition(term),
+			example: termExample(term),
+			searchText: `${term.word} ${term.definition} ${termWord(term)} ${termDefinition(term)}`.toLowerCase()
+		}))
+	);
+	const categoryTerms = $derived(localizedTerms.filter((term) => term.category === category));
 	const filtered = $derived(
-		categoryTerms.filter((term) =>
-			`${term.word} ${term.definition}`.toLowerCase().includes(query.toLowerCase())
-		)
+		categoryTerms.filter((term) => term.searchText.includes(query.toLowerCase()))
 	);
 	function begin() {
 		practicing = true;
@@ -41,15 +57,15 @@
 	<div class="term-search">
 		<Search size={15} /><input
 			bind:value={query}
-			placeholder="Find a word…"
-			aria-label="Find a glossary term"
-		/>{#if query}<button onclick={() => (query = '')} aria-label="Clear term search"
+			placeholder={t('learning.glossary.searchPlaceholder')}
+			aria-label={t('learning.glossary.searchAria')}
+		/>{#if query}<button onclick={() => (query = '')} aria-label={t('learning.glossary.clearSearchAria')}
 				><X size={13} /></button
 			>{/if}
 	</div>
-	<span>{terms.length} words · {categories.length} categories</span>
+	<span>{t('learning.glossary.count', { words: terms.length, categories: categories.length })}</span>
 </div>
-<div class="category-tabs" aria-label="Glossary categories">
+<div class="category-tabs" aria-label={t('learning.glossary.categoriesAria')}>
 	{#each categories as item}<button
 			class:active={item.id === category}
 			aria-pressed={item.id === category}
@@ -58,40 +74,57 @@
 				practicing = false;
 				query = '';
 			}}
-			>{item.name}{#if learning.passed.includes(item.id)}<Check size={11} />{/if}</button
+			>{categoryName(item.id)}{#if learning.passed.includes(item.id)}<Check size={11} />{/if}</button
 		>{/each}
 </div>
 <section class="category-heading">
 	<div>
-		<h2 id="the-words">{current.name}</h2>
-		<p>{current.description}</p>
+		<h2 id="the-words">{categoryName(current.id)}</h2>
+		<p>{categoryDescription(current.id)}</p>
 	</div>
-	<button class="button primary" onclick={begin}><BookOpen size={13} />Practice these words</button>
+	<button class="button primary" onclick={begin}
+		><BookOpen size={13} />{t('learning.glossary.practiceButton')}</button
+	>
 </section>
-{#if practicing}<section class="practice panel" aria-label="Flashcard practice">
+{#if practicing}<section class="practice panel" aria-label={t('learning.glossary.practiceAria')}>
 		<header>
-			<span>{finished ? 'Practice complete' : `Card ${card + 1} of ${categoryTerms.length}`}</span
+			<span
+				>{finished
+					? t('learning.glossary.practiceComplete')
+					: t('learning.glossary.cardProgress', {
+							current: card + 1,
+							total: categoryTerms.length
+						})}</span
 			><button
 				class="icon-button"
-				aria-label="Close flashcards"
+				aria-label={t('learning.glossary.closeFlashcards')}
 				onclick={() => (practicing = false)}><X size={15} /></button
 			>
 		</header>
 		{#if finished}<div class="practice-finished">
 				<Check size={30} />
-				<h3>You have met the building blocks.</h3>
-				<p>Ready to check what you remember?</p>
+				<h3>{t('learning.glossary.finishedTitle')}</h3>
+				<p>{t('learning.glossary.finishedText')}</p>
 				<a class="button primary" href={`/docs/learn/final/category/${category}`}
-					>Start the category check<ArrowRight size={13} /></a
-				><button class="text-link" onclick={begin}><RotateCcw size={12} />Practice again</button>
+					>{t('learning.glossary.startCategoryCheck')}<ArrowRight size={13} /></a
+				><button class="text-link" onclick={begin}
+					><RotateCcw size={12} />{t('learning.common.practiceAgain')}</button
+				>
 			</div>{:else}<button
 				class="flashcard"
-				aria-label={revealed ? 'Definition shown' : 'Reveal definition'}
+				aria-label={revealed
+					? t('learning.glossary.definitionShown')
+					: t('learning.glossary.revealDefinition')}
 				onclick={() => (revealed = !revealed)}
-				><small>{revealed ? 'The definition' : 'What does this mean?'}</small>
+				><small
+					>{revealed
+						? t('learning.glossary.sideDefinition')
+						: t('learning.glossary.sideQuestion')}</small
+				>
 				<h3>{categoryTerms[card].word}</h3>
 				{#if revealed}<p>{categoryTerms[card].definition}</p>
-					<em>{categoryTerms[card].example}</em>{:else}<span>Click to turn the card</span
+					<em>{categoryTerms[card].example}</em>{:else}<span
+						>{t('learning.glossary.clickToTurn')}</span
 					>{/if}</button
 			>
 			<div class="practice-controls">
@@ -99,9 +132,9 @@
 					{#each categoryTerms as _, i}<span class:done={i <= card}></span>{/each}
 				</div>
 				<button class="button" onclick={next} disabled={!revealed}
-					>{card === categoryTerms.length - 1 ? 'Finish practice' : 'Next word'}<ArrowRight
-						size={13}
-					/></button
+					>{card === categoryTerms.length - 1
+						? t('learning.glossary.finishPractice')
+						: t('learning.glossary.nextWord')}<ArrowRight size={13} /></button
 				>
 			</div>{/if}
 	</section>{/if}
@@ -109,23 +142,25 @@
 	{#each filtered as term}<details class="term panel">
 			<summary><strong>{term.word}</strong><ChevronRight size={15} /></summary>
 			<p>{term.definition}</p>
-			<div class="term-example"><small>In practice</small>{term.example}</div>
+			<div class="term-example"><small>{t('learning.glossary.inPractice')}</small>{term.example}</div>
 		</details>{/each}{#if !filtered.length}<div class="empty-state">
 			<Search size={25} />
-			<p>No words match “{query}” in this category.</p>
-			<button class="button" onclick={() => (query = '')}>Clear search</button>
+			<p>{t('learning.glossary.empty', { query })}</p>
+			<button class="button" onclick={() => (query = '')}
+				>{t('learning.glossary.clearSearch')}</button
+			>
 		</div>{/if}
 </div>
 <section class="category-check panel">
 	<div>
-		<span class="pill reward">+$2.50 practice credits</span>
-		<h2 id="check-your-understanding">Know these words?</h2>
-		<p>A short check helps you connect each term to the right idea.</p>
+		<span class="pill reward">{t('learning.glossary.reward')}</span>
+		<h2 id="check-your-understanding">{t('learning.glossary.knowTitle')}</h2>
+		<p>{t('learning.glossary.knowText')}</p>
 	</div>
 	<a class="button" href={`/docs/learn/final/category/${category}`}
-		>{learning.passed.includes(category) ? 'Practice again' : 'Start the check'}<ArrowRight
-			size={13}
-		/></a
+		>{learning.passed.includes(category)
+			? t('learning.common.practiceAgain')
+			: t('learning.common.startCheck')}<ArrowRight size={13} /></a
 	>
 </section>
 

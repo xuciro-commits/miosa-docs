@@ -17,8 +17,17 @@
 		X,
 		ChevronRight
 	} from '@lucide/svelte';
-	import { learning, saveProgress } from '#lib/learning.svelte.js';
+	import {
+		learning,
+		saveProgress,
+		unitTitle,
+		unitSubtitle,
+		termWord,
+		termDefinition,
+		sequenceStep
+	} from '#lib/learning.svelte.js';
 	import { terms, sequences } from '#lib/content/learning.js';
+	import { t } from '#lib/i18n.svelte.js';
 	let { data } = $props();
 	let finished = $state(false);
 	let message = $state('');
@@ -27,19 +36,22 @@
 	const pairs = $derived(
 		data.unit.id === 'connections'
 			? [
-					{ word: 'Domain', definition: 'The public name that routes people to the application.' },
 					{
-						word: 'Database binding',
-						definition: 'The connection that gives an application access to its records.'
+						word: t('learning.lab.connections.domain.word'),
+						definition: t('learning.lab.connections.domain.definition')
 					},
 					{
-						word: 'Persistent volume',
-						definition: 'The filesystem that survives the process using it.'
+						word: t('learning.lab.connections.databaseBinding.word'),
+						definition: t('learning.lab.connections.databaseBinding.definition')
+					},
+					{
+						word: t('learning.lab.connections.persistentVolume.word'),
+						definition: t('learning.lab.connections.persistentVolume.definition')
 					}
 				]
 			: terms
 					.filter((term) => term.category === 'core')
-					.map((term) => ({ word: term.word, definition: term.definition }))
+					.map((term) => ({ word: termWord(term), definition: termDefinition(term) }))
 	);
 	const pairOptions = $derived([...pairs].reverse());
 	let chosen = $state<string[]>([]);
@@ -61,16 +73,16 @@
 	const tasks = $derived(
 		data.unit.id === 'fleet'
 			? [
-					{ title: 'Create three machines', done: fleetCreated },
-					{ title: 'Pause at least one machine', done: paused >= 1 },
-					{ title: 'Keep two useful machines', done: machines.length === 2 },
-					{ title: 'Bring the active cost below 3 units', done: machines.length === 2 && cost < 3 }
+					{ key: 'createThree', done: fleetCreated },
+					{ key: 'pauseOne', done: paused >= 1 },
+					{ key: 'keepTwo', done: machines.length === 2 },
+					{ key: 'lowCost', done: machines.length === 2 && cost < 3 }
 				]
 			: [
-					{ title: 'Create a sandbox', done: created },
-					{ title: 'Save a snapshot', done: !!snapshot },
-					{ title: 'Remove the original machine', done: removed },
-					{ title: 'Restore from the saved snapshot', done: restored }
+					{ key: 'createSandbox', done: created },
+					{ key: 'saveSnapshot', done: !!snapshot },
+					{ key: 'removeOriginal', done: removed },
+					{ key: 'restoreSnapshot', done: restored }
 				]
 	);
 	const complete = $derived(
@@ -82,14 +94,14 @@
 	);
 	function match(word: string) {
 		if (!selectedWord) {
-			message = 'Choose a term on the left first.';
+			message = 'learning.lab.matchChooseFirst';
 			return;
 		}
 		if (word === selectedWord) {
 			matched = [...matched, word];
-			message = 'That connection fits.';
+			message = 'learning.lab.matchGood';
 			selectedWord = '';
-		} else message = 'Those have different jobs. Try another connection.';
+		} else message = 'learning.lab.matchBad';
 	}
 	function create() {
 		const machine = {
@@ -101,14 +113,14 @@
 		selected = machine.id;
 		created = true;
 		if (machines.length >= 3) fleetCreated = true;
-		message = 'A new isolated machine is running.';
+		message = 'learning.lab.message.created';
 	}
 	function remove() {
 		if (!selectedMachine) return;
 		machines = machines.filter((machine) => machine.id !== selected);
 		if (snapshot?.sourceId === selected) removed = true;
 		selected = machines[0]?.id ?? 0;
-		message = 'The instance is gone. A saved snapshot remains separate.';
+		message = 'learning.lab.message.removed';
 	}
 	function restore() {
 		if (!snapshot) return;
@@ -116,7 +128,7 @@
 		machines = [...machines, machine];
 		selected = machine.id;
 		restored = removed;
-		message = 'A new instance was created from the saved state.';
+		message = 'learning.lab.message.restored';
 	}
 	function finish() {
 		saveProgress('labs', data.unit.id);
@@ -143,28 +155,28 @@
 	});
 </script>
 
-<a class="text-link lab-back" href="/docs/learn/games"><ArrowLeft size={12} />All learning labs</a>
+<a class="text-link lab-back" href="/docs/learn/games"><ArrowLeft size={12} />{t('learning.lab.back')}</a>
 <section class="lab panel">
 	<header>
-		<span class="pill">Interactive practice</span><span class="pill reward"
+		<span class="pill">{t('learning.lab.interactive')}</span><span class="pill reward"
 			>+${data.unit.reward}</span
 		>
 	</header>
 	<div class="lab-heading">
-		<h2 id="the-lab">{data.unit.title}</h2>
-		<p>{data.unit.subtitle}</p>
+		<h2 id="the-lab">{unitTitle(data.unit.id)}</h2>
+		<p>{unitSubtitle(data.unit.id)}</p>
 	</div>
 	{#if finished}<div class="lab-finished">
 			<Trophy size={40} strokeWidth={1.4} />
-			<h3>One more idea, understood.</h3>
-			<p>Your completed unit is saved. You can replay it any time.</p>
+			<h3>{t('learning.lab.finishedTitle')}</h3>
+			<p>{t('learning.lab.finishedText')}</p>
 			<div>
 				<a href="/docs/learn/games" class="button primary"
-					>Choose another lab<ArrowRight size={13} /></a
-				><button class="button" onclick={reset}><RotateCcw size={13} />Play again</button>
+					>{t('learning.lab.chooseAnother')}<ArrowRight size={13} /></a
+				><button class="button" onclick={reset}><RotateCcw size={13} />{t('learning.lab.playAgain')}</button>
 			</div>
 		</div>{:else if data.unit.type === 'match'}<div class="match-game">
-			<p class="instruction">Choose a term, then choose the description that belongs to it.</p>
+			<p class="instruction">{t('learning.lab.matchInstruction')}</p>
 			<div class="matching-columns">
 				<div>
 					{#each pairs as pair}<button
@@ -189,18 +201,18 @@
 						>{/each}
 				</div>
 			</div>
-			<div class="match-progress">{matched.length} of {pairs.length} connections made</div>
+			<div class="match-progress">{t('learning.lab.matchProgress', { matched: matched.length, total: pairs.length })}</div>
 		</div>{:else if data.unit.type === 'sequence'}<div class="sequence-game">
 			<p class="instruction">
-				Build the workflow in order. Click a step to add it; remove a step to change your answer.
+				{t('learning.lab.sequenceInstruction')}
 			</p>
-			<div class="chosen-steps" aria-label="Your workflow">
-				{#if !chosen.length}<p>Your workflow starts here.</p>{/if}{#each chosen as step, i}<button
+			<div class="chosen-steps" aria-label={t('learning.lab.workflowAria')}>
+				{#if !chosen.length}<p>{t('learning.lab.workflowEmpty')}</p>{/if}{#each chosen as step, i}<button
 						onclick={() => {
 							chosen = chosen.filter((item) => item !== step);
 							sequenceChecked = false;
 						}}
-						disabled={sequenceChecked}><span>{i + 1}</span>{step}<X size={13} /></button
+						disabled={sequenceChecked}><span>{i + 1}</span>{sequenceStep(data.unit.id, step)}<X size={13} /></button
 					>{/each}
 			</div>
 			<div class="available-steps">
@@ -208,7 +220,7 @@
 						onclick={() => {
 							chosen = [...chosen, step];
 							message = '';
-						}}><Plus size={13} />{step}</button
+						}}><Plus size={13} />{sequenceStep(data.unit.id, step)}</button
 					>{/each}
 			</div>
 			<button
@@ -217,14 +229,14 @@
 				onclick={() => {
 					sequenceChecked = chosen.every((step, i) => step === sequence[i]);
 					message = sequenceChecked
-						? 'This workflow keeps building, verification and publishing in the right order.'
-						: 'Look at the dependencies. What has to exist before the next action can happen?';
-				}}><Check size={13} />Check the workflow</button
+						? 'learning.lab.sequenceGood'
+						: 'learning.lab.sequenceBad';
+				}}><Check size={13} />{t('learning.lab.checkWorkflow')}</button
 			>
 		</div>{:else}<div class="sandbox-game">
 			<div class="lab-toolbar">
-				<div><span class="machine-status"></span>Local simulation</div>
-				<span>{machines.length} machines · <b>{cost}</b> cost units</span>
+				<div><span class="machine-status"></span>{t('learning.lab.localSimulation')}</div>
+				<span>{t('learning.lab.machinesCost', { count: machines.length, cost })}</span>
 			</div>
 			<div class="machine-area">
 				{#each machines as machine}<button
@@ -233,10 +245,10 @@
 						class:paused={machine.status === 'paused'}
 						onclick={() => (selected = machine.id)}
 						><Server size={29} strokeWidth={1.25} /><strong>{machine.name}</strong><span
-							><i></i>{machine.status}</span
+							><i></i>{t(`learning.lab.status.${machine.status}`)}</span
 						></button
 					>{/each}{#if machines.length < 4}<button class="add-machine" onclick={create}
-						><Plus size={25} /><span>Create sandbox</span></button
+						><Plus size={25} /><span>{t('learning.lab.createSandbox')}</span></button
 					>{/if}
 			</div>
 			<div class="machine-controls">
@@ -246,12 +258,12 @@
 					onclick={() => {
 						if (selectedMachine) {
 							selectedMachine.status = selectedMachine.status === 'running' ? 'paused' : 'running';
-							message = 'Pausing reduces active compute while retaining the instance.';
+							message = 'learning.lab.message.paused';
 						}
 					}}
-					>{#if selectedMachine?.status === 'paused'}<Play size={12} />Resume{:else}<Pause
+					>{#if selectedMachine?.status === 'paused'}<Play size={12} />{t('learning.lab.resume')}{:else}<Pause
 							size={12}
-						/>Pause{/if}</button
+						/>{t('learning.lab.pause')}{/if}</button
 				><button
 					class="button"
 					disabled={!selectedMachine}
@@ -260,38 +272,38 @@
 							snapshot = { name: selectedMachine.name, sourceId: selectedMachine.id };
 							removed = false;
 							restored = false;
-							message = 'The recovery point is saved independently of the active instance.';
+							message = 'learning.lab.message.snapshot';
 						}
-					}}><Camera size={13} />Snapshot</button
+					}}><Camera size={13} />{t('learning.lab.snapshot')}</button
 				><button class="button" disabled={!selectedMachine} onclick={remove}
-					><Trash2 size={12} />Remove</button
+					><Trash2 size={12} />{t('learning.lab.remove')}</button
 				><button class="button" disabled={!snapshot || machines.length >= 4} onclick={restore}
-					><RotateCcw size={12} />Restore</button
+					><RotateCcw size={12} />{t('learning.lab.restore')}</button
 				>
 			</div>
 			{#if snapshot}<div class="snapshot-label">
-					<Camera size={12} />Saved snapshot: {snapshot.name}
+					<Camera size={12} />{t('learning.lab.savedSnapshot', { name: snapshot.name })}
 				</div>{/if}
 			<div class="lab-tasks">
 				{#each tasks as task}<div class:done={task.done}>
-						{#if task.done}<Check size={14} />{:else}<Circle size={14} />{/if}{task.title}
+						{#if task.done}<Check size={14} />{:else}<Circle size={14} />{/if}{t(`learning.lab.task.${task.key}`)}
 					</div>{/each}
 			</div>
 		</div>{/if}{#if !finished}<div class="lab-message" role="status">
-			{message || 'Explore the controls. Nothing here changes a real cloud resource.'}
+			{message ? t(message) : t('learning.lab.defaultMessage')}
 		</div>
 		<div class="lab-bottom">
-			<button class="text-link" onclick={reset}><RotateCcw size={12} />Start over</button><button
-				class="button primary"
-				disabled={!complete}
-				onclick={finish}>Complete this lab<Check size={13} /></button
+			<button class="text-link" onclick={reset}
+				><RotateCcw size={12} />{t('learning.lab.startOver')}</button
+			><button class="button primary" disabled={!complete} onclick={finish}
+				>{t('learning.lab.complete')}<Check size={13} /></button
 			>
 		</div>{/if}
 </section>
 <p class="lab-disclaimer">
 	{learning.labs.includes(data.unit.id)
-		? 'You have completed this unit. Replaying does not add credits again.'
-		: 'Complete the exercise to save this unit to your local learning progress.'}
+		? t('learning.lab.disclaimerDone')
+		: t('learning.lab.disclaimerActive')}
 </p>
 
 <style>

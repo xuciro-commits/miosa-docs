@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { ArrowRight, ArrowUpRight, Timer, Copy, Check } from '@lucide/svelte';
+	import { t } from '#lib/i18n.svelte.js';
 	import MarketingShell from '#lib/components/MarketingShell.svelte';
 	let copied = $state(false);
 	let copyError = $state(false);
@@ -14,40 +15,57 @@
 			copyError = true;
 		}
 	}
+	const infrastructureSteps = [
+		{
+			titleKey: 'marketing.home.infrastructure.step1.title',
+			textKey: 'marketing.home.infrastructure.step1.text',
+			href: '/docs/sandboxes'
+		},
+		{
+			titleKey: 'marketing.home.infrastructure.step2.title',
+			textKey: 'marketing.home.infrastructure.step2.text',
+			href: '/docs/computers'
+		},
+		{
+			titleKey: 'marketing.home.infrastructure.step3.title',
+			textKey: 'marketing.home.infrastructure.step3.text',
+			href: '/docs/deployments'
+		}
+	];
 </script>
 
 <svelte:head
-	><title>MIOSA · Infrastructure for agent-built software</title><meta
+	><title>{t('marketing.home.meta.title')}</title><meta
 		name="description"
-		content="A faithful local reconstruction of the MIOSA infrastructure website, documentation and pricing experience."
+		content={t('marketing.home.meta.description')}
 	/></svelte:head
 >
 <MarketingShell
 	><section class="home-hero">
 		<div class="hero-copy">
 			<a class="announcement" href="/docs"
-				><span><i></i>New</span><b
-					>Build on MIOSA: the new docs, CLI 2.2 and browser use in every sandbox</b
+				><span><i></i>{t('marketing.home.hero.announcementBadge')}</span><b
+					>{t('marketing.home.hero.announcement')}</b
 				><ArrowRight size={14} /></a
 			>
-			<p class="eyebrow">MIOSA CLOUD</p>
-			<h1>Infrastructure for<br /><span>agent-built</span> software.</h1>
-			<p class="hero-lead">
-				Give agents isolated environments to build in, persistent computers to operate, and a direct
-				path to production.
-			</p>
+			<p class="eyebrow">{t('marketing.home.hero.eyebrow')}</p>
+			<h1>
+				{t('marketing.home.hero.titleLine1')}<br /><span
+					>{t('marketing.home.hero.titleAccent')}</span
+				>{t('marketing.home.hero.titleTail')}
+			</h1>
+			<p class="hero-lead">{t('marketing.home.hero.lead')}</p>
 			<div class="hero-actions">
 				<a class="button primary" href="https://miosa.ai/register"
-					>Start building<ArrowRight size={15} /></a
-				><a class="button secondary" href="/docs">Explore the docs</a>
+					>{t('marketing.home.hero.startBuilding')}<ArrowRight size={15} /></a
+				><a class="button secondary" href="/docs">{t('marketing.home.hero.exploreDocs')}</a>
 			</div>
 			<a
 				class="benchmark-link"
 				href="https://miosa.ai/docs/benchmarks"
 				target="_blank"
 				rel="noreferrer"
-				><Timer size={13} /><b>57.1 ms</b><span
-					>startup in MIOSA’s published ComputeSDK benchmark</span
+				><Timer size={13} /><b>57.1 ms</b><span>{t('marketing.home.hero.benchmark')}</span
 				><ArrowUpRight size={11} /></a
 			>
 		</div>
@@ -55,61 +73,66 @@
 	<section class="infrastructure home-section">
 		<div class="section-heading">
 			<div>
-				<p class="eyebrow">The infrastructure</p>
-				<h2>One API for the<br />full runtime.</h2>
+				<p class="eyebrow">{t('marketing.home.infrastructure.eyebrow')}</p>
+				<h2>
+					{t('marketing.home.infrastructure.titleLine1')}<br />{t(
+						'marketing.home.infrastructure.titleLine2'
+					)}
+				</h2>
 			</div>
-			<p>
-				Create an environment, run the task, inspect the output, and publish a version through one
-				resource model.
-			</p>
+			<p>{t('marketing.home.infrastructure.description')}</p>
 		</div>
 		<div class="infrastructure-steps">
-			{#each [{ title: 'Isolated environments', text: 'An independent home for code, dependencies, tests and previews.', href: '/docs/sandboxes' }, { title: 'Persistent computers', text: 'Desktops for visual work, browser sessions and tasks that need a human handoff.', href: '/docs/computers' }, { title: 'Production delivery', text: 'Versioned releases with durable data, custom domains and a route back.', href: '/docs/deployments' }] as step, i}<a
-					href={step.href}
+			{#each infrastructureSteps as step, i}<a href={step.href}
 					><small>0{i + 1}</small>
-					<h3>{step.title}</h3>
-					<p>{step.text}</p>
+					<h3>{t(step.titleKey)}</h3>
+					<p>{t(step.textKey)}</p>
 					<ArrowUpRight size={16} /></a
 				>{/each}
 		</div>
 	</section>
 	<section class="customer-section home-section">
 		<div>
-			<p class="eyebrow">Customer infrastructure</p>
-			<h2>Isolation is part of<br />the resource model.</h2>
+			<p class="eyebrow">{t('marketing.home.customer.eyebrow')}</p>
+			<h2>
+				{t('marketing.home.customer.titleLine1')}<br />{t('marketing.home.customer.titleLine2')}
+			</h2>
 		</div>
 		<div>
-			<p>
-				Give each customer a workspace and each application a project. Keep ownership, usage and
-				deployment boundaries visible.
-			</p>
+			<p>{t('marketing.home.customer.description')}</p>
 			<a class="button primary" href="/docs/product-model"
-				>Explore the resource model<ArrowRight size={14} /></a
+				>{t('marketing.home.customer.cta')}<ArrowRight size={14} /></a
 			>
 		</div>
 	</section>
 	<section class="closing-section home-section">
-		<p class="eyebrow">Start with MIOSA</p>
-		<h2>Give your agents somewhere<br />real to work.</h2>
+		<p class="eyebrow">{t('marketing.home.closing.eyebrow')}</p>
+		<h2>
+			{t('marketing.home.closing.titleLine1')}<br />{t('marketing.home.closing.titleLine2')}
+		</h2>
 		<p>
-			A sandbox for the first experiment. A computer for the longer task.<br />A version you can
-			inspect before you publish.
+			{t('marketing.home.closing.bodyLine1')}<br />{t('marketing.home.closing.bodyLine2')}
 		</p>
 		<div>
 			<a class="button primary" href="https://miosa.ai/register"
-				>Start building<ArrowRight size={13} /></a
+				>{t('marketing.home.hero.startBuilding')}<ArrowRight size={13} /></a
 			><button
 				class="install-command"
-				aria-label="Copy the MIOSA CLI install command"
+				aria-label={t('marketing.home.closing.copyInstallAria')}
 				onclick={copy}
 				><span>CLI</span><code>{command}</code><b
-					>{copyError ? 'Select to copy' : copied ? 'Copied' : 'Copy'}</b
+					>{copyError
+						? t('marketing.home.closing.selectToCopy')
+						: copied
+							? t('marketing.home.closing.copied')
+							: t('marketing.home.closing.copy')}</b
 				>{#if copied}<Check size={12} />{/if}</button
 			>
 		</div>
 		{#if copyError}<code class="copy-fallback">{command}</code>{/if}<a
 			class="setup-guide"
-			href="/docs/installation">CLI setup guide<ArrowUpRight size={12} /></a
+			href="/docs/installation"
+			>{t('marketing.home.closing.setupGuide')}<ArrowUpRight size={12} /></a
 		>
 	</section></MarketingShell
 >

@@ -12,8 +12,10 @@
 	} from '@lucide/svelte';
 	import { goto } from '$app/navigation';
 	import { preferences, ask } from '#lib/preferences.svelte.js';
+	import { t } from '#lib/i18n.svelte.js';
 	import { searchDocuments } from '#lib/search.js';
 	import type { SearchEntry } from '#lib/content/catalog.js';
+	import products from '#lib/content/products.json';
 	let query = $state('');
 	let section = $state('All');
 	let index = $state<SearchEntry[]>([]);
@@ -22,7 +24,59 @@
 	let selected = $state(0);
 	let input: HTMLInputElement;
 	const results = $derived(searchDocuments(index, query, section));
-	const sections = ['All', 'Get started', 'Learn', 'API reference', 'CLI, SDKs & MCP', 'Build'];
+	const sections = [
+		{ id: 'All', key: 'docs.search.section.all' },
+		{ id: 'Get started', key: 'docs.search.section.getStarted' },
+		{ id: 'Learn', key: 'docs.search.section.learn' },
+		{ id: 'API reference', key: 'docs.search.section.api' },
+		{ id: 'CLI, SDKs & MCP', key: 'docs.search.section.cli' },
+		{ id: 'Build', key: 'docs.search.section.build' }
+	];
+	const sectionIds = sections.map((item) => item.id);
+	const docSectionKeys: Record<string, string> = {
+		'Get started': 'docs.search.section.getStarted',
+		Learn: 'docs.search.section.learn',
+		'API reference': 'docs.search.section.api',
+		'CLI, SDKs & MCP': 'docs.search.section.cli',
+		Build: 'docs.search.section.build'
+	};
+	function sectionLabel(value: string): string {
+		const key = docSectionKeys[value];
+		return key ? t(key) : value;
+	}
+	function productFor(slug: string) {
+		return products.find((product) => product.href === `/docs/${slug}`);
+	}
+	function productName(product: (typeof products)[number]): string {
+		const key = `docs.productShowcase.product.${product.id}.name`;
+		const translated = t(key);
+		return translated === key ? product.name : translated;
+	}
+	function resultTitle(slug: string, fallback: string): string {
+		if (slug.startsWith('build/')) {
+			const product = productFor(slug);
+			const prefix = fallback.startsWith('Run ')
+				? t('docs.page.build.runPrefix')
+				: t('docs.page.build.ownPrefix');
+			return `${prefix}${product ? productName(product) : fallback.replace(/^(Run |Build your own )/, '')}`;
+		}
+		const key = `docs.page.${slug.replaceAll('/', '.')}.title`;
+		const translated = t(key);
+		return translated === key ? fallback : translated;
+	}
+	function resultDescription(slug: string, fallback: string): string {
+		if (slug.startsWith('build/')) {
+			const product = productFor(slug);
+			if (product) {
+				const productKey = `docs.productShowcase.product.${product.id}.blurb`;
+				const translatedBlurb = t(productKey);
+				if (translatedBlurb !== productKey) return translatedBlurb;
+			}
+		}
+		const key = `docs.page.${slug.replaceAll('/', '.')}.description`;
+		const translated = t(key);
+		return translated === key ? fallback : translated;
+	}
 	$effect(() => {
 		if (preferences.searchOpen) {
 			requestAnimationFrame(() => input?.focus());
@@ -68,9 +122,9 @@
 		if (event.key === 'Tab' && event.target === input) {
 			event.preventDefault();
 			section =
-				sections[
-					(sections.indexOf(section) + (event.shiftKey ? -1 : 1) + sections.length) %
-						sections.length
+				sectionIds[
+					(sectionIds.indexOf(section) + (event.shiftKey ? -1 : 1) + sectionIds.length) %
+						sectionIds.length
 				];
 			return;
 		}
@@ -112,48 +166,45 @@
 				}
 			}}
 			onkeydown={keyboard}
-			><Dialog.Title class="sr-only">Search documentation</Dialog.Title><Dialog.Description
-				class="sr-only"
-				>Search pages, examples and learning guides. Use the arrow keys to choose a result.</Dialog.Description
+			><Dialog.Title class="sr-only">{t('docs.search.title')}</Dialog.Title><Dialog.Description
+				class="sr-only">{t('docs.search.description')}</Dialog.Description
 			>
 			<div class="search-input-row">
 				<Search size={20} /><input
 					bind:this={input}
 					bind:value={query}
-					placeholder="Search docs or ask a question…"
-					aria-label="Search documentation"
+					placeholder={t('docs.search.placeholder')}
+					aria-label={t('docs.search.inputAria')}
 					autocomplete="off"
-				/><Dialog.Close class="search-escape" aria-label="Close search"><kbd>esc</kbd></Dialog.Close
+				/><Dialog.Close class="search-escape" aria-label={t('docs.search.close')}
+					><kbd>esc</kbd></Dialog.Close
 				>
 			</div>
 			<div class="search-sections">
 				{#each sections as item}<button
-						class:active={section === item}
-						onclick={() => (section = item)}
-						>{item === 'Get started'
-							? 'Docs'
-							: item === 'CLI, SDKs & MCP'
-								? 'CLI & SDKs'
-								: item}</button
+						class:active={section === item.id}
+						onclick={() => (section = item.id)}>{t(item.key)}</button
 					>{/each}
 			</div>
 			<div class="search-results">
 				{#if query}<button class="ask-search" onclick={() => ask(query)}
-						><MessageCircle size={16} /><span>Ask OSA <b>“{query}”</b></span><CornerDownLeft
-							size={13}
-						/></button
+						><MessageCircle size={16} /><span>{t('docs.search.askPrefix')} <b>“{query}”</b></span
+						><CornerDownLeft size={13} /></button
 					>{/if}
-				<div class="result-label">{query ? 'Matching pages' : 'Explore the documentation'}</div>
-				{#if loading}<p class="search-empty">Loading the documentation index…</p>{:else if failed}<p
+				<div class="result-label">
+					{query ? t('docs.search.matching') : t('docs.search.explore')}
+				</div>
+				{#if loading}<p class="search-empty">{t('docs.search.loading')}</p>{:else if failed}<p
 						class="search-empty"
 					>
-						Search could not load. <button class="retry-search" onclick={() => (failed = false)}
-							>Try again</button
+						{t('docs.search.error')}
+						<button class="retry-search" onclick={() => (failed = false)}
+							>{t('docs.search.tryAgain')}</button
 						>
 					</p>{:else if !results.length}<div class="search-empty">
 						<Search size={25} />
-						<p>No pages match “{query}”.</p>
-						<small>Try a shorter term or a different category.</small>
+						<p>{t('docs.search.noMatch', { query })}</p>
+						<small>{t('docs.search.tryShorter')}</small>
 					</div>{:else}{#each results as result, i}<button
 							id={`search-result-${i}`}
 							class="search-result"
@@ -161,15 +212,19 @@
 							onpointermove={() => (selected = i)}
 							onclick={() => open(result.href)}
 							><FileText size={16} /><span
-								><small>{result.section}</small><strong>{result.title}</strong>
-								<p>{result.description}</p></span
+								><small>{sectionLabel(result.section)}</small><strong
+									>{resultTitle(result.slug, result.title)}</strong
+								>
+								<p>{resultDescription(result.slug, result.description)}</p></span
 							><CornerDownLeft size={13} /></button
 						>{/each}{/if}
 			</div>
 			<div class="search-footer">
-				<span><kbd>↑</kbd><kbd>↓</kbd> navigate</span><span><kbd>↵</kbd> open</span><span
-					><kbd>esc</kbd> close</span
-				><span class="search-count">{index.length} pages</span>
+				<span><kbd>↑</kbd><kbd>↓</kbd> {t('docs.search.navigate')}</span><span
+					><kbd>↵</kbd> {t('docs.search.open')}</span
+				><span><kbd>esc</kbd> {t('docs.search.closeKey')}</span><span class="search-count"
+					>{t('docs.search.pages', { count: index.length })}</span
+				>
 			</div></Dialog.Content
 		></Dialog.Portal
 	></Dialog.Root

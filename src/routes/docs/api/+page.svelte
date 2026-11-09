@@ -3,6 +3,7 @@
 	import { staticSite } from '#lib/site-mode.js';
 	import '@scalar/api-reference/style.css';
 	import { ExternalLink, RotateCcw } from '@lucide/svelte';
+	import { t } from '#lib/i18n.svelte.js';
 	let mount: HTMLDivElement;
 	let loading = $state(true);
 	let failed = $state(false);
@@ -39,18 +40,18 @@
 
 <div class="api-notice">
 	<span class="api-dot"></span><span
-		>{staticSite
-			? 'Static documentation · run the Node server locally to send API requests'
-			: 'Working local API · example resources only'}</span
+		>{staticSite ? t('docs.api.noticeStatic') : t('docs.api.noticeLive')}</span
 	><a href="/openapi.json" target="_blank" rel="noreferrer"
-		>OpenAPI schema<ExternalLink size={11} /></a
+		>{t('docs.api.openapi')}<ExternalLink size={11} /></a
 	>
 </div>
 {#if loading}<div class="api-loading">
-		<span></span>Loading the API explorer…
+		<span></span>{t('docs.api.loading')}
 	</div>{:else if failed}<div class="empty-state">
-		<p>The API explorer could not load.</p>
-		<button class="button" onclick={() => location.reload()}><RotateCcw size={13} />Reload</button>
+		<p>{t('docs.api.error')}</p>
+		<button class="button" onclick={() => location.reload()}
+			><RotateCcw size={13} />{t('docs.api.reload')}</button
+		>
 	</div>{/if}
 <div bind:this={mount} class="scalar-mount"></div>
 

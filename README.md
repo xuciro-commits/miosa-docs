@@ -27,6 +27,10 @@ npm run verify:deployment
 
 MIOSA 发布校验会扫描公开示例中的环境变量引用。文档使用 `YOUR_API_KEY` 占位值，CLI 示例使用 `miosa login`；不要为通过校验而把真实云密钥放进页面。此前完整文档产物被拒绝的实际原因是示例中的未绑定环境变量引用，不是已确认的文件数量限制。
 
+## 多语言
+
+站点提供 English / 简体中文切换。页头的语言按钮会把选择写入 `localStorage`（`miosa-locale`），并在刷新和页面切换后保持。界面文案使用 `src/lib/i18n/messages/` 下的命名空间字典；文章内容仍保留单一英文 SVX 源文件，由 `src/lib/i18n.svelte.ts` 的 `translateContent` 在运行时按内容字典翻译，避免复制页面代码。
+
 ## 启动
 
 需要 Node.js 22.12+。

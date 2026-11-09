@@ -3,7 +3,9 @@
 	import { ArrowLeft, ArrowRight, ChevronRight, House } from '@lucide/svelte';
 	import { getDocument } from '#lib/content/catalog.js';
 	import { navItems } from '#lib/content/navigation.js';
+	import products from '#lib/content/products.json';
 	import { preferences } from '#lib/preferences.svelte.js';
+	import { t } from '#lib/i18n.svelte.js';
 	import Header from '#lib/components/Header.svelte';
 	import Sidebar from '#lib/components/Sidebar.svelte';
 	import TableOfContents from '#lib/components/TableOfContents.svelte';
@@ -19,49 +21,118 @@
 	);
 	const landing = $derived(slug === '');
 	const wide = $derived(landing || slug === 'api');
+	const sectionKeys: Record<string, string> = {
+		'Get started': 'docs.nav.group.getStarted',
+		Learn: 'docs.nav.group.learn',
+		'Services & projects': 'docs.nav.group.servicesProjects',
+		Sandboxes: 'docs.nav.group.sandboxes',
+		Computers: 'docs.nav.group.computers',
+		'Databases & storage': 'docs.nav.group.databasesStorage',
+		'Networking & domains': 'docs.nav.group.networkingDomains',
+		Agents: 'docs.nav.group.agents',
+		'CLI, SDKs & MCP': 'docs.nav.group.cliSdksMcp',
+		'API reference': 'docs.nav.group.apiReference',
+		'Organization & security': 'docs.nav.group.organizationSecurity',
+		Build: 'docs.nav.build'
+	};
+	function pageKey(slugValue: string, part: 'title' | 'description'): string {
+		if (slugValue.startsWith('learn/final/')) return `docs.page.checkUnderstanding.${part}`;
+		if (slugValue.startsWith('learn/labs/')) return `docs.page.learningLab.${part}`;
+		return `docs.page.${slugValue ? slugValue.replaceAll('/', '.') : 'introduction'}.${part}`;
+	}
+	function translatedPageText(
+		slugValue: string,
+		part: 'title' | 'description',
+		fallback: string
+	): string {
+		const key = pageKey(slugValue, part);
+		const value = t(key);
+		return value === key ? fallback : value;
+	}
+	function productFor(slugValue: string) {
+		return products.find((product) => product.href === `/docs/${slugValue}`);
+	}
+	function productName(product: (typeof products)[number]): string {
+		const key = `docs.productShowcase.product.${product.id}.name`;
+		const translated = t(key);
+		return translated === key ? product.name : translated;
+	}
+	function pageTitle(slugValue: string, fallback: string): string {
+		if (slugValue.startsWith('build/')) {
+			const prefix = fallback.startsWith('Run ')
+				? t('docs.page.build.runPrefix')
+				: t('docs.page.build.ownPrefix');
+			const product = productFor(slugValue);
+			return `${prefix}${product ? productName(product) : fallback.replace(/^(Run |Build your own )/, '')}`;
+		}
+		return translatedPageText(slugValue, 'title', fallback);
+	}
+	function pageDescription(slugValue: string, fallback: string): string {
+		if (slugValue.startsWith('build/')) {
+			const product = productFor(slugValue);
+			if (product) {
+				const key = `docs.productShowcase.product.${product.id}.blurb`;
+				const translated = t(key);
+				if (translated !== key) return translated;
+			}
+		}
+		return translatedPageText(slugValue, 'description', fallback);
+	}
+	function navTitle(slugValue: string, fallback: string): string {
+		const key = `docs.nav.${slugValue ? slugValue.replaceAll('/', '.') : 'introduction'}`;
+		const value = t(key);
+		return value === key ? fallback : value;
+	}
+	const currentTitle = $derived(pageTitle(slug, doc?.title ?? t('docs.layout.pageNotFound')));
+	const currentDescription = $derived(
+		pageDescription(slug, doc?.description ?? t('docs.layout.pageNotFoundDescription'))
+	);
 </script>
 
 <svelte:head
-	><title>{doc?.title ?? 'Page not found'} · MIOSA Docs</title><meta
+	><title>{t('docs.layout.titleSuffix', { title: currentTitle })}</title><meta
 		name="description"
-		content={doc?.description ?? 'Documentation and learning workspace'}
+		content={currentDescription}
 	/><link rel="alternate" type="text/markdown" href={`/docs/${slug || 'index'}.md`} /></svelte:head
 >
-<a href="#main-content" class="skip-link">Skip to content</a>
+<a href="#main-content" class="skip-link">{t('docs.layout.skipToContent')}</a>
 <div class="docs-app" style={`--sidebar-width:${preferences.sidebarWidth}px`}>
 	<Header /><Sidebar />{#if preferences.sidebarOpen}<button
 			class="nav-backdrop"
-			aria-label="Close navigation"
+			aria-label={t('docs.layout.closeNavigation')}
 			onclick={() => (preferences.sidebarOpen = false)}
 		></button>{/if}
 	<div class="reading-stage">
 		<div class="docs-grid" class:wide>
 			<main id="main-content" class="article-column" tabindex="-1">
 				{#if !landing}<div class="article-toolbar">
-						<nav class="breadcrumbs" aria-label="Breadcrumb">
-							<a href="/docs">Docs</a><span>/</span
+						<nav class="breadcrumbs" aria-label={t('docs.layout.breadcrumbAria')}>
+							<a href="/docs">{t('docs.layout.docs')}</a><span>/</span
 							>{#if doc?.section && doc.section !== 'Get started'}<a
-									href={doc.section === 'Learn' ? '/docs/learn' : '/docs'}>{doc.section}</a
-								><span>/</span>{/if}<span aria-current="page"
-								>{doc?.title === 'MIOSA Documentation' ? 'Introduction' : doc?.title}</span
-							>
+									href={doc.section === 'Learn' ? '/docs/learn' : '/docs'}
+									>{t(sectionKeys[doc.section])}</a
+								><span>/</span>{/if}<span aria-current="page">{currentTitle}</span>
 						</nav>
 						<PageActions />
 					</div>{/if}
 				<article id="article-body">
-					{#if !landing}<h1>{doc?.title ?? 'Page not found'}</h1>
+					{#if !landing}<h1>{currentTitle}</h1>
 						{#if doc?.description}<p class="lead">
-								{doc.description}
+								{currentDescription}
 							</p>{/if}{/if}{@render children()}
 				</article>
 				{#if !landing && (previous || next)}<nav
 						class="page-neighbors"
-						aria-label="Previous and next pages"
+						aria-label={t('docs.layout.previousNextAria')}
 					>
 						{#if previous}<a href={previous.href}
-								><small>Previous</small><span><ArrowLeft size={13} />{previous.title}</span></a
+								><small>{t('docs.layout.previous')}</small><span
+									><ArrowLeft size={13} />{navTitle(previous.slug, previous.title)}</span
+								></a
 							>{:else}<span></span>{/if}{#if next}<a href={next.href} class="next"
-								><small>Next</small><span>{next.title}<ArrowRight size={13} /></span></a
+								><small>{t('docs.layout.next')}</small><span
+									>{navTitle(next.slug, next.title)}<ArrowRight size={13} /></span
+								></a
 							>{/if}
 					</nav>{/if}
 			</main>

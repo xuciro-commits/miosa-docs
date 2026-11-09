@@ -8,18 +8,19 @@
 		Monitor,
 		Check,
 		CodeXml as Github,
-		ChevronDown,
-		PanelLeft
+		ChevronDown
 	} from '@lucide/svelte';
 	import { preferences, ask, type Theme } from '#lib/preferences.svelte.js';
+	import { t } from '#lib/i18n.svelte.js';
+	import LanguageToggle from './LanguageToggle.svelte';
 	let themeMenu = $state(false);
 	const tabs = [
-		{ title: 'Docs', href: '/docs', section: 'docs' },
-		{ title: 'Learn', href: '/docs/learn', section: 'learn' },
-		{ title: 'API reference', href: '/docs/api-reference', section: 'api' },
-		{ title: 'SDKs', href: '/docs/sdks', section: 'sdks' },
-		{ title: 'CLI & MCP', href: '/docs/cli', section: 'cli' },
-		{ title: 'Changelog', href: '/docs/changelog', section: 'changelog' }
+		{ key: 'docs.header.tabs.docs', href: '/docs', section: 'docs' },
+		{ key: 'docs.header.tabs.learn', href: '/docs/learn', section: 'learn' },
+		{ key: 'docs.header.tabs.api', href: '/docs/api-reference', section: 'api' },
+		{ key: 'docs.header.tabs.sdks', href: '/docs/sdks', section: 'sdks' },
+		{ key: 'docs.header.tabs.cli', href: '/docs/cli', section: 'cli' },
+		{ key: 'docs.header.tabs.changelog', href: '/docs/changelog', section: 'changelog' }
 	];
 	const active = $derived(
 		page.url.pathname.includes('/learn') || page.url.pathname.includes('/glossary')
@@ -34,12 +35,12 @@
 							? 'changelog'
 							: 'docs'
 	);
-	const themes: { value: Theme; label: string }[] = [
-		{ value: 'system', label: 'System' },
-		{ value: 'light', label: 'Light' },
-		{ value: 'dark', label: 'Dark' },
-		{ value: 'glass', label: 'Glass' },
-		{ value: 'glass-dark', label: 'Dark glass' }
+	const themes: { value: Theme; key: string }[] = [
+		{ value: 'system', key: 'docs.header.theme.system' },
+		{ value: 'light', key: 'docs.header.theme.light' },
+		{ value: 'dark', key: 'docs.header.theme.dark' },
+		{ value: 'glass', key: 'docs.header.theme.glass' },
+		{ value: 'glass-dark', key: 'docs.header.theme.glassDark' }
 	];
 </script>
 
@@ -52,25 +53,25 @@
 	<div class="header-pill">
 		<button
 			class="icon-button mobile-menu"
-			aria-label="Open navigation"
+			aria-label={t('docs.header.openNavigation')}
 			onclick={() => (preferences.sidebarOpen = true)}><Menu size={18} /></button
 		>
-		<a href="/docs" class="brand" aria-label="MIOSA documentation"
+		<a href="/docs" class="brand" aria-label={t('docs.header.brandAria')}
 			><img class="logo-light" src="/brand/miosa-black.png" alt="MIOSA" /><img
 				class="logo-dark"
 				src="/brand/miosa-white.png"
 				alt="MIOSA"
-			/><span>/</span><b>Docs</b></a
+			/><span>/</span><b>{t('docs.header.tabs.docs')}</b></a
 		>
-		<nav class="top-tabs" aria-label="Documentation sections">
+		<nav class="top-tabs" aria-label={t('docs.header.sectionsAria')}>
 			{#each tabs as tab}<a
 					href={tab.href}
 					class:active={active === tab.section}
-					aria-current={active === tab.section ? 'page' : undefined}>{tab.title}</a
+					aria-current={active === tab.section ? 'page' : undefined}>{t(tab.key)}</a
 				>{/each}
 		</nav>
 		<button class="search-trigger" onclick={() => (preferences.searchOpen = true)}
-			><Search size={14} /><span>Search docs…</span><span class="shortcut"
+			><Search size={14} /><span>{t('docs.header.search')}</span><span class="shortcut"
 				><kbd>⌘</kbd><kbd>K</kbd></span
 			></button
 		>
@@ -80,12 +81,13 @@
 				href="https://github.com/Miosa-osa/foundation"
 				target="_blank"
 				rel="noreferrer"
-				aria-label="Foundation on GitHub"><Github size={15} /></a
+				aria-label={t('docs.header.github')}><Github size={15} /></a
 			>
+			<LanguageToggle />
 			<div class="theme-wrap">
 				<button
 					class="icon-button"
-					aria-label="Change theme"
+					aria-label={t('docs.header.changeTheme')}
 					aria-expanded={themeMenu}
 					aria-controls="theme-menu"
 					onclick={() => (themeMenu = !themeMenu)}
@@ -96,22 +98,24 @@
 						/>{/if}</button
 				>
 				{#if themeMenu}<div class="theme-menu" id="theme-menu">
-						<p>Appearance</p>
+						<p>{t('docs.header.appearance')}</p>
 						{#each themes as theme}<button
 								class:selected={preferences.theme === theme.value}
 								onclick={() => {
 									preferences.theme = theme.value;
 									themeMenu = false;
 								}}
-								><span>{theme.label}</span>{#if preferences.theme === theme.value}<Check
+								><span>{t(theme.key)}</span>{#if preferences.theme === theme.value}<Check
 										size={13}
 									/>{/if}</button
 							>{/each}
 					</div>{/if}
 			</div>
-			<a class="button primary start-building" href="/docs/quickstart">Start building</a>
+			<a class="button primary start-building" href="/docs/quickstart"
+				>{t('docs.header.startBuilding')}</a
+			>
 			<button class="ask-button" onclick={() => ask()}
-				><img src="/brand/osa-orb.png" alt="" /><span>Ask OSA</span></button
+				><img src="/brand/osa-orb.png" alt="" /><span>{t('docs.header.askOsa')}</span></button
 			>
 		</div>
 	</div>

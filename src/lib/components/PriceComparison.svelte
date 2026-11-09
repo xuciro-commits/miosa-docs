@@ -12,11 +12,10 @@
 		hourlyComparison,
 		monthlyComparison,
 		budgetComparison,
-		compact,
 		money,
-		duration,
 		type Product
 	} from '#lib/pricing.js';
+	import { i18n, t } from '#lib/i18n.svelte.js';
 	import Segmented from './Segmented.svelte';
 	let product = $state<Product>('sandbox');
 	let sizeIndex = $state(1);
@@ -41,37 +40,175 @@
 	const maxHour = $derived(Math.max(...hourly.map((row) => row.value ?? 0), 0.001));
 	const maxResult = $derived(Math.max(...results.map((row) => row.value ?? 0), 0.001));
 	const visible = $derived(showAll ? results : results.slice(0, 10));
+
+	const productOptions = $derived(
+		products.map((item) => ({
+			value: item.id,
+			label: t(`marketing.pricing.comparison.products.${item.id}`)
+		}))
+	);
+	const sizeOptions = $derived(
+		sizes.map((item, index) => ({
+			value: index,
+			label: `${item.vcpu} vCPU · ${item.ramGib} GB`,
+			detail: t('marketing.pricing.comparison.disk', { disk: item.diskGib })
+		}))
+	);
+	const sessionOptions = $derived(
+		sessionHours.map((value) => ({ value, label: durationLabel(value) }))
+	);
+	const peakOptions = $derived(peakCounts.map((value) => ({ value, label: compactLabel(value) })));
+	const workloadModes = $derived([
+		{ value: 'workload', label: t('marketing.pricing.comparison.costWorkload') },
+		{ value: 'budget', label: t('marketing.pricing.comparison.workloadsBudget') }
+	]);
+	const presetOptions = $derived(
+		budgetPresets.map((item) => ({ value: item.id, label: presetLabel(item.id, item.label) }))
+	);
+	const busyOptions = $derived(
+		busyFractions.map((value) => ({ value, label: Math.round(value * 100) + '%' }))
+	);
+
+	const tagKeys: Record<string, string> = {
+		'flat per size': 'marketing.pricing.comparison.tags.flatPerSize',
+		'full size': 'marketing.pricing.comparison.tags.fullSize',
+		'by memory, while active': 'marketing.pricing.comparison.tags.byMemoryActive',
+		'active CPU': 'marketing.pricing.comparison.tags.activeCpu',
+		'active CPU · used RAM': 'marketing.pricing.comparison.tags.activeCpuUsedRam',
+		'per compute unit': 'marketing.pricing.comparison.tags.perComputeUnit',
+		'Flat per size': 'marketing.pricing.comparison.tags.miosaFlat',
+		'Never more than': 'marketing.pricing.comparison.tags.miosaNeverMore',
+		'Used CPU and memory, capped': 'marketing.pricing.comparison.tags.miosaUsedCapped',
+		'Including disk and plan capacity': 'marketing.pricing.comparison.tags.miosaIncludingDisk'
+	};
+	const noteKeys: Record<string, string> = {
+		'No matching size in the published reference':
+			'marketing.pricing.comparison.notes.noMatchingSize',
+		'No matching size': 'marketing.pricing.comparison.notes.noMatchingSizeShort',
+		'Extra disk is not priced in this reference':
+			'marketing.pricing.comparison.notes.extraDiskUnpriced',
+		'Disk is not priced on the source page': 'marketing.pricing.comparison.notes.diskUnpriced',
+		'Exceeds a listed plan or session limit; a custom plan may be required':
+			'marketing.pricing.comparison.notes.exceedsPlan',
+		'Above the capacity of listed plans; contact the provider':
+			'marketing.pricing.comparison.notes.aboveCapacity',
+		'Free plan usage rules apply': 'marketing.pricing.comparison.notes.freePlanRules',
+		'No workloads fit this budget': 'marketing.pricing.comparison.notes.noWorkloadsFit',
+		'No listed plan fits this budget and workload':
+			'marketing.pricing.comparison.notes.noListedPlanFits',
+		'a compute unit is about 1 vCPU and 4 GB': 'marketing.pricing.comparison.notes.computeUnit'
+	};
+	const presetKeys: Record<string, string> = {
+		coding: 'marketing.pricing.comparison.presets.coding',
+		'always-on': 'marketing.pricing.comparison.presets.alwaysOn',
+		evals: 'marketing.pricing.comparison.presets.evals',
+		rollouts: 'marketing.pricing.comparison.presets.rollouts',
+		ci: 'marketing.pricing.comparison.presets.ci',
+		users: 'marketing.pricing.comparison.presets.users'
+	};
+
+	function presetLabel(id: string, fallback: string) {
+		const key = presetKeys[id];
+		return key ? t(key) : fallback;
+	}
+	function planDisplayName(name: string) {
+		const key = `marketing.pricing.planNames.${name.toLowerCase()}`;
+		const translated = t(key);
+		return translated === key ? name : translated;
+	}
+	function translateTag(tag: string) {
+		const key = tagKeys[tag];
+		return key ? t(key) : tag;
+	}
+	function translateNote(note: string) {
+		const direct = noteKeys[note];
+		if (direct) return t(direct);
+		const nearest = note.match(/^Nearest: (.+)$/);
+		if (nearest) return t('marketing.pricing.comparison.notes.nearest', { size: nearest[1] });
+		const credited = note.match(/^(.+): (\$[\d,]+)\/mo, credited toward usage$/);
+		if (credited)
+			return t('marketing.pricing.comparison.notes.creditedTowardUsage', {
+				plan: planDisplayName(credited[1]),
+				amount: credited[2]
+			});
+		const fixedFee = note.match(/^(\$[\d,]+)\/mo (usage minimum|plan fee shown separately)$/);
+		if (fixedFee)
+			return t(
+				fixedFee[2] === 'usage minimum'
+					? 'marketing.pricing.comparison.notes.usageMinimumAmount'
+					: 'marketing.pricing.comparison.notes.planFeeShown',
+				{ amount: fixedFee[1] }
+			);
+		const usageMinimum = note.match(/^(.+) usage minimum$/);
+		if (usageMinimum)
+			return t('marketing.pricing.comparison.notes.usageMinimumPlan', {
+				plan: planDisplayName(usageMinimum[1])
+			});
+		return note;
+	}
+	function compactLabel(value: number) {
+		if (value === Infinity) return t('marketing.pricing.comparison.compactBackToBack');
+		return new Intl.NumberFormat(i18n.locale === 'zh' ? 'zh-CN' : 'en-US', {
+			notation: value >= 10_000 ? 'compact' : 'standard',
+			maximumFractionDigits: 1
+		}).format(value);
+	}
+	function durationLabel(hoursValue: number) {
+		if (hoursValue === Infinity) return t('marketing.pricing.comparison.duration.always');
+		if (hoursValue < 1)
+			return t('marketing.pricing.comparison.duration.minutes', {
+				minutes: Math.round(hoursValue * 60)
+			});
+		if (hoursValue <= 24)
+			return t('marketing.pricing.comparison.duration.hours', { hours: hoursValue });
+		return t('marketing.pricing.comparison.duration.days', {
+			days: +(hoursValue / 24).toFixed(1)
+		});
+	}
+	function formatChecked(value: string) {
+		return new Intl.DateTimeFormat(i18n.locale === 'zh' ? 'zh-CN' : 'en-US', {
+			month: 'short',
+			day: 'numeric',
+			year: 'numeric',
+			timeZone: 'UTC'
+		}).format(new Date(`${value}T00:00:00Z`));
+	}
 </script>
 
-<section id="comparison" class="price-comparison" aria-label="Pricing comparison">
-	<h2>How MIOSA compares</h2>
-	<p class="comparison-intro">
-		The same resource shape, using the published rate references captured with this site.
-	</p>
+<section
+	id="comparison"
+	class="price-comparison"
+	aria-label={t('marketing.pricing.comparison.ariaLabel')}
+>
+	<h2>{t('marketing.pricing.comparison.heading')}</h2>
+	<p class="comparison-intro">{t('marketing.pricing.comparison.intro')}</p>
 	<Segmented
-		label="Product"
-		options={products.map((item) => ({ value: item.id, label: item.label }))}
+		label={t('marketing.pricing.comparison.product')}
+		options={productOptions}
 		bind:value={product}
 	/><Segmented
-		label="Resources per machine"
-		options={sizes.map((size, i) => ({
-			value: i,
-			label: `${size.vcpu} vCPU · ${size.ramGib} GB`,
-			detail: `${size.diskGib} GB disk`
-		}))}
+		label={t('marketing.pricing.comparison.resourcesPerMachine')}
+		options={sizeOptions}
 		bind:value={sizeIndex}
 	/>
 	<div class="comparison-block">
-		<h3>Per hour, one machine</h3>
+		<h3>{t('marketing.pricing.comparison.perHour')}</h3>
 		<ol class="hourly-results">
 			{#each hourly as row}<li class:own={row.miosa}>
-					<div><b>{row.name}</b><small>{row.notes[0] ?? row.tag}</small></div>
+					<div>
+						<b>{row.name}</b><small
+							>{row.notes[0] ? translateNote(row.notes[0]) : translateTag(row.tag)}</small
+						>
+					</div>
 					<span class="comparison-bar"
 						><i
 							style={`width:${row.value === null ? 0 : Math.max(2, (row.value / maxHour) * 100)}%`}
 						></i></span
-					><strong>{row.value === null ? 'Not listed' : money(row.value, 3) + '/h'}</strong><span
-						class="ratio"
+					><strong
+						>{row.value === null
+							? t('marketing.pricing.comparison.notListed')
+							: money(row.value, 3) + '/h'}</strong
+					><span class="ratio"
 						>{row.value !== null && hourly.find((item) => item.miosa)?.value
 							? (row.value / hourly.find((item) => item.miosa)!.value!).toFixed(1) + 'x'
 							: '—'}</span
@@ -80,40 +217,43 @@
 		</ol>
 	</div>
 	<div class="comparison-block calculator">
-		<h3>Per month</h3>
+		<h3>{t('marketing.pricing.comparison.perMonth')}</h3>
 		{#if product === 'sandbox' || product === 'desktop'}<Segmented
-				label="Compare"
-				options={[
-					{ value: 'workload', label: 'Cost for a workload' },
-					{ value: 'budget', label: 'Workloads for a budget' }
-				]}
+				label={t('marketing.pricing.comparison.compare')}
+				options={workloadModes}
 				bind:value={mode}
 			/>{/if}{#if effectiveMode === 'workload'}<div class="range-field">
-				<label for="pricing-sessions">Sessions / month</label><input
+				<label for="pricing-sessions">{t('marketing.pricing.comparison.sessionsPerMonth')}</label
+				><input
 					id="pricing-sessions"
 					type="range"
 					min="0"
 					max={sessionCounts.length - 1}
 					step="1"
 					bind:value={sessionIndex}
-				/><output for="pricing-sessions">{compact(sessions)}</output>
+				/><output for="pricing-sessions">{compactLabel(sessions)}</output>
 			</div>
 			<Segmented
-				label="Session"
-				options={sessionHours.map((value) => ({ value, label: duration(value) }))}
+				label={t('marketing.pricing.comparison.session')}
+				options={sessionOptions}
 				bind:value={hours}
 			/><Segmented
-				label="Peak machines at once"
-				options={peakCounts.map((value) => ({ value, label: compact(value) }))}
+				label={t('marketing.pricing.comparison.peakMachines')}
+				options={peakOptions}
 				bind:value={peak}
 			/>
 			<p class="calculator-hint">
-				{sessions === Infinity
-					? 'Back-to-back workloads'
-					: `Up to ${compact(monthly.load.machines)} at once`}: {compact(monthly.load.totalHours)} machine-hours
-				a month.
+				{t('marketing.pricing.comparison.workloadHint', {
+					mode:
+						sessions === Infinity
+							? t('marketing.pricing.comparison.backToBack')
+							: t('marketing.pricing.comparison.upToAtOnce', {
+									machines: compactLabel(monthly.load.machines)
+								}),
+					hours: compactLabel(monthly.load.totalHours)
+				})}
 			</p>{:else}<div class="range-field">
-				<label for="pricing-budget">Budget / month</label><input
+				<label for="pricing-budget">{t('marketing.pricing.comparison.budgetPerMonth')}</label><input
 					id="pricing-budget"
 					type="range"
 					min="0"
@@ -123,101 +263,107 @@
 				/><output for="pricing-budget">{money(budget, 0)}</output>
 			</div>
 			<Segmented
-				label="Workload"
-				options={budgetPresets.map((item) => ({ value: item.id, label: item.label }))}
+				label={t('marketing.pricing.comparison.workload')}
+				options={presetOptions}
 				bind:value={presetId}
 			/>
 			<p class="calculator-hint">
-				{duration(preset.hours)} sessions · {preset.size.vcpu} vCPU · {preset.size.ramGib} GB · {preset
-					.size.diskGib} GB disk
+				{t('marketing.pricing.comparison.workloadDetails', {
+					hours: durationLabel(preset.hours),
+					vcpu: preset.size.vcpu,
+					ram: preset.size.ramGib,
+					disk: preset.size.diskGib
+				})}
 			</p>{/if}<Segmented
-			label="CPU busy"
-			options={busyFractions.map((value) => ({ value, label: Math.round(value * 100) + '%' }))}
+			label={t('marketing.pricing.comparison.cpuBusy')}
+			options={busyOptions}
 			bind:value={busy}
 		/>
-		<p class="calculator-hint">
-			CPU utilization changes providers that meter active CPU. Flat-size resources keep the same
-			compute rate.
-		</p>
+		<p class="calculator-hint">{t('marketing.pricing.comparison.cpuNote')}</p>
 		<div class="calculated-total" aria-live="polite">
 			<div>
 				<b
 					>{effectiveMode === 'workload'
 						? own?.value !== null && own?.value !== undefined
 							? money(own.value)
-							: 'No listed size'
-						: compact(own?.value ?? 0)}</b
+							: t('marketing.pricing.comparison.noListedSize')
+						: compactLabel(own?.value ?? 0)}</b
 				><span
 					>{effectiveMode === 'workload'
-						? '/ month on MIOSA'
+						? t('marketing.pricing.comparison.perMonthOnMiosa')
 						: preset.hours === Infinity
-							? 'always-on agents on MIOSA'
-							: 'sessions on MIOSA'}</span
+							? t('marketing.pricing.comparison.alwaysOnAgents')
+							: t('marketing.pricing.comparison.sessionsOnMiosa')}</span
 				>
 			</div>
 			{#if effectiveMode === 'workload'}<p>
-					{sessions === Infinity
-						? `${compact(monthly.load.machines)} machines × 730 h`
-						: `${compact(sessions)} × ${duration(hours)}`} × {money(
-						monthly.compute / (monthly.load.totalHours || 1),
-						4
-					)}/h = {money(monthly.compute)} + {money(monthly.disk)} disk
+					{t('marketing.pricing.comparison.formula', {
+						load:
+							sessions === Infinity
+								? t('marketing.pricing.comparison.machines730', {
+										count: compactLabel(monthly.load.machines)
+									})
+								: t('marketing.pricing.comparison.sessionsTimes', {
+										sessions: compactLabel(sessions),
+										duration: durationLabel(hours)
+									}),
+						rate: money(monthly.compute / (monthly.load.totalHours || 1), 4),
+						compute: money(monthly.compute),
+						disk: money(monthly.disk)
+					})}
 				</p>
 				{#if !monthly.plan}<p class="capacity-note">
-						This workload exceeds a listed plan limit. The usage estimate does not guarantee that
-						capacity is available.
-					</p>{/if}{/if}{#each own?.notes ?? [] as note}<p>{note}</p>{/each}
+						{t('marketing.pricing.comparison.capacityNote')}
+					</p>{/if}{/if}{#each own?.notes ?? [] as note}<p>{translateNote(note)}</p>{/each}
 		</div>
 		<ol class="monthly-results">
 			{#each visible as row, i}<li class:own={row.miosa}>
 					<span class="rank">{i + 1}</span>
-					<div class="result-name"><b>{row.name}</b><small>{row.tag}</small></div>
+					<div class="result-name">
+						<b>{row.name}</b><small>{translateTag(row.tag)}</small>
+					</div>
 					<div class="result-value">
 						<strong
 							>{row.value === null
-								? 'Not available'
+								? t('marketing.pricing.comparison.notAvailable')
 								: effectiveMode === 'workload'
 									? money(row.value)
-									: compact(row.value)}</strong
+									: compactLabel(row.value)}</strong
 						><small
 							>{effectiveMode === 'workload'
-								? '/ month'
+								? t('marketing.pricing.comparison.monthSuffix')
 								: preset.hours === Infinity
-									? 'agents'
-									: 'sessions'}</small
+									? t('marketing.pricing.comparison.agents')
+									: t('marketing.pricing.comparison.sessions')}</small
 						>
 					</div>
 					<span class="comparison-bar"
 						><i
 							style={`width:${row.value === null ? 0 : Math.max(1.5, (row.value / maxResult) * 100)}%`}
 						></i></span
-					>{#if row.notes.length}<p>{row.notes.join(' · ')}</p>{/if}
+					>{#if row.notes.length}<p>{row.notes.map(translateNote).join(' · ')}</p>{/if}
 				</li>{/each}
 		</ol>
 		{#if results.length > 10}<button class="show-all" onclick={() => (showAll = !showAll)}
-				>{showAll ? 'Show fewer' : `Show all ${results.length}`}</button
+				>{showAll
+					? t('marketing.pricing.comparison.showFewer')
+					: t('marketing.pricing.comparison.showAll', { count: results.length })}</button
 			>{/if}
 	</div>
 	<details class="comparison-method">
 		<summary
-			>Sources and method <span
-				>{providers.filter((provider) => provider.products.includes(product)).length}</span
+			>{t('marketing.pricing.comparison.sources')}
+			<span>{providers.filter((provider) => provider.products.includes(product)).length}</span
 			></summary
 		>
-		<p>
-			Hourly values use the full resource size. Monthly estimates add disk while the workload
-			exists, apply credited plan minimums, and show other plan fees separately. Budget estimates
-			also apply listed session, machine and resource limits. Missing prices stay unavailable rather
-			than becoming zero.
-		</p>
-		<p>
-			This is a captured comparison, not a live price feed. Open a provider’s source to check its
-			current terms.
-		</p>
+		<p>{t('marketing.pricing.comparison.methodOne')}</p>
+		<p>{t('marketing.pricing.comparison.methodTwo')}</p>
 		<ul>
 			{#each providers.filter((provider) => provider.products.includes(product)) as provider}<li>
 					<a href={provider.source} target="_blank" rel="noreferrer">{provider.name}</a><small
-						>Checked {provider.checked}</small
+						>{t('marketing.pricing.comparison.checked', {
+							date: formatChecked(provider.checked)
+						})}</small
 					>
 				</li>{/each}
 		</ul>

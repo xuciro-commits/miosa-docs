@@ -19,55 +19,99 @@
 	import ProductShowcase from '#lib/components/ProductShowcase.svelte';
 	import InstallCommand from '#lib/components/InstallCommand.svelte';
 	import { progress } from '#lib/learning.svelte.js';
+	import { t } from '#lib/i18n.svelte.js';
 	const tiles = [
 		{
-			title: 'Quickstart',
-			description: 'From sandbox to a live preview.',
+			titleKey: 'docs.landing.tile.quickstart.title',
+			descriptionKey: 'docs.landing.tile.quickstart.description',
 			href: '/docs/quickstart',
 			icon: Terminal
 		},
 		{
-			title: 'Sandboxes',
-			description: 'Isolated environments for code.',
+			titleKey: 'docs.landing.tile.sandboxes.title',
+			descriptionKey: 'docs.landing.tile.sandboxes.description',
 			href: '/docs/sandboxes',
 			icon: Box
 		},
 		{
-			title: 'Computers',
-			description: 'Desktops, browsers, and handoff.',
+			titleKey: 'docs.landing.tile.computers.title',
+			descriptionKey: 'docs.landing.tile.computers.description',
 			href: '/docs/computers',
 			icon: Monitor
 		},
 		{
-			title: 'Agents',
-			description: 'Runs, tools, and streamed events.',
+			titleKey: 'docs.landing.tile.agents.title',
+			descriptionKey: 'docs.landing.tile.agents.description',
 			href: '/docs/agents',
 			icon: CodeXml
 		},
 		{
-			title: 'Deployments',
-			description: 'Publish a version you can return to.',
+			titleKey: 'docs.landing.tile.deployments.title',
+			descriptionKey: 'docs.landing.tile.deployments.description',
 			href: '/docs/deployments',
 			icon: Layers
 		},
 		{
-			title: 'Data & storage',
-			description: 'Keep the state that matters.',
+			titleKey: 'docs.landing.tile.data.title',
+			descriptionKey: 'docs.landing.tile.data.description',
 			href: '/docs/data',
 			icon: Database
 		},
 		{
-			title: 'Networking',
-			description: 'Previews, routes, and domains.',
+			titleKey: 'docs.landing.tile.networking.title',
+			descriptionKey: 'docs.landing.tile.networking.description',
 			href: '/docs/networking',
 			icon: Network
 		},
 		{
-			title: 'API reference',
-			description: 'Explore every resource and request.',
+			titleKey: 'docs.landing.tile.api.title',
+			descriptionKey: 'docs.landing.tile.api.description',
 			href: '/docs/api',
 			icon: FileText
 		}
+	];
+	const audiences = [
+		{
+			href: '/docs/product-model',
+			labelKey: 'docs.landing.audience.customers.label',
+			titleKey: 'docs.landing.audience.customers.title',
+			descriptionKey: 'docs.landing.audience.customers.description',
+			ctaKey: 'docs.landing.audience.customers.cta'
+		},
+		{
+			href: '/docs/agents',
+			labelKey: 'docs.landing.audience.company.label',
+			titleKey: 'docs.landing.audience.company.title',
+			descriptionKey: 'docs.landing.audience.company.description',
+			ctaKey: 'docs.landing.audience.company.cta'
+		}
+	];
+	const learningCards = [
+		{
+			titleKey: 'docs.landing.learning.words.title',
+			textKey: 'docs.landing.learning.words.description',
+			href: '/docs/glossary',
+			labelKey: 'docs.landing.learning.words.cta'
+		},
+		{
+			titleKey: 'docs.landing.learning.games.title',
+			textKey: 'docs.landing.learning.games.description',
+			href: '/docs/learn/games',
+			labelKey: 'docs.landing.learning.games.cta'
+		},
+		{
+			titleKey: 'docs.landing.learning.videos.title',
+			textKey: 'docs.landing.learning.videos.description',
+			href: '/docs/learn/videos',
+			labelKey: 'docs.landing.learning.videos.cta'
+		}
+	];
+	const readingPath = [
+		{ labelKey: 'docs.landing.reading.productModel', href: '/docs/product-model' },
+		{ labelKey: 'docs.landing.reading.quickstart', href: '/docs/quickstart' },
+		{ labelKey: 'docs.landing.reading.computers', href: '/docs/computers' },
+		{ labelKey: 'docs.landing.reading.snapshots', href: '/docs/snapshots' },
+		{ labelKey: 'docs.landing.reading.deployments', href: '/docs/deployments' }
 	];
 </script>
 
@@ -75,75 +119,67 @@
 <div class="landing-hero">
 	<div class="hero-main">
 		<div class="hero-eyebrow">
-			<span>MIOSA DOCUMENTATION</span><button
+			<span>{t('docs.landing.hero.eyebrow')}</span><button
 				onclick={() => window.dispatchEvent(new Event('miosa:docs-entrance-replay'))}
-				><Play size={9} fill="currentColor" />Replay intro</button
+				><Play size={9} fill="currentColor" />{t('docs.landing.hero.replay')}</button
 			>
 		</div>
-		<h1 id="docs-landing-title" tabindex="-1">Build on MIOSA</h1>
-		<p class="hero-description">
-			The infrastructure behind agent products. Run agents in isolated sandboxes and full computers,
-			preview what they build, and ship it to production under your own brand.
-		</p>
+		<h1 id="docs-landing-title" tabindex="-1">{t('docs.landing.hero.title')}</h1>
+		<p class="hero-description">{t('docs.landing.hero.description')}</p>
 		<div class="landing-actions">
-			<a class="primary" href="/docs/quickstart">Start building<ArrowRight size={14} /></a><a
-				href="/docs/api">API reference</a
-			>
+			<a class="primary" href="/docs/quickstart"
+				>{t('docs.landing.hero.start')}<ArrowRight size={14} /></a
+			><a href="/docs/api">{t('docs.landing.hero.api')}</a>
 		</div>
 		<InstallCommand />
 	</div>
 	<CardDeck />
 </div>
-<section class="landing-earn" aria-label="Learning progress">
+<section class="landing-earn" aria-label={t('docs.landing.earn.aria')}>
 	<div class="earn-top">
 		<span class="earn-icon"><Coins size={20} /></span>
 		<div>
-			<h2>Learn MIOSA, earn up to $100 in credits</h2>
-			<p>Three tracks, one finish line. Words +$20, Games +$50, Videos +$30 (not open yet).</p>
+			<h2>{t('docs.landing.earn.title')}</h2>
+			<p>{t('docs.landing.earn.description')}</p>
 		</div>
 		<a href="/docs/learn/earn"
-			>{progress.credits > 0 ? 'Continue learning' : 'Start learning'}<ArrowRight size={13} /></a
+			>{progress.credits > 0
+				? t('docs.landing.earn.continue')
+				: t('docs.landing.earn.start')}<ArrowRight size={13} /></a
 		>
 	</div>
 	<div class="earn-meter">
 		<div><span style={`width:${progress.credits}%`}></span></div>
 		<b>${progress.credits} / $100</b>
 	</div>
-	<p class="local-progress">
-		Practice progress is saved in this browser. Credit rewards require an official MIOSA account.
-	</p>
+	<p class="local-progress">{t('docs.landing.earn.localProgress')}</p>
 </section>
 <ProductShowcase />
 <div class="audience-grid">
-	<a href="/docs/product-model"
-		><span>FOR YOUR CUSTOMERS</span>
-		<h2>Build your own agent product.</h2>
-		<p>Your brand, your users, and an isolated environment behind every agent.</p>
-		<b>Explore the product model<ArrowRight size={13} /></b></a
-	><a href="/docs/agents"
-		><span>FOR YOUR COMPANY</span>
-		<h2>Put agents to work.</h2>
-		<p>Give your team real computers, durable workspaces, and a visible way to operate.</p>
-		<b>Run your first agent<ArrowRight size={13} /></b></a
-	>
+	{#each audiences as item}<a href={item.href}
+			><span>{t(item.labelKey)}</span>
+			<h2>{t(item.titleKey)}</h2>
+			<p>{t(item.descriptionKey)}</p>
+			<b>{t(item.ctaKey)}<ArrowRight size={13} /></b></a
+		>{/each}
 </div>
 <a
 	class="landing-benchmark"
 	href="https://miosa.ai/docs/benchmarks"
 	target="_blank"
 	rel="noreferrer"
-	><span>MIOSA’S PUBLISHED COMPUTESDK BENCHMARK</span><b>57.1 ms</b>
-	<p>From request to a ready environment.</p>
+	><span>{t('docs.landing.benchmark.label')}</span><b>57.1 ms</b>
+	<p>{t('docs.landing.benchmark.description')}</p>
 	<ArrowRight size={16} /></a
 >
 <section class="start-section">
-	<p class="eyebrow">THE BUILDING BLOCKS</p>
-	<h2>Start with what you need.</h2>
+	<p class="eyebrow">{t('docs.landing.blocks.eyebrow')}</p>
+	<h2>{t('docs.landing.blocks.title')}</h2>
 	<div class="start-grid">
 		{#each tiles as tile}<a href={tile.href}
 				><tile.icon size={19} strokeWidth={1.4} />
-				<h3>{tile.title}</h3>
-				<p>{tile.description}</p>
+				<h3>{t(tile.titleKey)}</h3>
+				<p>{t(tile.descriptionKey)}</p>
 				<ArrowRight size={12} /></a
 			>{/each}
 	</div>
@@ -151,54 +187,47 @@
 <a class="osa-strip" href="https://github.com/Miosa-osa" target="_blank" rel="noreferrer"
 	><img src="/brand/osa-orb.png" alt="" />
 	<div>
-		<h2>Built in the open, with OSA.</h2>
-		<p>Explore the agent and infrastructure behind MIOSA.</p>
+		<h2>{t('docs.landing.osa.title')}</h2>
+		<p>{t('docs.landing.osa.description')}</p>
 	</div>
-	<span>Explore on GitHub<ExternalLink size={13} /></span></a
+	<span>{t('docs.landing.osa.cta')}<ExternalLink size={13} /></span></a
 >
 <section class="learning-section">
-	<p class="eyebrow">LEARN BY DOING</p>
-	<h2>Find your own way in.</h2>
+	<p class="eyebrow">{t('docs.landing.learning.eyebrow')}</p>
+	<h2>{t('docs.landing.learning.title')}</h2>
 	<div class="learn-grid">
-		{#each [{ title: 'Learn the words', text: 'The vocabulary, explained with examples.', href: '/docs/glossary', label: 'Explore the glossary' }, { title: 'Learn with games', text: 'Seven short labs. Real ideas you can try.', href: '/docs/learn/games', label: 'Try a lab' }, { title: 'Learn with videos', text: 'Short lessons are on the way.', href: '/docs/learn/videos', label: 'See the video track' }] as item}<a
-				href={item.href}
+		{#each learningCards as item}<a href={item.href}
 				><BookOpen size={18} />
-				<h3>{item.title}</h3>
-				<p>{item.text}</p>
-				<span>{item.label}<ArrowRight size={12} /></span></a
+				<h3>{t(item.titleKey)}</h3>
+				<p>{t(item.textKey)}</p>
+				<span>{t(item.labelKey)}<ArrowRight size={12} /></span></a
 			>{/each}
 	</div>
-	<h3 class="reading-heading">A good first reading path</h3>
+	<h3 class="reading-heading">{t('docs.landing.reading.heading')}</h3>
 	<ol class="reading-path">
-		{#each [['The product model', '/docs/product-model'], ['Sandbox to deployment', '/docs/quickstart'], ['Sandboxes or computers?', '/docs/computers'], ['Snapshots and persistence', '/docs/snapshots'], ['Publish your application', '/docs/deployments']] as [label, href], i}<li
-			>
-				<a {href}><span>{i + 1}</span>{label}<ArrowRight size={12} /></a>
+		{#each readingPath as item, i}<li>
+				<a href={item.href}><span>{i + 1}</span>{t(item.labelKey)}<ArrowRight size={12} /></a>
 			</li>{/each}
 	</ol>
 </section>
 <section class="machine-docs">
 	<div>
-		<p class="eyebrow">FOR YOUR AGENTS, TOO</p>
-		<h2>Documentation that machines can read.</h2>
-		<p>
-			Send a focused page, the documentation index, or the complete local context to your assistant.
-		</p>
+		<p class="eyebrow">{t('docs.landing.machine.eyebrow')}</p>
+		<h2>{t('docs.landing.machine.title')}</h2>
+		<p>{t('docs.landing.machine.description')}</p>
 	</div>
 	<div class="machine-links">
 		<a href="/llms.txt" target="_blank" data-sveltekit-reload>llms.txt<ArrowRight size={13} /></a><a
 			href="/llms-full.txt"
 			target="_blank"
-			data-sveltekit-reload>Full context<ArrowRight size={13} /></a
+			data-sveltekit-reload>{t('docs.landing.machine.fullContext')}<ArrowRight size={13} /></a
 		><a href="/docs/index.md" target="_blank" data-sveltekit-reload
-			>This page as Markdown<ArrowRight size={13} /></a
+			>{t('docs.landing.machine.markdown')}<ArrowRight size={13} /></a
 		>
 	</div>
 	<details>
-		<summary>How should I use these files?</summary>
-		<p>
-			Use the index to choose a relevant guide, then load its Markdown URL. Use the full context
-			file when your assistant needs several parts of the local documentation at once.
-		</p>
+		<summary>{t('docs.landing.machine.summary')}</summary>
+		<p>{t('docs.landing.machine.body')}</p>
 	</details>
 </section>
 

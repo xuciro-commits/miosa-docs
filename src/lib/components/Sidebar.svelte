@@ -13,7 +13,32 @@
 	import { navigation } from '#lib/content/navigation.js';
 	import { preferences } from '#lib/preferences.svelte.js';
 	import { progress } from '#lib/learning.svelte.js';
+	import { t } from '#lib/i18n.svelte.js';
 	import Icon from './Icon.svelte';
+	const groupKeys: Record<string, string> = {
+		'Get started': 'docs.nav.group.getStarted',
+		Learn: 'docs.nav.group.learn',
+		'Services & projects': 'docs.nav.group.servicesProjects',
+		Sandboxes: 'docs.nav.group.sandboxes',
+		Computers: 'docs.nav.group.computers',
+		'Databases & storage': 'docs.nav.group.databasesStorage',
+		'Networking & domains': 'docs.nav.group.networkingDomains',
+		Agents: 'docs.nav.group.agents',
+		'CLI, SDKs & MCP': 'docs.nav.group.cliSdksMcp',
+		'API reference': 'docs.nav.group.apiReference',
+		'Organization & security': 'docs.nav.group.organizationSecurity'
+	};
+	function groupLabel(title: string): string {
+		const key = groupKeys[title];
+		return key ? t(key) : title;
+	}
+	function navKey(slug: string): string {
+		return `docs.nav.${slug ? slug.replaceAll('/', '.') : 'introduction'}`;
+	}
+	function navLabel(slug: string, fallback: string): string {
+		const translated = t(navKey(slug));
+		return translated === navKey(slug) ? fallback : translated;
+	}
 	let filter = $state('');
 	let expanded = $state<string[]>([
 		navigation.find((group) =>
@@ -27,7 +52,10 @@
 		navigation
 			.map((group) => ({
 				...group,
-				items: group.items.filter((item) => item.title.toLowerCase().includes(filter.toLowerCase()))
+				label: groupLabel(group.title),
+				items: group.items
+					.map((item) => ({ ...item, label: navLabel(item.slug, item.title) }))
+					.filter((item) => item.label.toLowerCase().includes(filter.toLowerCase()))
 			}))
 			.filter((group) => group.items.length)
 	);
@@ -43,7 +71,7 @@
 	});
 	function toggle(title: string) {
 		expanded = expanded.includes(title)
-			? expanded.filter((t) => t !== title)
+			? expanded.filter((name) => name !== title)
 			: [...expanded, title];
 		localStorage.setItem('miosa-nav-v1', JSON.stringify(expanded));
 	}
@@ -64,35 +92,35 @@
 <aside
 	class="sidebar"
 	class:mobile-open={preferences.sidebarOpen}
-	aria-label="Documentation navigation"
+	aria-label={t('docs.sidebar.aria')}
 >
 	<div class="sidebar-top">
 		<div class="filter">
 			<Search size={13} /><input
 				bind:value={filter}
-				placeholder="Filter pages"
-				aria-label="Filter pages"
-			/>{#if filter}<button aria-label="Clear filter" onclick={() => (filter = '')}
+				placeholder={t('docs.sidebar.filter')}
+				aria-label={t('docs.sidebar.filterAria')}
+			/>{#if filter}<button aria-label={t('docs.sidebar.clearFilter')} onclick={() => (filter = '')}
 					><X size={12} /></button
 				>{/if}
 		</div>
 		<button
 			class="icon-button close-sidebar"
-			aria-label="Close navigation"
+			aria-label={t('docs.sidebar.close')}
 			onclick={() => (preferences.sidebarOpen = false)}><X size={16} /></button
 		>
 	</div>
 	<a href="/docs/learn/earn" class="balance" onclick={() => (preferences.sidebarOpen = false)}
 		><span class="coin"><CircleDollarSign size={15} /></span><b
 			>${progress.credits.toFixed(progress.credits % 1 ? 2 : 0)}</b
-		><span>/ $100</span><span class="practice-badge">Practice</span></a
+		><span>/ $100</span><span class="practice-badge">{t('docs.sidebar.practice')}</span></a
 	>
-	<nav class="sidebar-nav" aria-label="Pages">
+	<nav class="sidebar-nav" aria-label={t('docs.sidebar.pagesAria')}>
 		{#each groups as group}
 			{@const open = !!filter || expanded.includes(group.title)}
 			<section class="nav-group">
 				<button class="group-toggle" aria-expanded={open} onclick={() => toggle(group.title)}
-					><span>{group.title}</span><small>{group.items.length}</small>{#if open}<ChevronDown
+					><span>{group.label}</span><small>{group.items.length}</small>{#if open}<ChevronDown
 							size={12}
 						/>{:else}<ChevronRight size={12} />{/if}</button
 				>
@@ -103,19 +131,19 @@
 									href={`/docs${item.slug ? '/' + item.slug : ''}`}
 									aria-current={currentSlug === item.slug ? 'page' : undefined}
 									onclick={() => (preferences.sidebarOpen = false)}
-									><Icon name={item.icon} size={14} /><span>{item.title}</span
+									><Icon name={item.icon} size={14} /><span>{item.label}</span
 									>{#if 'badge' in item}<small class="nav-badge">{item.badge}</small>{/if}</a
 								>
 							</li>{/each}
 					</ul>{/if}
 			</section>
 		{/each}
-		{#if groups.length === 0}<p class="no-pages">No matching pages.</p>{/if}
+		{#if groups.length === 0}<p class="no-pages">{t('docs.sidebar.noPages')}</p>{/if}
 	</nav>
 	<div class="sidebar-bottom">
-		<span class="status-dot"></span><span>Local learning workspace</span><a
+		<span class="status-dot"></span><span>{t('docs.sidebar.localWorkspace')}</span><a
 			href="/docs/customization"
-			aria-label="Customize this site"><Icon name="settings" size={13} /></a
+			aria-label={t('docs.sidebar.customizeAria')}><Icon name="settings" size={13} /></a
 		>
 	</div>
 </aside>
@@ -123,7 +151,7 @@
 <div
 	class="sidebar-resize"
 	role="separator"
-	aria-label="Resize navigation"
+	aria-label={t('docs.sidebar.resizeAria')}
 	aria-orientation="vertical"
 	aria-valuenow={preferences.sidebarWidth}
 	aria-valuemin={220}

@@ -9,7 +9,7 @@ const browser = await chromium.launch({
 			? '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 			: undefined)
 });
-const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, locale: 'en-US' });
 await context.addInitScript(() => localStorage.setItem('miosa:docs-entered', '1'));
 const page = await context.newPage();
 page.setDefaultTimeout(30000);

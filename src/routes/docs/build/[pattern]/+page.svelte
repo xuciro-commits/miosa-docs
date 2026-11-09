@@ -1,9 +1,47 @@
 <script lang="ts">
- import RequestBuilder from '#lib/components/RequestBuilder.svelte';import Callout from '#lib/components/Callout.svelte';
- let {data}=$props();const computer=$derived(/computer|desktop|browser|persistent/.test(data.product.blurb));
+	import RequestBuilder from '#lib/components/RequestBuilder.svelte';
+	import Callout from '#lib/components/Callout.svelte';
+	import { t } from '#lib/i18n.svelte.js';
+	let { data } = $props();
+	const computer = $derived(/computer|desktop|browser|persistent/.test(data.product.blurb));
+	function productBlurb(product: { id: string; blurb: string }): string {
+		const key = `docs.productShowcase.product.${product.id}.blurb`;
+		const translated = t(key);
+		return translated === key ? product.blurb : translated;
+	}
+	function productName(product: { id: string; name: string }): string {
+		const key = `docs.productShowcase.product.${product.id}.name`;
+		const translated = t(key);
+		return translated === key ? product.name : translated;
+	}
 </script>
-<Callout title="A reusable product pattern">This local guide explains the resource pattern behind {data.product.name}. It does not connect to that product or provision MIOSA infrastructure.</Callout>
-<h2>Choose the environment</h2><p>{data.product.blurb}</p><p>{computer?'Use a persistent computer when the agent needs a visual desktop, a browser session, or human handoff. Keep the computer identity separate from an individual run.':'Give each task an isolated sandbox with its own working directory, dependencies, and preview. Track the run separately so its events and results can be inspected.'}</p>
-<h2>Create the workspace</h2><p>Choose a workspace and a name for this product’s environment. The example updates when these parameters change.</p><RequestBuilder/>
-<h2>Run, observe, and publish</h2><ol><li>Authenticate your user and choose the environment that belongs to the task.</li><li>Start the agent, stream its events, and keep the produced files with the run.</li><li>Expose a preview for review. Give a human control when the task needs a decision.</li><li>Save a snapshot before a risky change. Publish a verified version as a separate deployment.</li></ol>
-<h2>Continue building</h2><p><a href={computer?'/docs/computers':'/docs/sandboxes'}>Read the environment guide</a> · <a href="/docs/agents">Agent runs and events</a> · <a href="/docs/deployments">Publish a version</a></p><p><a href={`https://miosa.ai${data.product.href}`} target="_blank" rel="noreferrer">Read MIOSA’s original {data.product.name} recipe ↗</a></p>
+
+<Callout title={t('docs.buildPattern.calloutTitle')}>
+	{t('docs.buildPattern.calloutBody', { name: productName(data.product) })}
+</Callout>
+<h2>{t('docs.buildPattern.chooseEnvironment')}</h2>
+<p>{productBlurb(data.product)}</p>
+<p>{computer ? t('docs.buildPattern.computerBody') : t('docs.buildPattern.sandboxBody')}</p>
+<h2>{t('docs.buildPattern.createWorkspace')}</h2>
+<p>{t('docs.buildPattern.workspaceBody')}</p>
+<RequestBuilder />
+<h2>{t('docs.buildPattern.runPublish')}</h2>
+<ol>
+	<li>{t('docs.buildPattern.stepAuthenticate')}</li>
+	<li>{t('docs.buildPattern.stepStart')}</li>
+	<li>{t('docs.buildPattern.stepPreview')}</li>
+	<li>{t('docs.buildPattern.stepSnapshot')}</li>
+</ol>
+<h2>{t('docs.buildPattern.continueBuilding')}</h2>
+<p>
+	<a href={computer ? '/docs/computers' : '/docs/sandboxes'}
+		>{t('docs.buildPattern.environmentGuide')}</a
+	>
+	· <a href="/docs/agents">{t('docs.buildPattern.agentRuns')}</a> ·
+	<a href="/docs/deployments">{t('docs.buildPattern.publishVersion')}</a>
+</p>
+<p>
+	<a href={`https://miosa.ai${data.product.href}`} target="_blank" rel="noreferrer"
+		>{t('docs.buildPattern.originalRecipe', { name: productName(data.product) })} ↗</a
+	>
+</p>

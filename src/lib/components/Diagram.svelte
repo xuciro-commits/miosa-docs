@@ -3,7 +3,22 @@
 	import { Dialog } from 'bits-ui';
 	import { Maximize2, X, Network } from '@lucide/svelte';
 	import { preferences } from '#lib/preferences.svelte.js';
+	import { i18n, t } from '#lib/i18n.svelte.js';
+	import { messages } from '#lib/i18n/messages/index.js';
 	let { source, label = 'Architecture diagram' }: { source: string; label?: string } = $props();
+	/** Exact-source lookup for diagram labels supplied by articles. */
+	const tr = (value: string) =>
+		i18n.locale === 'zh' ? ((messages.zh as Record<string, string>)[value] ?? value) : value;
+	/** Translate Mermaid node, edge and decision labels without touching structure. */
+	function localizeSource(value: string): string {
+		if (i18n.locale !== 'zh') return value;
+		const lookup = (label: string) =>
+			(messages.zh as Record<string, string>)[label.trim()] ?? label;
+		return value
+			.replace(/\[([^\]]+)\]/g, (_match, label: string) => `[${lookup(label)}]`)
+			.replace(/\|([^|]+)\|/g, (_match, label: string) => `|${lookup(label)}|`)
+			.replace(/\{([^}]+)\}/g, (_match, label: string) => `{${lookup(label)}}`);
+	}
 	let html = $state('');
 	let failure = $state(false);
 	let mounted = $state(false);
@@ -25,7 +40,7 @@
 					fontFamily: 'Geist, sans-serif',
 					flowchart: { curve: 'basis', padding: 18 }
 				});
-				const result = await mermaid.render(`diagram-${crypto.randomUUID()}`, source);
+				const result = await mermaid.render(`diagram-${crypto.randomUUID()}`, localizeSource(source));
 				if (id === generation) {
 					html = result.svg;
 					failure = false;
@@ -39,23 +54,23 @@
 
 <Dialog.Root bind:open={expanded}
 	><div class="diagram">
-		<div class="diagram-label"><Network size={14} />{label}</div>
+		<div class="diagram-label"><Network size={14} />{tr(label)}</div>
 		<button
 			class="diagram-preview"
-			aria-label={`Enlarge ${label}`}
+			aria-label={t('Enlarge {label}', { label: tr(label) })}
 			onclick={() => (expanded = true)}
 			>{#if html}<div class="svg-wrap">
 					{@html html}
 				</div>{:else if failure}<pre>{source}</pre>{:else}<span class="loading"
-					>Drawing diagram…</span
+					>{t('Drawing diagram…')}</span
 				>{/if}<span class="zoom"><Maximize2 size={13} /></span></button
 		>
 	</div>
 	<Dialog.Portal
 		><Dialog.Overlay class="diagram-overlay" /><Dialog.Content class="diagram-modal"
-			><Dialog.Title>{label}</Dialog.Title><Dialog.Description class="sr-only"
-				>Expanded architecture diagram</Dialog.Description
-			><Dialog.Close class="diagram-close icon-button" aria-label="Close diagram"
+			><Dialog.Title>{tr(label)}</Dialog.Title><Dialog.Description class="sr-only"
+				>{t('Expanded architecture diagram')}</Dialog.Description
+			><Dialog.Close class="diagram-close icon-button" aria-label={t('Close diagram')}
 				><X size={20} /></Dialog.Close
 			>
 			<div class="expanded-diagram">{@html html}</div></Dialog.Content

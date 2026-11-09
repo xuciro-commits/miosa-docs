@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Copy, Check, ArrowRight } from '@lucide/svelte';
 	import { copyText } from '#lib/clipboard.js';
+	import { t } from '#lib/i18n.svelte.js';
 	let mode = $state('CLI'),
 		tab = $state('npm'),
 		copied = $state(false),
@@ -51,7 +52,7 @@
 </script>
 
 <div class="install">
-	<div class="mode" role="tablist" aria-label="Installation type">
+	<div class="mode" role="tablist" aria-label={t('docs.install.typeAria')}>
 		{#each ['CLI', 'SDK'] as item}<button
 				role="tab"
 				aria-selected={mode === item}
@@ -61,7 +62,7 @@
 			>{/each}
 	</div>
 	<div class="command-box">
-		<div class="install-tabs" role="tablist" aria-label="Install method">
+		<div class="install-tabs" role="tablist" aria-label={t('docs.install.methodAria')}>
 			{#each tabs as item}<button
 					role="tab"
 					aria-selected={tab === item}
@@ -74,18 +75,26 @@
 					onkeydown={(e) => keys(e, tabs, tab, (v) => (tab = v))}>{item}</button
 				>{/each}
 		</div>
-		<div class="command-line" role="tabpanel" aria-label={`${mode} ${tab} installation`}>
-			<code><span>$</span> {command}</code><button aria-label="Copy install command" onclick={copy}
+		<div
+			class="command-line"
+			role="tabpanel"
+			aria-label={t('docs.install.panelAria', { mode, tab })}
+		>
+			<code><span>$</span> {command}</code><button
+				aria-label={t('docs.install.copyAria')}
+				onclick={copy}
 				>{#if copied}<Check size={12} />{:else}<Copy size={12} />{/if}{copied
-					? 'Copied'
-					: 'Copy'}</button
+					? t('docs.install.copied')
+					: t('docs.install.copy')}</button
 			>
 		</div>
 		{#if failed}<p class="copy-failed" role="status">
-				Clipboard unavailable. Select the command to copy it manually.
+				{t('docs.install.failed')}
 			</p>{/if}
 	</div>
-	<a href={mode === 'CLI' ? '/docs/cli' : '/docs/sdks'}>{mode} docs<ArrowRight size={12} /></a>
+	<a href={mode === 'CLI' ? '/docs/cli' : '/docs/sdks'}
+		>{t('docs.install.docs', { mode })}<ArrowRight size={12} /></a
+	>
 </div>
 
 <style>

@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { Zap, ArrowRight } from '@lucide/svelte';
 	import products from '#lib/content/products.json';
+	import { t } from '#lib/i18n.svelte.js';
 	let selected = $state(0),
 		held = $state(false),
 		reduced = $state(false),
@@ -12,10 +13,20 @@
 	let manualUntil = 0,
 		beamTimer: ReturnType<typeof setTimeout>;
 	const current = $derived(products[selected]);
+	function productBlurb(product: (typeof products)[number]): string {
+		const key = `docs.productShowcase.product.${product.id}.blurb`;
+		const translated = t(key);
+		return translated === key ? product.blurb : translated;
+	}
+	function productName(product: (typeof products)[number]): string {
+		const key = `docs.productShowcase.product.${product.id}.name`;
+		const translated = t(key);
+		return translated === key ? product.name : translated;
+	}
 	function choose(index: number) {
 		selected = index;
 		manualUntil = Date.now() + 9000;
-		announcement = `${products[index].name}. Activate again to open the guide.`;
+		announcement = t('docs.productShowcase.announcement', { name: productName(products[index]) });
 	}
 	function zap(index = Math.floor(Math.random() * products.length)) {
 		choose(index);
@@ -237,25 +248,31 @@
 	onfocusin={() => (held = true)}
 	onfocusout={(event) => (held = event.currentTarget.contains(event.relatedTarget as Node))}
 >
-	<p class="eyebrow">THE PLATFORM BEHIND AGENT PRODUCTS</p>
+	<p class="eyebrow">{t('docs.productShowcase.eyebrow')}</p>
 	<h2 id="product-heading">
-		<span>{current.run ? 'Run' : 'Build your own'}</span>
+		<span>{current.run ? t('docs.productShowcase.run') : t('docs.productShowcase.buildOwn')}</span>
 		<img src={`/brand/products/${current.src.split('/').pop()}`} alt="" />
-		{current.name}
+		{productName(current)}
 	</h2>
 	<p class="product-description">
-		{current.blurb}
+		{productBlurb(current)}
 		<a href={`/docs/build/${current.href.split('/').pop()}`}
-			>{current.run ? 'Run' : 'Build'} {current.name}<ArrowRight size={12} /></a
+			>{current.run ? t('docs.productShowcase.run') : t('docs.productShowcase.build')}
+			{productName(current)}<ArrowRight size={12} /></a
 		>
 	</p>
 	<div bind:this={field} class="product-field" class:static-field={reduced}>
-		<ul bind:this={list} aria-label="Agent products you can build">
+		<ul bind:this={list} aria-label={t('docs.productShowcase.listAria')}>
 			{#each products as product, i}<li>
 					<a
 						data-product={i}
 						href={`/docs/build/${product.href.split('/').pop()}`}
-						aria-label={`${product.run ? 'Run' : 'Build your own'} ${product.name}`}
+						aria-label={t('docs.productShowcase.tileAria', {
+							action: product.run
+								? t('docs.productShowcase.run')
+								: t('docs.productShowcase.buildOwn'),
+							name: productName(product)
+						})}
 						aria-current={selected === i ? 'true' : undefined}
 						draggable="false"
 						onclick={(event) => {
@@ -289,16 +306,14 @@
 		></div>
 		<img class="turret" src="/brand/osa-orb.png" alt="" />
 		<div class="field-tools">
-			<span>{reduced ? 'Choose a product to explore' : 'Drag, toss, or zap a logo'}</span><button
-				aria-label="Zap a random logo"
-				onclick={() => zap()}><Zap size={12} />Zap</button
+			<span>{reduced ? t('docs.productShowcase.choose') : t('docs.productShowcase.drag')}</span
+			><button aria-label={t('docs.productShowcase.zapAria')} onclick={() => zap()}
+				><Zap size={12} />{t('docs.productShowcase.zap')}</button
 			>
 		</div>
 	</div>
 	<p class="sr-only" aria-live="polite">{announcement}</p>
-	<small class="trademark"
-		>Product names and logos describe what you can build. No endorsement implied.</small
-	>
+	<small class="trademark">{t('docs.productShowcase.trademark')}</small>
 </section>
 
 <style>

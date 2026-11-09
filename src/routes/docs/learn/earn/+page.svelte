@@ -10,25 +10,34 @@
 		ShieldCheck
 	} from '@lucide/svelte';
 	import { categories, units, videos } from '#lib/content/learning.js';
-	import { learning, progress } from '#lib/learning.svelte.js';
+	import {
+		learning,
+		progress,
+		categoryName,
+		unitTitle,
+		videoTitle
+	} from '#lib/learning.svelte.js';
+	import { t } from '#lib/i18n.svelte.js';
 </script>
 
 <p class="intro-note">
-	Three paths, one clearer understanding. Start wherever you like and come back at your own pace.
+	{t('learning.earn.intro')}
 </p>
 <section class="earn-summary panel" aria-labelledby="earn-overview">
 	<div class="summary-top">
 		<span class="summary-icon"><CircleDollarSign size={23} strokeWidth={1.5} /></span>
 		<div>
-			<h2 id="earn-overview">Earn up to $100 in<br />practice credits</h2>
-			<p>Learn the concepts, try them out, and see your progress across the whole platform.</p>
+			<h2 id="earn-overview">
+				{t('learning.earn.summaryTitle1')}<br />{t('learning.earn.summaryTitle2')}
+			</h2>
+			<p>{t('learning.earn.summaryText')}</p>
 		</div>
 		<a
 			class="button primary"
 			href={progress.words + progress.games > 0 ? '/docs/learn' : '/docs/glossary'}
-			>{progress.words + progress.games > 0 ? 'Keep learning' : 'Start learning'}<ArrowRight
-				size={13}
-			/></a
+			>{progress.words + progress.games > 0
+				? t('learning.common.keepLearning')
+				: t('learning.common.startLearning')}<ArrowRight size={13} /></a
 		>
 	</div>
 	<div class="summary-progress">
@@ -36,7 +45,9 @@
 		<b>${progress.credits} / $100</b>
 	</div>
 	<div class="track-amounts">
-		<span><b>$20</b> Words</span><span><b>$50</b> Games</span><span><b>$30</b> Videos</span>
+		<span><b>$20</b> {t('learning.earn.wordsLabel')}</span><span><b>$50</b> {t(
+				'learning.earn.gamesLabel'
+			)}</span><span><b>$30</b> {t('learning.earn.videosLabel')}</span>
 	</div>
 </section>
 
@@ -44,10 +55,10 @@
 	<header>
 		<span class="step">1</span>
 		<div>
-			<h2 id="learn-the-words">Learn the words</h2>
-			<p>Practice the vocabulary, then check each category.</p>
+			<h2 id="learn-the-words">{t('learning.earn.wordsTitle')}</h2>
+			<p>{t('learning.earn.wordsText')}</p>
 		</div>
-		<div class="track-value"><b>$20</b><small>8 categories</small></div>
+		<div class="track-value"><b>$20</b><small>{t('learning.earn.categoriesCount')}</small></div>
 	</header>
 	<div class="track-progress progress-track">
 		<span style={`width:${(progress.words / 8) * 100}%`}></span>
@@ -58,22 +69,26 @@
 				href={`/docs/learn/final/category/${category.id}`}
 				><span class="completion" class:done
 					>{#if done}<Check size={12} />{:else}<Circle size={15} />{/if}</span
-				><span class="row-label">{category.name}</span><span class="pill reward"
+				><span class="row-label">{categoryName(category.id)}</span><span class="pill reward"
 					><CircleDollarSign size={10} />+$2.50</span
-				><span class="row-status">{done ? 'Completed' : 'Start check'}</span></a
+				><span class="row-status"
+					>{done ? t('learning.common.completed') : t('learning.common.startCheck')}</span
+				></a
 			>{/each}
 	</div>
-	<a href="/docs/glossary" class="track-link">Learn the words<ArrowRight size={12} /></a>
+	<a href="/docs/glossary" class="track-link"
+		>{t('learning.earn.wordsLink')}<ArrowRight size={12} /></a
+	>
 </section>
 
 <section class="earn-track panel">
 	<header>
 		<span class="step">2</span>
 		<div>
-			<h2 id="learn-with-games">Learn with games</h2>
-			<p>Seven hands-on labs, from the first concept to a product.</p>
+			<h2 id="learn-with-games">{t('learning.earn.gamesTitle')}</h2>
+			<p>{t('learning.earn.gamesText')}</p>
 		</div>
-		<div class="track-value"><b>$50</b><small>7 units</small></div>
+		<div class="track-value"><b>$50</b><small>{t('learning.earn.unitsCount')}</small></div>
 	</header>
 	<div class="track-progress progress-track">
 		<span style={`width:${(progress.games / 7) * 100}%`}></span>
@@ -84,66 +99,66 @@
 				href={`/docs/learn/labs/${unit.id}`}
 				><span class="completion" class:done
 					>{#if done}<Check size={12} />{:else}<Circle size={15} />{/if}</span
-				><span class="row-label">{unit.title}</span><span class="pill reward"
+				><span class="row-label">{unitTitle(unit.id)}</span><span class="pill reward"
 					><CircleDollarSign size={10} />+${unit.reward}</span
-				><span class="row-status">{done ? 'Completed' : 'Open lab'}</span></a
+				><span class="row-status"
+					>{done ? t('learning.common.completed') : t('learning.common.openLab')}</span
+				></a
 			>{/each}
 	</div>
-	<a href="/docs/learn/games" class="track-link">Play the games<ArrowRight size={12} /></a>
+	<a href="/docs/learn/games" class="track-link"
+		>{t('learning.earn.gamesLink')}<ArrowRight size={12} /></a
+	>
 </section>
 
 <section class="earn-track panel">
 	<header>
 		<span class="step">3</span>
 		<div>
-			<h2 id="learn-with-videos">Learn with videos <span class="pill">Not open yet</span></h2>
-			<p>Short lessons, followed by a couple of quick questions.</p>
+			<h2 id="learn-with-videos">
+				{t('learning.earn.videosTitle')} <span class="pill">{t('learning.common.notOpenYet')}</span>
+			</h2>
+			<p>{t('learning.earn.videosText')}</p>
 		</div>
-		<div class="track-value"><b>$30</b><small>12 videos</small></div>
+		<div class="track-value"><b>$30</b><small>{t('learning.earn.videosCount')}</small></div>
 	</header>
 	<div class="track-progress progress-track"><span></span></div>
 	<div class="earn-rows">
 		{#each videos as video}<div class="earn-row unavailable">
-				<PlayCircle size={14} /><span class="row-label">{video}</span><span class="pill reward"
-					><CircleDollarSign size={10} />+$2.50</span
-				><span class="row-status">Not open yet</span>
+				<PlayCircle size={14} /><span class="row-label">{videoTitle(video)}</span><span
+					class="pill reward"><CircleDollarSign size={10} />+$2.50</span
+				><span class="row-status">{t('learning.common.notOpenYet')}</span>
 			</div>{/each}
 	</div>
-	<a href="/docs/learn/videos" class="track-link">About the video track<ArrowRight size={12} /></a>
+	<a href="/docs/learn/videos" class="track-link"
+		>{t('learning.earn.videosLink')}<ArrowRight size={12} /></a
+	>
 </section>
 
-<h2 id="how-it-works">How it works</h2>
+<h2 id="how-it-works">{t('learning.earn.howTitle')}</h2>
 <section class="how-grid">
-	{#each [{ title: 'Learn', text: 'Read, explore, and practice. Each path is open from the start.' }, { title: 'Check your understanding', text: 'Use a short check or a hands-on lab to put the idea into practice.' }, { title: 'See your progress', text: 'Completed units stay saved in this browser, ready for your next visit.' }] as item, i}<div
-		>
+	{#each [{ key: 'how1' }, { key: 'how2' }, { key: 'how3' }] as item, i}<div>
 			<span class="step">{i + 1}</span>
 			<div>
-				<h3>{item.title}</h3>
-				<p>{item.text}</p>
+				<h3>{t(`learning.earn.${item.key}Title`)}</h3>
+				<p>{t(`learning.earn.${item.key}Text`)}</p>
 			</div>
 		</div>{/each}
 </section>
-<h2 id="your-learning-workspace">Your learning workspace</h2>
+<h2 id="your-learning-workspace">{t('learning.earn.workspaceTitle')}</h2>
 <div class="learning-note">
 	<ShieldCheck size={18} />
 	<div>
-		<strong>Practice freely. Your progress stays here.</strong>
-		<p>
-			This is an independent learning reconstruction. Credits are illustrative, have no monetary
-			value, and are not connected to a MIOSA account. Completed checks and labs are saved on this
-			device.
-		</p>
-		<p>
-			The video track remains closed until actual lessons are added. You can complete the words and
-			games at any time.
-		</p>
+		<strong>{t('learning.earn.workspaceLead')}</strong>
+		<p>{t('learning.earn.workspaceP1')}</p>
+		<p>{t('learning.earn.workspaceP2')}</p>
 	</div>
 </div>
-<h2 id="keep-learning">Keep learning</h2>
+<h2 id="keep-learning">{t('learning.earn.keepTitle')}</h2>
 <ul class="keep-learning">
-	<li><a href="/docs/learn">Choose your learning path</a></li>
-	<li><a href="/docs/glossary">Explore the full glossary</a></li>
-	<li><a href="/docs/quickstart">Build your first application</a></li>
+	<li><a href="/docs/learn">{t('learning.earn.keep1')}</a></li>
+	<li><a href="/docs/glossary">{t('learning.earn.keep2')}</a></li>
+	<li><a href="/docs/quickstart">{t('learning.earn.keep3')}</a></li>
 </ul>
 
 <style>

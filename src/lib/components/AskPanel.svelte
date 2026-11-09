@@ -3,6 +3,7 @@
 	import { page } from '$app/state';
 	import { X, ArrowUp, Square, BookOpen, ArrowUpRight, RotateCcw } from '@lucide/svelte';
 	import { preferences } from '#lib/preferences.svelte.js';
+	import { t } from '#lib/i18n.svelte.js';
 	import { staticSite } from '#lib/site-mode.js';
 	import { searchDocuments } from '#lib/search.js';
 	import type { SearchEntry } from '#lib/content/catalog.js';
@@ -18,6 +19,16 @@
 		}[]
 	>([]);
 	let controller: AbortController | undefined;
+	const suggestions = [
+		{ key: 'docs.ask.suggestion.sandbox', query: 'What is a sandbox?' },
+		{ key: 'docs.ask.suggestion.deploy', query: 'How do I deploy an app?' },
+		{ key: 'docs.ask.suggestion.customize', query: 'How do I customize this site?' }
+	];
+	function sourceTitle(slug: string, fallback: string): string {
+		const key = `docs.page.${slug.replaceAll('/', '.')}.title`;
+		const translated = t(key);
+		return translated === key ? fallback : translated;
+	}
 	$effect(() => {
 		if (preferences.askOpen && preferences.askQuestion) {
 			question = preferences.askQuestion;
@@ -43,7 +54,7 @@
 		try {
 			if (staticSite) {
 				const response = await fetch('/docs-search.json', { signal: controller.signal });
-				if (!response.ok) throw new Error('The documentation index is unavailable. Try again.');
+				if (!response.ok) throw new Error(t('docs.ask.indexUnavailable'));
 				const index: SearchEntry[] = await response.json();
 				const keywords = text
 					.replace(/[^\p{L}\p{N}\s-]/gu, ' ')
@@ -78,12 +89,16 @@
 						.filter((entry) => entry.href === page.url.pathname)
 						.map((entry) => ({ ...entry, score: 0 }));
 				messages[position].sources = relevant.map((entry) => ({
-					title: entry.title,
+					title: sourceTitle(entry.slug, entry.title),
 					href: entry.href
 				}));
 				messages[position].text = relevant.length
-					? `Here are the relevant passages from this documentation:\n\n${relevant.map((entry) => `${entry.title}\n${entry.text.slice(0, 700)}`).join('\n\n')}\n\nOpen a source below for the full guide. This response was found locally; no language model was called.`
-					: 'I could not find a matching passage. Try a specific term such as sandbox, deployment or snapshot.';
+					? t('docs.ask.localAnswer', {
+							passages: relevant
+								.map((entry) => `${entry.title}\n${entry.text.slice(0, 700)}`)
+								.join('\n\n')
+						})
+					: t('docs.ask.noPassage');
 				return;
 			}
 			const response = await fetch('/api/docs/ask', {
@@ -92,7 +107,7 @@
 				body: JSON.stringify({ question: text, path: page.url.pathname }),
 				signal: controller.signal
 			});
-			if (!response.ok) throw new Error('The documentation assistant is unavailable. Try again.');
+			if (!response.ok) throw new Error(t('docs.ask.assistantUnavailable'));
 			const reader = response.body!.getReader();
 			const decoder = new TextDecoder();
 			let buffer = '';
@@ -116,7 +131,7 @@
 			}
 		} catch (reason) {
 			if (!(reason instanceof DOMException && reason.name === 'AbortError'))
-				error = reason instanceof Error ? reason.message : 'Could not load the answer.';
+				error = reason instanceof Error ? reason.message : t('docs.ask.couldNotLoad');
 		} finally {
 			busy = false;
 		}
@@ -129,40 +144,42 @@
 			><div class="ask-header">
 				<img src="/brand/osa-orb.png" alt="" />
 				<div>
-					<Dialog.Title>Ask OSA</Dialog.Title><Dialog.Description
-						>Answers grounded in this documentation</Dialog.Description
+					<Dialog.Title>{t('docs.ask.title')}</Dialog.Title><Dialog.Description
+						>{t('docs.ask.description')}</Dialog.Description
 					>
 				</div>
-				<Dialog.Close class="icon-button" aria-label="Close assistant"><X size={18} /></Dialog.Close
+				<Dialog.Close class="icon-button" aria-label={t('docs.ask.close')}
+					><X size={18} /></Dialog.Close
 				>
 			</div>
 			<div class="ask-messages" aria-live="polite">
 				{#if !messages.length}<div class="ask-intro">
 						<img src="/brand/osa-orb.png" alt="" />
-						<h2>A little clarity,<br />right where you need it.</h2>
-						<p>Ask about the building blocks, find a guide, or work out your next step.</p>
+						<h2>{t('docs.ask.introLine1')}<br />{t('docs.ask.introLine2')}</h2>
+						<p>{t('docs.ask.introBody')}</p>
 						<div class="ask-suggestions">
-							{#each ['What is a sandbox?', 'How do I deploy an app?', 'How do I customize this site?'] as suggestion}<button
+							{#each suggestions as suggestion}<button
 									onclick={() => {
-										question = suggestion;
+										question = suggestion.query;
 										send();
-									}}>{suggestion}<ArrowUpRight size={14} /></button
+									}}>{t(suggestion.key)}<ArrowUpRight size={14} /></button
 								>{/each}
 						</div>
-						<small
-							>Without a model connection, this assistant finds relevant passages locally.</small
-						>
+						<small>{t('docs.ask.localNote')}</small>
 					</div>{:else}{#each messages as message}<div
 							class="ask-message"
 							class:user={message.role === 'user'}
 						>
 							{#if message.role === 'assistant'}<div class="message-label">
 									<img src="/brand/osa-orb.png" alt="" />OSA<span
-										>{message.mode === 'model' ? 'Connected model' : 'Local documentation'}</span
+										>{message.mode === 'model'
+											? t('docs.ask.connectedModel')
+											: t('docs.ask.localDocumentation')}</span
 									>
 								</div>{/if}
 							<div class="message-text">
-								{message.text || (busy ? 'Finding the relevant pages…' : 'Response stopped.')}
+								{message.text ||
+									(busy ? t('docs.ask.findingPages') : t('docs.ask.responseStopped'))}
 							</div>
 							{#if message.sources?.length}<div class="answer-sources">
 									{#each message.sources as source}<a
@@ -176,7 +193,7 @@
 							onclick={() => {
 								question = messages.findLast((m) => m.role === 'user')?.text ?? '';
 								send();
-							}}><RotateCcw size={12} />Try again</button
+							}}><RotateCcw size={12} />{t('docs.ask.tryAgain')}</button
 						>
 					</div>{/if}
 			</div>
@@ -189,8 +206,8 @@
 			>
 				<textarea
 					bind:value={question}
-					aria-label="Ask a documentation question"
-					placeholder="Ask a question…"
+					aria-label={t('docs.ask.questionAria')}
+					placeholder={t('docs.ask.placeholder')}
 					rows="2"
 					maxlength="2000"
 					onkeydown={(event) => {
@@ -200,17 +217,17 @@
 						}
 					}}></textarea>
 				<div class="ask-form-bottom">
-					<small>{busy ? 'Reading your documentation…' : 'Local content · sources included'}</small
+					<small>{busy ? t('docs.ask.reading') : t('docs.ask.localContent')}</small
 					>{#if busy}<button
 							type="button"
 							class="send-button"
-							aria-label="Stop response"
+							aria-label={t('docs.ask.stop')}
 							onclick={() => controller?.abort()}><Square size={13} /></button
 						>{:else}<button
 							class="send-button"
 							type="submit"
 							disabled={!question.trim()}
-							aria-label="Send question"><ArrowUp size={17} /></button
+							aria-label={t('docs.ask.send')}><ArrowUp size={17} /></button
 						>{/if}
 				</div>
 			</form></Dialog.Content

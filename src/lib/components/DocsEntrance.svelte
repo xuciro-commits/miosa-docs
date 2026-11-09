@@ -6,6 +6,7 @@
 	import SpaceScene from './SpaceScene.svelte';
 	import FactCard from './FactCard.svelte';
 	import { factCards } from '#lib/content/landing.js';
+	import { t } from '#lib/i18n.svelte.js';
 	let open = $state(false),
 		paused = $state(false),
 		flying = $state(false),
@@ -104,28 +105,29 @@
 			><div class="entrance-sky"><SpaceScene {paused} warp={flying} /></div>
 			<div class="sky-toolbar">
 				<span><img src="/brand/osa-orb.png" alt="" />MIOSA</span><button
-					aria-label={paused ? 'Resume sky' : 'Pause sky'}
+					aria-label={paused ? t('docs.entrance.resumeSky') : t('docs.entrance.pauseSky')}
 					aria-pressed={paused}
 					onclick={() => (paused = !paused)}
 					>{#if paused}<Play size={12} />{:else}<Pause size={12} />{/if}{paused
-						? 'Resume sky'
-						: 'Pause sky'}</button
+						? t('docs.entrance.resumeSky')
+						: t('docs.entrance.pauseSky')}</button
 				>
 			</div>
 			<div class="entrance-welcome">
-				<p><Sparkles size={12} /> MIOSA DOCUMENTATION</p>
-				<Dialog.Title class="entrance-title">Build on MIOSA</Dialog.Title><Dialog.Description
-					class="entrance-description"
-					>The infrastructure behind agent products.<br />Sandboxes, computers, and deployments.
-					Yours to build on.</Dialog.Description
+				<p><Sparkles size={12} /> {t('docs.entrance.label')}</p>
+				<Dialog.Title class="entrance-title">{t('docs.entrance.title')}</Dialog.Title
+				><Dialog.Description class="entrance-description"
+					>{t('docs.entrance.descriptionLine1')}<br />{t(
+						'docs.entrance.descriptionLine2'
+					)}</Dialog.Description
 				><button class="enter-docs" onclick={() => enter()} aria-disabled={flying}
-					>Enter documentation<ArrowRight size={15} /></button
+					>{t('docs.entrance.enter')}<ArrowRight size={15} /></button
 				>
 			</div>
 			<div
 				class="floating-cards"
 				role="group"
-				aria-label="Featured documentation"
+				aria-label={t('docs.entrance.featuredAria')}
 				onmouseenter={() => (hovered = true)}
 				onmouseleave={() => (hovered = false)}
 				onfocusin={() => (hovered = true)}
@@ -134,7 +136,9 @@
 			>
 				{#each [0, 1, 3] as offset, i}<button
 						class={`floating-card slot-${i}`}
-						aria-label={factCards[(cardIndex + offset) % factCards.length].link}
+						aria-label={t('docs.entrance.cardAria', {
+							link: factCards[(cardIndex + offset) % factCards.length].link
+						})}
 						onclick={() => enter(factCards[(cardIndex + offset) % factCards.length].href)}
 						><FactCard card={factCards[(cardIndex + offset) % factCards.length]} /></button
 					>{/each}
@@ -145,7 +149,7 @@
 					destination = '';
 					finish();
 				}}
-				aria-label="Skip the introduction (Escape)">Skip <kbd>Esc</kbd></button
+				aria-label={t('docs.entrance.skipAria')}>{t('docs.entrance.skip')} <kbd>Esc</kbd></button
 			></Dialog.Content
 		></Dialog.Portal
 	></Dialog.Root

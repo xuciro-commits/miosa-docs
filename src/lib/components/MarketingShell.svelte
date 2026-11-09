@@ -4,7 +4,9 @@
 	import { staticSite } from '#lib/site-mode.js';
 	import { onMount } from 'svelte';
 	import { ArrowUpRight, RotateCcw } from '@lucide/svelte';
+	import { t } from '#lib/i18n.svelte.js';
 	import ComputeScene from './ComputeScene.svelte';
+	import LanguageToggle from './LanguageToggle.svelte';
 	let { children }: { children: Snippet } = $props();
 	let status = $state<'loading' | 'ready' | 'error'>('loading');
 	async function checkStatus() {
@@ -22,64 +24,67 @@
 	});
 	const columns = [
 		{
-			title: 'Get started',
+			titleKey: 'marketing.footer.columns.getStarted',
 			links: [
-				['Introduction', '/docs'],
-				['Quickstart', '/docs/quickstart'],
-				['Install the CLI or SDK', '/docs/installation'],
-				['The product model', '/docs/product-model'],
-				['Start learning', '/docs/learn']
+				{ labelKey: 'marketing.footer.links.introduction', href: '/docs' },
+				{ labelKey: 'marketing.footer.links.quickstart', href: '/docs/quickstart' },
+				{ labelKey: 'marketing.footer.links.installation', href: '/docs/installation' },
+				{ labelKey: 'marketing.footer.links.productModel', href: '/docs/product-model' },
+				{ labelKey: 'marketing.footer.links.startLearning', href: '/docs/learn' }
 			]
 		},
 		{
-			title: 'Products',
+			titleKey: 'marketing.footer.columns.products',
 			links: [
-				['Sandboxes', '/docs/sandboxes'],
-				['Computers', '/docs/computers'],
-				['Agents', '/docs/agents'],
-				['Deployments', '/docs/deployments'],
-				['Data & storage', '/docs/data'],
-				['Domains', '/docs/networking']
+				{ labelKey: 'marketing.footer.links.sandboxes', href: '/docs/sandboxes' },
+				{ labelKey: 'marketing.footer.links.computers', href: '/docs/computers' },
+				{ labelKey: 'marketing.footer.links.agents', href: '/docs/agents' },
+				{ labelKey: 'marketing.footer.links.deployments', href: '/docs/deployments' },
+				{ labelKey: 'marketing.footer.links.dataStorage', href: '/docs/data' },
+				{ labelKey: 'marketing.footer.links.domains', href: '/docs/networking' }
 			]
 		},
 		{
-			title: 'Developers',
+			titleKey: 'marketing.footer.columns.developers',
 			links: [
-				['SDKs overview', '/docs/sdks'],
-				['TypeScript', '/docs/sdks'],
-				['Python', '/docs/sdks'],
-				['CLI', '/docs/cli'],
-				['MCP', '/docs/mcp'],
-				['API reference', '/docs/api']
+				{ labelKey: 'marketing.footer.links.sdksOverview', href: '/docs/sdks' },
+				{ labelKey: 'marketing.footer.links.typescript', href: '/docs/sdks' },
+				{ labelKey: 'marketing.footer.links.python', href: '/docs/sdks' },
+				{ labelKey: 'marketing.footer.links.cli', href: '/docs/cli' },
+				{ labelKey: 'marketing.footer.links.mcp', href: '/docs/mcp' },
+				{ labelKey: 'marketing.footer.links.apiReference', href: '/docs/api' }
 			]
 		},
 		{
-			title: 'Platform',
+			titleKey: 'marketing.footer.columns.platform',
 			links: [
-				['Projects', '/docs/projects'],
-				['Services', '/docs/services'],
-				['Workspaces', '/docs/product-model'],
-				['Permissions', '/docs/security'],
-				['Customization', '/docs/customization']
+				{ labelKey: 'marketing.footer.links.projects', href: '/docs/projects' },
+				{ labelKey: 'marketing.footer.links.services', href: '/docs/services' },
+				{ labelKey: 'marketing.footer.links.workspaces', href: '/docs/product-model' },
+				{ labelKey: 'marketing.footer.links.permissions', href: '/docs/security' },
+				{ labelKey: 'marketing.footer.links.customization', href: '/docs/customization' }
 			]
 		},
 		{
-			title: 'Resources',
+			titleKey: 'marketing.footer.columns.resources',
 			links: [
-				['Changelog', '/docs/changelog'],
-				['Docs for LLMs', '/llms.txt'],
-				['Full context', '/llms-full.txt'],
-				['Pricing', '/pricing'],
-				['GitHub', 'https://github.com/Miosa-osa']
+				{ labelKey: 'marketing.footer.links.changelog', href: '/docs/changelog' },
+				{ labelKey: 'marketing.footer.links.docsForLlms', href: '/llms.txt' },
+				{ labelKey: 'marketing.footer.links.fullContext', href: '/llms-full.txt' },
+				{ labelKey: 'marketing.footer.links.pricing', href: '/pricing' },
+				{ labelKey: 'marketing.footer.links.github', href: 'https://github.com/Miosa-osa' }
 			]
 		},
 		{
-			title: 'Reference',
+			titleKey: 'marketing.footer.columns.reference',
 			links: [
-				['Source website', 'https://miosa.ai'],
-				['Published rates', 'https://miosa.ai/pricing'],
-				['Foundation source', 'https://github.com/Miosa-osa/foundation'],
-				['About this reconstruction', '/docs/customization']
+				{ labelKey: 'marketing.footer.links.sourceWebsite', href: 'https://miosa.ai' },
+				{ labelKey: 'marketing.footer.links.publishedRates', href: 'https://miosa.ai/pricing' },
+				{
+					labelKey: 'marketing.footer.links.foundationSource',
+					href: 'https://github.com/Miosa-osa/foundation'
+				},
+				{ labelKey: 'marketing.footer.links.aboutReconstruction', href: '/docs/customization' }
 			]
 		}
 	];
@@ -91,58 +96,66 @@
 	</div>
 	<div class="fabric-shade"></div>
 	<header class="marketing-header">
-		<a class="marketing-brand" href="/" aria-label="MIOSA home"
+		<a class="marketing-brand" href="/" aria-label={t('marketing.nav.home')}
 			><img src="/brand/osa-orb.png" alt="" /><img
 				class="wordmark"
 				src="/brand/miosa-white.png"
 				alt="MIOSA"
 			/></a
 		>
-		<nav aria-label="Primary navigation">
-			<a href="/docs">Docs<span class="new-tag">New</span></a><a
-				href="/pricing"
-				class:active={page.url.pathname === '/pricing'}>Pricing</a
-			><a class="sign-in" href="https://miosa.ai/login">Sign in</a><a
+		<nav aria-label={t('marketing.nav.primary')}>
+			<a href="/docs"
+				>{t('marketing.nav.docs')}<span class="new-tag">{t('marketing.nav.new')}</span></a
+			><a href="/pricing" class:active={page.url.pathname === '/pricing'}
+				>{t('marketing.nav.pricing')}</a
+			>
+			<div class="marketing-language"><LanguageToggle /></div>
+			<a class="sign-in" href="https://miosa.ai/login">{t('marketing.nav.signIn')}</a><a
 				class="marketing-cta"
-				href="https://miosa.ai/register">Start building</a
+				href="https://miosa.ai/register">{t('marketing.nav.startBuilding')}</a
 			>
 		</nav>
 	</header>
 	<main class="marketing-main">{@render children()}</main>
 	<footer class="marketing-footer">
 		<div class="footer-statement">
-			<h2>Infrastructure for<br />agent-built software.</h2>
-			<p>A place to build, a machine to operate,<br />and a clear path to a published version.</p>
+			<h2>
+				{t('marketing.footer.statement.line1')}<br />{t('marketing.footer.statement.line2')}
+			</h2>
+			<p>
+				{t('marketing.footer.statement.bodyLine1')}<br />{t('marketing.footer.statement.bodyLine2')}
+			</p>
 		</div>
-		<nav class="marketing-footer-grid" aria-label="Site footer">
+		<nav class="marketing-footer-grid" aria-label={t('marketing.footer.navLabel')}>
 			{#each columns as column}<div>
-					<h3>{column.title}</h3>
-					{#each column.links as [label, href]}<a
-							{href}
-							target={href.startsWith('https') ? '_blank' : undefined}
-							rel={href.startsWith('https') ? 'noreferrer' : undefined}>{label}</a
-						>{/each}
+					<h3>{t(column.titleKey)}</h3>
+					{#each column.links as link}<a
+							href={link.href}
+							target={link.href.startsWith('https') ? '_blank' : undefined}
+							rel={link.href.startsWith('https') ? 'noreferrer' : undefined}>{t(link.labelKey)}</a
+						>
+					{/each}
 				</div>{/each}
 		</nav>
 		<div class="marketing-base">
-			<span>© 2026 MIOSA · Local interface study</span><a href="/docs/customization"
-				>About this project</a
+			<span>{t('marketing.footer.copyright')}</span><a href="/docs/customization"
+				>{t('marketing.footer.about')}</a
 			><button class="system-status" onclick={checkStatus}
 				><i class:ready={status === 'ready'} class:error={status === 'error'}></i>{status ===
 				'loading'
-					? 'Checking local status'
+					? t('marketing.status.checking')
 					: status === 'ready'
 						? staticSite
-							? 'Documentation available'
-							: 'Local preview operational'
-						: 'Status unavailable · retry'}{#if status === 'error'}<RotateCcw
+							? t('marketing.status.docsAvailable')
+							: t('marketing.status.previewOperational')
+						: t('marketing.status.unavailableRetry')}{#if status === 'error'}<RotateCcw
 						size={10}
 					/>{/if}</button
 			><a
 				href="https://github.com/Miosa-osa"
 				target="_blank"
 				rel="noreferrer"
-				aria-label="MIOSA on GitHub"><ArrowUpRight size={14} /></a
+				aria-label={t('marketing.footer.github')}><ArrowUpRight size={14} /></a
 			>
 		</div>
 	</footer>
@@ -228,6 +241,41 @@
 		gap: 1.45rem;
 		font-size: 0.74rem;
 		font-weight: 620;
+	}
+	.marketing-language {
+		display: flex;
+		align-items: center;
+		flex: none;
+	}
+	.marketing-language :global(.language-toggle) {
+		height: 36px;
+		padding: 3px 5px 3px 8px;
+		border-color: #ffffff24;
+		border-radius: 999px;
+		background: #ffffff0d;
+		color: #f4f6faad;
+		-webkit-backdrop-filter: blur(14px);
+		backdrop-filter: blur(14px);
+		box-shadow: inset 0 1px 0 #ffffff0a;
+	}
+	.marketing-language :global(.language-toggle:hover) {
+		background: #ffffff1a;
+		color: #fff;
+	}
+	.marketing-language :global(.language-globe) {
+		color: #8d94a3;
+	}
+	.marketing-language :global(.language-choice) {
+		height: 26px;
+		padding: 0 6px;
+		border-radius: 999px;
+		color: #8f96a3;
+		font-size: 10px;
+	}
+	.marketing-language :global(.language-choice.active) {
+		background: #f7f9fc;
+		color: #15171b;
+		box-shadow: 0 1px 3px #0006;
 	}
 	.marketing-header nav > a {
 		color: #f4f6faad;
@@ -499,6 +547,15 @@
 		.marketing-header nav {
 			gap: 15px;
 			font-size: 11px;
+		}
+		.marketing-language :global(.language-toggle) {
+			height: 32px;
+			padding: 2px 4px 2px 6px;
+		}
+		.marketing-language :global(.language-choice) {
+			height: 24px;
+			padding: 0 5px;
+			font-size: 9px;
 		}
 		.new-tag,
 		.sign-in {

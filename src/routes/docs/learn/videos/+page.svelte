@@ -1,29 +1,28 @@
 <script lang="ts">
 	import { Play, ArrowRight, BookOpen, Gamepad2 } from '@lucide/svelte';
 	import { videos } from '#lib/content/learning.js';
+	import { videoTitle } from '#lib/learning.svelte.js';
+	import { t } from '#lib/i18n.svelte.js';
 </script>
 
 <section class="video-notice panel">
 	<div class="play-symbol"><Play size={27} strokeWidth={1.3} /></div>
-	<span class="pill">Not open yet</span>
-	<h2 id="lessons-in-the-making">A clearer picture, one lesson at a time.</h2>
-	<p>
-		This track is reserved for real video lessons. There are no placeholder videos or pretend watch
-		completions.
-	</p>
+	<span class="pill">{t('learning.common.notOpenYet')}</span>
+	<h2 id="lessons-in-the-making">{t('learning.videos.heading')}</h2>
+	<p>{t('learning.videos.notice')}</p>
 	<div>
-		<a href="/docs/glossary" class="button"><BookOpen size={13} />Learn the words</a><a
-			href="/docs/learn/games"
-			class="button primary"><Gamepad2 size={13} />Try a lab</a
+		<a href="/docs/glossary" class="button"
+			><BookOpen size={13} />{t('learning.videos.learnWords')}</a
+		><a href="/docs/learn/games" class="button primary"
+			><Gamepad2 size={13} />{t('learning.videos.tryLab')}</a
 		>
 	</div>
 </section>
-<h2 id="the-lesson-plan">The lesson plan</h2>
+<h2 id="the-lesson-plan">{t('learning.videos.planTitle')}</h2>
 <div class="lesson-list panel">
 	{#each videos as video, i}<div>
-			<span>{String(i + 1).padStart(2, '0')}</span><Play size={13} /><b>{video}</b><small
-				>Coming later</small
-			>
+			<span>{String(i + 1).padStart(2, '0')}</span><Play size={13} /><b>{videoTitle(video)}</b
+			><small>{t('learning.videos.comingLater')}</small>
 		</div>{/each}
 </div>
 

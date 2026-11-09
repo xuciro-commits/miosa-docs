@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeTabs from './CodeTabs.svelte';
 	import { SlidersHorizontal } from '@lucide/svelte';
+	import { t } from '#lib/i18n.svelte.js';
 	let workspace = $state('my-workspace');
 	let name = $state('hello-world');
 	const examples = $derived({
@@ -10,14 +11,24 @@
 </script>
 
 <div class="request-builder">
-	<div class="builder-title"><SlidersHorizontal size={14} />Make the example yours</div>
+	<div class="builder-title"><SlidersHorizontal size={14} />{t('docs.requestBuilder.title')}</div>
 	<div class="fields">
 		<label
-			>Workspace<input bind:value={workspace} maxlength={60} placeholder="my-workspace" /></label
-		><label>Sandbox name<input bind:value={name} maxlength={60} placeholder="hello-world" /></label>
+			>{t('docs.requestBuilder.workspace')}<input
+				bind:value={workspace}
+				maxlength={60}
+				placeholder="my-workspace"
+			/></label
+		><label
+			>{t('docs.requestBuilder.sandboxName')}<input
+				bind:value={name}
+				maxlength={60}
+				placeholder="hello-world"
+			/></label
+		>
 	</div>
 	<CodeTabs {examples} />
-	<p>These fields update the example. They do not send a request.</p>
+	<p>{t('docs.requestBuilder.note')}</p>
 </div>
 
 <style>
