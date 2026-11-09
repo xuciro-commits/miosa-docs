@@ -278,7 +278,7 @@ export const navSlugZh: Record<string, string> = {
 	"guides/agent-orchestration": "智能体编排",
 	"guides/agent-orchestration/examples": "编排示例",
 	"guides/agent-orchestration/patterns": "编排模式",
-	"guides/agent-product-model": "智能体产品型号",
+	"guides/agent-product-model": "智能体产品模型",
 	"guides/agent-runtime-routing": "智能体运行时路由",
 	"guides/agent-safety": "智能体安全和状态",
 	"guides/agent-workflow-patterns": "智能体工作流程模式",

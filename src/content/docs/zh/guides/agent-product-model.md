@@ -1,6 +1,6 @@
 ---
 slug: "guides/agent-product-model"
-title: "智能体产品型号"
+title: "智能体产品模型"
 description: "适用于智能体、设备、运行、工具、工件、信用和部署的规范 MIOSA 模型。"
 section: "Agents"
 order: 6014

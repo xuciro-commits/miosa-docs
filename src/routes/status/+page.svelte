@@ -1,33 +1,87 @@
 <script lang="ts">
 	import MarketingShell from '#lib/components/MarketingShell.svelte';
-	const components = [
-		['Core platform', 'API', 'Requests to the MIOSA REST API', '99.83%'],
-		['Core platform', 'Authentication', 'Sign-in, API keys and sessions', '100.00%'],
-		['Core platform', 'Compute', 'Sandboxes and Computers', '100.00%'],
-		['Core platform', 'OpenComputers', 'Connecting and managing your own hosts', '100.00%'],
-		['AI', 'Agents & AI', 'Running agents and AI models', '90.29%'],
-		['Billing', 'Billing', 'Credits, subscriptions and invoices', '100.00%']
-	];
+	import { i18n } from '#lib/i18n.svelte.js';
+	const copy = {
+		en: {
+			eyebrow: 'SYSTEM STATUS',
+			title: 'All systems operational',
+			lead: 'Every MIOSA service is running normally.',
+			uptime30: 'Platform uptime, 30 days',
+			uptime90: 'Platform uptime, 90 days',
+			live: 'Live',
+			refresh: 'Auto-refreshes every 30 s',
+			components: 'Components',
+			operational: 'Operational',
+			core: 'Core platform',
+			api: 'API',
+			apiDetail: 'Requests to the MIOSA REST API',
+			auth: 'Authentication',
+			authDetail: 'Sign-in, API keys and sessions',
+			compute: 'Compute',
+			computeDetail: 'Sandboxes and Computers',
+			open: 'OpenComputers',
+			openDetail: 'Connecting and managing your own hosts',
+			ai: 'AI',
+			aiGroup: 'Agents & AI',
+			aiDetail: 'Running agents and AI models',
+			billing: 'Billing',
+			billingDetail: 'Credits, subscriptions and invoices'
+		},
+		zh: {
+			eyebrow: '系统状态',
+			title: '所有系统运行正常',
+			lead: 'MIOSA 的每一项服务都在正常运行。',
+			uptime30: '平台可用率，30 天',
+			uptime90: '平台可用率，90 天',
+			live: '实时',
+			refresh: '每 30 秒自动刷新',
+			components: '服务组件',
+			operational: '运行正常',
+			core: '核心平台',
+			api: 'API',
+			apiDetail: '对 MIOSA REST API 的请求',
+			auth: '身份验证',
+			authDetail: '登录、API 密钥与会话',
+			compute: '计算',
+			computeDetail: '沙箱与计算机',
+			open: 'OpenComputers',
+			openDetail: '连接并管理你自己的主机',
+			ai: 'AI',
+			aiGroup: '智能体与 AI',
+			aiDetail: '运行智能体与 AI 模型',
+			billing: '计费',
+			billingDetail: '额度、订阅与账单'
+		}
+	};
+	const text = $derived(copy[i18n.locale === 'zh' ? 'zh' : 'en']);
+	const components = $derived([
+		[text.core, text.api, text.apiDetail, '99.83%'],
+		[text.core, text.auth, text.authDetail, '100.00%'],
+		[text.core, text.compute, text.computeDetail, '100.00%'],
+		[text.core, text.open, text.openDetail, '100.00%'],
+		[text.ai, text.aiGroup, text.aiDetail, '90.29%'],
+		[text.billing, text.billing, text.billingDetail, '100.00%']
+	]);
 </script>
 
-<svelte:head><title>MIOSA status</title><meta name="description" content="Current health and uptime for MIOSA services." /></svelte:head>
+<svelte:head><title>{i18n.locale === 'zh' ? 'MIOSA 系统状态' : 'MIOSA status'}</title><meta name="description" content={i18n.locale === 'zh' ? 'MIOSA 各项服务的当前健康状态与可用率。' : 'Current health and uptime for MIOSA services.'} /></svelte:head>
 
 <MarketingShell>
 	<main class="status-page">
-		<p class="eyebrow">SYSTEM STATUS</p>
-		<h1>All systems operational</h1>
-		<p class="status-lead">Every MIOSA service is running normally.</p>
+		<p class="eyebrow">{text.eyebrow}</p>
+		<h1>{text.title}</h1>
+		<p class="status-lead">{text.lead}</p>
 		<div class="status-summary">
-			<div><b>100.00%</b><span>Platform uptime, 30 days</span></div>
-			<div><b>99.97%</b><span>Platform uptime, 90 days</span></div>
-			<div><b>Live</b><span>Auto-refreshes every 30 s</span></div>
+			<div><b>100.00%</b><span>{text.uptime30}</span></div>
+			<div><b>99.97%</b><span>{text.uptime90}</span></div>
+			<div><b>{text.live}</b><span>{text.refresh}</span></div>
 		</div>
 		<section>
-			<h2>Components</h2>
+			<h2>{text.components}</h2>
 			{#each components as [group, name, detail, uptime]}
 				<article class="component">
 					<div><small>{group}</small><h3>{name}</h3><p>{detail}</p></div>
-					<b>{uptime}</b><span>Operational</span>
+					<b>{uptime}</b><span>{text.operational}</span>
 				</article>
 			{/each}
 		</section>
