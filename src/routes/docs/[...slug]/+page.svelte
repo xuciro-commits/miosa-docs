@@ -94,7 +94,9 @@
 				});
 				for (const block of blocks) {
 					if (block.dataset.rendered) continue;
-					const source = atob(block.dataset.graph ?? '');
+					const decoded = atob(block.dataset.graph ?? '');
+					const bytes = Uint8Array.from(decoded, (char) => char.charCodeAt(0));
+					const source = new TextDecoder().decode(bytes);
 					try {
 						const { svg } = await mermaid.render(`mermaid-${crypto.randomUUID()}`, source);
 						block.innerHTML = `<div class="docs-mermaid-part">${svg}</div><button type="button" class="docs-mermaid-zoom" aria-label="${t('docs.article.zoomDiagram')}">${t('docs.article.zoom')}</button>`;
