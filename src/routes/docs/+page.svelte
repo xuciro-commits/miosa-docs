@@ -20,6 +20,34 @@
 	import InstallCommand from '#lib/components/InstallCommand.svelte';
 	import { progress } from '#lib/learning.svelte.js';
 	import { t } from '#lib/i18n.svelte.js';
+	import { onMount } from 'svelte';
+	let earnCard = $state<HTMLElement>();
+	let cometReady = $state(false);
+	let cometTimer: ReturnType<typeof setTimeout>;
+
+	/** Trace the card's rounded rectangle so the comet hugs the border. */
+	function traceComet() {
+		const element = earnCard?.querySelector<HTMLElement>('.comet-run');
+		if (!earnCard || !element) return;
+		const width = earnCard.clientWidth + 2;
+		const height = earnCard.clientHeight + 2;
+		const radius = 16;
+		const edge = 0.63;
+		element.style.setProperty(
+			'--comet-path',
+			`path("M ${radius} ${edge} H ${width - radius} A ${radius} ${radius} 0 0 1 ${width - edge} ${radius} V ${height - radius} A ${radius} ${radius} 0 0 1 ${width - radius} ${height - edge} H ${radius} A ${radius} ${radius} 0 0 1 ${edge} ${height - radius} V ${radius} A ${radius} ${radius} 0 0 1 ${radius} ${edge} Z")`
+		);
+		cometReady = true;
+	}
+	onMount(() => {
+		const resize = new ResizeObserver(() => traceComet());
+		if (earnCard) resize.observe(earnCard);
+		cometTimer = setTimeout(traceComet, 60);
+		return () => {
+			resize.disconnect();
+			clearTimeout(cometTimer);
+		};
+	});
 	const tiles = [
 		{
 			titleKey: 'docs.landing.tile.quickstart.title',
@@ -135,7 +163,8 @@
 	</div>
 	<CardDeck />
 </div>
-<section class="landing-earn comet-frame" aria-label={t('docs.landing.earn.aria')}>
+<section class="landing-earn comet-frame" bind:this={earnCard} aria-label={t('docs.landing.earn.aria')}>
+	<span class="comet-run" class:ready={cometReady} aria-hidden="true"><span></span></span>
 	<div class="earn-top">
 		<span class="earn-icon"><Coins size={20} /></span>
 		<div>

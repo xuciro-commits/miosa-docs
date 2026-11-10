@@ -282,11 +282,12 @@ html[data-locale='zh'] .article-content[data-ready='false'] {
 }
 .article-content a:not(.button) {
 	text-decoration: underline;
-	text-decoration-color: var(--border);
-	text-underline-offset: 4px;
+	text-decoration-thickness: 1px;
+	text-decoration-color: color-mix(in srgb, var(--text) 22%, transparent);
+	text-underline-offset: 3px;
 }
-.article-content a:hover {
-	text-decoration-color: var(--text);
+.article-content a:not(.button):hover {
+	text-decoration-color: color-mix(in srgb, var(--text) 55%, transparent);
 }
 .article-content h2,
 .article-content h3 {
@@ -441,16 +442,16 @@ html[data-locale='zh'] .article-content[data-ready='false'] {
 .docs-card-grid {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 12px;
+	gap: 16px;
 	margin: 24px 0;
 }
 .docs-card {
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
-	padding: 18px 18px 16px;
+	padding: 20px 24px;
 	border: 1px solid var(--border);
-	border-radius: 12px;
+	border-radius: 6px;
 	background: var(--surface);
 	text-decoration: none !important;
 	transition:
@@ -464,14 +465,14 @@ html[data-locale='zh'] .article-content[data-ready='false'] {
 	transform: translateY(-1px);
 }
 .docs-card__title {
-	font-size: 13.5px;
+	font-size: 16px;
 	font-weight: 600;
 	color: var(--text);
 	letter-spacing: -0.01em;
 }
 .docs-card__body p {
 	margin: 0;
-	font-size: 12.5px;
+	font-size: 14px;
 	line-height: 1.6;
 	color: var(--muted);
 }
@@ -595,54 +596,53 @@ html[data-locale='zh'] .article-content[data-ready='false'] {
 	}
 }
 
-/* A comet that runs around a promotional card, as on the earn banner. */
+/* A comet that runs around a promotional card, as on the earn banner.
+   Geometry from the reference: 217px tail, ring thickness 1.25px, 9s linear,
+   offset-path traced over the card's rounded rectangle. */
 .comet-frame {
 	position: relative;
-	overflow: hidden;
 	isolation: isolate;
 }
-.comet-frame::after {
-	content: '';
+.comet-run {
 	position: absolute;
-	width: 148px;
-	height: 14px;
-	border-radius: 7px;
-	top: 0;
-	left: 0;
-	background: linear-gradient(
-		to right,
-		color-mix(in srgb, var(--text) 0%, transparent),
-		color-mix(in srgb, var(--text) 13%, transparent) 40%,
-		color-mix(in srgb, var(--text) 32%, transparent) 78%,
-		color-mix(in srgb, var(--text) 55%, transparent) 94%,
-		color-mix(in srgb, var(--text) 70%, transparent)
-	);
-	filter: blur(0.4px);
-	opacity: 0.85;
-	offset-path: inset(9px round 8px);
-	offset-distance: 0%;
-	animation: comet-run 9s linear infinite;
+	inset: -1px;
+	border-radius: inherit;
+	overflow: hidden;
 	pointer-events: none;
 	z-index: 1;
 }
-.comet-frame::before {
-	content: '';
+.comet-run > span {
 	position: absolute;
-	inset: 0;
-	border-radius: inherit;
-	border: 1px solid rgb(255 255 255 / 8%);
-	pointer-events: none;
+	top: 0;
+	left: 0;
+	width: var(--comet-tail, 217px);
+	height: calc(1.25px * 10 + 12px);
+	visibility: hidden;
+	offset-path: var(--comet-path, inset(0.63px round 16px));
+	offset-rotate: auto 0deg;
+	offset-anchor: 100% 50%;
+	background: linear-gradient(
+		to right,
+		color-mix(in srgb, var(--text) 0%, transparent),
+		color-mix(in srgb, var(--text) 18%, transparent) 40%,
+		color-mix(in srgb, var(--text) 55%, transparent) 78%,
+		color-mix(in srgb, var(--text) 85%, transparent) 94%,
+		color-mix(in srgb, var(--text) 92%, transparent)
+	);
+	animation: comet-run var(--comet-duration, 9s) linear infinite;
+}
+.comet-run.ready > span {
+	visibility: visible;
 }
 @keyframes comet-run {
+	from {
+		offset-distance: 0%;
+	}
 	to {
 		offset-distance: 100%;
 	}
 }
-@media (prefers-reduced-motion: reduce) {
-	.comet-frame::after {
-		display: none;
-	}
-}
+
 
 
 .article-content table {

@@ -12,18 +12,34 @@
 		held = $state(false),
 		focused = $state(false),
 		dragging = $state(false),
-		entering = $state(0),
+		phase = $state<'idle' | 'leaving' | 'entering'>('idle'),
 		stackX = $state(0),
 		stackTilt = $state(0);
 	let start = 0,
 		startY = 0,
 		changedAt = 0;
 	const current = $derived(factCards[index]);
-	function choose(next: number, direction = 1) {
-		index = (next + factCards.length) % factCards.length;
+	let swapTimer: ReturnType<typeof setTimeout>;
+
+	/** Reference behaviour: current card leaves, the next one rises from the stack. */
+	function choose(next: number) {
+		if (phase === 'leaving') return;
+		const target = (next + factCards.length) % factCards.length;
+		if (target === index) return;
 		changedAt = Date.now();
 		drag = 0;
-		entering = direction >= 0 ? 1 : -1;
+		stackX = 0;
+		stackTilt = 0;
+		phase = 'leaving';
+		swapTimer = setTimeout(() => {
+			index = target;
+			phase = 'entering';
+			requestAnimationFrame(() =>
+				requestAnimationFrame(() => {
+					phase = 'idle';
+				})
+			);
+		}, 300);
 	}
 	function release(event: PointerEvent, cancel = false) {
 		if (!dragging) return;
@@ -35,7 +51,7 @@
 		stackX = 0;
 		stackTilt = 0;
 		if (cancel) return;
-		if (Math.abs(distance) > 45) choose(index + (distance < 0 ? 1 : -1), distance < 0 ? 1 : -1);
+		if (Math.abs(distance) > 45) choose(index + (distance < 0 ? 1 : -1));
 		else if (Math.abs(distance) < 6) goto(current.href);
 	}
 	onMount(() => {
@@ -46,12 +62,16 @@
 				!held &&
 				!focused &&
 				!dragging &&
+				phase === 'idle' &&
 				!document.hidden &&
 				Date.now() - changedAt > 6000
 			)
 				index = (index + 1) % factCards.length;
 		}, 6000);
-		return () => clearInterval(timer);
+		return () => {
+			clearInterval(timer);
+			clearTimeout(swapTimer);
+		};
 	});
 </script>
 
@@ -73,8 +93,9 @@
 		<span class="back-card one"></span><span class="back-card two"></span><button
 			class="deck-front"
 			class:dragging
-			class:entering={entering !== 0}
-			style={`transform:translateX(${drag}px) rotate(${-1 + drag * 0.035}deg); --deck-enter-x:${entering >= 0 ? 34 : -34}px`}
+			class:leaving={phase === 'leaving'}
+			class:rising={phase === 'entering'}
+			style={`transform:translateX(${drag}px) rotate(${-1 + drag * 0.035}deg)`}
 			aria-label={`${tr(current.title).replace('\n', ' ')}. ${tr(current.link)}`}
 			onpointerdown={(event) => {
 				if (event.button !== 0) return;
@@ -91,9 +112,6 @@
 			}}
 			onpointerup={(event) => release(event)}
 			onpointercancel={(event) => release(event, true)}
-			onanimationend={(event) => {
-				if (event.animationName === 'deck-enter') entering = 0;
-			}}
 			onclick={(event) => {
 				if (event.detail === 0) goto(current.href);
 			}}
@@ -147,55 +165,31 @@
 		border-radius: 17px;
 		box-shadow: var(--sh-back);
 	}
+	/* Stack geometry from the reference deck: the next card peeks up and to the
+	   right, the one behind it sits further out and mostly hidden. */
 	.one {
 		background: linear-gradient(145deg, #dcd7f5, #bdb4ec);
-		transform: translate(17px, -21px) rotate(5deg);
-		animation: deck-drift-one 7.5s ease-in-out infinite;
+		transform: translate(26px, -14px) rotate(-2.6deg) scale(0.96);
+		opacity: 0.9;
 	}
 	.two {
 		background: linear-gradient(145deg, #f4f0e7, #dedbd5);
-		transform: translate(2px, -13px) rotate(-3deg);
-		animation: deck-drift-two 6s ease-in-out infinite;
+		transform: translate(38px, -48px) rotate(3.6deg) scale(0.88);
+		opacity: 0.45;
 	}
-	@keyframes deck-drift-one {
-		0%,
-		100% {
-			transform: translate(17px, -21px) rotate(5deg);
-		}
-		50% {
-			transform: translate(22px, -25px) rotate(7deg);
-		}
+	.deck-front.leaving {
+		transform: translate(-42px, 14px) rotate(2.8deg) scale(0.88) !important;
+		opacity: 0;
 	}
-	@keyframes deck-drift-two {
-		0%,
-		100% {
-			transform: translate(2px, -13px) rotate(-3deg);
-		}
-		50% {
-			transform: translate(-4px, -16px) rotate(-5deg);
-		}
-	}
-	.deck-front.entering {
-		animation: deck-enter 0.34s cubic-bezier(0.22, 1, 0.36, 1);
-	}
-	@keyframes deck-enter {
-		from {
-			opacity: 0.35;
-			transform: translateX(calc(var(--deck-enter-x, 34px) * -1)) rotate(-3deg);
-		}
-		to {
-			opacity: 1;
-			transform: translateX(0) rotate(-1deg);
-		}
+	.deck-front.rising {
+		transform: translate(26px, -14px) rotate(-2.6deg) scale(0.96) !important;
+		opacity: 0.85;
+		transition: none !important;
 	}
 	@media (prefers-reduced-motion: reduce) {
-		.one,
-		.two,
-		.deck-front.entering {
-			animation: none;
-		}
-		.deck-stack {
-			transition: none;
+		.deck-stack,
+		.deck-front {
+			transition: none !important;
 		}
 	}
 	.deck-front {
@@ -206,7 +200,9 @@
 		text-align: left;
 		touch-action: pan-y;
 		cursor: grab;
-		transition: transform 0.3s;
+		transition:
+			transform 0.72s cubic-bezier(0.22, 0.8, 0.24, 1),
+			opacity 0.52s;
 	}
 	.deck-front.dragging {
 		transition: none;
