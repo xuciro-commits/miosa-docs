@@ -6,7 +6,7 @@
 	import { i18n, t } from '#lib/i18n.svelte.js';
 	import { staticSite } from '#lib/site-mode.js';
 	import { searchDocuments } from '#lib/search.js';
-	import { searchIndex, searchIndexZh, type SearchEntry } from '#lib/content/catalog.js';
+	import { loadSearchIndex, type SearchEntry } from '#lib/content/catalog.js';
 	let question = $state('');
 	let busy = $state(false);
 	let error = $state('');
@@ -53,7 +53,7 @@
 		controller = new AbortController();
 		try {
 			if (staticSite) {
-				const index: SearchEntry[] = i18n.locale === 'zh' ? searchIndexZh : searchIndex;
+				const index: SearchEntry[] = await loadSearchIndex(i18n.locale === 'zh' ? 'zh' : 'en');
 				const keywords = text
 					.replace(/[^\p{L}\p{N}\s-]/gu, ' ')
 					.split(/\s+/)

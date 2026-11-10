@@ -15,11 +15,12 @@
 	import { i18n, t } from '#lib/i18n.svelte.js';
 	import { sectionZh } from '#lib/i18n/nav-labels-zh.js';
 	import { searchDocuments } from '#lib/search.js';
-	import { searchIndex, searchIndexZh, type SearchEntry } from '#lib/content/catalog.js';
+	import { loadSearchIndex, type SearchEntry } from '#lib/content/catalog.js';
 	import products from '#lib/content/products.json';
 	let query = $state('');
 	let section = $state('All');
-	const index = $derived((i18n.locale === 'zh' ? searchIndexZh : searchIndex) as SearchEntry[]);
+	let index = $state<SearchEntry[]>([]);
+	let indexLocale: 'en' | 'zh' | null = null;
 	let loading = $state(false);
 	let failed = $state(false);
 	let selected = $state(0);
@@ -80,7 +81,15 @@
 		return translated === key ? fallback : translated;
 	}
 	$effect(() => {
-		if (preferences.searchOpen) requestAnimationFrame(() => input?.focus());
+		if (!preferences.searchOpen) return;
+		requestAnimationFrame(() => input?.focus());
+		const locale = i18n.locale === 'zh' ? 'zh' : 'en';
+		if (indexLocale === locale) return;
+		indexLocale = locale;
+		index = [];
+		loadSearchIndex(locale).then((entries) => {
+			if (indexLocale === locale) index = entries;
+		});
 	});
 	$effect(() => {
 		query;

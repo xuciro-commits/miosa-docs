@@ -4,7 +4,6 @@
 	import { i18n, t } from '#lib/i18n.svelte.js';
 	let { data } = $props();
 	const product = $derived(data.product);
-	const Content = $derived(data.Content);
 	const html = $derived(i18n.locale === 'zh' ? data.htmlZh : data.html);
 	const computer = $derived(
 		!!product && /computer|desktop|browser|persistent/.test(product.blurb)
@@ -53,6 +52,4 @@
 			>{t('docs.buildPattern.originalRecipe', { name: productName(product) })} ↗</a
 		>
 	</p>
-{:else if Content}
-	<div class="article-content"><Content /></div>
 {/if}

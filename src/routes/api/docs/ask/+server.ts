@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit';
-import { searchIndex } from '#lib/content/catalog.js';
+import { loadSearchIndex } from '#lib/content/catalog.js';
 import { searchDocuments } from '#lib/search.js';
 
 export async function POST({ request }) {
@@ -41,6 +41,7 @@ export async function POST({ request }) {
 		.split(/\s+/)
 		.filter((word: string) => word && !stopWords.has(word.toLowerCase()))
 		.join(' ');
+	const searchIndex = await loadSearchIndex('en');
 	let relevant = searchDocuments(searchIndex, keywords).slice(0, 3);
 	if (!relevant.length && typeof input.path === 'string')
 		relevant = searchIndex

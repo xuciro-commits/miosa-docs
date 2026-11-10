@@ -2,7 +2,6 @@
 	import { onMount, tick } from 'svelte';
 	import { i18n, t, translateContent } from '#lib/i18n.svelte.js';
 	let { data } = $props();
-	const Content = $derived(data.Content);
 	const html = $derived(i18n.locale === 'zh' ? data.htmlZh : data.html);
 	let article = $state<HTMLElement>();
 	// The server cannot know the reader's language, so its HTML is English. Once
@@ -176,10 +175,6 @@
 
 <div class="article-content" bind:this={article} data-ready={hydrated}>
 	{#key hydrated}
-		{#if html}
-			{@html html}
-		{:else if Content}
-			<Content />
-		{/if}
+		{@html html}
 	{/key}
 </div>

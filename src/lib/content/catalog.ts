@@ -1,4 +1,5 @@
 import products from '#lib/content/products.json';
+import manifest from '#lib/content/docs-manifest.json';
 
 export type DocMeta = {
 	slug: string;
@@ -9,6 +10,7 @@ export type DocMeta = {
 	titleZh?: string;
 	descriptionZh?: string;
 };
+
 export type SearchEntry = {
 	slug: string;
 	title: string;
@@ -17,68 +19,46 @@ export type SearchEntry = {
 	text: string;
 	href: string;
 };
-export type Article = DocMeta & {
-	path?: string;
-	raw: string;
-	rawZh?: string;
-	generated?: boolean;
-};
 
-const rawFiles = import.meta.glob('/src/content/docs/**/*.md', {
-	eager: true,
-	query: '?raw',
+export type Article = DocMeta & { raw: string; rawZh?: string; generated?: boolean };
+
+type ContentMaps = Record<string, string>;
+
+/**
+ * Page Markdown lives in lazily imported modules, split by language and by
+ * top-level section: opening one documentation page downloads only that slice,
+ * which keeps the entry bundle and the first page load small.
+ */
+const contentModules = import.meta.glob('/src/lib/content/docs-content.*.json', {
 	import: 'default'
-}) as Record<string, string>;
+}) as Record<string, () => Promise<ContentMaps>>;
 
-function parseFrontmatter(source: string): Omit<Article, 'path'> {
-	const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
-	const body = match ? source.slice(match[0].length) : source;
-	const fields: Record<string, string> = {};
-	for (const line of (match?.[1] ?? '').split(/\r?\n/)) {
-		const colon = line.indexOf(':');
-		if (colon < 0) continue;
-		const key = line.slice(0, colon).trim();
-		let value = line.slice(colon + 1).trim();
-		if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'")))
-			value = value.slice(1, -1);
-		fields[key] = value;
-	}
-	return {
-		slug: fields.slug ?? '',
-		title: fields.title ?? fields.slug ?? 'Documentation',
-		description: fields.description ?? '',
-		section: fields.section ?? '',
-		order: Number(fields.order ?? 500000),
-		raw: body,
-		generated: true
-	};
+const sectionCache = new Map<string, Promise<ContentMaps>>();
+
+function sectionOf(slug: string) {
+	return slug.includes('/') ? slug.split('/')[0] : 'root';
 }
 
-type ParsedFile = ReturnType<typeof parseFrontmatter> & { lang: 'en' | 'zh'; path: string };
-const parsedFiles: ParsedFile[] = Object.entries(rawFiles).map(([path, source]) => ({
-	...parseFrontmatter(source),
-	lang: path.includes('/zh/') ? 'zh' : 'en',
-	path
-}));
-const bySlug = new Map<string, { en?: ParsedFile; zh?: ParsedFile }>();
-for (const file of parsedFiles) {
-	const entry = bySlug.get(file.slug) ?? {};
-	if (file.lang === 'zh') entry.zh = file;
-	else entry.en = file;
-	bySlug.set(file.slug, entry);
+async function loadSection(locale: 'en' | 'zh', section: string): Promise<ContentMaps> {
+	const path = `/src/lib/content/docs-content.${locale}.${section}.json`;
+	const loader = contentModules[path];
+	if (!loader) return {};
+	const key = `${locale}:${section}`;
+	if (!sectionCache.has(key)) sectionCache.set(key, loader());
+	return sectionCache.get(key)!;
 }
-export const articles: Article[] = [...bySlug.values()]
-	.filter((entry) => entry.en)
-	.map(({ en, zh }) => ({
-		...en!,
-		raw: en!.raw,
-		rawZh: zh?.raw,
-		titleZh: zh?.title,
-		descriptionZh: zh?.description,
-		path: en!.path,
-		generated: true
-	}))
-	.sort((a, b) => a.order - b.order);
+
+/** Markdown for one page, in the requested language. */
+export async function loadMarkdown(slug: string, locale: 'en' | 'zh' = 'en') {
+	const map = await loadSection(locale, sectionOf(slug));
+	return map[slug];
+}
+
+/** Metadata for every page, without any body text. */
+export const articleMeta: DocMeta[] = (manifest.pages as DocMeta[]).slice();
+
+/** Kept for callers that need the previous shape; body text is loaded on demand. */
+export const articles: Article[] = articleMeta.map((page) => ({ ...page, raw: '', generated: true }));
 
 export const specialPages: DocMeta[] = [
 	{
@@ -178,25 +158,26 @@ export function plainText(source: string) {
 		.trim();
 }
 
-function makeSearchIndex(locale: 'en' | 'zh'): SearchEntry[] {
-	return documents.map((doc) => {
-		const article = articles.find((a) => a.slug === doc.slug);
-		return {
-			slug: doc.slug,
-			title: locale === 'zh' ? doc.titleZh ?? article?.titleZh ?? doc.title : doc.title,
-			description:
-				locale === 'zh'
-					? doc.descriptionZh ?? article?.descriptionZh ?? doc.description
-					: doc.description,
-			section: doc.section,
-			text: plainText(
-				locale === 'zh'
-					? article?.rawZh ?? article?.raw ?? doc.description
-					: article?.raw ?? doc.description
-			).slice(0, 240),
-			href: `/docs${doc.slug ? '/' + doc.slug : ''}`
-		};
-	});
+const searchModules = import.meta.glob('/src/lib/content/docs-search.*.json', {
+	import: 'default'
+}) as Record<string, () => Promise<SearchEntry[]>>;
+
+const searchCache = new Map<'en' | 'zh', SearchEntry[]>();
+
+/** Search index for one language, loaded the first time someone searches. */
+export async function loadSearchIndex(locale: 'en' | 'zh' = 'en'): Promise<SearchEntry[]> {
+	if (searchCache.has(locale)) return searchCache.get(locale)!;
+	const loader = searchModules[`/src/lib/content/docs-search.${locale}.json`];
+	if (!loader) return [];
+	const raw = (await loader()) as (SearchEntry & { text?: string })[];
+	const index = raw.map((entry) => ({
+		...entry,
+		text: entry.text ?? plainText(descriptionOf(entry))
+	}));
+	searchCache.set(locale, index);
+	return index;
 }
-export const searchIndex = makeSearchIndex('en');
-export const searchIndexZh = makeSearchIndex('zh');
+
+function descriptionOf(entry: SearchEntry) {
+	return entry.description;
+}

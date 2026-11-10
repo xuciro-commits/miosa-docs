@@ -54,7 +54,8 @@ for (const route of ROUTES) {
 		continue;
 	}
 	const html = await response.text();
-	if (!/\/_app\/immutable\/bundle\.[A-Za-z0-9_-]+\.js/.test(html))
+	// A split build loads an entry module; a single-bundle build loads bundle.js.
+	if (!/\/_app\/immutable\/(?:entry\/start|bundle)\.[A-Za-z0-9_-]+\.js/.test(html))
 		fail(`${route} does not reference the application bundle`);
 }
 

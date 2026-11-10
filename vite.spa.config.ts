@@ -19,7 +19,7 @@ export default defineConfig({
 			}),
 			preprocess: [mdsvex({ extensions: ['.svx', '.md'] })],
 			extensions: ['.svelte', '.svx', '.md'],
-			output: { bundleStrategy: 'single' }
+			output: { bundleStrategy: 'split' }
 		})
 	]
 });

@@ -1,54 +1,36 @@
-import { createHighlighterCore } from 'shiki/core';
+import { createHighlighterCore, type HighlighterCore } from 'shiki/core';
 import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
-import typescript from '@shikijs/langs/typescript';
-import javascript from '@shikijs/langs/javascript';
-import python from '@shikijs/langs/python';
-import bash from '@shikijs/langs/bash';
-import json from '@shikijs/langs/json';
-import go from '@shikijs/langs/go';
-import yaml from '@shikijs/langs/yaml';
-import toml from '@shikijs/langs/toml';
-import sql from '@shikijs/langs/sql';
-import http from '@shikijs/langs/http';
-import diff from '@shikijs/langs/diff';
-import rust from '@shikijs/langs/rust';
-import java from '@shikijs/langs/java';
-import elixir from '@shikijs/langs/elixir';
-import dockerfile from '@shikijs/langs/dockerfile';
-import ini from '@shikijs/langs/ini';
-import powershell from '@shikijs/langs/powershell';
-import html from '@shikijs/langs/html';
-import css from '@shikijs/langs/css';
-import xml from '@shikijs/langs/xml';
 import light from '@shikijs/themes/github-light';
 import dark from '@shikijs/themes/github-dark-dimmed';
 
-const highlighter = createHighlighterCore({
-	langs: [
-		typescript,
-		javascript,
-		python,
-		bash,
-		json,
-		go,
-		yaml,
-		toml,
-		sql,
-		http,
-		diff,
-		rust,
-		java,
-		elixir,
-		dockerfile,
-		ini,
-		powershell,
-		html,
-		css,
-		xml
-	],
-	themes: [light, dark],
-	engine: createJavaScriptRegexEngine()
-});
+/**
+ * Grammars are imported on demand: a page that shows one bash block downloads
+ * one small grammar instead of every language the docs mention.
+ */
+const LANG_LOADERS: Record<string, () => Promise<unknown>> = {
+	bash: () => import('@shikijs/langs/bash'),
+	typescript: () => import('@shikijs/langs/typescript'),
+	javascript: () => import('@shikijs/langs/javascript'),
+	python: () => import('@shikijs/langs/python'),
+	json: () => import('@shikijs/langs/json'),
+	go: () => import('@shikijs/langs/go'),
+	elixir: () => import('@shikijs/langs/elixir'),
+	java: () => import('@shikijs/langs/java'),
+	yaml: () => import('@shikijs/langs/yaml'),
+	rust: () => import('@shikijs/langs/rust'),
+	sql: () => import('@shikijs/langs/sql'),
+	http: () => import('@shikijs/langs/http'),
+	html: () => import('@shikijs/langs/html'),
+	css: () => import('@shikijs/langs/css'),
+	xml: () => import('@shikijs/langs/xml'),
+	toml: () => import('@shikijs/langs/toml'),
+	dockerfile: () => import('@shikijs/langs/dockerfile'),
+	ini: () => import('@shikijs/langs/ini'),
+	powershell: () => import('@shikijs/langs/powershell'),
+	svelte: () => import('@shikijs/langs/svelte'),
+	vue: () => import('@shikijs/langs/vue'),
+	diff: () => import('@shikijs/langs/diff')
+};
 
 /** Markdown fence names that map onto a bundled grammar. */
 const ALIASES: Record<string, string> = {
@@ -57,14 +39,16 @@ const ALIASES: Record<string, string> = {
 	js: 'javascript',
 	jsx: 'javascript',
 	mjs: 'javascript',
+	cjs: 'javascript',
 	sh: 'bash',
 	shell: 'bash',
 	console: 'bash',
 	zsh: 'bash',
+	curl: 'bash',
 	py: 'python',
 	yml: 'yaml',
 	docker: 'dockerfile',
-	'env': 'ini',
+	env: 'ini',
 	conf: 'ini',
 	ps1: 'powershell',
 	pwsh: 'powershell',
@@ -72,43 +56,39 @@ const ALIASES: Record<string, string> = {
 	exs: 'elixir',
 	rs: 'rust',
 	postgres: 'sql',
-	postgresql: 'sql',
-	curl: 'bash'
+	postgresql: 'sql'
 };
-
-const SUPPORTED = new Set([
-	'typescript',
-	'javascript',
-	'python',
-	'bash',
-	'json',
-	'go',
-	'yaml',
-	'toml',
-	'sql',
-	'http',
-	'diff',
-	'rust',
-	'java',
-	'elixir',
-	'dockerfile',
-	'ini',
-	'powershell',
-	'html',
-	'css',
-	'xml'
-]);
 
 export function normalizeLang(lang: string): string {
 	const value = lang.trim().toLowerCase();
 	const mapped = ALIASES[value] ?? value;
-	return SUPPORTED.has(mapped) ? mapped : 'text';
+	return LANG_LOADERS[mapped] ? mapped : 'text';
+}
+
+let highlighterPromise: Promise<HighlighterCore> | undefined;
+const loaded = new Set<string>();
+
+function highlighter() {
+	highlighterPromise ??= createHighlighterCore({
+		langs: [],
+		themes: [light, dark],
+		engine: createJavaScriptRegexEngine()
+	});
+	return highlighterPromise;
 }
 
 export async function highlight(code: string, lang: string) {
 	const language = normalizeLang(lang);
 	if (language === 'text') return '';
-	return (await highlighter).codeToHtml(code, {
+	const instance = await highlighter();
+	if (!loaded.has(language)) {
+		const loader = LANG_LOADERS[language];
+		if (!loader) return '';
+		const grammar = (await loader()) as { default?: unknown };
+		await instance.loadLanguage((grammar.default ?? grammar) as never);
+		loaded.add(language);
+	}
+	return instance.codeToHtml(code, {
 		lang: language,
 		themes: { light: 'github-light', dark: 'github-dark-dimmed' }
 	});

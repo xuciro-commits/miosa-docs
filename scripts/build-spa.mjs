@@ -31,6 +31,7 @@ async function save(url, file) {
 }
 
 rmSync(out, { recursive: true, force: true });
+run(process.execPath, [join(root, 'scripts/export-docs.mjs')]);
 run(process.execPath, [join(root, 'node_modules/vite/bin/vite.js'), 'build', '--config', 'vite.spa.config.ts']);
 run(process.execPath, [join(root, 'node_modules/vite/bin/vite.js'), 'build']);
 

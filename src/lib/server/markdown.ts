@@ -1,18 +1,15 @@
 import { error } from '@sveltejs/kit';
-import { articles, getDocument } from '#lib/content/catalog.js';
+import { articleMeta, getDocument, loadMarkdown } from '#lib/content/catalog.js';
 import { categories, units, videos } from '#lib/content/learning.js';
-export function renderMarkdown(path: string) {
+export async function renderMarkdown(path: string) {
 	const slug = path === 'index' ? '' : path;
 	const document = getDocument(slug);
 	if (!document) error(404, 'Markdown page not found');
-	const article = articles.find((article) => article.slug === slug);
-	let body =
-		article?.raw.replace(/^---[\s\S]*?---\s*/, '').replace(/<script[\s\S]*?<\/script>\s*/g, '') ??
-		'';
+	let body = (await loadMarkdown(slug, 'en')) ?? '';
 	if (body) {
 		// The generated Markdown is the canonical copy for every target page.
 	} else if (slug === '')
-		body = `## Build on MIOSA\n\n[Quickstart](/docs/quickstart) · [API reference](/docs/api)\n\n## The building blocks\n\n${articles
+		body = `## Build on MIOSA\n\n[Quickstart](/docs/quickstart) · [API reference](/docs/api)\n\n## The building blocks\n\n${articleMeta
 			.filter((a) => a.slug)
 			.map((a) => `- [${a.title}](/docs/${a.slug}): ${a.description}`)
 			.join(
