@@ -24,6 +24,9 @@ export const en: Record<string, string> = {
 	'docs.header.startBuilding': 'Start building',
 	'docs.header.askOsa': 'Ask OSA',
 
+	'docs.article.zoom': 'Expand',
+	'docs.article.zoomDiagram': 'Open this diagram larger',
+
 	// Navigation groups and items
 	'docs.nav.group.getStarted': 'Get started',
 	'docs.nav.group.learn': 'Learn',
@@ -531,6 +534,9 @@ export const zh: Record<string, string> = {
 	'docs.header.theme.glassDark': '深色玻璃',
 	'docs.header.startBuilding': '开始构建',
 	'docs.header.askOsa': '询问 OSA',
+
+	'docs.article.zoom': '放大',
+	'docs.article.zoomDiagram': '放大查看这张图',
 
 	// Navigation groups and items
 	'docs.nav.group.getStarted': '开始使用',

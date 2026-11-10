@@ -258,6 +258,11 @@ small {
 	color: var(--muted);
 	margin-bottom: 22px;
 }
+/* The server renders English; a reader whose stored language is Chinese would
+   otherwise see an English flash before hydration swaps the content. */
+html[data-locale='zh'] .article-content[data-ready='false'] {
+	visibility: hidden;
+}
 .article-content {
 	font-size: 15px;
 	line-height: 1.8;
@@ -287,6 +292,151 @@ small {
 .article-content h3 {
 	scroll-margin-top: 100px;
 }
+/* Tables: a bordered frame with a quiet header, matching the reference pages. */
+.doc-table-wrap {
+	margin: 22px 0;
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	background: var(--surface);
+	overflow: hidden;
+}
+.doc-table-frame {
+	overflow-x: auto;
+	scrollbar-width: thin;
+}
+.article-content .doc-table-wrap table {
+	margin: 0;
+	display: table;
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 13.5px;
+	font-weight: 450;
+	color: var(--text);
+}
+.article-content .doc-table-wrap th {
+	padding: 11px 16px;
+	text-align: left;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.01em;
+	color: var(--muted);
+	background: var(--surface-2);
+	border: 0;
+	border-bottom: 1px solid var(--border);
+	white-space: nowrap;
+}
+.article-content .doc-table-wrap td {
+	padding: 12px 16px;
+	font-size: 13.5px;
+	font-weight: 450;
+	color: var(--text);
+	border: 0;
+	border-bottom: 1px solid var(--dbd2);
+	vertical-align: top;
+}
+.article-content .doc-table-wrap tr:last-child td {
+	border-bottom: 0;
+}
+.article-content .doc-table-wrap tbody tr:hover td {
+	background: var(--hover);
+}
+
+/* Code blocks: quiet frame, highlighted body. */
+.doc-code-frame {
+	margin: 20px 0;
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	background: var(--surface-2);
+	overflow: hidden;
+}
+.doc-code-frame pre {
+	margin: 0;
+	padding: 14px 16px;
+	overflow-x: auto;
+	background: transparent;
+	font-size: 13px;
+	line-height: 1.62;
+	scrollbar-width: thin;
+}
+.doc-code-frame pre code {
+	font-size: 13px;
+	background: none;
+	border: 0;
+	padding: 0;
+}
+.doc-code-frame .shiki,
+.doc-code-frame .shiki span {
+	background: transparent !important;
+}
+.doc-code-frame .shiki {
+	padding: 14px 16px !important;
+	margin: 0 !important;
+	border-radius: 0 !important;
+	color: var(--text);
+}
+
+/* Mermaid diagrams rendered from fenced blocks. */
+.docs-mermaid {
+	position: relative;
+	margin: 22px 0;
+	padding: 18px 16px;
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	background: var(--surface);
+	overflow-x: auto;
+	text-align: center;
+}
+.docs-mermaid svg {
+	max-width: 100%;
+	height: auto;
+}
+.docs-mermaid-zoom {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding: 4px 9px;
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	background: var(--surface-2);
+	color: var(--muted);
+	font-size: 10.5px;
+	opacity: 0;
+	transition: opacity 0.15s ease;
+}
+.docs-mermaid:hover .docs-mermaid-zoom {
+	opacity: 1;
+}
+.docs-mermaid.is-broken {
+	font-family: 'Geist Mono', monospace;
+	font-size: 12px;
+	white-space: pre-wrap;
+	text-align: left;
+	color: var(--muted);
+}
+.docs-mermaid-dialog {
+	position: fixed;
+	inset: 0;
+	z-index: 200;
+	display: grid;
+	place-items: center;
+	padding: 4vmin;
+	background: rgb(0 0 0 / 72%);
+	backdrop-filter: blur(6px);
+}
+.docs-mermaid-dialog__body {
+	max-width: min(1200px, 92vw);
+	max-height: 88vh;
+	overflow: auto;
+	padding: 24px;
+	border-radius: 14px;
+	background: var(--surface);
+	border: 1px solid var(--border);
+}
+.docs-mermaid-dialog__body svg {
+	max-width: 100%;
+	height: auto;
+}
+
 /* Card grid: a list of linked entries, as used by the FAQ index and API overview. */
 .docs-card-grid {
 	display: grid;
@@ -454,22 +604,22 @@ small {
 .comet-frame::after {
 	content: '';
 	position: absolute;
-	width: 210px;
-	height: 22px;
-	border-radius: 11px;
+	width: 148px;
+	height: 14px;
+	border-radius: 7px;
 	top: 0;
 	left: 0;
 	background: linear-gradient(
 		to right,
 		color-mix(in srgb, var(--text) 0%, transparent),
-		color-mix(in srgb, var(--text) 22%, transparent) 40%,
-		color-mix(in srgb, var(--text) 58%, transparent) 78%,
-		color-mix(in srgb, var(--text) 85%, transparent) 94%,
-		var(--text)
+		color-mix(in srgb, var(--text) 13%, transparent) 40%,
+		color-mix(in srgb, var(--text) 32%, transparent) 78%,
+		color-mix(in srgb, var(--text) 55%, transparent) 94%,
+		color-mix(in srgb, var(--text) 70%, transparent)
 	);
-	filter: blur(0.5px);
-	opacity: 0.9;
-	offset-path: inset(12px round 10px);
+	filter: blur(0.4px);
+	opacity: 0.85;
+	offset-path: inset(9px round 8px);
 	offset-distance: 0%;
 	animation: comet-run 9s linear infinite;
 	pointer-events: none;

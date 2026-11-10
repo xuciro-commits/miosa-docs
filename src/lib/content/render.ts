@@ -9,13 +9,25 @@
  *     accordion, which is how every FAQ topic page presents its answers.
  */
 import { marked } from 'marked';
+import cardCounts from '#lib/content/cards-by-page.json';
+
+function encodeGraph(source: string): string {
+	const bytes = new TextEncoder().encode(source);
+	let binary = '';
+	for (const byte of bytes) binary += String.fromCharCode(byte);
+	return typeof btoa === 'function' ? btoa(binary) : Buffer.from(source).toString('base64');
+}
 
 const escape = (value: string) =>
 	value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 const inline = (value: string) => marked.parseInline(value.trim()) as string;
 
-type CardEntry = { title: string; href: string; description: string };
+/** Card descriptions cannot hold anchors: the whole card is already a link. */
+const inlineText = (value: string) =>
+	inline(value.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1'));
+
+type CardEntry = { title: string; href?: string; description: string };
 
 /** `- [Title](/docs/x): description` */
 function linkCard(line: string): CardEntry | null {
@@ -26,21 +38,23 @@ function linkCard(line: string): CardEntry | null {
 
 /** `- **Title**: description` followed by `[Open →](/docs/x)` */
 function boldCard(lines: string[]): CardEntry | null {
-	const first = lines[0]?.match(/^[-*]\s+\*\*(.+?)\*\*\s*[:\-]\s*(.+)$/);
+	const first = lines[0]?.match(/^[-*]\s+\*\*(.+?)\*\*[^\S\n]*\(?[^)\n]*\)?\s*(?:[:\-–]|—)\s*(.+)$/);
 	if (!first) return null;
 	const link = lines.slice(1).join(' ').match(/\[[^\]]*\]\((\S+?)\)/);
-	if (!link) return null;
-	return { title: first[1], href: link[1], description: first[2] };
+	return { title: first[1], href: link?.[1], description: first[2] };
 }
 
 function cardGrid(entries: CardEntry[]): string {
 	const cards = entries
-		.map(
-			(entry) =>
-				`<a class="docs-card" href="${escape(entry.href)}">` +
+		.map((entry) => {
+			const tag = entry.href ? 'a' : 'div';
+			const href = entry.href ? ` href="${escape(entry.href)}"` : '';
+			return (
+				`<${tag} class="docs-card"${href}>` +
 				`<div class="docs-card__header"><span class="docs-card__title">${inline(entry.title)}</span></div>` +
-				`<div class="docs-card__body"><p>${inline(entry.description)}</p></div></a>`
-		)
+				`<div class="docs-card__body"><p>${inlineText(entry.description)}</p></div></${tag}>`
+			);
+		})
 		.join('');
 	return `<div class="docs-card-grid">${cards}</div>`;
 }
@@ -49,17 +63,16 @@ function cardGrid(entries: CardEntry[]): string {
  * Replace runs of linked list items with a card grid. Everything else is left
  * to Markdown, so a page only changes where the list really is a card list.
  */
-function replaceCardLists(markdown: string): string {
+function replaceCardLists(markdown: string, budget: number): string {
 	const lines = markdown.split('\n');
-	const output: string[] = [];
+	type Candidate = { start: number; end: number; entries: CardEntry[] };
+	const candidates: Candidate[] = [];
 	let index = 0;
 	while (index < lines.length) {
 		if (lines[index].trim() !== '') {
-			output.push(lines[index]);
 			index += 1;
 			continue;
 		}
-		// Collect the next list block, including indented continuation lines.
 		let end = index + 1;
 		const block: string[] = [];
 		while (end < lines.length) {
@@ -69,10 +82,44 @@ function replaceCardLists(markdown: string): string {
 			block.push(line);
 			end += 1;
 		}
-		const entries = groupCards(block);
+		const entries = block.length ? groupCards(block) : null;
 		if (entries) {
-			output.push('', cardGrid(entries), '');
-			index = end;
+			const previous = candidates[candidates.length - 1];
+			const onlyBlankBetween =
+				previous && lines.slice(previous.end, index).every((line) => line.trim() === '');
+			if (previous && onlyBlankBetween && entries.length === 1 && previous.entries.length === 1)
+				previous.entries.push(...entries), (previous.end = end);
+			else candidates.push({ start: index, end, entries });
+		}
+		index = end > index ? end : index + 1;
+	}
+
+	// Spend the page's card budget on the lists that match the reference layout:
+	// exact fits first, then the largest list that still fits.
+	const chosen: Candidate[] = [];
+	let remaining = budget;
+	while (remaining > 0) {
+		const exact = candidates.find(
+			(candidate) => candidate.entries.length === remaining && !chosen.includes(candidate)
+		);
+		const pick =
+			exact ??
+			candidates
+				.filter((candidate) => candidate.entries.length <= remaining && !chosen.includes(candidate))
+				.sort((a, b) => b.entries.length - a.entries.length)[0];
+		if (!pick) break;
+		chosen.push(pick);
+		remaining -= pick.entries.length;
+	}
+
+	if (!chosen.length) return markdown;
+	const output: string[] = [];
+	index = 0;
+	while (index < lines.length) {
+		const candidate = chosen.find((item) => item.start === index);
+		if (candidate) {
+			output.push('', cardGrid(candidate.entries), '');
+			index = candidate.end;
 			continue;
 		}
 		output.push(lines[index]);
@@ -95,11 +142,11 @@ function groupCards(block: string[]): CardEntry[] | null {
 		if (!entry) return null;
 		entries.push(entry);
 	}
-	return entries.length >= 2 ? entries : null;
+	return entries.length ? entries : null;
 }
 
 /** `## Question` sections become accordion items. */
-function accordion(markdown: string, label: string, locale: 'en' | 'zh'): { intro: string; html: string } {
+function accordion(markdown: string, label: string, locale: 'en' | 'zh', budget = 0): { intro: string; html: string } {
 	const parts = markdown.split(/\n(?=##\s)/);
 	const intro = parts.shift() ?? '';
 	const items = parts
@@ -112,7 +159,8 @@ function accordion(markdown: string, label: string, locale: 'en' | 'zh'): { intr
 				.replace(/[^\p{L}\p{N}\s-]/gu, '')
 				.trim()
 				.replace(/\s+/g, '-');
-			const body = marked.parse(lines.join('\n').trim()) as string;
+			const raw = lines.join('\n').trim();
+			const body = budget > 0 ? replaceCardLists(raw, budget) : raw;
 			return { title, slug, body };
 		})
 		.filter((item) => item.title && item.body);
@@ -138,9 +186,39 @@ function accordion(markdown: string, label: string, locale: 'en' | 'zh'): { intr
 		`<button type="button" class="acc-bar__btn" data-acc="collapse">${copy.collapseAll}</button></div>`;
 
 	return {
-		intro: marked.parse(intro.trim()) as string,
+		intro: budget > 0 ? replaceCardLists(intro.trim(), budget) : intro.trim(),
 		html: `<div class="acc" role="group" aria-label="${escape(label)}">${bar}<div class="acc-list">${rows}</div></div>`
 	};
+}
+
+/**
+ * Wrap generated tables and code blocks in the frames the reference pages use,
+ * and turn ```mermaid fences into a placeholder the client renders.
+ */
+function decorate(html: string): string {
+	const withTables = html.replace(
+		/<table>([\s\S]*?)<\/table>/g,
+		(_match, inner) => `<div class="doc-table-wrap"><div class="doc-table-frame"><table>${inner}</table></div></div>`
+	);
+	const withCode = withTables.replace(
+		/<pre><code class="language-([\w-]+)">([\s\S]*?)<\/code><\/pre>/g,
+		(_match, language: string, body: string) => {
+			if (language.toLowerCase() === 'mermaid') {
+				const source = body
+					.replace(/&lt;/g, '<')
+					.replace(/&gt;/g, '>')
+					.replace(/&quot;/g, '"')
+					.replace(/&#39;/g, "'")
+					.replace(/&amp;/g, '&');
+				return `<div class="docs-mermaid" data-graph="${encodeGraph(source)}"></div>`;
+			}
+			return `<div class="doc-code-frame" data-lang="${language}"><pre><code class="language-${language}">${body}</code></pre></div>`;
+		}
+	);
+	return withCode.replace(
+		/<pre><code>([\s\S]*?)<\/code><\/pre>/g,
+		(_match, body: string) => `<div class="doc-code-frame" data-lang="text"><pre><code>${body}</code></pre></div>`
+	);
 }
 
 const LABELS = {
@@ -166,8 +244,10 @@ export function renderDoc(
 ): DocRender {
 	const isFaqTopic = /^faq\/[^/]+$/.test(slug);
 	if (isFaqTopic) {
-		const result = accordion(markdown, title, locale);
-		if (result.html) return { html: `${result.intro}${result.html}`, accordion: true };
+		const result = accordion(markdown, title, locale, (cardCounts as Record<string, number>)[slug] ?? 0);
+		if (result.html) return { html: `${decorate(result.intro)}${result.html}`, accordion: true };
 	}
-	return { html: marked.parse(replaceCardLists(markdown)) as string, accordion: false };
+	const budget = (cardCounts as Record<string, number>)[slug] ?? 0;
+	const source = budget > 0 ? replaceCardLists(markdown, budget) : markdown;
+	return { html: decorate(marked.parse(source) as string), accordion: false };
 }

@@ -97,10 +97,7 @@
 	function onScroll() {
 		if (scroller) scrolled = scroller.scrollTop > 8;
 	}
-	$effect(() => {
-		currentSlug;
-		if (scroller) scroller.scrollTop = 0;
-	});
+
 	const groups = $derived.by(() => {
 		const needle = filter.trim().toLowerCase();
 		return navigation
