@@ -18,7 +18,7 @@ order: 4006
 STORAGE_BUCKET=miosa-proj_xxx-uploads
 STORAGE_ENDPOINT=https://storage.miosa.app
 STORAGE_KEY_ID=...
-STORAGE_KEY_SECRET=...
+STORAGE_KEY_SECRET          # 由 MIOSA 注入，请勿填写
 ```
 
 您的代码使用标准 S3 客户端库：

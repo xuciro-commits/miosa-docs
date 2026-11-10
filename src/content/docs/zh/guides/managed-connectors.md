@@ -80,7 +80,7 @@ miosa wait <sandbox-id> --timeout 180s --json
 沙箱接收一个智能体占位符：
 
 ```bash
-REFERO_MCP_TOKEN=miosa-tok-...
+REFERO_MCP_TOKEN          # 由 MIOSA 注入，请勿填写
 ```
 
 真正的提供商令牌在 MIOSA 控制的基础设施中保持加密状态。的

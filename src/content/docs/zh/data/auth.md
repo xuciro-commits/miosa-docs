@@ -55,7 +55,7 @@ Auth 是选择加入的托管身份验证体验。
 ```bash
 
 AUTH_URL=https://api.miosa.ai/api/v1/app-auth/sandbox/<sandbox-id>
-AUTH_JWT_SECRET=<random 64-char hex>
+AUTH_JWT_SECRET          # 每个项目一个 64 位十六进制值
 AUTH_DATABASE_URL=postgresql://...
 ```
 

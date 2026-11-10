@@ -55,7 +55,7 @@ The app receives:
 ```bash
 
 AUTH_URL=https://api.miosa.ai/api/v1/app-auth/sandbox/<sandbox-id>
-AUTH_JWT_SECRET=<random 64-char hex>
+AUTH_JWT_SECRET          # generated per project, 64 hex chars
 AUTH_DATABASE_URL=postgresql://...
 ```
 

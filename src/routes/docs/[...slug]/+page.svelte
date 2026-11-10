@@ -2,13 +2,34 @@
 	import { onMount, tick } from 'svelte';
 	import { i18n, t, translateContent } from '#lib/i18n.svelte.js';
 	let { data } = $props();
-	const html = $derived(i18n.locale === 'zh' ? data.htmlZh : data.html);
+	let zhHtml = $state('');
+	const html = $derived(i18n.locale === 'zh' ? zhHtml || data.html : data.html);
 	let article = $state<HTMLElement>();
 	// The server cannot know the reader's language, so its HTML is English. Once
 	// hydration finishes this flips and the block is rebuilt with the active locale.
 	let hydrated = $state(false);
 	onMount(() => {
 		hydrated = true;
+		zhHtml = data.htmlZh ?? '';
+	});
+
+	// Chinese is rendered on first use so an English reader never downloads it.
+	let zhLoading = false;
+	$effect(() => {
+		if (i18n.locale !== 'zh' || zhHtml || zhLoading) return;
+		zhLoading = true;
+		Promise.all([import('#lib/content/catalog.js'), import('#lib/content/render.js')]).then(
+			async ([catalog, render]) => {
+				const markdown = await catalog.loadMarkdown(data.slug, 'zh');
+				const meta = catalog.articleMeta.find((page) => page.slug === data.slug);
+				zhHtml = render.renderDoc(
+					data.slug,
+					markdown ?? '',
+					meta?.titleZh ?? data.titleZh ?? '',
+					'zh'
+				).html;
+			}
+		);
 	});
 
 	// Translate rendered text nodes with the content dictionary. Keeping the

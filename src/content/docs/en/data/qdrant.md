@@ -28,7 +28,7 @@ Per project: a dedicated Qdrant instance. Credentials injected at boot:
 
 ```bash
 QDRANT_URL=https://qdrant.proj_xxx.miosa.internal
-QDRANT_API_KEY=...
+QDRANT_API_KEY           # from the Qdrant dashboard
 ```
 
 Use any Qdrant-compatible client:

@@ -80,7 +80,7 @@ miosa wait <sandbox-id> --timeout 180s --json
 The sandbox receives a brokered placeholder:
 
 ```bash
-REFERO_MCP_TOKEN=miosa-tok-...
+REFERO_MCP_TOKEN         # from the connector page
 ```
 
 The real provider token stays encrypted in MIOSA-controlled infrastructure. The

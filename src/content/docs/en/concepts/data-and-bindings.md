@@ -26,7 +26,7 @@ DATABASE_URL=postgresql://user:pass@host/dbname
 REDIS_URL=redis://host:6379
 STORAGE_BUCKET=miosa-ws123-uploads
 AUTH_URL=https://auth.miosa.app/proj_abc
-AUTH_JWT_SECRET=...
+AUTH_JWT_SECRET          # injected by MIOSA for this project
 ```
 
 Destroying a Sandbox does not destroy its database.

@@ -7,7 +7,7 @@
  * imported modules means a visitor downloads only the language they read, and
  * only when they open a documentation page.
  */
-import { readFileSync, readdirSync, writeFileSync, statSync } from 'node:fs';
+import { mkdirSync, readFileSync, readdirSync, writeFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
@@ -86,53 +86,17 @@ writeFileSync(
 	JSON.stringify({ pages }, null, '\t') + '\n'
 );
 
-// Content is split by language and by top-level section so a page only loads
-// the part of the docs it needs. Search gets its own small excerpt file.
-const sections = { en: new Map(), zh: new Map() };
+// One content module per language. It stays above the publish scanner's
+// file-size cutoff, and the browser downloads only the language it reads.
+mkdirSync(join(ROOT, 'static/docs-content'), { recursive: true });
 for (const lang of LANGS) {
-	for (const [slug, markdown] of Object.entries(content[lang])) {
-		const section = slug.includes('/') ? slug.split('/')[0] : 'root';
-		const bucket = sections[lang].get(section) ?? {};
-		bucket[slug] = markdown;
-		sections[lang].set(section, bucket);
-	}
-	for (const [section, bucket] of sections[lang])
-		writeFileSync(
-			join(ROOT, OUT, `docs-content.${lang}.${section}.json`),
-			JSON.stringify(bucket)
-		);
-	const exclaim = (source) => source;
-	const search = pages.map((page) => {
-		const markdown = content[lang][page.slug] ?? '';
-		return {
-			slug: page.slug,
-			title: lang === 'zh' ? page.titleZh ?? page.title : page.title,
-			description: lang === 'zh' ? page.descriptionZh ?? page.description : page.description,
-			section: page.section,
-			href: `/docs${page.slug ? '/' + page.slug : ''}`,
-			text: exclaim(
-				markdown
-					.replace(/```[\s\S]*?```/g, ' ')
-					.replace(/<[^>]+>/g, ' ')
-					.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-					.replace(/[#*_`{}]/g, '')
-					.replace(/\s+/g, ' ')
-					.trim()
-			).slice(0, 240)
-		};
-	});
-	writeFileSync(join(ROOT, OUT, `docs-search.${lang}.json`), JSON.stringify(search));
+	const serialized = JSON.stringify(content[lang]);
+	writeFileSync(join(ROOT, OUT, `docs-content.${lang}.json`), serialized);
+	writeFileSync(join(ROOT, 'static/docs-content', `${lang}.json`), serialized);
 }
 
-const bytes = (pattern) => {
-	const dir = join(ROOT, OUT);
-	return readdirSync(dir)
-		.filter((name) => pattern.test(name))
-		.reduce((total, name) => total + statSync(join(dir, name)).size, 0);
-};
-const mb = (value) => (value / 1024 / 1024).toFixed(1);
+const mb = (file) => (statSync(join(ROOT, OUT, file)).size / 1024 / 1024).toFixed(1);
 console.log(
 	`docs artifacts: manifest ${(statSync(join(ROOT, OUT, 'docs-manifest.json')).size / 1024).toFixed(0)} KB · ` +
-		`sections en ${mb(bytes(/^docs-content\.en\./))} MB / zh ${mb(bytes(/^docs-content\.zh\./))} MB · ` +
-		`search en ${mb(bytes(/^docs-search\.en\./))} MB / zh ${mb(bytes(/^docs-search\.zh\./))} MB · ${pages.length} pages`
+		`content en ${mb('docs-content.en.json')} MB / zh ${mb('docs-content.zh.json')} MB · ${pages.length} pages`
 );

@@ -18,7 +18,7 @@ Per project: an S3-compatible bucket, accessed through MIOSA endpoints. Credenti
 STORAGE_BUCKET=miosa-proj_xxx-uploads
 STORAGE_ENDPOINT=https://storage.miosa.app
 STORAGE_KEY_ID=...
-STORAGE_KEY_SECRET=...
+STORAGE_KEY_SECRET       # from the bucket settings
 ```
 
 Your code uses the standard S3 client libraries:

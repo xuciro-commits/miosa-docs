@@ -28,7 +28,7 @@ order: 4004
 
 ```bash
 QDRANT_URL=https://qdrant.proj_xxx.miosa.internal
-QDRANT_API_KEY=...
+QDRANT_API_KEY          # 由 MIOSA 注入，请勿填写
 ```
 
 使用任何与 Qdrant 兼容的客户端：

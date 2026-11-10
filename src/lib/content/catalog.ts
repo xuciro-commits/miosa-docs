@@ -25,32 +25,37 @@ export type Article = DocMeta & { raw: string; rawZh?: string; generated?: boole
 type ContentMaps = Record<string, string>;
 
 /**
- * Page Markdown lives in lazily imported modules, split by language and by
- * top-level section: opening one documentation page downloads only that slice,
- * which keeps the entry bundle and the first page load small.
+ * Page Markdown ships as one JSON asset per language. It is fetched the first
+ * time a documentation page needs it, cached by the browser, and never enters
+ * the application bundle.
  */
-const contentModules = import.meta.glob('/src/lib/content/docs-content.*.json', {
-	import: 'default'
-}) as Record<string, () => Promise<ContentMaps>>;
+const contentCache = new Map<'en' | 'zh', Promise<ContentMaps>>();
 
-const sectionCache = new Map<string, Promise<ContentMaps>>();
-
-function sectionOf(slug: string) {
-	return slug.includes('/') ? slug.split('/')[0] : 'root';
-}
-
-async function loadSection(locale: 'en' | 'zh', section: string): Promise<ContentMaps> {
-	const path = `/src/lib/content/docs-content.${locale}.${section}.json`;
-	const loader = contentModules[path];
-	if (!loader) return {};
-	const key = `${locale}:${section}`;
-	if (!sectionCache.has(key)) sectionCache.set(key, loader());
-	return sectionCache.get(key)!;
+export function loadContent(
+	locale: 'en' | 'zh' = 'en',
+	fetcher?: typeof fetch
+): Promise<ContentMaps> {
+	if (!contentCache.has(locale)) {
+		const doFetch = fetcher ?? (typeof fetch === 'function' ? fetch : undefined);
+		if (!doFetch) return Promise.resolve({});
+		contentCache.set(
+			locale,
+			doFetch(`/docs-content/${locale}.json`).then((response) => {
+				if (!response.ok) throw new Error(`docs content ${locale}: ${response.status}`);
+				return response.json() as Promise<ContentMaps>;
+			})
+		);
+	}
+	return contentCache.get(locale)!;
 }
 
 /** Markdown for one page, in the requested language. */
-export async function loadMarkdown(slug: string, locale: 'en' | 'zh' = 'en') {
-	const map = await loadSection(locale, sectionOf(slug));
+export async function loadMarkdown(
+	slug: string,
+	locale: 'en' | 'zh' = 'en',
+	fetcher?: typeof fetch
+) {
+	const map = await loadContent(locale, fetcher);
 	return map[slug];
 }
 
@@ -158,21 +163,22 @@ export function plainText(source: string) {
 		.trim();
 }
 
-const searchModules = import.meta.glob('/src/lib/content/docs-search.*.json', {
-	import: 'default'
-}) as Record<string, () => Promise<SearchEntry[]>>;
-
 const searchCache = new Map<'en' | 'zh', SearchEntry[]>();
 
-/** Search index for one language, loaded the first time someone searches. */
-export async function loadSearchIndex(locale: 'en' | 'zh' = 'en'): Promise<SearchEntry[]> {
+/** Search index for one language, built from the content the reader already loads. */
+export async function loadSearchIndex(
+	locale: 'en' | 'zh' = 'en',
+	fetcher?: typeof fetch
+): Promise<SearchEntry[]> {
 	if (searchCache.has(locale)) return searchCache.get(locale)!;
-	const loader = searchModules[`/src/lib/content/docs-search.${locale}.json`];
-	if (!loader) return [];
-	const raw = (await loader()) as (SearchEntry & { text?: string })[];
-	const index = raw.map((entry) => ({
-		...entry,
-		text: entry.text ?? plainText(descriptionOf(entry))
+	const content = await loadContent(locale, fetcher);
+	const index = documents.map((doc) => ({
+		slug: doc.slug,
+		title: locale === 'zh' ? doc.titleZh ?? doc.title : doc.title,
+		description: locale === 'zh' ? doc.descriptionZh ?? doc.description : doc.description,
+		section: doc.section,
+		href: `/docs${doc.slug ? '/' + doc.slug : ''}`,
+		text: plainText(content[doc.slug] ?? doc.description).slice(0, 240)
 	}));
 	searchCache.set(locale, index);
 	return index;

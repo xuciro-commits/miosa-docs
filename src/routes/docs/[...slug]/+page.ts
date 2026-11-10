@@ -6,7 +6,7 @@ const components = import.meta.glob('/src/content/*.svx');
 
 export const entries = () => [];
 
-export async function load({ params }) {
+export async function load({ params, fetch }) {
 	const slug = (params.slug ?? '').replace(/\/$/, '');
 	const meta = articleMeta.find((item) => item.slug === slug);
 	if (!meta)
@@ -14,17 +14,16 @@ export async function load({ params }) {
 			404,
 			'This page does not exist. Search the documentation or choose a page from the sidebar.'
 		);
-	const [en, zhSource] = await Promise.all([
-		loadMarkdown(slug, 'en'),
-		loadMarkdown(slug, 'zh')
-	]);
+	const en = await loadMarkdown(slug, 'en', fetch);
 	if (!en) error(404, 'Page content is unavailable');
 	const rendered = renderDoc(slug, en, meta.title);
-	const renderedZh = renderDoc(slug, zhSource ?? en, meta.titleZh ?? meta.title, 'zh');
 	return {
+		slug,
 		html: rendered.html,
-		htmlZh: renderedZh.html,
-		accordion: rendered.accordion || renderedZh.accordion,
+		htmlZh: '',
+		title: meta.title,
+		titleZh: meta.titleZh ?? meta.title,
+		accordion: rendered.accordion,
 		Content: null
 	};
 }

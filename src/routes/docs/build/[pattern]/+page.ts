@@ -5,20 +5,20 @@ import products from '#lib/content/products.json';
 
 export const entries = () => [];
 
-export async function load({ params }) {
+export async function load({ params, fetch }) {
 	const slug = `build/${params.pattern}`;
 	const meta = articleMeta.find((item) => item.slug === slug);
 	if (meta) {
-		const [en, zhSource] = await Promise.all([
-			loadMarkdown(slug, 'en'),
-			loadMarkdown(slug, 'zh')
-		]);
+		const en = await loadMarkdown(slug, 'en', fetch);
 		if (en) {
 			const rendered = renderDoc(slug, en, meta.title);
-			const renderedZh = renderDoc(slug, zhSource ?? en, meta.titleZh ?? meta.title, 'zh');
 			return {
+				slug,
 				html: rendered.html,
-				htmlZh: renderedZh.html,
+				htmlZh: '',
+				title: meta.title,
+				titleZh: meta.titleZh ?? meta.title,
+				accordion: rendered.accordion,
 				product: null,
 				Content: null
 			};
