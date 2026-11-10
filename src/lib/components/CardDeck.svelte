@@ -11,14 +11,19 @@
 		drag = $state(0),
 		held = $state(false),
 		focused = $state(false),
-		dragging = $state(false);
+		dragging = $state(false),
+		entering = $state(0),
+		stackX = $state(0),
+		stackTilt = $state(0);
 	let start = 0,
+		startY = 0,
 		changedAt = 0;
 	const current = $derived(factCards[index]);
-	function choose(next: number) {
+	function choose(next: number, direction = 1) {
 		index = (next + factCards.length) % factCards.length;
 		changedAt = Date.now();
 		drag = 0;
+		entering = direction >= 0 ? 1 : -1;
 	}
 	function release(event: PointerEvent, cancel = false) {
 		if (!dragging) return;
@@ -27,8 +32,10 @@
 		event.currentTarget instanceof HTMLElement &&
 			event.currentTarget.releasePointerCapture(event.pointerId);
 		drag = 0;
+		stackX = 0;
+		stackTilt = 0;
 		if (cancel) return;
-		if (Math.abs(distance) > 45) choose(index + (distance < 0 ? 1 : -1));
+		if (Math.abs(distance) > 45) choose(index + (distance < 0 ? 1 : -1), distance < 0 ? 1 : -1);
 		else if (Math.abs(distance) < 6) goto(current.href);
 	}
 	onMount(() => {
@@ -59,23 +66,34 @@
 		focused = event.currentTarget.contains(event.relatedTarget as Node);
 	}}
 >
-	<div class="deck-stack">
+	<div
+		class="deck-stack"
+		style={`transform:translate(${stackX}px, ${Math.abs(stackX) * 0.06}px) rotate(${stackTilt}deg)`}
+	>
 		<span class="back-card one"></span><span class="back-card two"></span><button
 			class="deck-front"
 			class:dragging
-			style={`transform:translateX(${drag}px) rotate(${-1 + drag * 0.035}deg)`}
+			class:entering={entering !== 0}
+			style={`transform:translateX(${drag}px) rotate(${-1 + drag * 0.035}deg); --deck-enter-x:${entering >= 0 ? 34 : -34}px`}
 			aria-label={`${tr(current.title).replace('\n', ' ')}. ${tr(current.link)}`}
 			onpointerdown={(event) => {
 				if (event.button !== 0) return;
 				start = event.clientX;
+				startY = event.clientY;
 				dragging = true;
 				event.currentTarget.setPointerCapture(event.pointerId);
 			}}
 			onpointermove={(event) => {
-				if (dragging) drag = event.clientX - start;
+				if (!dragging) return;
+				drag = event.clientX - start;
+				stackX = Math.max(-26, Math.min(26, drag * 0.22));
+				stackTilt = Math.max(-4, Math.min(4, (event.clientY - startY) * 0.02 + drag * 0.02));
 			}}
 			onpointerup={(event) => release(event)}
 			onpointercancel={(event) => release(event, true)}
+			onanimationend={(event) => {
+				if (event.animationName === 'deck-enter') entering = 0;
+			}}
 			onclick={(event) => {
 				if (event.detail === 0) goto(current.href);
 			}}
@@ -118,6 +136,10 @@
 		position: relative;
 		max-width: 290px;
 		margin: 0;
+		transition:
+			transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+			filter 0.3s ease;
+		will-change: transform;
 	}
 	.back-card {
 		position: absolute;
@@ -128,10 +150,53 @@
 	.one {
 		background: linear-gradient(145deg, #dcd7f5, #bdb4ec);
 		transform: translate(17px, -21px) rotate(5deg);
+		animation: deck-drift-one 7.5s ease-in-out infinite;
 	}
 	.two {
 		background: linear-gradient(145deg, #f4f0e7, #dedbd5);
 		transform: translate(2px, -13px) rotate(-3deg);
+		animation: deck-drift-two 6s ease-in-out infinite;
+	}
+	@keyframes deck-drift-one {
+		0%,
+		100% {
+			transform: translate(17px, -21px) rotate(5deg);
+		}
+		50% {
+			transform: translate(22px, -25px) rotate(7deg);
+		}
+	}
+	@keyframes deck-drift-two {
+		0%,
+		100% {
+			transform: translate(2px, -13px) rotate(-3deg);
+		}
+		50% {
+			transform: translate(-4px, -16px) rotate(-5deg);
+		}
+	}
+	.deck-front.entering {
+		animation: deck-enter 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	@keyframes deck-enter {
+		from {
+			opacity: 0.35;
+			transform: translateX(calc(var(--deck-enter-x, 34px) * -1)) rotate(-3deg);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0) rotate(-1deg);
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.one,
+		.two,
+		.deck-front.entering {
+			animation: none;
+		}
+		.deck-stack {
+			transition: none;
+		}
 	}
 	.deck-front {
 		display: block;

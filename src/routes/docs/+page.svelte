@@ -135,7 +135,7 @@
 	</div>
 	<CardDeck />
 </div>
-<section class="landing-earn" aria-label={t('docs.landing.earn.aria')}>
+<section class="landing-earn comet-frame" aria-label={t('docs.landing.earn.aria')}>
 	<div class="earn-top">
 		<span class="earn-icon"><Coins size={20} /></span>
 		<div>

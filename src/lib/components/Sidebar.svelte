@@ -89,6 +89,18 @@
 	let previousPath = '';
 	let dragging = $state(false);
 	const currentSlug = $derived(page.url.pathname.replace(/^\/docs\/?/, '').replace(/\/$/, ''));
+	// The credits module belongs to the practice surface only, as on the reference site.
+	const practiceSlugs = new Set(['learn', 'learn/games', 'glossary']);
+	const showPractice = $derived(practiceSlugs.has(currentSlug));
+	let scroller = $state<HTMLElement>();
+	let scrolled = $state(false);
+	function onScroll() {
+		if (scroller) scrolled = scroller.scrollTop > 8;
+	}
+	$effect(() => {
+		currentSlug;
+		if (scroller) scroller.scrollTop = 0;
+	});
 	const groups = $derived.by(() => {
 		const needle = filter.trim().toLowerCase();
 		return navigation
@@ -204,6 +216,7 @@
 	class:mobile-open={preferences.sidebarOpen}
 	aria-label={t('docs.sidebar.aria')}
 >
+	<div class="sidebar-scroll" class:scrolled={scrolled} bind:this={scroller} onscroll={onScroll}>
 	<div class="sidebar-top">
 		<div class="filter">
 			<Search size={13} /><input
@@ -220,11 +233,13 @@
 			onclick={() => (preferences.sidebarOpen = false)}><X size={16} /></button
 		>
 	</div>
-	<a href="/docs/learn/earn" class="balance" onclick={() => (preferences.sidebarOpen = false)}
-		><span class="coin"><CircleDollarSign size={15} /></span><b
-			>${progress.credits.toFixed(progress.credits % 1 ? 2 : 0)}</b
-		><span>/ $100</span><span class="practice-badge">{t('docs.sidebar.practice')}</span></a
-	>
+	{#if showPractice}
+		<a href="/docs/learn/earn" class="balance" onclick={() => (preferences.sidebarOpen = false)}
+			><span class="coin"><CircleDollarSign size={15} /></span><b
+				>${progress.credits.toFixed(progress.credits % 1 ? 2 : 0)}</b
+			><span>/ $100</span><span class="practice-badge">{t('docs.sidebar.practice')}</span></a
+		>
+	{/if}
 	<nav class="sidebar-nav" aria-label={t('docs.sidebar.pagesAria')}>
 		{#each groups as group}
 			{@const open = !!filter || expanded.includes(group.title)}
@@ -239,6 +254,7 @@
 		{/each}
 		{#if groups.length === 0}<p class="no-pages">{t('docs.sidebar.noPages')}</p>{/if}
 	</nav>
+	</div>
 	<div class="sidebar-bottom">
 		<span class="status-dot"></span><span>{t('docs.sidebar.localWorkspace')}</span><a
 			href="/docs/customization"
@@ -285,8 +301,34 @@
 		width: var(--sidebar-width);
 		display: flex;
 		flex-direction: column;
-		padding: 0 12px;
+		padding: 0;
 		z-index: 31;
+	}
+	.sidebar-scroll {
+		/* One scroll container for the whole rail so the scrollbar reaches the top edge. */
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
+		overflow: auto;
+		padding: 0 12px 20px;
+		scrollbar-width: thin;
+		scrollbar-color: var(--dbd) transparent;
+		overscroll-behavior: contain;
+		mask-image: linear-gradient(to bottom, transparent 0, #000 18px);
+		-webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18px);
+		mask-image: none;
+	}
+	.sidebar-scroll.scrolled {
+		mask-image: linear-gradient(to bottom, transparent 0, #000 18px);
+		-webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 18px);
+	}
+	.sidebar-scroll::-webkit-scrollbar {
+		width: 6px;
+	}
+	.sidebar-scroll::-webkit-scrollbar-thumb {
+		background: var(--dbd);
+		border-radius: 99px;
 	}
 	.sidebar-top {
 		display: flex;
@@ -358,12 +400,10 @@
 		margin-left: auto;
 	}
 	.sidebar-nav {
-		overflow: auto;
 		flex: 1;
+		min-height: 0;
 		margin: 0 -4px;
-		padding: 0 4px 20px;
-		scrollbar-width: thin;
-		scrollbar-color: var(--dbd) transparent;
+		padding: 0 4px 4px;
 	}
 	.nav-group {
 		margin-bottom: 12px;
@@ -430,6 +470,7 @@
 		font-size: 10px;
 	}
 	.sidebar-bottom {
+		flex: none;
 		display: flex;
 		align-items: center;
 		gap: 6px;

@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import { marked } from 'marked';
+import { renderDoc } from '#lib/content/render.js';
 import { articles } from '#lib/content/catalog.js';
 import products from '#lib/content/products.json';
 
@@ -14,12 +14,9 @@ export async function load({ params }) {
 	const slug = `build/${params.pattern}`;
 	const article = articles.find((item) => item.slug === slug);
 	if (article?.generated) {
-		return {
-			html: marked.parse(article.raw) as string,
-			htmlZh: marked.parse(article.rawZh ?? article.raw) as string,
-			product: null,
-			Content: null
-		};
+		const en = renderDoc(slug, article.raw, article.title);
+		const zh = renderDoc(slug, article.rawZh ?? article.raw, article.titleZh ?? article.title, 'zh');
+		return { html: en.html, htmlZh: zh.html, product: null, Content: null };
 	}
 	if (article?.path) {
 		const module = (await components[article.path]()) as {
