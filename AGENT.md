@@ -17,8 +17,7 @@ right routes and the right commit".
 
 ### Why the split
 
-Chromium acceptance is the only check that can fail for reasons outside this
-repository (edge routing, cache, platform drift). It is required before a
+Chromium acceptance is the only check that can fail for reasons outside this repository (edge routing, cache, platform drift). Measured on 2026-11-10: a content-only push reached production in the time recorded below; the platform-side artifact seal, not the pipeline, is the variable part. It is required before a
 release, but it must not block a one-page documentation edit. Both lanes run
 the deterministic checks, so a broken page never reaches production.
 
