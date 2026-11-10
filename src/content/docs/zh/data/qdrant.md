@@ -151,8 +151,8 @@ async function query(question: string, topK = 5) {
 
 |等级 |内存|磁盘 |最大收藏量 |
 |---|---|---|---|
-|小| 1 GB | 10GB| 10 | 10
-|中等| 4GB| 50GB| 50 | 50
+| 小 | 1 GB | 10 GB | 10 |
+| 中等 | 4 GB | 50 GB | 50 |
 |大| 16GB| 200GB|无限|
 
 每个集合的向量计数受内存限制。在 1536 维（OpenAI `text-embedding-3-small`）时，`small` 适合约 100K 个向量； `medium` 适合 ~400K。

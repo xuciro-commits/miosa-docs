@@ -144,10 +144,10 @@ Compose 项目状态为 `creating`、`running`、`partial`、`stopped`、`failed
 |计划|容器和组合服务槽 |
 |---|---|
 | `free` | 2 |
-| `starter` | 10 | 10
-| `pro` | 50 | 50
-| `team` | 250 | 250
-| `enterprise` | 1000 | 1000
+| `starter` | 10 |
+| `pro` | 50 |
+| `team` | 250 |
+| `enterprise` | 1000 |
 
 超出限制将返回 `402` 和 `error: "plan_limit_reached"`，加上 `limit` 和 `current` 值。
 请参阅[计费和限制](/docs/opencomputers/billing)了解其他计划范围的限制。

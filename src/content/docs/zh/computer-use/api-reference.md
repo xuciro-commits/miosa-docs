@@ -81,7 +81,9 @@ order: 3009
 | `POST` | `/key` | `key` - 单个调或 `+` 和弦，例如 `Return` 或 `ctrl+a` |
 | `POST` | `/hotkey` | `keys` - 同时组合，例如 `["ctrl", "shift", "t"]` |
 | `POST` | `/key-down` | `key` - 按住 |
-| `POST` | `/key-up` | `key` - 发布 |键名称遵循 X11 键符号约定： `Return`、`Tab`、`BackSpace`、`Delete`、`Home`、`End`、`Page_Up`、`Page_Down`、 `Up`、`Down`、`Left`、`Right`、`F1`-`F12` 以及修饰符 `super`、`ctrl`、`alt`、 `shift`。
+| `POST` | `/key-up` | `key` - 发布 |
+
+键名称遵循 X11 键符号约定： `Return`、`Tab`、`BackSpace`、`Delete`、`Home`、`End`、`Page_Up`、`Page_Down`、 `Up`、`Down`、`Left`、`Right`、`F1`-`F12` 以及修饰符 `super`、`ctrl`、`alt`、 `shift`。
 `type` 键入文字文本并且不解释键名称；使用 `key` 来实现这些。
 
 ## 剪贴板、窗口和桌面

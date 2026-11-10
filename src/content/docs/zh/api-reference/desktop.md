@@ -631,10 +631,10 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/desktop/clipboard \
 |状态 |代码|描述 |
 |--------|------|-------------|
 | 400 | `invalid computer id` | UUID 格式无效 |
-| 403 | 403 `FORBIDDEN` |不是这台计算机的成员 |
-| 404 | 404 `NOT_FOUND` |计算机不存在 |
-| 409 | 409 `COMPUTER_NOT_RUNNING` |计算机已停止或配置 |
-| 502 | 502 `AGENT_UNAVAILABLE` |无法访问计算机命令服务 |
+| 403 | `FORBIDDEN`|不是这台计算机的成员 |
+| 404 | `NOT_FOUND`|计算机不存在 |
+| 409 | `COMPUTER_NOT_RUNNING`|计算机已停止或配置 |
+| 502 | `AGENT_UNAVAILABLE`|无法访问计算机命令服务 |
 
 ---
 

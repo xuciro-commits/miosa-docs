@@ -124,8 +124,8 @@ curl https://api.miosa.ai/api/v1/workspaces \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 422 | 422 `has already been taken` | Slug 已存在于租户中 |
-| 422 | 422 `must start with alphanumeric and contain only a-z 0-9 -` |无效的 slug 格式 |
+| 422 | `has already been taken`| Slug 已存在于租户中 |
+| 422 | `must start with alphanumeric and contain only a-z 0-9 -`|无效的 slug 格式 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/workspaces \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -158,8 +158,8 @@ curl -X POST https://api.miosa.ai/api/v1/workspaces \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 403 | 403 `forbidden` |工作区属于不同的租户|
-| 404 | 404 `workspace not found` |不存在|
+| 403 | `forbidden`|工作区属于不同的租户|
+| 404 | `workspace not found`|不存在|
 ```bash
 curl https://api.miosa.ai/api/v1/workspaces/{id} \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -191,8 +191,8 @@ curl https://api.miosa.ai/api/v1/workspaces/{id} \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 403 | 403 `forbidden` |错误的租客 |
-| 404 | 404 `workspace not found` |不存在|
+| 403 | `forbidden`|错误的租客 |
+| 404 | `workspace not found`|不存在|
 ```bash
 curl -X PATCH https://api.miosa.ai/api/v1/workspaces/{id} \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -217,9 +217,9 @@ curl -X PATCH https://api.miosa.ai/api/v1/workspaces/{id} \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 403 | 403 `forbidden` |错误的租客 |
-| 404 | 404 `workspace not found` |不存在|
-| 409 | 409 `workspace has computers` |首先删除或移动资源 |
+| 403 | `forbidden`|错误的租客 |
+| 404 | `workspace not found`|不存在|
+| 409 | `workspace has computers`|首先删除或移动资源 |
 ```bash
 curl -X DELETE https://api.miosa.ai/api/v1/workspaces/{id} \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -277,11 +277,11 @@ curl -X DELETE https://api.miosa.ai/api/v1/workspaces/{id} \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 403 | 403 `FORBIDDEN` |调用者不是组织所有者或管理员 (`Only workspace admins may update workspace limits`) |
-| 403 | 403 `forbidden` |错误的租客 |
-| 404 | 404 `workspace not found` |不存在|
-| 422 | 422 `VALIDATION_FAILED` |大小值未知或限制无效 |
-| 422 | 422 `UNKNOWN_WORKSPACE_SETTING` | API 不知道的设置名称。 `message` 命名最接近的接受键（发送 `action` 回答 `Did you mean "spend_cap_action"?`），`allowed` 列出每个接受的设置。 |
+| 403 | `FORBIDDEN`|调用者不是组织所有者或管理员 (`Only workspace admins may update workspace limits`) |
+| 403 | `forbidden`|错误的租客 |
+| 404 | `workspace not found`|不存在|
+| 422 | `VALIDATION_FAILED`|大小值未知或限制无效 |
+| 422 | `UNKNOWN_WORKSPACE_SETTING`| API 不知道的设置名称。 `message` 命名最接近的接受键（发送 `action` 回答 `Did you mean "spend_cap_action"?`），`allowed` 列出每个接受的设置。 |
 ```bash
 curl -X PUT https://api.miosa.ai/api/v1/workspaces/{id}/settings \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -434,9 +434,9 @@ curl https://api.miosa.ai/api/v1/workspaces/{id}/stats \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 403 | 403 `forbidden` |错误的租客 |
-| 404 | 404 `workspace not found` |不存在|
-| 422 | 422 `VALIDATION_FAILED` |未知的 `window` 或 `granularity` 值 |
+| 403 | `forbidden`|错误的租客 |
+| 404 | `workspace not found`|不存在|
+| 422 | `VALIDATION_FAILED`|未知的 `window` 或 `granularity` 值 |
 ```bash
 curl "https://api.miosa.ai/api/v1/workspaces/{id}/usage?window=7d&granularity=day" \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -477,10 +477,10 @@ console.log(defaultWs.id);
 
 |状态 |代码|原因 |
 |--------|------|--------|
-| 403 | 403 `forbidden` |工作区属于不同的租户|
-| 404 | 404 `workspace not found` |不存在|
-| 409 | 409 `workspace has computers` |无法删除包含计算机的工作区 |
-| 422 | 422 `VALIDATION_FAILED` |名称或 slug 架构验证失败 |
+| 403 | `forbidden`|工作区属于不同的租户|
+| 404 | `workspace not found`|不存在|
+| 409 | `workspace has computers`|无法删除包含计算机的工作区 |
+| 422 | `VALIDATION_FAILED`|名称或 slug 架构验证失败 |
 
 ---
 

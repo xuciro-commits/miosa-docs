@@ -121,8 +121,8 @@ Authorization: Bearer msk_...
 |--------|------|--------|
 | 400 | `INVALID_ID` |沙箱 ID 不是有效的 UUID |
 | 400 | `invalid vars` | `vars` 缺失或密钥名称验证失败 |
-| 404 | 404 `NOT_FOUND` |沙盒不存在或租户错误 |
-| 404 | 404 `NOT_FOUND` |键不存在（删除时）|
+| 404 | `NOT_FOUND`|沙盒不存在或租户错误 |
+| 404 | `NOT_FOUND`|键不存在（删除时）|
 
 ---
 

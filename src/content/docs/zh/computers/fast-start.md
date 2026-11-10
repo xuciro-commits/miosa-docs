@@ -1,7 +1,7 @@
 ---
 slug: "computers/fast-start"
-title: ""
-description: "MIOSA 如何快速启动托管桌面计算机、定义浏览器准备情况并在没有错误实时状态的情况下公开故障。"
+title: "快速启动与就绪"
+description: "MIOSA 如何快速启动托管桌面计算机、定义浏览器就绪状态，并在失败时如实暴露错误而不虚报 Live 状态。"
 section: "Computers"
 order: 3003
 ---

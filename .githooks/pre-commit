@@ -1,0 +1,4 @@
+#!/bin/sh
+# Fast local gate: content structure and translation checks on staged files only.
+set -e
+node scripts/content-qa.mjs --staged

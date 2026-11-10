@@ -1,0 +1,37 @@
+name: Nightly production check
+
+on:
+  schedule:
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      SITE_URL: https://docs.norsky.cn
+      SPA: '1'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --no-audit --no-fund
+
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+
+      - name: HTTP checks
+        run: node scripts/verify-http.mjs "$SITE_URL"
+
+      - name: Browser checks against production
+        run: node scripts/verify-deployment.mjs "$SITE_URL"

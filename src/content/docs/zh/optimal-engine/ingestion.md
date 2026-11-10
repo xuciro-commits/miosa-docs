@@ -142,4 +142,4 @@ mix optimal.pull
 |导入文件 | 1 GiB（`OPTIMAL_IMPORT_MAX_BYTES`）|
 |工作区捆绑包 | 5 GiB（`OPTIMAL_BUNDLE_MAX_BYTES`）|
 |发送到嵌入模型的文本 |每块 6,000 个字符 |
-|每次聊天会话学习的项目 | 50 | 50
+|每次聊天会话学习的项目 | 50 |

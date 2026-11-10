@@ -117,20 +117,20 @@ E2B, Daytona, Modal, Vercel, Cloudflare, Freestyle, Runloop, Blaxel, Beam, boat
 and CodeSandbox - run sandboxes for code and agents, which is the job Sandboxes does.
 Each sandbox page has a capabilities table with a source link for every competitor answer.
 
-- [![Railway](https://miosa.ai/docs-assets/brands/railway.svg) MIOSA vs Railway - Deploy services, databases and PR environments from a repository.](/docs/compare/railway)
-- [![Render](https://miosa.ai/docs-assets/brands/render.svg) MIOSA vs Render - Web services, workers, cron jobs and static sites with Blueprints.](/docs/compare/render)
-- [![Fly.io](https://miosa.ai/docs-assets/brands/fly.svg) MIOSA vs Fly.io - Apps and machines close to your users, configured with fly.toml.](/docs/compare/fly)
-- [![E2B](https://miosa.ai/docs-assets/brands/e2b.svg) MIOSA vs E2B - Open-source sandboxes for AI code execution.](/docs/compare/e2b)
-- [![Daytona](https://miosa.ai/docs-assets/brands/daytona.svg) MIOSA vs Daytona - Sandboxes and infrastructure for AI-generated code.](/docs/compare/daytona)
-- [![Modal](https://miosa.ai/docs-assets/brands/modal.svg) MIOSA vs Modal - Serverless compute for AI workloads, including sandboxes.](/docs/compare/modal)
-- [![Vercel](https://miosa.ai/docs-assets/brands/vercel.svg) MIOSA vs Vercel Sandbox - Ephemeral code execution inside the Vercel platform.](/docs/compare/vercel)
+- [![Railway](/docs-assets/brands/railway.svg) MIOSA vs Railway - Deploy services, databases and PR environments from a repository.](/docs/compare/railway)
+- [![Render](/docs-assets/brands/render.svg) MIOSA vs Render - Web services, workers, cron jobs and static sites with Blueprints.](/docs/compare/render)
+- [![Fly.io](/docs-assets/brands/fly.svg) MIOSA vs Fly.io - Apps and machines close to your users, configured with fly.toml.](/docs/compare/fly)
+- [![E2B](/docs-assets/brands/e2b.svg) MIOSA vs E2B - Open-source sandboxes for AI code execution.](/docs/compare/e2b)
+- [![Daytona](/docs-assets/brands/daytona.svg) MIOSA vs Daytona - Sandboxes and infrastructure for AI-generated code.](/docs/compare/daytona)
+- [![Modal](/docs-assets/brands/modal.svg) MIOSA vs Modal - Serverless compute for AI workloads, including sandboxes.](/docs/compare/modal)
+- [![Vercel](/docs-assets/brands/vercel.svg) MIOSA vs Vercel Sandbox - Ephemeral code execution inside the Vercel platform.](/docs/compare/vercel)
 - [MIOSA vs Cloudflare Sandboxes - Sandboxed code execution on Cloudflare’s edge.](/docs/compare/cloudflare)
-- [![Freestyle](https://miosa.ai/docs-assets/brands/freestyle.svg) MIOSA vs Freestyle - Full Linux VMs for AI agents.](/docs/compare/freestyle)
-- [![Runloop](https://miosa.ai/docs-assets/brands/runloop.svg) MIOSA vs Runloop - Devboxes and sandboxes for AI coding agents.](/docs/compare/runloop)
-- [![Blaxel](https://miosa.ai/docs-assets/brands/blaxel.svg) MIOSA vs Blaxel - Agent infrastructure for running code in sandboxes.](/docs/compare/blaxel)
-- [![Beam](https://miosa.ai/docs-assets/brands/beam.svg) MIOSA vs Beam - Serverless sandboxes for running code and models.](/docs/compare/beam)
-- [![Boat](https://miosa.ai/docs-assets/brands/boat.svg) MIOSA vs boat - Persistent Ubuntu VMs with SSH, a desktop and snapshot forks, for AI agents.](/docs/compare/boat)
-- [![CodeSandbox](https://miosa.ai/docs-assets/brands/codesandbox.svg) MIOSA vs CodeSandbox - Cloud development environments and sandboxes.](/docs/compare/codesandbox)
+- [![Freestyle](/docs-assets/brands/freestyle.svg) MIOSA vs Freestyle - Full Linux VMs for AI agents.](/docs/compare/freestyle)
+- [![Runloop](/docs-assets/brands/runloop.svg) MIOSA vs Runloop - Devboxes and sandboxes for AI coding agents.](/docs/compare/runloop)
+- [![Blaxel](/docs-assets/brands/blaxel.svg) MIOSA vs Blaxel - Agent infrastructure for running code in sandboxes.](/docs/compare/blaxel)
+- [![Beam](/docs-assets/brands/beam.svg) MIOSA vs Beam - Serverless sandboxes for running code and models.](/docs/compare/beam)
+- [![Boat](/docs-assets/brands/boat.svg) MIOSA vs boat - Persistent Ubuntu VMs with SSH, a desktop and snapshot forks, for AI agents.](/docs/compare/boat)
+- [![CodeSandbox](/docs-assets/brands/codesandbox.svg) MIOSA vs CodeSandbox - Cloud development environments and sandboxes.](/docs/compare/codesandbox)
 
 Moving from one of them? The [Railway migration guide](/docs/migrate/railway) is the
 written one today, and `miosa import railway` produces a reviewable plan without

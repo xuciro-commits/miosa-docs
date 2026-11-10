@@ -1,0 +1,11 @@
+{
+	"_comment": "Table rows whose numbers legitimately differ between English and Chinese, e.g. a date written ISO in English and as 年月日 in Chinese.",
+	"tableNumbers": {
+		"zh/api-reference/sandboxes/create.md#11": "October 11, 2026 becomes 2026 年 10 月 11 日, so the month adds a number",
+		"zh/availability.md#37": "Q1 2027 becomes 2027 年第一季度, which keeps only the year",
+		"zh/develop/sandboxes/sizing.md#14": "October 11, 2026 becomes 2026 年 10 月 11 日, so the month adds a number",
+		"zh/optimal/pricing.md#3": "$1.90 per 1M tokens becomes 每 100 万个代币 1.90 美元",
+		"zh/pricing.md#27": "October 11, 2026 becomes 2026 年 10 月 11 日, so the month adds a number",
+		"zh/optimal/pricing.md#4": "$8.00 per 1M tokens becomes 每 100 万个代币 8.00 美元"
+	}
+}

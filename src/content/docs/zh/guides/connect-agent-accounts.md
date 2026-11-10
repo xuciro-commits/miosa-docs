@@ -486,18 +486,18 @@ app.post("/api/connect/claude/code", async (req, res) => {
 
 |代码|状态 |意义|
 |---|---|---|
-| `SCOPE_FORBIDDEN` | 403 | 403关键是为一个最终用户服务并要求更广泛的东西。 |
-| `MISSING_EXTERNAL_USER_ID` | 422 | 422 `scope: "external_user"` 没有 `externalUserId`。 |
-| `CONFLICTING_SCOPE` | 422 | 422 `scope` 与标识符不一致。 |
-| `INVALID_EXTERNAL_USER_ID` | 422 | 422 id 长度超过 255 个字符或包含控制字符。 |
-| `USE_SIGNIN` | 422 | 422无法制定计划；将其与 `connectSubscription` 连接。 |
-| `VALIDATION_FAILED` | 422 | 422字段丢失或错误，例如空键。 |
-| `SIGNIN_CODE_REJECTED` | 422 | 422粘贴的代码错误或已过期。再粘贴一下。 |
-| `SIGNIN_PROVIDER_ERROR` | 502 | 502提供商的登录服务没有应答。重新开始。 |
-| `NOT_FOUND` | 404 | 404在这个范围内没有任何联系。 |
-| `UNKNOWN_CREDENTIAL` | 404 | 404 MIOSA 不知道任何凭证。 |
-| `UNKNOWN_TOOL_KEY` | 404 | 404没有工具服务器引用该秘密名称。 |
-| `OWN_CREDENTIALS_REQUIRED` | 422 | 422跑步开始时没有连接任何运行框架。 |
+| `SCOPE_FORBIDDEN` | 403 | 关键是为一个最终用户服务并要求更广泛的东西。|
+| `MISSING_EXTERNAL_USER_ID` | 422 | `scope: "external_user"` 没有 `externalUserId`。|
+| `CONFLICTING_SCOPE` | 422 | `scope` 与标识符不一致。|
+| `INVALID_EXTERNAL_USER_ID` | 422 | id 长度超过 255 个字符或包含控制字符。|
+| `USE_SIGNIN` | 422 | 无法制定计划；将其与 `connectSubscription` 连接。|
+| `VALIDATION_FAILED` | 422 | 字段丢失或错误，例如空键。|
+| `SIGNIN_CODE_REJECTED` | 422 | 粘贴的代码错误或已过期。再粘贴一下。|
+| `SIGNIN_PROVIDER_ERROR` | 502 | 提供商的登录服务没有应答。重新开始。|
+| `NOT_FOUND` | 404 | 在这个范围内没有任何联系。|
+| `UNKNOWN_CREDENTIAL` | 404 | MIOSA 不知道任何凭证。|
+| `UNKNOWN_TOOL_KEY` | 404 | 没有工具服务器引用该秘密名称。|
+| `OWN_CREDENTIALS_REQUIRED` | 422 | 跑步开始时没有连接任何运行框架。|
 
 ## 底层的API
 

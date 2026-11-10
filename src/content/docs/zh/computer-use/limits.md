@@ -1,6 +1,6 @@
 ---
 slug: "computer-use/limits"
-title: ""
+title: "计算机使用限制"
 description: "MIOSA 计算机桌面控制的延迟、坐标空间、大小、身份验证和速率限制。"
 section: "Computers"
 order: 3011
@@ -39,7 +39,7 @@ order: 3011
 | `small` | 2 | 4GB| 20GB| **默认**单个智能体和基本浏览 |
 | `medium` | 4 | 8GB| 40GB|桌面应用程序更重，页面加载更快 |
 | `large` | 8 | 16GB| 80GB|多应用程序、大上下文工作负载 |
-| `xl` | 16 | 16 32GB| 160GB|密集并行|
+| `xl` | 16 | 32GB| 160GB|密集并行|
 
 GPU 对加速桌面和 GPU 感知工作流程的支持取决于计划。
 

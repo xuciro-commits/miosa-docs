@@ -110,10 +110,10 @@ Authorization: Bearer msk_...
 
 |状态 |代码|原因 |
 |--------|------|--------|
-| 404 | 404 `sandbox_not_found` |沙盒不存在或租户错误 |
-| 403 | 403 `forbidden` |租户不匹配|
-| 404 | 404 `not_found` |共享 ID 不存在（删除时）|
-| 422 | 422 `invalid_scope` | `scope` 值不是 `"read"` |
+| 404 | `sandbox_not_found`|沙盒不存在或租户错误 |
+| 403 | `forbidden`|租户不匹配|
+| 404 | `not_found`|共享 ID 不存在（删除时）|
+| 422 | `invalid_scope`| `scope` 值不是 `"read"` |
 
 ---
 

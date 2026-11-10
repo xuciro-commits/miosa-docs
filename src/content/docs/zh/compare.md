@@ -36,7 +36,7 @@ MIOSA是AI产品的运行平台。以下平台就是这样的
 |---|---|---|
 |突发启动、中位交互时间 | **57.09 毫秒**（第 1 条，共 32 条）| 2026年10月23日 |
 |突发启动，p95 / p99 | 68.81 毫秒/72.20 毫秒 | 2026年10月23日 |
-|突发启动，成功| 100 / 100 | 100 / 100 2026年10月23日 |
+| 突发启动，成功 | 100 / 100 | 2026-10-23 |
 
 每个图形都是开放的 ComputeSDK 存储库中提交的 JSON 文件。参见
 [基准](/docs/benchmarks)完整的排行榜、方法和重现步骤。
@@ -55,7 +55,7 @@ MIOSA是AI产品的运行平台。以下平台就是这样的
 | Vercel 沙箱 | 718.35 毫秒 | ＃15 | 2026年10月23日 |
 |Modal| 1070.58 毫秒 | ＃17 | 2026年10月23日 |
 |代托纳 | 1094.64 毫秒 | ＃19 | 2026年10月23日 |
-|电子商务 | 1439.39 毫秒 | ＃20 | 2026年10月23日 |
+| E2B | 1439.39 ms | #20 | 2026-10-23 |
 |自由泳 | 3237.49 毫秒 | ＃28 | 2026年10月23日 |
 |代码沙盒 | 33771.52 毫秒 | ＃29 | 2026年10月23日 |
 
@@ -77,7 +77,7 @@ MIOSA 以 38.8 秒的成绩在 22 个项目中排名**第 3； 2026 年 8 月 28
 |梁|没有结果 | 91.4 秒 (#19) |
 | Vercel 沙箱 | 69.7 秒 |没有结果 |
 |代托纳 | 141.3 秒 | 79.5 秒 (#15) |
-|电子商务 | 72.0 秒 | 75.0 秒 (#14) |
+| E2B | 72.0 s | 75.0 s (#14) |
 |Modal| 97.7 秒 | 82.3 秒 (#16) |
 |运行循环| 114.4 秒 |未列出 |
 |代码沙盒 | 81.2 秒 |没有结果 |
@@ -115,20 +115,20 @@ E2B、Daytona、Modal、Vercel、Cloudflare、Freestyle、Runloop、Blaxel、Bea
 CodeSandbox - 为代码和智能体运行沙箱，这就是沙箱所做的工作。
 每个沙盒页面都有一个功能表，其中包含每个竞争对手答案的源链接。
 
-- [![Railway](https://miosa.ai/docs-assets/brands/railway.svg) MIOSA 与 Railway - 从存储库部署服务、数据库和 PR 环境。](/docs/compare/railway)
-- [![Render](https://miosa.ai/docs-assets/brands/render.svg) MIOSA 与 Render - Web 服务、工作人员、cron 作业和带有蓝图的静态站点。](/docs/compare/render)
-- [![Fly.io](https://miosa.ai/docs-assets/brands/fly.svg) MIOSA 与 Fly.io - 靠近用户的应用程序和机器，使用 Fly.toml 配置。](/docs/compare/fly)
-- [![E2B](https://miosa.ai/docs-assets/brands/e2b.svg) MIOSA 与 E2B - 用于 AI 代码执行的开源沙箱。](/docs/compare/e2b)
-- [![Daytona](https://miosa.ai/docs-assets/brands/daytona.svg) MIOSA 与 Daytona - AI 生成代码的沙箱和基础设施。](/docs/compare/daytona)
-- [![Modal](https://miosa.ai/docs-assets/brands/modal.svg) MIOSA 与 Modal - 用于 AI 工作负载的无服务器计算，包括沙箱。](/docs/compare/modal)
-- [![Vercel](https://miosa.ai/docs-assets/brands/vercel.svg) MIOSA 与 Vercel Sandbox - Vercel 平台内的临时代码执行。](/docs/compare/vercel)
+- [![Railway](/docs-assets/brands/railway.svg) MIOSA 与 Railway - 从存储库部署服务、数据库和 PR 环境。](/docs/compare/railway)
+- [![Render](/docs-assets/brands/render.svg) MIOSA 与 Render - Web 服务、工作人员、cron 作业和带有蓝图的静态站点。](/docs/compare/render)
+- [![Fly.io](/docs-assets/brands/fly.svg) MIOSA 与 Fly.io - 靠近用户的应用程序和机器，使用 Fly.toml 配置。](/docs/compare/fly)
+- [![E2B](/docs-assets/brands/e2b.svg) MIOSA 与 E2B - 用于 AI 代码执行的开源沙箱。](/docs/compare/e2b)
+- [![Daytona](/docs-assets/brands/daytona.svg) MIOSA 与 Daytona - AI 生成代码的沙箱和基础设施。](/docs/compare/daytona)
+- [![Modal](/docs-assets/brands/modal.svg) MIOSA 与 Modal - 用于 AI 工作负载的无服务器计算，包括沙箱。](/docs/compare/modal)
+- [![Vercel](/docs-assets/brands/vercel.svg) MIOSA 与 Vercel Sandbox - Vercel 平台内的临时代码执行。](/docs/compare/vercel)
 - [MIOSA 与 Cloudflare 沙盒 - Cloudflare 边缘上的沙盒代码执行。](/docs/compare/cloudflare)
-- [![Freestyle](https://miosa.ai/docs-assets/brands/freestyle.svg) MIOSA 与 Freestyle - 用于 AI 智能体的完整 Linux 虚拟机。](/docs/compare/freestyle)
-- [![Runloop](https://miosa.ai/docs-assets/brands/runloop.svg) MIOSA 与 Runloop - 用于 AI 编码智能体的 Devbox 和沙箱。](/docs/compare/runloop)
-- [![Blaxel](https://miosa.ai/docs-assets/brands/blaxel.svg) MIOSA 与 Blaxel - 用于在沙箱中运行代码的智能体基础设施。](/docs/compare/blaxel)
-- [![Beam](https://miosa.ai/docs-assets/brands/beam.svg) MIOSA 与 Beam - 用于运行代码和模型的无服务器沙箱。](/docs/compare/beam)
-- [![Boat](https://miosa.ai/docs-assets/brands/boat.svg) MIOSA 与 Boat - 带 SSH 的持久 Ubuntu 虚拟机、桌面和快照分支，用于 AI 智能体。](/docs/compare/boat)
-- [![CodeSandbox](https://miosa.ai/docs-assets/brands/codesandbox.svg) MIOSA 与 CodeSandbox - 云开发环境和沙箱。](/docs/compare/codesandbox)
+- [![Freestyle](/docs-assets/brands/freestyle.svg) MIOSA 与 Freestyle - 用于 AI 智能体的完整 Linux 虚拟机。](/docs/compare/freestyle)
+- [![Runloop](/docs-assets/brands/runloop.svg) MIOSA 与 Runloop - 用于 AI 编码智能体的 Devbox 和沙箱。](/docs/compare/runloop)
+- [![Blaxel](/docs-assets/brands/blaxel.svg) MIOSA 与 Blaxel - 用于在沙箱中运行代码的智能体基础设施。](/docs/compare/blaxel)
+- [![Beam](/docs-assets/brands/beam.svg) MIOSA 与 Beam - 用于运行代码和模型的无服务器沙箱。](/docs/compare/beam)
+- [![Boat](/docs-assets/brands/boat.svg) MIOSA 与 Boat - 带 SSH 的持久 Ubuntu 虚拟机、桌面和快照分支，用于 AI 智能体。](/docs/compare/boat)
+- [![CodeSandbox](/docs-assets/brands/codesandbox.svg) MIOSA 与 CodeSandbox - 云开发环境和沙箱。](/docs/compare/codesandbox)
 
 从其中之一搬走？ [Railway迁移指南](/docs/migrate/railway)是
 今天写了一份，`miosa import railway` 产生了一个可审查的计划，无需

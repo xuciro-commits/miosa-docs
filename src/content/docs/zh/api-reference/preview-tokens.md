@@ -81,9 +81,9 @@ Authorization: Bearer msk_...
 
 |状态 |代码|原因 |
 |--------|------|--------|
-| 404 | 404 `sandbox_not_found` |沙箱不存在或属于不同的租户 |
-| 403 | 403 `forbidden` |租户不匹配|
-| 422 | 422 `invalid_scope` | `scope` 不是 `"read"` 或 `"interact"` |
+| 404 | `sandbox_not_found`|沙箱不存在或属于不同的租户 |
+| 403 | `forbidden`|租户不匹配|
+| 422 | `invalid_scope`| `scope` 不是 `"read"` 或 `"interact"` |
 
 ---
 

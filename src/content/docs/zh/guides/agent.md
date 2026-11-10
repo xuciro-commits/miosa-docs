@@ -1,7 +1,7 @@
 ---
 slug: "guides/agent"
-title: "集成 AI 智能体"
-description: ""
+title: "接入自有 AI 智能体"
+description: "如何接入你自己的 AI 智能体，驱动 MIOSA 的沙箱或计算机原语来自主构建、运行与部署应用。"
 section: "Agents"
 order: 6004
 ---

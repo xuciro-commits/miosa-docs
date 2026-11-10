@@ -108,8 +108,8 @@ curl -X POST https://api.miosa.ai/api/v1/projects \
 |状态 |代码|原因 |
 |---|---|---|
 | 400 | `WORKSPACE_REQUIRED` |未提供 `workspace_id`、`workspace_slug` 或 `external_workspace_id` |
-| 404 | 404 `WORKSPACE_NOT_FOUND` |工作区选择器在组织内部未解析 |
-| 422 | 422 `VALIDATION_FAILED` |名称、slug 或外部项目 ID 验证失败 |
+| 404 | `WORKSPACE_NOT_FOUND`|工作区选择器在组织内部未解析 |
+| 422 | `VALIDATION_FAILED`|名称、slug 或外部项目 ID 验证失败 |
 
 ---
 

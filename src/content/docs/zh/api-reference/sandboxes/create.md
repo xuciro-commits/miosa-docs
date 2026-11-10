@@ -119,9 +119,9 @@ order: 12015
 |状态 |代码|原因 |
 |--------|------|--------|
 | 400 | `INVALID_TEMPLATE` | `template_id` 不是可识别的模板。 |
-| 402 | 402 `INSUFFICIENT_CREDITS` |积分不足，无法配置虚拟机。 |
-| 429 | 429 `SANDBOX_LIMIT_REACHED` |租户已达到其计划的并发沙箱限制（Developer 10、Business 250、Enterprise 500）。 |
-| 422 | 422 `VALIDATION_ERROR` |字段值无效（例如，超出租户计划上限的资源请求）。 |
+| 402 | `INSUFFICIENT_CREDITS`|积分不足，无法配置虚拟机。 |
+| 429 | `SANDBOX_LIMIT_REACHED`|租户已达到其计划的并发沙箱限制（Developer 10、Business 250、Enterprise 500）。 |
+| 422 | `VALIDATION_ERROR`|字段值无效（例如，超出租户计划上限的资源请求）。 |
 
 ---
 
@@ -188,12 +188,12 @@ curl -X POST https://api.miosa.ai/api/v1/sandboxes/run \
 |--------|------|--------|
 | 400 | `MISSING_PARAM` |缺少 `command`。 |
 | 400 | `INVALID_TEMPLATE` | `template_id` 无法识别。 |
-| 402 | 402 `INSUFFICIENT_CREDITS` |积分不足，无法配置虚拟机。 |
-| 429 | 429 `SANDBOX_LIMIT_REACHED` |租户已达到并发沙箱限制。 |
-| 409 | 409 `SANDBOX_NOT_RUNNING` |沙箱无法达到 exec 的运行状态。 |
-| 502 | 502 `SANDBOX_BOOT_FAILED` |在命令运行之前 VM 启动失败。 |
-| 502 | 502 `AGENT_UNAVAILABLE` | exec 无法访问沙箱智能体。 |
-| 504 | 504 `SANDBOX_READY_TIMEOUT` |沙箱在 `wait_timeout_ms` 之前尚未准备就绪。 |
+| 402 | `INSUFFICIENT_CREDITS`|积分不足，无法配置虚拟机。 |
+| 429 | `SANDBOX_LIMIT_REACHED`|租户已达到并发沙箱限制。 |
+| 409 | `SANDBOX_NOT_RUNNING`|沙箱无法达到 exec 的运行状态。 |
+| 502 | `SANDBOX_BOOT_FAILED`|在命令运行之前 VM 启动失败。 |
+| 502 | `AGENT_UNAVAILABLE`| exec 无法访问沙箱智能体。 |
+| 504 | `SANDBOX_READY_TIMEOUT`|沙箱在 `wait_timeout_ms` 之前尚未准备就绪。 |
 
 ---
 

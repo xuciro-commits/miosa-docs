@@ -92,10 +92,10 @@ order: 12029
 |状态 |错误 |原因 |
 |--------|--------|--------|
 | 400 | `name is required` |缺少名称或 template_type |
-| 402 | 402 `INSUFFICIENT_CREDITS` |没有足够的积分来创建 |
-| 404 | 404 `AGENT_RUNTIME_PROFILE_NOT_FOUND` |此租户中不存在显式配置文件 ID |
-| 422 | 422 `TENANT_RESOLUTION_FAILED` |无法确定用户的租户 |
-| 422 | 422 `AGENT_RUNTIME_PROFILE_NOT_APPLICABLE` |显式配置文件不适用于计算机 |
+| 402 | `INSUFFICIENT_CREDITS`|没有足够的积分来创建 |
+| 404 | `AGENT_RUNTIME_PROFILE_NOT_FOUND`|此租户中不存在显式配置文件 ID |
+| 422 | `TENANT_RESOLUTION_FAILED`|无法确定用户的租户 |
+| 422 | `AGENT_RUNTIME_PROFILE_NOT_APPLICABLE`|显式配置文件不适用于计算机 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -183,7 +183,7 @@ curl "https://api.miosa.ai/api/v1/computers?project_id=770e8400-e29b-41d4-a716-4
 | 状态 | 错误 | 原因 |
 |--------|--------|--------|
 | 400 | `invalid computer id` |不是有效的 UUID |
-| 404 | 404 `computer not found` |不存在或属于不同的租户 |
+| 404 | `computer not found`|不存在或属于不同的租户 |
 ```bash
 curl https://api.miosa.ai/api/v1/computers/{id} \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -229,8 +229,8 @@ curl -X PATCH https://api.miosa.ai/api/v1/computers/{id} \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 403 | 403 `not a member of this computer` |无法访问此计算机 |
-| 404 | 404 `computer not found` |不存在|
+| 403 | `not a member of this computer`|无法访问此计算机 |
+| 404 | `computer not found`|不存在|
 ```bash
 curl -X DELETE https://api.miosa.ai/api/v1/computers/{id} \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -252,8 +252,8 @@ curl -X DELETE https://api.miosa.ai/api/v1/computers/{id} \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 402 | 402 `INSUFFICIENT_CREDITS` |学分不足 |
-| 409 | 409 `computer cannot be started from its current status` |未处于可启动状态|
+| 402 | `INSUFFICIENT_CREDITS`|学分不足 |
+| 409 | `computer cannot be started from its current status`|未处于可启动状态|
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/start \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -275,7 +275,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/start \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 409 | 409 `computer cannot be stopped from its current status` |没有运行 |
+| 409 | `computer cannot be stopped from its current status`|没有运行 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/stop \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -297,7 +297,7 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/stop \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 409 | 409 `computer must be running to restart` |没有运行 |
+| 409 | `computer must be running to restart`|没有运行 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/restart \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -597,11 +597,11 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/ports \
 |状态 |代码|原因 |
 |--------|------|--------|
 | 400 | `invalid computer id` |路径参数不是有效的 UUID |
-| 402 | 402 `INSUFFICIENT_CREDITS` |没有足够的积分来启动或创建 |
-| 403 | 403 `not a member of this computer` |无法访问此计算机 |
-| 404 | 404 `computer not found` |不存在或属于不同的租户 |
-| 409 | 409 `COMPUTER_NOT_RUNNING` |操作需要运行电脑|
-| 502 | 502 `AGENT_UNAVAILABLE` |计算机命令服务不可用 |
+| 402 | `INSUFFICIENT_CREDITS`|没有足够的积分来启动或创建 |
+| 403 | `not a member of this computer`|无法访问此计算机 |
+| 404 | `computer not found`|不存在或属于不同的租户 |
+| 409 | `COMPUTER_NOT_RUNNING`|操作需要运行电脑|
+| 502 | `AGENT_UNAVAILABLE`|计算机命令服务不可用 |
 
 ---
 

@@ -12,7 +12,7 @@ order: 10062
 >
 > **Primitives you'll use**: Organization and API key, Sandbox, Computer, Postgres, Deployment (Docker Host), Custom domain
 
-![The BusinessOS desktop: draggable module windows, a real local terminal, and the OSA assistant](https://miosa.ai/docs-assets/build/business-os.png)
+![The BusinessOS desktop: draggable module windows, a real local terminal, and the OSA assistant](/docs-assets/build/business-os.png)
 
 *The BusinessOS desktop - draggable module windows, a real local terminal, and the OSA assistant. Screenshot from the BusinessOS repository (Apache-2.0).*
 

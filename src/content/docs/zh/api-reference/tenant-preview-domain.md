@@ -158,8 +158,8 @@ Authorization: Bearer msk_...
 |状态 |代码|原因 |
 |--------|------|--------|
 | 400 | `preview_domain is required` |失踪的身体领域|
-| 422 | 422 `invalid_domain` |检测到协议前缀、通配符、路径或子域 |
-| 404 | 404 `tenant not found` |租户不存在 |
+| 422 | `invalid_domain`|检测到协议前缀、通配符、路径或子域 |
+| 404 | `tenant not found`|租户不存在 |
 
 ---
 

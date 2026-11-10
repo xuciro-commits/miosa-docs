@@ -12,7 +12,7 @@ order: 10062
 >
 > **您将使用的原语**：组织和 API 密钥、沙箱、计算机、Postgres、部署（Docker 主机）、自定义域
 
-![BusinessOS 桌面：可拖动的模块窗口、真正的本地终端和 OSA 助手](https://miosa.ai/docs-assets/build/business-os.png)
+![BusinessOS 桌面：可拖动的模块窗口、真正的本地终端和 OSA 助手](/docs-assets/build/business-os.png)
 
 * BusinessOS 桌面 - 可拖动的模块窗口、真正的本地终端和 OSA 助手。来自 BusinessOS 存储库 (Apache-2.0) 的屏幕截图。*
 

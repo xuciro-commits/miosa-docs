@@ -103,9 +103,9 @@ Authorization: Bearer msk_...
 
 |状态 |代码|原因 |
 |--------|------|--------|
-| 422 | 422 `invalid group_by` | `group_by` 不是可接受的值之一 |
-| 422 | 422 `invalid period` | `period` 不是可接受的值之一 |
-| 422 | 422 `invalid_custom_range` |当 `period=custom` | 时，`start` 或 `end` 缺失或无效 ISO 8601
+| 422 | `invalid group_by`| `group_by` 不是可接受的值之一 |
+| 422 | `invalid period`| `period` 不是可接受的值之一 |
+| 422 | `invalid_custom_range` | 当 `period=custom` 时，`start` 或 `end` 缺失或不是合法的 ISO 8601 |
 
 ---
 

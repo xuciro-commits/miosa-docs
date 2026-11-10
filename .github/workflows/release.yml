@@ -1,0 +1,108 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      MIOSA_DEPLOYMENT_ID: c2325fd0-7617-485a-98e0-817374e9b131
+      SITE_URL: https://docs.norsky.cn
+      SPA: '1'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --no-audit --no-fund
+
+      - name: Check, content check and build
+        run: |
+          npm run check
+          npm run qa:content
+          npm run build:spa
+          npm run qa:routes
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Browser acceptance on the local build
+        run: |
+          node scripts/serve-static.mjs > "$RUNNER_TEMP/static-preview.log" 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid"' EXIT
+          npm run verify:deployment
+
+      - name: Install MIOSA CLI
+        run: npm install -g @miosa/cli@2.16.0
+
+      - name: Upload and verify the preview
+        id: release
+        env:
+          MIOSA_API_KEY: ${{ secrets.MIOSA_API_KEY }}
+        run: |
+          miosa deploy push "$MIOSA_DEPLOYMENT_ID" --dir build-static --no-promote --wait --json > "$RUNNER_TEMP/miosa-release.json"
+          version_id=$(jq -er '.data.version_id' "$RUNNER_TEMP/miosa-release.json")
+          echo "version_id=$version_id" >> "$GITHUB_OUTPUT"
+          miosa api GET "/deployments/$MIOSA_DEPLOYMENT_ID/versions/$version_id" > "$RUNNER_TEMP/miosa-version.json"
+          preview_url=$(jq -er '.data.preview_url' "$RUNNER_TEMP/miosa-version.json")
+          node scripts/verify-http.mjs "$preview_url" --sha "$GITHUB_SHA"
+          node scripts/verify-deployment.mjs "$preview_url"
+
+      - name: Promote and verify production
+        env:
+          MIOSA_API_KEY: ${{ secrets.MIOSA_API_KEY }}
+          VERSION_ID: ${{ steps.release.outputs.version_id }}
+        run: |
+          miosa deploy promote "$VERSION_ID" --deployment "$MIOSA_DEPLOYMENT_ID" --json
+          node scripts/verify-http.mjs "$SITE_URL" --sha "$GITHUB_SHA"
+          node scripts/verify-deployment.mjs "$SITE_URL"
+
+      - name: Capture release screenshots
+        run: |
+          mkdir -p release-shots
+          node -e "
+            const { chromium } = require('playwright-core');
+            (async () => {
+              const browser = await chromium.launch();
+              for (const [name, path] of [['home','/'],['docs','/docs/'],['docs-zh','/docs/'],['api','/docs/api-reference/']]) {
+                const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, locale: name.endsWith('-zh') ? 'zh-CN' : 'en-US' });
+                await page.goto(process.env.SITE_URL + path, { waitUntil: 'networkidle' });
+                await page.screenshot({ path: 'release-shots/' + name + '.png', fullPage: false });
+                await page.close();
+              }
+              await browser.close();
+            })();
+          "
+
+      - name: Publish the GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" release-shots/*.png \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "$GITHUB_REF_NAME" \
+            --notes "Live at $SITE_URL · commit $GITHUB_SHA · verified in Chromium before promotion." \
+            --verify-tag || gh release upload "$GITHUB_REF_NAME" release-shots/*.png --clobber

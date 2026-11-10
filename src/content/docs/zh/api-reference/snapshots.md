@@ -113,8 +113,8 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/snapshots \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 404 | 404 `computer not found` |计算机不存在或租户错误 |
-| 409 | 409 `computer is not running` |快照需要运行VM |
+| 404 | `computer not found`|计算机不存在或租户错误 |
+| 409 | `computer is not running`|快照需要运行VM |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/snapshots \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -168,8 +168,8 @@ curl https://api.miosa.ai/api/v1/computers/{id}/snapshots \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 403 | 403 `forbidden` |快照属于不同的租户 |
-| 404 | 404 `snapshot not found` |不存在|
+| 403 | `forbidden`|快照属于不同的租户 |
+| 404 | `snapshot not found`|不存在|
 ```bash
 curl https://api.miosa.ai/api/v1/computers/{id}/snapshots/{snap_id} \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -197,8 +197,8 @@ curl https://api.miosa.ai/api/v1/computers/{id}/snapshots/{snap_id} \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 404 | 404 `snapshot not found` |不存在|
-| 409 | 409 `snapshot is not in a deletable state` |快照正在恢复 |
+| 404 | `snapshot not found`|不存在|
+| 409 | `snapshot is not in a deletable state`|快照正在恢复 |
 ```bash
 curl -X DELETE https://api.miosa.ai/api/v1/computers/{id}/snapshots/{snap_id} \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -232,8 +232,8 @@ curl -X DELETE https://api.miosa.ai/api/v1/computers/{id}/snapshots/{snap_id} \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 404 | 404 `snapshot not found` |不存在|
-| 409 | 409 `snapshot is not ready` |快照必须处于 `ready` 状态 |
+| 404 | `snapshot not found`|不存在|
+| 409 | `snapshot is not ready`|快照必须处于 `ready` 状态 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/restore/{snap_id} \
   -H "Authorization: Bearer $MIOSA_API_KEY"

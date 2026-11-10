@@ -88,8 +88,8 @@ curl -N "https://api.miosa.ai/api/v1/computers/{id}/exec/stream/events?ticket=$T
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 409 | 409 `COMPUTER_NOT_RUNNING` |计算机未运行 |
-| 502 | 502 `AGENT_UNAVAILABLE` |虚拟机内智能体无法访问 |
+| 409 | `COMPUTER_NOT_RUNNING`|计算机未运行 |
+| 502 | `AGENT_UNAVAILABLE`|虚拟机内智能体无法访问 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/exec/stream \
   -H "Authorization: Bearer $MIOSA_API_KEY" \

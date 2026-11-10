@@ -18,8 +18,8 @@ docker buildx build --load -t myapp .
 
 |模板| Docker 引擎 |撰写和构建 |以 `sandbox` 用户身份运行 |
 |---|---|---|---|
-| `miosa-sandbox`（默认）| 29.9 | 29.9是的 |作为 `root` |
-| SOMA 运行时 (`runtime_profile: "soma"`) | 29.9 | 29.9是的 |作为 `root` |
+| `miosa-sandbox`（默认）| 29.9 | 是的|作为 `root` |
+| SOMA 运行时 (`runtime_profile: "soma"`) | 29.9 | 是的|作为 `root` |
 
 命令通过 `exec` 运行为 `root`，因此 `docker` 适用于上面包含它的每个模板。
 使用 `docker version`、`docker compose version` 和 `docker buildx version` 检查沙箱的内容。

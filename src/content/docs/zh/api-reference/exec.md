@@ -47,8 +47,8 @@ order: 12018
 
 |状态 |代码|描述 |
 |--------|------|-------------|
-| 409 | 409 `COMPUTER_NOT_RUNNING` |计算机未运行 |
-| 502 | 502  - |虚拟机内智能体无法访问 |
+| 409 | `COMPUTER_NOT_RUNNING`|计算机未运行 |
+| 502 | -|虚拟机内智能体无法访问 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/exec \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -111,8 +111,8 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/exec \
 
 |状态 |代码|描述 |
 |--------|------|-------------|
-| 409 | 409 `COMPUTER_NOT_RUNNING` |计算机未运行 |
-| 502 | 502  - |虚拟机内智能体无法访问 |
+| 409 | `COMPUTER_NOT_RUNNING`|计算机未运行 |
+| 502 | -|虚拟机内智能体无法访问 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/exec/python \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -296,8 +296,8 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/pty/{session_id}/resize 
 
 |状态 |代码|原因 |
 |--------|------|--------|
-| 409 | 409 `SANDBOX_NOT_RUNNING` |沙盒不处于 `running` 状态。 |
-| 504 | 504  - |命令超时。 |
+| 409 | `SANDBOX_NOT_RUNNING`|沙盒不处于 `running` 状态。 |
+| 504 | -|命令超时。 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes/sbx_01j9xr2t4fk8me3n5q/exec \
   -H "Authorization: Bearer $MIOSA_API_KEY" \

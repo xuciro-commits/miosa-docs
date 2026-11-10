@@ -1,7 +1,7 @@
 ---
 slug: "concepts"
 title: "核心概念"
-description: ""
+description: "MIOSA 的标准产品模型：从可变的沙箱到不可变的发布、稳定的部署、持久数据，以及客户自有的基础设施。"
 section: "Optional"
 order: 17005
 ---

@@ -21,7 +21,12 @@
 		"build:static": "node scripts/build-static.mjs",
 		"preview:static": "node scripts/serve-static.mjs",
 		"verify:deployment": "node scripts/verify-deployment.mjs",
-		"build:spa": "node scripts/build-spa.mjs"
+		"build:spa": "node scripts/build-spa.mjs",
+		"qa:content": "node scripts/content-qa.mjs",
+		"qa:content:staged": "node scripts/content-qa.mjs --staged",
+		"qa:routes": "node scripts/route-qa.mjs",
+		"verify:http": "node scripts/verify-http.mjs",
+		"hooks:install": "git config core.hooksPath .githooks"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.65.0",

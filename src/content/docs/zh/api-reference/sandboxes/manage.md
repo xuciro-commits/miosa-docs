@@ -77,7 +77,7 @@ curl "https://api.miosa.ai/api/v1/sandboxes?state=running" \
 
 |状态 |代码|原因 |
 |--------|------|--------|
-| 404 | 404 `NOT_FOUND` |沙箱不存在或属于不同的租户。 |
+| 404 | `NOT_FOUND`|沙箱不存在或属于不同的租户。 |
 ```bash
 curl https://api.miosa.ai/api/v1/sandboxes/sbx_01j9xr2t4fk8me3n5q \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -114,7 +114,7 @@ curl https://api.miosa.ai/api/v1/sandboxes/sbx_01j9xr2t4fk8me3n5q \
 
 |状态 |代码|原因 |
 |--------|------|--------|
-| 404 | 404 `NOT_FOUND` |沙箱不存在或属于不同的租户。 |
+| 404 | `NOT_FOUND`|沙箱不存在或属于不同的租户。 |
 ```bash
 curl -X DELETE https://api.miosa.ai/api/v1/sandboxes/sbx_01j9xr2t4fk8me3n5q \
   -H "Authorization: Bearer $MIOSA_API_KEY"

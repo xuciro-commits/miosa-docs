@@ -189,9 +189,9 @@ data: {"line":"  ready in 743ms","ts":"2026-05-26T10:14:24Z"}
 |状态 |代码|原因 |
 |--------|------|--------|
 | 400 | `INVALID_ID` |沙箱 ID 不是有效的 UUID |
-| 404 | 404 `NOT_FOUND` |沙箱或进程不存在|
-| 409 | 409 `SANDBOX_NOT_RUNNING` |沙箱必须处于 `running` 状态才能启动进程 |
-| 500 | 500 `PROCESS_START_FAILED` |运行时无法生成进程 |
+| 404 | `NOT_FOUND`|沙箱或进程不存在|
+| 409 | `SANDBOX_NOT_RUNNING`|沙箱必须处于 `running` 状态才能启动进程 |
+| 500 | `PROCESS_START_FAILED`|运行时无法生成进程 |
 
 ---
 

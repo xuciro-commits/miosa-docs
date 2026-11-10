@@ -108,8 +108,8 @@ Authorization: Bearer msk_...
 
 |状态 |代码|原因 |
 |--------|------|--------|
-| 404 | 404 `not_found` |此 `external_user_id` (GET/DELETE) | 不存在配额
-| 422 | 422验证错误 |限制值为非整数或负数 |
+| 404 | `not_found`|此 `external_user_id` (GET/DELETE) |
+| 422 | 验证错误|限制值为非整数或负数 |
 
 ---
 

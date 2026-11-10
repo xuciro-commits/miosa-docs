@@ -1,7 +1,7 @@
 ---
 slug: "concepts/tokens"
-title: ""
-description: "短期预览令牌 (mp_*) 和可撤销共享令牌 (ms_*)，用于在浏览器中加载沙盒预览，而无需公开工作区密钥。"
+title: "预览与分享令牌"
+description: "短期预览令牌（mp_*）与可撤销的分享令牌（ms_*），让浏览器可以加载沙箱预览而无需暴露工作区密钥。"
 section: "Optional"
 order: 17012
 ---

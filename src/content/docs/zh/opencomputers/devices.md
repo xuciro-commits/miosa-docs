@@ -169,10 +169,10 @@ miosa device rm <device> --yes
 | `MISSING_PARAM` | 400 |缺少必填字段；响应将其命名为 |
 | `INVALID_PARAM` | 400 |字段存在但不可用 |
 | `INVALID_BASE64` | 400 |文件内容的 base64 无效 |
-| `NOT_FOUND` | 404 | 404该设备不存在，或者不是您的 |
-| `DEVICE_NOT_RUNNING` | 409 | 409设备未运行；响应携带其 `state` |
-| `UNSUPPORTED_FOR_COMPUTER` | 422 | 422该操作不适用于电脑 |
-| `BROWSER_UNSUPPORTED_FOR_SANDBOX` | 422 | 422浏览需要电脑 |
-| `DEVICE_OPERATION_FAILED` | 422 | 422运行时拒绝了操作 |- [CLI 设备参考](/docs/cli/devices)：每个 miosa 设备命令和标志。
+| `NOT_FOUND` | 404 | 该设备不存在，或者不是您的|
+| `DEVICE_NOT_RUNNING` | 409 | 设备未运行；响应携带其 `state`|
+| `UNSUPPORTED_FOR_COMPUTER` | 422 | 该操作不适用于电脑|
+| `BROWSER_UNSUPPORTED_FOR_SANDBOX` | 422 | 浏览需要电脑|
+| `DEVICE_OPERATION_FAILED` | 422 | 运行时拒绝了操作|
 
 - [计算机](/docs/computers/overview)：计算机设备背后的托管桌面运行时。

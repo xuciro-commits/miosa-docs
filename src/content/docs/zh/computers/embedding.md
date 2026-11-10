@@ -1,7 +1,7 @@
 ---
 slug: "computers/embedding"
-title: ""
-description: "使用短暂的流 URL 将实时计算机桌面嵌入到您自己的 UI 中。像素流和输入转发由 MIOSA 处理。"
+title: "嵌入与流式传输"
+description: "用短期有效的推流地址把你自己的界面嵌入一台运行中的计算机桌面；像素推流与输入转发由 MIOSA 处理。"
 section: "Computers"
 order: 3004
 ---

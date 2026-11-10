@@ -117,9 +117,9 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/services \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 409 | 409 `a service with this name already exists` |每台计算机的名称必须是唯一的 |
-| 422 | 422验证错误 |名称格式无效或重新启动策略 |
-| 502 | 502 `AGENT_UNAVAILABLE` |虚拟机内智能体无法访问 |
+| 409 | `a service with this name already exists`|每台计算机的名称必须是唯一的 |
+| 422 | 验证错误|名称格式无效或重新启动策略 |
+| 502 | `AGENT_UNAVAILABLE`|虚拟机内智能体无法访问 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/services \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -180,7 +180,7 @@ curl https://api.miosa.ai/api/v1/computers/{id}/services \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 404 | 404 `service not found` |此计算机上不存在 |
+| 404 | `service not found`|此计算机上不存在 |
 
 ---
 
@@ -196,9 +196,9 @@ curl https://api.miosa.ai/api/v1/computers/{id}/services \
 
 |状态 |错误 |原因 |
 |--------|--------|--------|
-| 409 | 409 `service is already running` |无法启动正在运行的服务 |
-| 409 | 409 `service is not running` |无法停止未运行的服务 |
-| 502 | 502 `AGENT_UNAVAILABLE` |虚拟机内智能体无法访问 |
+| 409 | `service is already running`|无法启动正在运行的服务 |
+| 409 | `service is not running`|无法停止未运行的服务 |
+| 502 | `AGENT_UNAVAILABLE`|虚拟机内智能体无法访问 |
 ```bash
 # Stop a service
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/services/webserver/stop \

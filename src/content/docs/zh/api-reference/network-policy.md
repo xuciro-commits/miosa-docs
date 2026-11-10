@@ -117,7 +117,7 @@ curl https://api.miosa.ai/api/v1/computers/{id}/network-policy \
 |状态 |错误 |原因 |
 |--------|--------|--------|
 | 400 | `rules required for allowlist/denylist mode` |过滤模式的空规则 |
-| 404 | 404 `computer not found` |计算机不存在 |
+| 404 | `computer not found`|计算机不存在 |
 ```bash
 # Full isolation except for GitHub
 curl -X PUT https://api.miosa.ai/api/v1/computers/{id}/network-policy \

@@ -44,8 +44,8 @@ python -m http.server 8000 --bind 0.0.0.0
 |状态 |代码|原因 |
 |--------|------|--------|
 | 400 | `MISSING_PARAM` | `port` 被省略，沙盒模板没有默认预览端口。 |
-| 409 | 409 `SANDBOX_NOT_RUNNING` |沙盒不处于 `running` 状态。 |
-| 422 | 422 `INVALID_PORT` |端口位于 `1` 到 `65535` 之外。 |
+| 409 | `SANDBOX_NOT_RUNNING`|沙盒不处于 `running` 状态。 |
+| 422 | `INVALID_PORT`|端口位于 `1` 到 `65535` 之外。 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes/sbx_01j9xr2t4fk8me3n5q/expose \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -113,10 +113,10 @@ miosa deploy create --from-sandbox <sandbox-id> \
 |状态 |代码|原因 |
 |--------|------|--------|
 | 400 | `MISSING_PARAM` | `name` 被省略。 |
-| 409 | 409 `SANDBOX_NOT_RUNNING` |沙盒不处于 `running` 状态。 |
-| 409 | 409 `SANDBOX_RUNTIME_UNAVAILABLE` |沙盒已标记为正在运行，但还没有虚拟机 IP。 |
-| 422 | 422 `INVALID_PORT` |端口位于 `1` 到 `65535` 之外。 |
-| 422 | 422 `VALIDATION_ERROR` |部署记录验证失败。 |
+| 409 | `SANDBOX_NOT_RUNNING`|沙盒不处于 `running` 状态。 |
+| 409 | `SANDBOX_RUNTIME_UNAVAILABLE`|沙盒已标记为正在运行，但还没有虚拟机 IP。 |
+| 422 | `INVALID_PORT`|端口位于 `1` 到 `65535` 之外。 |
+| 422 | `VALIDATION_ERROR`|部署记录验证失败。 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/sandboxes/sbx_01j9xr2t4fk8me3n5q/deploy \
   -H "Authorization: Bearer $MIOSA_API_KEY" \

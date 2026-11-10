@@ -87,9 +87,9 @@ const content = await client.files.download(computerId, '/workspace/hello.py');
 |状态 |代码|描述 |
 |--------|------|-------------|
 | 400 | `MISSING_FILE` |请求中没有文件字段 |
-| 403 | 403 `FORBIDDEN_PATH` |允许目录之外的路径 |
-| 413 | 413 `FILE_TOO_LARGE` |文件超过 10 MB 限制 |
-| 502 | 502 `AGENT_UNAVAILABLE` |虚拟机内智能体无法访问 |
+| 403 | `FORBIDDEN_PATH`|允许目录之外的路径 |
+| 413 | `FILE_TOO_LARGE`|文件超过 10 MB 限制 |
+| 502 | `AGENT_UNAVAILABLE`|虚拟机内智能体无法访问 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/files/upload \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -190,9 +190,9 @@ curl "https://api.miosa.ai/api/v1/computers/{id}/files?path=/workspace" \
 |状态 |代码|描述 |
 |--------|------|-------------|
 | 400 | `MISSING_PATH` |无路径参数|
-| 403 | 403 `FORBIDDEN_PATH` |允许目录之外的路径 |
-| 404 | 404 `FILE_NOT_FOUND` |文件不存在 |
-| 502 | 502 `AGENT_UNAVAILABLE` |虚拟机内智能体无法访问 |
+| 403 | `FORBIDDEN_PATH`|允许目录之外的路径 |
+| 404 | `FILE_NOT_FOUND`|文件不存在 |
+| 502 | `AGENT_UNAVAILABLE`|虚拟机内智能体无法访问 |
 ```bash
 curl "https://api.miosa.ai/api/v1/computers/{id}/files/download?path=/workspace/output.txt" \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
@@ -287,7 +287,7 @@ curl -X DELETE https://api.miosa.ai/api/v1/computers/{id}/files \
 
 |状态 |代码|描述 |
 |--------|------|-------------|
-| 404 | 404 `FILE_NOT_FOUND` |路径不存在|
+| 404 | `FILE_NOT_FOUND`|路径不存在|
 ```bash
 curl "https://api.miosa.ai/api/v1/computers/{id}/files/stat?path=/workspace/script.py" \
   -H "Authorization: Bearer $MIOSA_API_KEY"
@@ -341,8 +341,8 @@ curl -X POST https://api.miosa.ai/api/v1/computers/{id}/files/mkdir \
 
 |状态 |代码|描述 |
 |--------|------|-------------|
-| 404 | 404 `FILE_NOT_FOUND` |源路径不存在 |
-| 409 | 409 `DESTINATION_EXISTS` |目的地已存在 |
+| 404 | `FILE_NOT_FOUND`|源路径不存在 |
+| 409 | `DESTINATION_EXISTS`|目的地已存在 |
 ```bash
 curl -X POST https://api.miosa.ai/api/v1/computers/{id}/files/rename \
   -H "Authorization: Bearer $MIOSA_API_KEY" \
