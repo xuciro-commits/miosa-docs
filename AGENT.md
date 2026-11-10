@@ -17,7 +17,7 @@ right routes and the right commit".
 
 ### Why the split
 
-Chromium acceptance is the only check that can fail for reasons outside this repository (edge routing, cache, platform drift). Measured on 2026-11-10: a content-only push reached production in the time recorded below; the platform-side artifact seal, not the pipeline, is the variable part. It is required before a
+Chromium acceptance is the only check that can fail for reasons outside this repository (edge routing, cache, platform drift). Measured on 2026-11-10 (UTC): the pipeline itself takes about 100 s in `qa` plus about 15 s of deploy setup. The variable part is MIOSA: the artifact seal measured 33-36 s in one window and 328-335 s in another, and promote measured 10-15 s against 306 s in the same slow window. Budget 2.5-3 min normally, and expect up to 10 min when the platform is congested. It is required before a
 release, but it must not block a one-page documentation edit. Both lanes run
 the deterministic checks, so a broken page never reaches production.
 
