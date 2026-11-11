@@ -1,6 +1,7 @@
 /* ------------------------------------------------------------- background */
-/* Fixed behind the page, matching the application's marketing shell: the same
-   shade gradient, the same 0.72 opacity, and a CSS grid when WebGL is absent. */
+/* Fixed behind the page. The scene is drawn on a canvas; each page block paints
+   its own translucent band over it (see [data-tone] below), so the art fades in
+   visible steps. A CSS grid stands in when WebGL is unavailable. */
 .fabric {
 	position: fixed;
 	inset: 0;
@@ -9,26 +10,6 @@
 	pointer-events: none;
 	/* The page colour lives here, not on body: body would paint over this layer. */
 	background: var(--bg);
-}
-
-.fabric::before {
-	content: '';
-	position: absolute;
-	inset: 0;
-	z-index: 1;
-	background: linear-gradient(90deg, #07080bd6, #07080b61 53%, #07080bb8);
-}
-
-.fabric-glow {
-	position: absolute;
-	inset: 0;
-	z-index: 0;
-	pointer-events: none;
-	display: none;
-}
-
-html[data-theme='light'] .fabric-glow {
-	display: block;
 }
 
 .fabric-canvas {
@@ -40,33 +21,75 @@ html[data-theme='light'] .fabric-glow {
 	opacity: 0.72;
 }
 
-/* The scene keeps its geometry in light mode; the canvas paints dark lines on the
-   pale page (see the uLight uniform in fabric.js). A soft veil sits over the art so
-   the copy keeps its contrast, strongest under the text and thin over the cubes. */
+/* Light pages keep the scene above the grid and rely on the banded shade, so the
+   canvas stays at full strength. */
 html[data-theme='light'] .fabric-canvas {
-	z-index: 0;
 	opacity: 0.9;
+	/* The grid fallback sits at z-index 0 too; the canvas must paint above it. */
+	z-index: 1;
 }
 
-html[data-theme='light'] .fabric::before {
-	background: none;
+html[data-theme='light'] .static-fabric {
+	z-index: 0;
 }
 
-/* Light mode paints the scene above the grid and puts the readability glow in
-   `.fabric-glow`, a real element, so the two stack predictably. */
-html[data-theme='light'] .fabric-canvas {
-	z-index: 2;
+/* Per-block veils, matching the reference page: the hero is clear so the scene
+   reads at full strength, then every block lays its own translucent band with a
+   light blur. Values are the reference's measured ones (0.54 / 0.44 / 0.76). */
+[data-tone='clear'] {
+	background: transparent;
 }
 
-html[data-theme='light'] .fabric-glow {
-	z-index: 3;
+/* The hero has no band of its own; a soft radial keeps the copy legible without
+   flattening the art the way a flat fill would. */
+html[data-theme='light'] [data-tone='clear'] {
 	background: radial-gradient(
-		58% 96% at 20% 44%,
-		rgba(250, 250, 250, 0.95) 0%,
-		rgba(250, 250, 250, 0.86) 46%,
-		rgba(250, 250, 250, 0.45) 68%,
+		62% 92% at 22% 46%,
+		rgba(250, 250, 250, 0.92) 0%,
+		rgba(250, 250, 250, 0.7) 45%,
+		rgba(250, 250, 250, 0.2) 72%,
 		rgba(250, 250, 250, 0) 84%
 	);
+}
+
+[data-tone='veil-1'] {
+	background: rgba(7, 8, 11, 0.54);
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
+}
+
+[data-tone='veil-2'] {
+	background: rgba(7, 8, 11, 0.44);
+	-webkit-backdrop-filter: blur(4px);
+	backdrop-filter: blur(4px);
+}
+
+[data-tone='veil-3'] {
+	background: rgba(7, 8, 11, 0.6);
+	-webkit-backdrop-filter: blur(7px);
+	backdrop-filter: blur(7px);
+}
+
+[data-tone='veil-4'] {
+	background: rgba(5, 6, 8, 0.76);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+}
+
+html[data-theme='light'] [data-tone='veil-1'] {
+	background: rgba(250, 250, 250, 0.34);
+}
+
+html[data-theme='light'] [data-tone='veil-2'] {
+	background: rgba(250, 250, 250, 0.26);
+}
+
+html[data-theme='light'] [data-tone='veil-3'] {
+	background: rgba(250, 250, 250, 0.4);
+}
+
+html[data-theme='light'] [data-tone='veil-4'] {
+	background: rgba(250, 250, 250, 0.62);
 }
 
 .static-fabric {

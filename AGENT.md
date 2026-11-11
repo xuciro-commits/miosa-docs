@@ -73,7 +73,14 @@ shell. After the change a cold homepage visit transfers about **97 KB** with
 first paint around **50 ms** locally, and the page has real HTML for search.
 
 The background is a separate module so the marketing page does not depend on the
-app bundle. Things it has to get right:
+app bundle. The background also carries **one translucent band per page block**, the way the
+reference page does it: the hero is clear, then each section paints
+`rgba(7,8,11, .54/.44/.6/.76)` with `blur(5/4/7/10px)`. The band is a `data-tone`
+attribute the generator writes onto each `<section>`, so adding a block adds a
+band; light pages use pale values of the same steps. Do not replace this with a
+single global gradient: the stepped bands are the design.
+
+Things the scene has to get right:
 
 - the fixed layer must not sit at a negative z-index (the root background would
   cover it), and the page colour lives on `.fabric`, never on `body`;

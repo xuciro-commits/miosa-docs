@@ -75,10 +75,13 @@ function headingOf(locale, heading, tag = 'h2') {
 function renderSection(locale, section) {
 	const tr = translator(locale);
 	const eyebrow = section.eyebrow ? `<p class="eyebrow">${esc(tr(section.eyebrow))}</p>` : '';
+	// Each block paints its own background band (`data-tone`), exactly like the
+	// reference page: hero clear, then veils that step toward the footer.
+	const tone = section.tone ? ` data-tone="${esc(section.tone)}"` : '';
 
 	if (section.type === 'hero') {
 		const title = section.title;
-		return `<section class="hero">
+		return `<section class="hero"${tone}>
 	<div class="hero-copy">
 		<a class="announcement" href="${esc(section.announcement.href)}"><span><i></i>${esc(tr(section.announcement.label))}</span><b>${esc(tr(section.announcement.text))}</b><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 		${eyebrow}
@@ -96,14 +99,14 @@ function renderSection(locale, section) {
 				(item, index) => `<a class="card" href="${esc(item.href)}">${section.numbered ? `<small>0${index + 1}</small>` : ''}<h3>${esc(tr(item.title))}</h3><p>${esc(tr(item.text))}</p><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>`
 			)
 			.join('');
-		return `<section class="section features${section.numbered ? ' numbered' : ''}">
+		return `<section class="section features${section.numbered ? ' numbered' : ''}"${tone}>
 	<div class="section-head"><div>${eyebrow}${headingOf(locale, section.title)}</div><p>${esc(tr(section.lead))}</p></div>
 	<div class="cards">${items}</div>
 </section>`;
 	}
 
 	if (section.type === 'split') {
-		return `<section class="section split">
+		return `<section class="section split"${tone}>
 	<div>${eyebrow}${headingOf(locale, section.title)}</div>
 	<div><p>${esc(tr(section.lead))}</p>${renderLink(locale, section.cta, 'button primary')}</div>
 </section>`;
@@ -111,7 +114,7 @@ function renderSection(locale, section) {
 
 	if (section.type === 'cta') {
 		const labels = section.commandLabels;
-		return `<section class="section cta">
+		return `<section class="section cta"${tone}>
 	${eyebrow}${headingOf(locale, section.title)}
 	<p>${esc(tr(section.lead.line1))}<br />${esc(tr(section.lead.line2))}</p>
 	<div class="cta-actions">${renderLink(locale, section.primary, 'button primary')}
@@ -129,7 +132,7 @@ function renderSection(locale, section) {
 					`<li><img src="${esc(logo.src)}" alt="${esc(logo.name)}" loading="lazy" width="96" height="26" /></li>`
 			)
 			.join('');
-		return `<section class="section logos">
+		return `<section class="section logos"${tone}>
 	${eyebrow}${section.note ? `<p class="logos-note">${esc(tr(section.note))}</p>` : ''}
 	<ul class="logo-row">${logos}</ul>
 </section>`;
@@ -139,7 +142,7 @@ function renderSection(locale, section) {
 		const lines = section.lines
 			.map((line) => `<span class="line ${esc(line.kind)}">${esc(line.text)}</span>`)
 			.join('');
-		return `<section class="section terminal">
+		return `<section class="section terminal"${tone}>
 	<div class="section-head"><div>${eyebrow}${headingOf(locale, section.title)}</div><p>${esc(tr(section.lead))}</p></div>
 	<figure class="terminal-window" role="img" aria-label="${esc(tr(section.caption))}"><div class="terminal-bar"><i></i><i></i><i></i></div><pre>${lines}</pre><figcaption>${esc(tr(section.caption))}</figcaption></figure>
 </section>`;
@@ -169,7 +172,7 @@ function renderSection(locale, section) {
 </article>`;
 			})
 			.join('');
-		return `<section class="section pricing">
+		return `<section class="section pricing"${tone}>
 	<div class="section-head"><div>${eyebrow}${headingOf(locale, section.title)}</div><p>${esc(tr(section.lead))}</p></div>
 	<div class="plan-grid">${cards}</div>
 	${section.more ? renderLink(locale, section.more, 'button secondary pricing-more') : ''}
@@ -187,7 +190,7 @@ function renderSection(locale, section) {
 					.join('')}</div>`
 			)
 			.join('');
-		return `<footer class="footer">
+		return `<footer class="footer"${tone}>
 	<div class="footer-statement"><h2>${esc(tr(section.statement.line1))}<br />${esc(tr(section.statement.line2))}</h2><p>${esc(tr(section.statement.bodyLine1))}<br />${esc(tr(section.statement.bodyLine2))}</p></div>
 	<nav class="footer-grid" aria-label="${esc(tr(section.navLabel))}">${columns}</nav>
 	<div class="footer-base"><span>${esc(tr(section.copyright))}</span><a href="${esc(section.about.href)}">${esc(tr(section.about.label))}</a><button class="status" type="button" data-checking="${esc(tr('status.checking'))}" data-ready="${esc(tr('status.docsAvailable'))}" data-error="${esc(tr('status.unavailableRetry'))}"><i></i><span data-status>${esc(tr('status.checking'))}</span></button><a href="${esc(section.github)}" target="_blank" rel="noreferrer" aria-label="GitHub">${ARROW}</a></div>
@@ -241,7 +244,7 @@ function htmlFor(locale, otherLocale) {
 <style>${CRITICAL_CSS}</style>
 </head>
 <body>
-<div class="fabric"><canvas class="fabric-canvas" aria-hidden="true" data-three="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"></canvas><div class="fabric-glow" aria-hidden="true"></div><div class="static-fabric" aria-hidden="true"></div></div>
+<div class="fabric"><canvas class="fabric-canvas" aria-hidden="true" data-three="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"></canvas><div class="static-fabric" aria-hidden="true"></div></div>
 <header class="header">
 	<a class="brand" href="${locale === DEFAULT_LOCALE ? '/' : config.prefix + '/'}" aria-label="MIOSA home"><img src="/brand/osa-orb.png" alt="" width="34" height="34" /><img class="wordmark" src="/brand/miosa-white.png" alt="MIOSA" width="65" height="16" /></a>
 	<nav aria-label="Primary"><a class="nav-docs" href="/docs">${esc(translator(locale)('nav.docs'))}<span class="new-tag">${esc(translator(locale)('nav.new'))}</span></a><a href="/pricing">${esc(translator(locale)('nav.pricing'))}</a><a class="lang" href="${esc(other.prefix || '/')}" hreflang="${esc(other.htmlLang)}">${otherLocale.toUpperCase()}</a><a class="sign-in" href="https://miosa.ai/login">${esc(translator(locale)('nav.signIn'))}</a><a class="cta" href="https://miosa.ai/register">${esc(translator(locale)('nav.startBuilding'))}</a></nav>

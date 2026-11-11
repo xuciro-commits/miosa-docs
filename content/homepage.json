@@ -71,7 +71,8 @@
 				"value": "57.1 ms",
 				"label": "home.hero.benchmark",
 				"href": "https://miosa.ai/docs/benchmarks"
-			}
+			},
+			"tone": "clear"
 		},
 		"infrastructure": {
 			"type": "features",
@@ -98,7 +99,8 @@
 					"text": "home.infrastructure.step3.text",
 					"href": "/docs/docker-host/docker-deploy"
 				}
-			]
+			],
+			"tone": "veil-2"
 		},
 		"quickstart": {
 			"type": "steps",
@@ -124,7 +126,8 @@
 					"text": "home.infrastructure.step3.text",
 					"href": "/docs/docker-host/docker-deploy"
 				}
-			]
+			],
+			"tone": "veil-1"
 		},
 		"customer": {
 			"type": "split",
@@ -137,7 +140,8 @@
 			"cta": {
 				"label": "home.customer.cta",
 				"href": "/docs/guides/agent-product-model"
-			}
+			},
+			"tone": "veil-1"
 		},
 		"closing": {
 			"type": "cta",
@@ -164,7 +168,8 @@
 			"link": {
 				"label": "home.closing.setupGuide",
 				"href": "/docs/cli/install"
-			}
+			},
+			"tone": "veil-4"
 		},
 		"footer": {
 			"type": "footer",
@@ -336,7 +341,8 @@
 				"label": "footer.about",
 				"href": "/docs/api-reference/custom-domains"
 			},
-			"github": "https://github.com/Miosa-osa"
+			"github": "https://github.com/Miosa-osa",
+			"tone": "veil-4"
 		},
 		"logos": {
 			"type": "logos",
@@ -367,7 +373,8 @@
 					"name": "Blaxel",
 					"src": "/docs-assets/brands/blaxel.svg"
 				}
-			]
+			],
+			"tone": "veil-1"
 		},
 		"terminal": {
 			"type": "terminal",
@@ -415,7 +422,8 @@
 					"kind": "output",
 					"text": "https://my-box.preview.miosa.ai"
 				}
-			]
+			],
+			"tone": "veil-2"
 		},
 		"pricing": {
 			"type": "pricing",
@@ -445,7 +453,8 @@
 			"more": {
 				"label": "pricing.plans.startDeveloping",
 				"href": "/pricing"
-			}
+			},
+			"tone": "veil-3"
 		}
 	}
 }
