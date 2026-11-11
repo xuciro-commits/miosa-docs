@@ -8,6 +8,7 @@ export type DocMeta = {
 	description: string;
 	section: string;
 	order: number;
+	layout?: string;
 	titleZh?: string;
 	descriptionZh?: string;
 };

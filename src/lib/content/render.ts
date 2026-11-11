@@ -293,12 +293,104 @@ const LABELS = {
 
 export type DocRender = { html: string; accordion: boolean };
 
+
+/**
+ * `layout: collection` pages read like the glossary: groups become filter pills,
+ * items become collapsible cards with a definition and one line of use. The
+ * Markdown shape is `## group` / `### item` / paragraphs / one blockquote.
+ */
+function collectionBody(markdown: string, locale: 'en' | 'zh'): string {
+	const lines = markdown.split('\n');
+	type Group = { title: string; description: string; items: { title: string; body: string; use: string }[] };
+	const groups: Group[] = [];
+	const preamble: string[] = [];
+	let group: Group | null = null;
+	let item: { title: string; lines: string[] } | null = null;
+
+	const flushItem = () => {
+		if (!group || !item) return;
+		const text = item.lines.join('\n').trim();
+		const quote = text.match(/^>\s?([\s\S]*)$/m);
+		const body = quote ? text.slice(0, text.indexOf(quote[0])).trim() : text;
+		const use = quote ? quote[1].replace(/^>\s?/gm, '').trim() : '';
+		group.items.push({ title: item.title, body, use });
+		item = null;
+	};
+	const flushGroup = () => {
+		flushItem();
+		if (group) groups.push(group);
+		group = null;
+	};
+
+	for (const line of lines) {
+		const h2 = line.match(/^##\s+(.+)$/);
+		const h3 = line.match(/^###\s+(.+)$/);
+		if (h2) {
+			flushGroup();
+			group = { title: h2[1].trim(), description: '', items: [] };
+			continue;
+		}
+		if (h3) {
+			flushItem();
+			if (!group) group = { title: '', description: '', items: [] };
+			item = { title: h3[1].trim(), lines: [] };
+			continue;
+		}
+		if (item) item.lines.push(line);
+		else if (!group) preamble.push(line);
+		else if (group && line.trim() && !group.description) group.description = line.trim();
+		else if (group && group.description && line.trim()) group.description += ' ' + line.trim();
+	}
+	flushGroup();
+
+	if (!groups.length) return '';
+
+	const label = locale === 'zh'
+		? { search: '查找一个词…', use: '实际应用', expand: '全部展开', collapse: '全部收起', items: '条', groups: '组' }
+		: { search: 'Find an entry…', use: 'In practice', expand: 'Expand all', collapse: 'Collapse all', items: 'entries', groups: 'groups' };
+
+	const pills = groups
+		.map(
+			(entry, index) =>
+				`<button type="button" class="collection-pill${index === 0 ? ' is-active' : ''}" data-group-tab="${index}">${inline(entry.title)}</button>`
+		)
+		.join('');
+
+	const sections = groups
+		.map((entry, index) => {
+			const cards = entry.items
+				.map((card) => {
+					const body = card.body ? marked.parse(card.body) as string : '';
+					const use = card.use
+						? `<div class="collection-use"><span>${label.use}</span>${marked.parse(card.use) as string}</div>`
+						: '';
+					return `<details class="collection-item"><summary><span>${inline(card.title)}</span><span class="collection-chevron" aria-hidden="true"></span></summary><div class="collection-item-body">${body}${use}</div></details>`;
+				})
+				.join('');
+			return `<section class="collection-group${index === 0 ? ' is-active' : ''}" data-group-panel="${index}"><div class="collection-heading"><div><h2>${inline(entry.title)}</h2>${entry.description ? `<p>${inline(entry.description)}</p>` : ''}</div></div><div class="collection-grid">${cards}</div></section>`;
+		})
+		.join('');
+
+	const totalItems = groups.reduce((total, entry) => total + entry.items.length, 0);
+	const lead = preamble.join('\n').trim() ? (marked.parse(preamble.join('\n').trim()) as string) : '';
+	return `${lead}<div class="collection" data-collection data-items-label="${label.items}" data-groups-label="${label.groups}">
+<div class="collection-toolbar"><label class="collection-search"><input type="search" placeholder="${label.search}" aria-label="${label.search}" /></label><span class="collection-count">${totalItems} ${label.items} · ${groups.length} ${label.groups}</span><button type="button" class="collection-toggle-all" data-collapse="${label.collapse}">${label.expand}</button></div>
+<div class="collection-pills">${pills}</div>
+${sections}
+</div>`;
+}
+
 export function renderDoc(
 	slug: string,
 	markdown: string,
 	title: string,
-	locale: 'en' | 'zh' = 'en'
+	locale: 'en' | 'zh' = 'en',
+	options: { layout?: string } = {}
 ): DocRender {
+	if (options.layout === 'collection') {
+		const rendered = collectionBody(markdown, locale);
+		if (rendered) return { html: rendered, accordion: false };
+	}
 	const isFaqTopic = /^faq\/[^/]+$/.test(slug);
 	if (isFaqTopic) {
 		const result = accordion(markdown, title, locale, (cardCounts as Record<string, number>)[slug] ?? 0);

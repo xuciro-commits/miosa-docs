@@ -16,5 +16,10 @@ export async function load({ params }) {
 			404,
 			'This page does not exist. Search the documentation or choose a page from the sidebar.'
 		);
-	return { slug, title: meta.title, titleZh: meta.titleZh ?? meta.title };
+	return {
+		slug,
+		title: meta.title,
+		titleZh: meta.titleZh ?? meta.title,
+		layout: meta.layout ?? null
+	};
 }

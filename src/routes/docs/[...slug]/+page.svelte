@@ -35,7 +35,8 @@
 				data.slug,
 				markdown,
 				locale === 'zh' ? (meta?.titleZh ?? data.titleZh ?? '') : (meta?.title ?? data.title ?? ''),
-				locale
+				locale,
+				{ layout: meta?.layout }
 			).html;
 			rendered = key;
 			status = 'ready';
@@ -71,6 +72,7 @@
 			wireAccordion(root);
 			wireTabs(root);
 			wireCopy(root);
+			wireCollection(root);
 			enhanceCode(root);
 			enhanceMermaid(root);
 		});
@@ -80,6 +82,49 @@
 	});
 
 	let highlightQueued = false;
+
+	/** Collection layout: pills pick a group, the search filters items, all opens at once. */
+	function wireCollection(root: HTMLElement) {
+		for (const box of root.querySelectorAll<HTMLElement>('.collection:not([data-wired])')) {
+			box.dataset.wired = 'true';
+			const pills = [...box.querySelectorAll<HTMLButtonElement>('.collection-pill')];
+			const panels = [...box.querySelectorAll<HTMLElement>('.collection-group')];
+			const items = [...box.querySelectorAll<HTMLDetailsElement>('.collection-item')];
+			const search = box.querySelector<HTMLInputElement>('.collection-search input');
+			const toggle = box.querySelector<HTMLButtonElement>('.collection-toggle-all');
+
+			const activate = (index: number) => {
+				pills.forEach((pill, position) => pill.classList.toggle('is-active', position === index));
+				panels.forEach((panel, position) => panel.classList.toggle('is-active', position === index));
+			};
+			pills.forEach((pill, index) => pill.addEventListener('click', () => activate(index)));
+
+			search?.addEventListener('input', () => {
+				const needle = search.value.trim().toLowerCase();
+				let firstHit = -1;
+				panels.forEach((panel, index) => {
+					let visible = 0;
+					for (const item of panel.querySelectorAll<HTMLDetailsElement>('.collection-item')) {
+						const hit = !needle || item.textContent?.toLowerCase().includes(needle);
+						item.hidden = !hit;
+						if (hit) visible += 1;
+					}
+					if (visible && firstHit === -1) firstHit = index;
+				});
+				if (firstHit !== -1) activate(firstHit);
+			});
+
+			toggle?.addEventListener('click', () => {
+				const closed = items.filter((item) => !item.open).length;
+				const openAll = closed > 0;
+				for (const item of items) item.open = openAll;
+				toggle.textContent = openAll ? (toggle.dataset.collapse ?? '') : (toggle.dataset.expandLabel ?? '');
+				if (!openAll) toggle.textContent = toggle.dataset.expandLabel ?? 'Expand all';
+			});
+			if (toggle && !toggle.dataset.expandLabel)
+				toggle.dataset.expandLabel = toggle.textContent ?? '';
+		}
+	}
 
 	/** Tabbed code groups: one panel visible at a time. */
 	function wireTabs(root: HTMLElement) {

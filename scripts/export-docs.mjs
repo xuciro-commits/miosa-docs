@@ -61,6 +61,7 @@ for (const lang of LANGS) {
 						title: fields.title ?? slug,
 						description: fields.description ?? '',
 						section: fields.section ?? '',
+						...(fields.layout ? { layout: fields.layout } : {}),
 						order: Number(fields.order ?? 500000)
 					}
 				: { titleZh: fields.title, descriptionZh: fields.description })
@@ -87,6 +88,7 @@ const pages = [...manifest.values()]
 		title: page.title ?? page.slug,
 		description: page.description ?? '',
 		section: page.section ?? '',
+		...(page.layout ? { layout: page.layout } : {}),
 		order: Number.isFinite(page.order) ? page.order : 500000,
 		...(page.titleZh ? { titleZh: page.titleZh } : {}),
 		...(page.descriptionZh ? { descriptionZh: page.descriptionZh } : {})

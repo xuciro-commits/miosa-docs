@@ -3839,6 +3839,7 @@
 			"title": "The Canonical Treatise in Twenty Chapters",
 			"description": "The canonical text in five books: way and vessel, the conjugate operators, transition and continuity, formal representation, compression, and alignment.",
 			"section": "Xici",
+			"layout": "collection",
 			"order": 19002,
 			"titleZh": "《系辞本传》二十章",
 			"descriptionZh": "五卷二十章的定本全文：道器、乾坤、变通、法象、研几、趣时，去占卜、去音译，只留命题。"
