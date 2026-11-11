@@ -14,6 +14,10 @@
 
 构建发生在 GitHub Actions，静态文件托管在 MIOSA。仓库 Secret `MIOSA_API_KEY` 用于发布，不进入静态产物。`release.json` 记录该版本的 Git 提交号。
 
+`build:spa` 会自动接入 CDN。访问 `x.norsky.cn` 或 `x.msru.cn` 时，Service Worker 将构建清单中不超过 128KB 的公开静态资源请求发往 `https://x.cdn.<原主域名>:14444`。首次访问正常从源站加载，Worker 接管后的请求才使用 CDN；HTML、接口、大文件和认证请求仍走源站。CDN 超过 1.2 秒未返回、连接失败或内容哈希与当前构建不符时，自动回源；连接失败或超时后 60 秒内直接走源站，避免连续等待，不保存浏览器离线副本。
+
+其他静态项目可复用 `scripts/configure-cdn.mjs` 和 `scripts/lib/cdn-worker.js`，构建后执行 `node scripts/configure-cdn.mjs dist`。域名本身仍需在托管平台绑定并解析到源站；`*.cdn` 解析不会自动改写原站请求。缓存节点还需允许该源站的静态缓存。预览域名和本地开发不会注册 Worker。运行 `node scripts/verify-cdn.mjs` 可检查回源与版本校验行为。
+
 ```sh
 npm ci --legacy-peer-deps
 npm run build:spa
