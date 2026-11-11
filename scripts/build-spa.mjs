@@ -31,6 +31,17 @@ async function save(url, file) {
 }
 
 rmSync(out, { recursive: true, force: true });
+
+// Pin the content to the commit being built. This has to happen before the
+// bundle is produced: the app reads the version from this file.
+const contentSha =
+	process.env.CONTENT_SHA ?? execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+const contentVersion = { repo: 'xuciro-commits/miosa-docs', sha: contentSha, branch: 'main' };
+writeFileSync(
+	join(root, 'src/lib/content/content-version.json'),
+	JSON.stringify(contentVersion, null, '\t') + '\n'
+);
+
 run(process.execPath, [join(root, 'scripts/export-docs.mjs')]);
 run(process.execPath, [join(root, 'node_modules/vite/bin/vite.js'), 'build', '--config', 'vite.spa.config.ts']);
 run(process.execPath, [join(root, 'node_modules/vite/bin/vite.js'), 'build']);
@@ -71,16 +82,9 @@ try {
 
 	rmSync('build-static/llms.txt', { force: true });
 	const commit = process.env.GITHUB_SHA ?? execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
-	// Content ships from this repository, pinned to the commit being built.
-	const sha = process.env.CONTENT_SHA ?? execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
-	const content = { repo: 'xuciro-commits/miosa-docs', sha, branch: 'main' };
-	writeFileSync(
-		join(root, 'src/lib/content/content-version.json'),
-		JSON.stringify(content, null, '\t') + '\n'
-	);
 	writeFileSync(
 		'build-static/release.json',
-		JSON.stringify({ commit, spa: true, content: content.sha, builtAt: new Date().toISOString() })
+		JSON.stringify({ commit, spa: true, content: contentSha, builtAt: new Date().toISOString() })
 	);
 	console.log(`SPA site ready: ${out}`);
 } finally {
