@@ -6,7 +6,7 @@ section: "Get started"
 order: 1
 ---
 
-MIOSA (live-edit-check) runs isolated Linux sandboxes and full cloud desktops for your code and your AI agents, then publishes the result to a live URL.
+MIOSA runs isolated Linux sandboxes and full cloud desktops for your code and your AI agents, then publishes the result to a live URL.
 This page takes you from install to an app that an agent built, in four steps.
 
 Video: [Quickstart, explained](https://miosa.ai/videos/quickstart-explained.mp4) (1:35)
