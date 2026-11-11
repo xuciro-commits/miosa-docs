@@ -1,0 +1,3154 @@
+[
+	{
+		"title": "Get started",
+		"count": "9",
+		"items": [
+			{
+				"slug": "",
+				"title": "Introduction",
+				"icon": "book-open"
+			},
+			{
+				"title": "Quickstart",
+				"icon": "zap",
+				"count": "4",
+				"children": [
+					{
+						"slug": "quickstart",
+						"title": "Quickstart",
+						"icon": "zap",
+						"titleZh": "快速开始"
+					},
+					{
+						"slug": "quickstart/sandbox-to-deployment",
+						"title": "Sandbox to deployment",
+						"icon": "rocket",
+						"titleZh": "从沙箱到部署"
+					},
+					{
+						"slug": "quickstart/agent-driven-build",
+						"title": "Agent-driven build",
+						"icon": "bot",
+						"titleZh": "智能体驱动的构建"
+					},
+					{
+						"slug": "quickstart/app-engine",
+						"title": "Docker Host",
+						"icon": "container",
+						"titleZh": "Docker Host"
+					}
+				]
+			},
+			{
+				"slug": "cli/install",
+				"title": "Install and authenticate",
+				"icon": "download",
+				"titleZh": "安装并验证"
+			},
+			{
+				"slug": "sandboxes-or-computers",
+				"title": "Sandboxes or Computers?",
+				"icon": "box",
+				"titleZh": "沙箱还是计算机？"
+			},
+			{
+				"slug": "learn/first-production-app",
+				"title": "Build and deploy a Next.js app",
+				"icon": "rocket",
+				"titleZh": "构建并部署 Next.js 应用程序"
+			},
+			{
+				"slug": "use-cases",
+				"title": "What you can build with MIOSA",
+				"icon": "lightbulb",
+				"titleZh": "使用 MIOSA 可以构建什么"
+			}
+		]
+	},
+	{
+		"title": "Learn",
+		"count": "13",
+		"items": [
+			{
+				"slug": "learn",
+				"title": "Learn MIOSA your way",
+				"icon": "graduation-cap",
+				"titleZh": "以您的方式学习 MIOSA"
+			},
+			{
+				"slug": "learn/earn",
+				"title": "Learn and earn",
+				"icon": "circle-dollar-sign",
+				"titleZh": "学习并赚取"
+			},
+			{
+				"slug": "glossary",
+				"title": "MIOSA Glossary",
+				"icon": "library",
+				"titleZh": "MIOSA 术语表"
+			},
+			{
+				"slug": "learn/games",
+				"title": "Learn with games",
+				"icon": "gamepad-2",
+				"titleZh": "通过游戏学习"
+			},
+			{
+				"slug": "learn/videos",
+				"title": "Learn with videos",
+				"icon": "play",
+				"titleZh": "通过视频学习"
+			},
+			{
+				"title": "Product model",
+				"icon": "layers",
+				"count": "8",
+				"children": [
+					{
+						"slug": "concepts",
+						"title": "Core Concepts",
+						"icon": "layers",
+						"titleZh": "核心概念"
+					},
+					{
+						"slug": "concepts/resource-model",
+						"title": "Resource model",
+						"icon": "boxes",
+						"titleZh": "资源模型"
+					},
+					{
+						"slug": "concepts/publish-pipeline",
+						"title": "The publish pipeline",
+						"icon": "git-branch",
+						"titleZh": "发布管道"
+					},
+					{
+						"slug": "concepts/computers-desktop",
+						"title": "Computers (desktop product)",
+						"icon": "monitor",
+						"titleZh": "计算机（桌面产品）"
+					},
+					{
+						"slug": "concepts/tenancy",
+						"title": "Tenancy",
+						"icon": "building-complex",
+						"titleZh": "租赁"
+					},
+					{
+						"slug": "concepts/tenant-config",
+						"title": "Tenant configuration",
+						"icon": "settings-2",
+						"titleZh": "租户配置"
+					},
+					{
+						"slug": "concepts/data-and-bindings",
+						"title": "Data and bindings",
+						"icon": "database",
+						"titleZh": "数据和绑定"
+					},
+					{
+						"slug": "concepts/tokens",
+						"title": "Preview and share tokens",
+						"icon": "ticket",
+						"titleZh": "预览与分享令牌"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Services & projects",
+		"count": "41",
+		"items": [
+			{
+				"title": "Projects",
+				"icon": "folder-kanban",
+				"count": "4",
+				"children": [
+					{
+						"slug": "projects",
+						"title": "Projects",
+						"icon": "folder-kanban",
+						"titleZh": "项目"
+					},
+					{
+						"slug": "projects/lifecycle",
+						"title": "Project lifecycle",
+						"icon": "rotate-ccw",
+						"titleZh": "项目生命周期"
+					},
+					{
+						"slug": "projects/resources",
+						"title": "Project resources",
+						"icon": "boxes",
+						"titleZh": "项目资源"
+					},
+					{
+						"slug": "projects/members-and-usage",
+						"title": "Members and usage",
+						"icon": "users",
+						"titleZh": "成员与用量"
+					}
+				]
+			},
+			{
+				"title": "Services",
+				"icon": "plug",
+				"count": "10",
+				"children": [
+					{
+						"slug": "services/overview",
+						"title": "Services",
+						"icon": "boxes",
+						"titleZh": "服务"
+					},
+					{
+						"slug": "services/quickstart",
+						"title": "Services quick start",
+						"icon": "rocket",
+						"titleZh": "服务快速入门"
+					},
+					{
+						"slug": "services/services",
+						"title": "Services and types",
+						"icon": "server",
+						"titleZh": "服务与类型"
+					},
+					{
+						"slug": "services/static",
+						"title": "Static sites from Git",
+						"icon": "file-code",
+						"titleZh": "从 Git 构建静态站点"
+					},
+					{
+						"slug": "services/config-file",
+						"title": "Service settings as code",
+						"icon": "file-key",
+						"titleZh": "以代码方式管理服务设置"
+					},
+					{
+						"slug": "services/variables",
+						"title": "Services variables",
+						"icon": "variable",
+						"titleZh": "服务变量"
+					},
+					{
+						"slug": "services/environments",
+						"title": "Services environments",
+						"icon": "layers-2",
+						"titleZh": "服务环境"
+					},
+					{
+						"slug": "services/previews",
+						"title": "Preview environments",
+						"icon": "git-branch",
+						"titleZh": "预览环境"
+					},
+					{
+						"slug": "services/releases",
+						"title": "Services releases",
+						"icon": "rotate-ccw-clock",
+						"titleZh": "服务发布"
+					},
+					{
+						"slug": "migrate/railway",
+						"title": "Moving from Railway",
+						"icon": "hard-drive-download",
+						"titleZh": "从Railway搬家"
+					}
+				]
+			},
+			{
+				"title": "Scale and observe",
+				"icon": "gauge",
+				"count": "4",
+				"children": [
+					{
+						"slug": "services/replicas",
+						"title": "Services replicas and scaling",
+						"icon": "cpu",
+						"titleZh": "服务副本与扩缩容"
+					},
+					{
+						"slug": "services/dedicated-vcpu",
+						"title": "Dedicated vCPU",
+						"icon": "server-cog",
+						"titleZh": "专用 vCPU"
+					},
+					{
+						"slug": "services/logs",
+						"title": "Services logs",
+						"icon": "scroll-text",
+						"titleZh": "服务日志"
+					},
+					{
+						"slug": "services/metrics",
+						"title": "Service metrics",
+						"icon": "gauge",
+						"titleZh": "服务指标"
+					}
+				]
+			},
+			{
+				"title": "Services tooling",
+				"icon": "square-terminal",
+				"count": "2",
+				"children": [
+					{
+						"slug": "services/cli",
+						"title": "Services CLI",
+						"icon": "terminal",
+						"titleZh": "服务 CLI"
+					},
+					{
+						"slug": "services/sdk",
+						"title": "Services SDKs",
+						"icon": "code",
+						"titleZh": "服务 SDK"
+					}
+				]
+			},
+			{
+				"title": "Docker Host",
+				"icon": "container",
+				"count": "13",
+				"children": [
+					{
+						"slug": "docker-host/overview",
+						"title": "Docker Host",
+						"icon": "cloud-upload",
+						"titleZh": "Docker主机"
+					},
+					{
+						"slug": "docker-host/hosts",
+						"title": "Docker Hosts",
+						"icon": "server-cog",
+						"titleZh": "Docker 主机"
+					},
+					{
+						"slug": "docker-host/templates",
+						"title": "Docker Host templates",
+						"icon": "layout-template",
+						"titleZh": "Docker 主机模板"
+					},
+					{
+						"slug": "docker-host/docker-deploy",
+						"title": "Docker Host",
+						"icon": "file",
+						"titleZh": "Docker主机"
+					},
+					{
+						"slug": "docker-host/deployment-model",
+						"title": "The deployment model",
+						"icon": "layers",
+						"titleZh": "部署模型"
+					},
+					{
+						"slug": "docker-host/publishing",
+						"title": "Publishing",
+						"icon": "rocket",
+						"titleZh": "出版"
+					},
+					{
+						"slug": "docker-host/deploy-from-github",
+						"title": "Deploy from GitHub",
+						"icon": "folder-git-2",
+						"titleZh": "从 GitHub 部署"
+					},
+					{
+						"slug": "docker-host/versions",
+						"title": "Versions",
+						"icon": "git-branch",
+						"titleZh": "版本"
+					},
+					{
+						"slug": "docker-host/releases",
+						"title": "Releases",
+						"icon": "package",
+						"titleZh": "发布"
+					},
+					{
+						"slug": "docker-host/rollback",
+						"title": "Rollback",
+						"icon": "rotate-ccw",
+						"titleZh": "回滚"
+					},
+					{
+						"slug": "docker-host/environments",
+						"title": "Environments",
+						"icon": "flag",
+						"titleZh": "环境"
+					},
+					{
+						"slug": "docker-host/runtime-instances",
+						"title": "Dynamic Runtimes",
+						"icon": "cpu",
+						"titleZh": "动态运行时"
+					},
+					{
+						"slug": "docker-host/domains",
+						"title": "Deployment Domains",
+						"icon": "globe",
+						"titleZh": "部署域"
+					}
+				]
+			},
+			{
+				"title": "Forge",
+				"icon": "git-branch",
+				"count": "7",
+				"children": [
+					{
+						"slug": "forge",
+						"title": "Forge",
+						"icon": "git-branch",
+						"titleZh": "锻造"
+					},
+					{
+						"slug": "forge/quickstart",
+						"title": "Forge quickstart",
+						"icon": "zap",
+						"titleZh": "Forge 快速入门"
+					},
+					{
+						"slug": "forge/pull-requests",
+						"title": "Pull requests and checks",
+						"icon": "list-checks",
+						"titleZh": "拉取请求和检查"
+					},
+					{
+						"slug": "forge/sandboxes",
+						"title": "Forge from a sandbox",
+						"icon": "box",
+						"titleZh": "从沙箱中锻造"
+					},
+					{
+						"slug": "forge/agents",
+						"title": "Agents and the Forge API",
+						"icon": "bot",
+						"titleZh": "智能体和 Forge API"
+					},
+					{
+						"slug": "forge/cli",
+						"title": "Forge CLI reference",
+						"icon": "square-terminal",
+						"titleZh": "Forge CLI 参考"
+					},
+					{
+						"slug": "forge/faq",
+						"title": "Forge limits and FAQ",
+						"icon": "life-buoy",
+						"titleZh": "伪造限制和常见问题解答"
+					}
+				]
+			},
+			{
+				"slug": "ci",
+				"title": "CI on MIOSA",
+				"icon": "workflow",
+				"titleZh": "MIOSA 上的 CI"
+			}
+		]
+	},
+	{
+		"title": "Sandboxes",
+		"count": "35",
+		"items": [
+			{
+				"title": "Basics",
+				"icon": "scroll-text",
+				"count": "13",
+				"children": [
+					{
+						"slug": "develop/sandboxes",
+						"title": "Sandboxes",
+						"icon": "box",
+						"titleZh": "沙箱"
+					},
+					{
+						"slug": "develop/sandboxes/capabilities",
+						"title": "Capabilities",
+						"icon": "badge-check",
+						"titleZh": "能力"
+					},
+					{
+						"slug": "develop/sandboxes/create",
+						"title": "Create and connect",
+						"icon": "circle-plus",
+						"titleZh": "创建并连接"
+					},
+					{
+						"slug": "develop/sandboxes/docker",
+						"title": "Docker in sandboxes",
+						"icon": "scroll-text",
+						"titleZh": "沙箱中的 Docker"
+					},
+					{
+						"slug": "develop/sandboxes/lifecycle",
+						"title": "Sandbox lifecycle",
+						"icon": "rotate-ccw",
+						"titleZh": "沙箱生命周期"
+					},
+					{
+						"slug": "develop/files-and-exec",
+						"title": "Files & Exec",
+						"icon": "square-terminal",
+						"titleZh": "文件与执行"
+					},
+					{
+						"slug": "develop/sandboxes/sizing",
+						"title": "Sizing and limits",
+						"icon": "ruler",
+						"titleZh": "尺寸和限制"
+					},
+					{
+						"slug": "develop/sandboxes/timeouts",
+						"title": "Timeouts and auto-stop",
+						"icon": "timer",
+						"titleZh": "超时和自动停止"
+					},
+					{
+						"slug": "develop/sandboxes/events",
+						"title": "Sandbox events",
+						"icon": "radio",
+						"titleZh": "沙盒活动"
+					},
+					{
+						"slug": "develop/sandboxes/connect",
+						"title": "Connecting to a running sandbox",
+						"icon": "plug",
+						"titleZh": "连接到正在运行的沙箱"
+					},
+					{
+						"slug": "develop/sandboxes/metadata",
+						"title": "Metadata and labels",
+						"icon": "tags",
+						"titleZh": "元数据和标签"
+					},
+					{
+						"slug": "develop/sandboxes/long-running-tasks",
+						"title": "Long-running tasks",
+						"icon": "workflow",
+						"titleZh": "长时间运行的任务"
+					},
+					{
+						"slug": "develop/sandboxes/production-checklist",
+						"title": "Production checklist",
+						"icon": "list-checks",
+						"titleZh": "生产清单"
+					}
+				]
+			},
+			{
+				"slug": "machines",
+				"title": "Machine capabilities",
+				"icon": "ruler",
+				"titleZh": "机器能力"
+			},
+			{
+				"title": "Persistence",
+				"icon": "camera",
+				"count": "3",
+				"children": [
+					{
+						"slug": "develop/snapshots",
+						"title": "Snapshots, restore, pause, and forks",
+						"icon": "camera",
+						"titleZh": "快照、恢复、暂停和分叉"
+					},
+					{
+						"slug": "develop/templates",
+						"title": "Templates",
+						"icon": "layout-template",
+						"titleZh": "模板"
+					},
+					{
+						"slug": "develop/sandbox-shares",
+						"title": "Sandbox shares",
+						"icon": "share-2",
+						"titleZh": "沙盒股份"
+					}
+				]
+			},
+			{
+				"title": "Environments",
+				"icon": "variable",
+				"count": "4",
+				"children": [
+					{
+						"slug": "develop/sandboxes/environments",
+						"title": "Environment variables",
+						"icon": "variable",
+						"titleZh": "环境变量"
+					},
+					{
+						"slug": "security/secrets",
+						"title": "Secrets  -  Quickstart",
+						"icon": "lock",
+						"titleZh": "机密 - 快速入门"
+					},
+					{
+						"slug": "security/connect-accounts",
+						"title": "Connect Accounts (OAuth)",
+						"icon": "plug",
+						"titleZh": "连接账户（OAuth）"
+					},
+					{
+						"slug": "guides/managed-connectors",
+						"title": "Managed connectors for sandbox agents",
+						"icon": "cable",
+						"titleZh": "沙盒智能体的托管连接器"
+					}
+				]
+			},
+			{
+				"title": "Runtimes",
+				"icon": "cpu",
+				"count": "2",
+				"children": [
+					{
+						"slug": "soma",
+						"title": "SOMA",
+						"icon": "cpu",
+						"titleZh": "SOMA"
+					},
+					{
+						"slug": "soma/choosing-a-runtime",
+						"title": "Choosing a runtime",
+						"icon": "route",
+						"titleZh": "选择运行时"
+					}
+				]
+			},
+			{
+				"title": "Browser use",
+				"icon": "globe",
+				"count": "7",
+				"children": [
+					{
+						"slug": "browser-use",
+						"title": "Browser use",
+						"icon": "globe",
+						"titleZh": "浏览器使用"
+					},
+					{
+						"slug": "browser-use/how-it-works",
+						"title": "How browser use works",
+						"icon": "layers",
+						"titleZh": "浏览器的使用原理"
+					},
+					{
+						"slug": "browser-use/quickstart",
+						"title": "Browser use quickstart",
+						"icon": "zap",
+						"titleZh": "浏览器使用快速入门"
+					},
+					{
+						"slug": "browser-use/live-viewer",
+						"title": "Browser use live viewer",
+						"icon": "eye",
+						"titleZh": "浏览器使用实时查看器"
+					},
+					{
+						"slug": "browser-use/cdp",
+						"title": "Drive a sandbox browser over CDP",
+						"icon": "file",
+						"titleZh": "通过 CDP 驱动沙箱浏览器"
+					},
+					{
+						"slug": "browser-use/integrations",
+						"title": "Browser use integrations",
+						"icon": "blocks",
+						"titleZh": "浏览器使用集成"
+					},
+					{
+						"slug": "browser-use/limits",
+						"title": "Browser use limits, billing, and security",
+						"icon": "gauge",
+						"titleZh": "浏览器使用限制、计费和安全性"
+					}
+				]
+			},
+			{
+				"title": "Recipes",
+				"icon": "chef-hat",
+				"count": "5",
+				"children": [
+					{
+						"slug": "cookbook",
+						"title": "Cookbook",
+						"icon": "book-bookmark",
+						"titleZh": "食谱"
+					},
+					{
+						"slug": "cookbook/agent-builds-app",
+						"title": "Agent builds an app",
+						"icon": "bot",
+						"titleZh": "智能体构建应用程序"
+					},
+					{
+						"slug": "cookbook/agent-with-secrets",
+						"title": "Agent with secrets  -  full walkthrough",
+						"icon": "lock",
+						"titleZh": "秘密特工 - 完整演练"
+					},
+					{
+						"slug": "cookbook/streaming-code-execution",
+						"title": "Streaming code execution",
+						"icon": "square-terminal",
+						"titleZh": "流式代码执行"
+					},
+					{
+						"slug": "cookbook/browser-agent",
+						"title": "Browser agent",
+						"icon": "app-window",
+						"titleZh": "浏览器智能体"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Computers",
+		"count": "26",
+		"items": [
+			{
+				"title": "Basics",
+				"icon": "monitor",
+				"count": "7",
+				"children": [
+					{
+						"slug": "computers/overview",
+						"title": "Computers (Desktop)",
+						"icon": "monitor",
+						"titleZh": "电脑（台式机）"
+					},
+					{
+						"slug": "computers/anatomy",
+						"title": "Inside a Computer",
+						"icon": "cpu",
+						"titleZh": "电脑内部"
+					},
+					{
+						"slug": "computers/vs-sandbox",
+						"title": "Computers vs sandbox",
+						"icon": "scale",
+						"titleZh": "计算机与沙箱"
+					},
+					{
+						"slug": "computers/fast-start",
+						"title": "Fast start & readiness",
+						"icon": "zap",
+						"titleZh": "快速启动与就绪"
+					},
+					{
+						"slug": "computers/embedding",
+						"title": "Embedding & Streaming",
+						"icon": "app-window",
+						"titleZh": "嵌入与流式传输"
+					},
+					{
+						"slug": "computers/lifecycle",
+						"title": "Lifecycle and sizing",
+						"icon": "rotate-ccw",
+						"titleZh": "生命周期和规模"
+					},
+					{
+						"slug": "computers/production-checklist",
+						"title": "Production checklist",
+						"icon": "list-checks",
+						"titleZh": "生产清单"
+					}
+				]
+			},
+			{
+				"title": "Computer use",
+				"icon": "mouse-pointer-click",
+				"count": "6",
+				"children": [
+					{
+						"slug": "computer-use",
+						"title": "Computer use",
+						"icon": "monitor-smartphone",
+						"titleZh": "电脑使用"
+					},
+					{
+						"slug": "computer-use/quickstart",
+						"title": "Computer use quickstart",
+						"icon": "zap",
+						"titleZh": "电脑使用快速入门"
+					},
+					{
+						"slug": "computer-use/api-reference",
+						"title": "Computer use API reference",
+						"icon": "code",
+						"titleZh": "电脑使用API​​参考"
+					},
+					{
+						"slug": "computer-use/sdk-examples",
+						"title": "Computer use SDK examples",
+						"icon": "braces",
+						"titleZh": "电脑端使用SDK示例"
+					},
+					{
+						"slug": "computer-use/limits",
+						"title": "Computer use limits",
+						"icon": "gauge",
+						"titleZh": "计算机使用限制"
+					},
+					{
+						"slug": "computer-use/vs-browser-use",
+						"title": "Computer use vs browser use: which to pick",
+						"icon": "scale",
+						"titleZh": "计算机使用与浏览器使用：选择哪一个"
+					}
+				]
+			},
+			{
+				"title": "Your own machines",
+				"icon": "server",
+				"count": "13",
+				"children": [
+					{
+						"slug": "opencomputers",
+						"title": "OpenComputers",
+						"icon": "server",
+						"titleZh": "OpenComputers公司"
+					},
+					{
+						"slug": "opencomputers/connect",
+						"title": "Connect your first host",
+						"icon": "plug",
+						"titleZh": "连接您的第一台主机"
+					},
+					{
+						"slug": "opencomputers/hosts",
+						"title": "Hosts and capabilities",
+						"icon": "server-cog",
+						"titleZh": "主机和功能"
+					},
+					{
+						"slug": "opencomputers/containers",
+						"title": "Containers on a host",
+						"icon": "container",
+						"titleZh": "主机上的容器"
+					},
+					{
+						"slug": "opencomputers/meshes",
+						"title": "Meshes",
+						"icon": "network",
+						"titleZh": "网格"
+					},
+					{
+						"slug": "opencomputers/gha-runners",
+						"title": "GitHub Actions runners",
+						"icon": "file",
+						"titleZh": "GitHub Actions 跑步者"
+					},
+					{
+						"slug": "opencomputers/backups",
+						"title": "Backups and snapshots",
+						"icon": "archive-arrow-up",
+						"titleZh": "备份和快照"
+					},
+					{
+						"slug": "opencomputers/tunnels",
+						"title": "Tunnels and exposing services",
+						"icon": "cable",
+						"titleZh": "隧道和暴露服务"
+					},
+					{
+						"slug": "opencomputers/devices",
+						"title": "Devices",
+						"icon": "smartphone",
+						"titleZh": "设备"
+					},
+					{
+						"slug": "opencomputers/security",
+						"title": "Security model",
+						"icon": "shield-check",
+						"titleZh": "安全模型"
+					},
+					{
+						"slug": "opencomputers/billing",
+						"title": "Billing and limits",
+						"icon": "receipt",
+						"titleZh": "计费和限制"
+					},
+					{
+						"slug": "opencomputers/troubleshooting",
+						"title": "OpenComputers troubleshooting",
+						"icon": "life-buoy",
+						"titleZh": "OpenComputers 故障排除"
+					},
+					{
+						"slug": "opencomputers/reference",
+						"title": "API, CLI, and SDK reference",
+						"icon": "book-open",
+						"titleZh": "API、CLI 和 SDK 参考"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Databases & storage",
+		"count": "11",
+		"items": [
+			{
+				"slug": "data/overview",
+				"title": "Data",
+				"icon": "puzzle",
+				"titleZh": "数据"
+			},
+			{
+				"title": "Databases",
+				"icon": "database",
+				"count": "5",
+				"children": [
+					{
+						"slug": "data/postgres",
+						"title": "Postgres",
+						"icon": "file",
+						"titleZh": "Postgres"
+					},
+					{
+						"slug": "data/mysql",
+						"title": "MySQL",
+						"icon": "file",
+						"titleZh": "MySQL"
+					},
+					{
+						"slug": "data/redis",
+						"title": "Redis / Cache",
+						"icon": "file",
+						"titleZh": "Redis/缓存"
+					},
+					{
+						"slug": "data/qdrant",
+						"title": "Qdrant (Vector Database)",
+						"icon": "file",
+						"titleZh": "Qdrant（矢量数据库）"
+					},
+					{
+						"slug": "data/mongodb",
+						"title": "MongoDB",
+						"icon": "braces",
+						"titleZh": "MongoDB"
+					}
+				]
+			},
+			{
+				"title": "Storage",
+				"icon": "hard-drive",
+				"count": "2",
+				"children": [
+					{
+						"slug": "data/storage",
+						"title": "Storage / Buckets",
+						"icon": "hard-drive",
+						"titleZh": "存储/桶"
+					},
+					{
+						"slug": "data/volumes",
+						"title": "Volumes",
+						"icon": "boxes",
+						"titleZh": "卷"
+					}
+				]
+			},
+			{
+				"title": "Managed services",
+				"icon": "package",
+				"count": "3",
+				"children": [
+					{
+						"slug": "data/auth",
+						"title": "Auth-as-a-Service",
+						"icon": "shield-check",
+						"titleZh": "身份验证即服务"
+					},
+					{
+						"slug": "data/email",
+						"title": "Transactional Email",
+						"icon": "mail",
+						"titleZh": "交易电子邮件"
+					},
+					{
+						"slug": "data/fractal",
+						"title": "Fractal enterprise data",
+						"icon": "logo:/docs-assets/partners/fractal/fractal-mark.png",
+						"titleZh": "分形企业数据"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Networking & domains",
+		"count": "7",
+		"items": [
+			{
+				"slug": "services/domains",
+				"title": "Services addresses and domains",
+				"icon": "compass",
+				"titleZh": "服务地址与域名"
+			},
+			{
+				"slug": "develop/previews",
+				"title": "Previews",
+				"icon": "eye",
+				"titleZh": "预览"
+			},
+			{
+				"slug": "develop/sandboxes/internet-access",
+				"title": "Internet access and egress",
+				"icon": "flag",
+				"titleZh": "互联网接入和出口"
+			},
+			{
+				"slug": "security/network",
+				"title": "Network Allowlist",
+				"icon": "network",
+				"titleZh": "网络白名单"
+			},
+			{
+				"slug": "services/middleware",
+				"title": "Edge middleware",
+				"icon": "route",
+				"titleZh": "边缘中间件"
+			},
+			{
+				"slug": "services/protection",
+				"title": "Protection and WAF",
+				"icon": "fingerprint-pattern",
+				"titleZh": "防护与 WAF"
+			},
+			{
+				"slug": "data/public-endpoint",
+				"title": "Public database endpoint",
+				"icon": "cable",
+				"titleZh": "公共数据库端点"
+			}
+		]
+	},
+	{
+		"title": "Agents",
+		"count": "25",
+		"items": [
+			{
+				"title": "Start here",
+				"icon": "hash",
+				"count": "6",
+				"children": [
+					{
+						"slug": "guides/agent-operating-guide",
+						"title": "Agent operating guide",
+						"icon": "scroll-text",
+						"titleZh": "智能体操作指南"
+					},
+					{
+						"slug": "guides/agent-capabilities",
+						"title": "What MIOSA agents can do",
+						"icon": "lightbulb",
+						"titleZh": "MIOSA 智能体可以做什么"
+					},
+					{
+						"slug": "guides/agent-cli-workflow",
+						"title": "Agent CLI workflow",
+						"icon": "square-terminal",
+						"titleZh": "智能体 CLI 工作流程"
+					},
+					{
+						"slug": "guides/agent-safety",
+						"title": "Agent safety and status",
+						"icon": "shield-check",
+						"titleZh": "智能体安全和状态"
+					},
+					{
+						"slug": "guides/agent",
+						"title": "Integrating an AI agent",
+						"icon": "bot",
+						"titleZh": "接入自有 AI 智能体"
+					},
+					{
+						"slug": "guides/configure-agent",
+						"title": "Configure an agent",
+						"icon": "settings-2",
+						"titleZh": "配置智能体"
+					}
+				]
+			},
+			{
+				"title": "Machines and harnesses",
+				"icon": "binary",
+				"count": "4",
+				"children": [
+					{
+						"slug": "agents/chat-on-a-machine",
+						"title": "Chat with an agent on a machine",
+						"icon": "bot",
+						"titleZh": "与机器上的智能体聊天"
+					},
+					{
+						"slug": "agents/agent-studio",
+						"title": "Agent Studio",
+						"icon": "scroll-text",
+						"titleZh": "智能体工作室"
+					},
+					{
+						"slug": "agents/harnesses",
+						"title": "Harnesses and auth",
+						"icon": "key-round",
+						"titleZh": "运行框架和授权"
+					},
+					{
+						"slug": "agents/confinement",
+						"title": "Agent confinement",
+						"icon": "book-open",
+						"titleZh": "智能体禁闭"
+					}
+				]
+			},
+			{
+				"title": "Runtime setup",
+				"icon": "settings-2",
+				"count": "4",
+				"children": [
+					{
+						"slug": "guides/agent-runtime-routing",
+						"title": "Agent runtime routing",
+						"icon": "route",
+						"titleZh": "智能体运行时路由"
+					},
+					{
+						"slug": "guides/skills",
+						"title": "Claude Code Skills for MIOSA",
+						"icon": "file",
+						"titleZh": "MIOSA 的 Claude 代码技能"
+					},
+					{
+						"slug": "adk",
+						"title": "Agent Development Kit (ADK)",
+						"icon": "puzzle",
+						"titleZh": "智能体开发套件 (ADK)"
+					},
+					{
+						"slug": "guides/runtime-env",
+						"title": "Runtime env for agent devices",
+						"icon": "variable",
+						"titleZh": "智能体设备的运行时环境"
+					}
+				]
+			},
+			{
+				"title": "Product patterns",
+				"icon": "shapes",
+				"count": "11",
+				"children": [
+					{
+						"slug": "guides/agent-product-model",
+						"title": "Agent product model",
+						"icon": "shapes",
+						"titleZh": "智能体产品模型"
+					},
+					{
+						"slug": "guides/agent-company-reference-map",
+						"title": "Agent product reference map",
+						"icon": "book-bookmark",
+						"titleZh": "智能体产品参考图"
+					},
+					{
+						"slug": "guides/build-agent-company",
+						"title": "Build your own AI platform",
+						"icon": "building-complex",
+						"titleZh": "打造您自己的AI平台"
+					},
+					{
+						"slug": "guides/agent-workflow-patterns",
+						"title": "Agent workflow patterns",
+						"icon": "waypoints",
+						"titleZh": "智能体工作流程模式"
+					},
+					{
+						"slug": "guides/agent-device-selection",
+						"title": "Agent device selection",
+						"icon": "scan-search",
+						"titleZh": "智能体设备选型"
+					},
+					{
+						"slug": "guides/connect-agent-accounts",
+						"title": "Connect agent accounts (keys and subscriptions)",
+						"icon": "key-round",
+						"titleZh": "连接智能体帐户（密钥和订阅）"
+					},
+					{
+						"slug": "guides/agent-devices",
+						"title": "Agent devices",
+						"icon": "cpu",
+						"titleZh": "智能体设备"
+					},
+					{
+						"slug": "guides/agent-orchestration",
+						"title": "Agent orchestration",
+						"icon": "workflow",
+						"titleZh": "智能体编排"
+					},
+					{
+						"slug": "guides/agent-company-runtime-artifacts",
+						"title": "Runtime profiles and artifacts",
+						"icon": "package",
+						"titleZh": "运行时配置文件和工件"
+					},
+					{
+						"slug": "guides/agent-orchestration/patterns",
+						"title": "Orchestration patterns",
+						"icon": "scroll-text",
+						"titleZh": "编排模式"
+					},
+					{
+						"slug": "guides/agent-orchestration/examples",
+						"title": "Orchestration examples",
+						"icon": "puzzle",
+						"titleZh": "编排示例"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Optimal",
+		"count": "12",
+		"items": [
+			{
+				"title": "Use Optimal",
+				"icon": "layout-dashboard",
+				"count": "5",
+				"children": [
+					{
+						"slug": "optimal",
+						"title": "Optimal",
+						"icon": "layout-dashboard",
+						"titleZh": "最佳的"
+					},
+					{
+						"slug": "optimal/quickstart",
+						"title": "Optimal quickstart",
+						"icon": "zap",
+						"titleZh": "最佳快速入门"
+					},
+					{
+						"slug": "optimal/chats",
+						"title": "Chats and modes",
+						"icon": "command",
+						"titleZh": "聊天和模式"
+					},
+					{
+						"slug": "optimal/brains",
+						"title": "Brains and agents",
+						"icon": "bot",
+						"titleZh": "大脑和智能体人"
+					},
+					{
+						"slug": "optimal/machines",
+						"title": "Build on your machines",
+						"icon": "server",
+						"titleZh": "在您的机器上构建"
+					}
+				]
+			},
+			{
+				"title": "Control and cost",
+				"icon": "sliders-horizontal",
+				"count": "5",
+				"children": [
+					{
+						"slug": "optimal/approvals",
+						"title": "Approvals",
+						"icon": "badge-check",
+						"titleZh": "批准"
+					},
+					{
+						"slug": "optimal/workspace",
+						"title": "Tasks, artifacts and history",
+						"icon": "folder-tree",
+						"titleZh": "任务、工件和历史"
+					},
+					{
+						"slug": "optimal/team-chats",
+						"title": "Team chats and sharing",
+						"icon": "users",
+						"titleZh": "团队聊天和分享"
+					},
+					{
+						"slug": "optimal/pricing",
+						"title": "Pricing and usage",
+						"icon": "circle-dollar-sign",
+						"titleZh": "定价和使用"
+					},
+					{
+						"slug": "optimal/isolation",
+						"title": "Isolation and permissions",
+						"icon": "shield-check",
+						"titleZh": "隔离和权限"
+					}
+				]
+			},
+			{
+				"slug": "optimal/api",
+				"title": "Optimal API",
+				"icon": "braces",
+				"titleZh": "最佳API"
+			},
+			{
+				"slug": "optimal/troubleshooting",
+				"title": "Optimal troubleshooting",
+				"icon": "life-buoy",
+				"titleZh": "最佳故障排除"
+			}
+		]
+	},
+	{
+		"title": "Optimal Engine",
+		"count": "12",
+		"items": [
+			{
+				"title": "Learn the Engine",
+				"icon": "book-bookmark",
+				"count": "3",
+				"children": [
+					{
+						"slug": "optimal-engine",
+						"title": "Optimal Engine",
+						"icon": "database",
+						"titleZh": "Optimal Engine"
+					},
+					{
+						"slug": "optimal-engine/concepts",
+						"title": "Optimal Engine concepts",
+						"icon": "lightbulb",
+						"titleZh": "Optimal Engine概念"
+					},
+					{
+						"slug": "optimal-engine/quickstart",
+						"title": "Optimal Engine quickstart",
+						"icon": "zap",
+						"titleZh": "Optimal Engine快速入门"
+					}
+				]
+			},
+			{
+				"title": "Run it yourself",
+				"icon": "server-cog",
+				"count": "2",
+				"children": [
+					{
+						"slug": "optimal-engine/install",
+						"title": "Install and configure Optimal Engine",
+						"icon": "download",
+						"titleZh": "安装和配置Optimal Engine"
+					},
+					{
+						"slug": "optimal-engine/operations",
+						"title": "Operate a self-hosted Optimal Engine",
+						"icon": "archive-arrow-up",
+						"titleZh": "运行自托管优化引擎"
+					}
+				]
+			},
+			{
+				"title": "Use the Engine",
+				"icon": "receipt",
+				"count": "3",
+				"children": [
+					{
+						"slug": "optimal-engine/ingestion",
+						"title": "Sources and ingestion",
+						"icon": "cloud-upload",
+						"titleZh": "来源和摄入"
+					},
+					{
+						"slug": "optimal-engine/memory-and-retrieval",
+						"title": "Memory and retrieval",
+						"icon": "scan-search",
+						"titleZh": "记忆与检索"
+					},
+					{
+						"slug": "optimal-engine/agents-and-workflows",
+						"title": "Agents and workflows",
+						"icon": "bot",
+						"titleZh": "智能体和工作流程"
+					}
+				]
+			},
+			{
+				"title": "Engine reference",
+				"icon": "badge-check",
+				"count": "2",
+				"children": [
+					{
+						"slug": "optimal-engine/api",
+						"title": "Optimal Engine API reference",
+						"icon": "braces",
+						"titleZh": "Optimal Engine API 参考"
+					},
+					{
+						"slug": "optimal-engine/cli-sdks-mcp",
+						"title": "Optimal Engine CLI, SDKs and MCP",
+						"icon": "square-terminal",
+						"titleZh": "Optimal Engine CLI、SDK 和 MCP"
+					}
+				]
+			},
+			{
+				"slug": "optimal-engine/miosa",
+				"title": "Optimal Engine on MIOSA",
+				"icon": "cloud",
+				"titleZh": "MIOSA 上的Optimal Engine"
+			},
+			{
+				"slug": "optimal-engine/troubleshooting",
+				"title": "Optimal Engine troubleshooting",
+				"icon": "wrench",
+				"titleZh": "Optimal Engine 故障排查"
+			}
+		]
+	},
+	{
+		"title": "Platform builders",
+		"count": "26",
+		"items": [
+			{
+				"title": "Start here",
+				"icon": "share-2",
+				"count": "8",
+				"children": [
+					{
+						"slug": "integrations",
+						"title": "Build your product on MIOSA",
+						"icon": "building-complex",
+						"titleZh": "在 MIOSA 上构建您的产品"
+					},
+					{
+						"slug": "platform/overview",
+						"title": "Platform builder guide",
+						"icon": "layers",
+						"titleZh": "平台构建者指南"
+					},
+					{
+						"slug": "platform/patterns",
+						"title": "Platform patterns",
+						"icon": "shapes",
+						"titleZh": "平台模式"
+					},
+					{
+						"slug": "platform/agents-in-your-product",
+						"title": "Agents in your product",
+						"icon": "bot",
+						"titleZh": "产品中的智能体"
+					},
+					{
+						"slug": "platform/templates-and-sizing",
+						"title": "Templates and sizing",
+						"icon": "ruler",
+						"titleZh": "模板与规格"
+					},
+					{
+						"slug": "integrations/backend-orchestration",
+						"title": "Backend orchestration",
+						"icon": "workflow",
+						"titleZh": "后端编排"
+					},
+					{
+						"slug": "integrations/examples",
+						"title": "Example Apps",
+						"icon": "component",
+						"titleZh": "示例应用程序"
+					},
+					{
+						"slug": "guides/internal-business-os",
+						"title": "Build an internal Business OS for your team",
+						"icon": "layout-dashboard",
+						"titleZh": "为您的团队构建内部业务操作系统"
+					}
+				]
+			},
+			{
+				"title": "Customer identity",
+				"icon": "link",
+				"count": "3",
+				"children": [
+					{
+						"slug": "platform/attribution",
+						"title": "Resource Ownership and Attribution",
+						"icon": "badge-check",
+						"titleZh": "资源所有权与归属"
+					},
+					{
+						"slug": "platform/browser-tokens",
+						"title": "Browser Tokens",
+						"icon": "ticket",
+						"titleZh": "浏览器令牌"
+					},
+					{
+						"slug": "security/white-label",
+						"title": "End-user credentials and OAuth",
+						"icon": "shield-check",
+						"titleZh": "最终用户凭据和 OAuth"
+					}
+				]
+			},
+			{
+				"title": "Branding, events, metering",
+				"icon": "palette",
+				"count": "3",
+				"children": [
+					{
+						"slug": "platform/white-label",
+						"title": "Branding and domain setup",
+						"icon": "palette",
+						"titleZh": "品牌与域名设置"
+					},
+					{
+						"slug": "integrations/webhooks",
+						"title": "Webhooks",
+						"icon": "webhook",
+						"titleZh": "网络钩子"
+					},
+					{
+						"slug": "platform/agent-credit-metering",
+						"title": "Agent credit metering",
+						"icon": "gauge",
+						"titleZh": "智能体积分计量"
+					}
+				]
+			},
+			{
+				"title": "Recipes",
+				"icon": "siren",
+				"count": "6",
+				"children": [
+					{
+						"slug": "cookbook",
+						"title": "All recipes",
+						"icon": "book-bookmark"
+					},
+					{
+						"slug": "cookbook/multi-tenant-saas",
+						"title": "Multi-tenant SaaS",
+						"icon": "palette",
+						"titleZh": "多租户 SaaS"
+					},
+					{
+						"slug": "cookbook/per-user-quotas-billing",
+						"title": "Per-user quotas and billing",
+						"icon": "credit-card",
+						"titleZh": "每用户配额和计费"
+					},
+					{
+						"slug": "cookbook/embed-sandbox-iframe",
+						"title": "Embed sandbox in an iframe",
+						"icon": "box",
+						"titleZh": "在 iframe 中嵌入沙箱"
+					},
+					{
+						"slug": "cookbook/sandbox-events-realtime",
+						"title": "Sandbox events in real time",
+						"icon": "scroll-text",
+						"titleZh": "实时沙盒事件"
+					},
+					{
+						"slug": "cookbook/build-virtual-device-product",
+						"title": "Build a virtual-device product",
+						"icon": "monitor",
+						"titleZh": "构建虚拟设备产品"
+					}
+				]
+			},
+			{
+				"title": "UI components",
+				"icon": "layout-grid",
+				"count": "6",
+				"children": [
+					{
+						"slug": "ui-components",
+						"title": "UI Components",
+						"icon": "layout-dashboard",
+						"titleZh": "UI 组件"
+					},
+					{
+						"slug": "component-library",
+						"title": "Foundation Component Library",
+						"icon": "layout-grid",
+						"titleZh": "基础组件库"
+					},
+					{
+						"slug": "ui-components/foundation",
+						"title": "Foundation UI",
+						"icon": "package",
+						"titleZh": "Foundation UI"
+					},
+					{
+						"slug": "ui-components/react",
+						"title": "React UI Components",
+						"icon": "file",
+						"titleZh": "React UI 组件"
+					},
+					{
+						"slug": "ui-components/vue",
+						"title": "Vue UI Components",
+						"icon": "file",
+						"titleZh": "Vue UI 组件"
+					},
+					{
+						"slug": "ui-components/svelte",
+						"title": "Svelte UI Components",
+						"icon": "file",
+						"titleZh": "Svelte UI 组件"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Build",
+		"count": "68",
+		"items": [
+			{
+				"slug": "build",
+				"title": "Build an app like...",
+				"icon": "file-text",
+				"titleZh": "构建一个应用程序，例如..."
+			},
+			{
+				"title": "AI app builders",
+				"icon": "hammer",
+				"count": "9",
+				"children": [
+					{
+						"slug": "build/lovable",
+						"title": "Build a Lovable-style app",
+						"icon": "logo:/docs-assets/brands/lovable.svg",
+						"titleZh": "构建 Lovable 风格的应用程序"
+					},
+					{
+						"slug": "build/bolt",
+						"title": "Build a Bolt-style app",
+						"icon": "logo:/docs-assets/brands/bolt.svg",
+						"titleZh": "构建 Bolt 风格的应用程序"
+					},
+					{
+						"slug": "build/v0",
+						"title": "Build a v0-style app",
+						"icon": "logo:/docs-assets/brands/v0.svg",
+						"titleZh": "构建 v0 风格的应用程序"
+					},
+					{
+						"slug": "build/replit",
+						"title": "Build a Replit-Agent-style app",
+						"icon": "logo:/docs-assets/brands/replit.svg",
+						"titleZh": "构建 Replit-Agent 风格的应用程序"
+					},
+					{
+						"slug": "build/base44",
+						"title": "Build a Base44-style app",
+						"icon": "logo:/docs-assets/brands/base44.png",
+						"titleZh": "构建 Base44 风格的应用程序"
+					},
+					{
+						"slug": "build/emergent",
+						"title": "Build an Emergent-style app",
+						"icon": "logo:/docs-assets/brands/emergent.png",
+						"titleZh": "构建 Emergent 风格的应用程序"
+					},
+					{
+						"slug": "build/rork",
+						"title": "Build a Rork-style app",
+						"icon": "logo:/docs-assets/brands/rork.png",
+						"titleZh": "构建 Rork 风格的应用程序"
+					},
+					{
+						"slug": "build/anything",
+						"title": "Build an Anything-style app",
+						"icon": "logo:/docs-assets/brands/anything.png",
+						"titleZh": "构建任何风格的应用程序"
+					},
+					{
+						"slug": "build/same-new",
+						"title": "Build a Same-style app",
+						"icon": "logo:/docs-assets/brands/same-new.png",
+						"titleZh": "构建一个相同风格的应用程序"
+					}
+				]
+			},
+			{
+				"title": "Run coding agents",
+				"icon": "code",
+				"count": "9",
+				"children": [
+					{
+						"slug": "build/run-agents",
+						"title": "Run coding agents in the cloud",
+						"icon": "logo:/docs-assets/brands/miosa.svg",
+						"titleZh": "在云中运行编码智能体"
+					},
+					{
+						"slug": "build/claude-code",
+						"title": "Run Claude Code on MIOSA",
+						"icon": "file",
+						"titleZh": "在 MIOSA 上运行 Claude 代码"
+					},
+					{
+						"slug": "build/codex",
+						"title": "Run Codex on MIOSA",
+						"icon": "file",
+						"titleZh": "在 MIOSA 上运行 Codex"
+					},
+					{
+						"slug": "build/cursor",
+						"title": "Run Cursor agents on MIOSA",
+						"icon": "file",
+						"titleZh": "在 MIOSA 上运行 Cursor 智能体"
+					},
+					{
+						"slug": "build/windsurf",
+						"title": "Build a Windsurf-style agentic IDE",
+						"icon": "logo:/docs-assets/brands/windsurf.svg",
+						"titleZh": "构建 Windsurf 风格的智能体 IDE"
+					},
+					{
+						"slug": "build/github-copilot",
+						"title": "Build a GitHub Copilot-style coding agent",
+						"icon": "logo:/docs-assets/brands/githubcopilot.svg",
+						"titleZh": "构建 GitHub Copilot 风格的编码智能体"
+					},
+					{
+						"slug": "build/openhands",
+						"title": "Run OpenHands on MIOSA",
+						"icon": "logo:/docs-assets/brands/openhands.svg",
+						"titleZh": "在 MIOSA 上运行 OpenHands"
+					},
+					{
+						"slug": "build/cline",
+						"title": "Run Cline on MIOSA",
+						"icon": "logo:/docs-assets/brands/cline.svg",
+						"titleZh": "在 MIOSA 上运行 Cline"
+					},
+					{
+						"slug": "build/coding-agent-product",
+						"title": "Build a coding-agent product",
+						"icon": "logo:/docs-assets/brands/miosa.svg",
+						"titleZh": "构建编码智能体产品"
+					}
+				]
+			},
+			{
+				"title": "Autonomous agents",
+				"icon": "waypoints",
+				"count": "4",
+				"children": [
+					{
+						"slug": "build/manus",
+						"title": "Build a Manus-style agent",
+						"icon": "logo:/docs-assets/brands/manus.svg",
+						"titleZh": "构建 Manus 风格的智能体"
+					},
+					{
+						"slug": "build/genspark",
+						"title": "Build a Genspark-style agent",
+						"icon": "logo:/docs-assets/brands/genspark.png",
+						"titleZh": "构建 Genspark 风格的智能体"
+					},
+					{
+						"slug": "build/devin",
+						"title": "Build a Devin-style SWE agent",
+						"icon": "logo:/docs-assets/brands/devin.svg",
+						"titleZh": "构建 Devin 风格的 SWE 智能体"
+					},
+					{
+						"slug": "build/claude-cowork",
+						"title": "Build a Cowork-style desktop agent",
+						"icon": "file",
+						"titleZh": "构建 Cowork 风格的桌面智能体"
+					}
+				]
+			},
+			{
+				"title": "Browser and computer-use agents",
+				"icon": "app-window",
+				"count": "4",
+				"children": [
+					{
+						"slug": "build/chatgpt-agent",
+						"title": "Build a browser and computer-use agent",
+						"icon": "mouse-pointer-click",
+						"titleZh": "构建浏览器和计算机使用智能体"
+					},
+					{
+						"slug": "build/polar",
+						"title": "Build a Polar-style AI browser",
+						"icon": "logo:/docs-assets/brands/polar.svg",
+						"titleZh": "构建一个Polar风格的AI浏览器"
+					},
+					{
+						"slug": "build/browser-use",
+						"title": "Run Browser Use on MIOSA",
+						"icon": "logo:/docs-assets/brands/browser-use.png",
+						"titleZh": "在 MIOSA 上运行浏览器使用"
+					},
+					{
+						"slug": "build/stagehand",
+						"title": "Run Stagehand on MIOSA",
+						"icon": "logo:/docs-assets/brands/stagehand.png",
+						"titleZh": "在 MIOSA 上运行 Stagehand"
+					}
+				]
+			},
+			{
+				"title": "AI chat and companions",
+				"icon": "key-round",
+				"count": "7",
+				"children": [
+					{
+						"slug": "build/dots",
+						"title": "Build a dots-style companion",
+						"icon": "logo:/docs-assets/brands/dots.svg",
+						"titleZh": "打造圆点式伴侣"
+					},
+					{
+						"slug": "build/grok-bot",
+						"title": "Build a Grok Bot-style chat app",
+						"icon": "logo:/docs-assets/brands/grokbot.png",
+						"titleZh": "构建 Grok Bot 风格的聊天应用程序"
+					},
+					{
+						"slug": "build/meta-muse",
+						"title": "Build a Muse-style companion",
+						"icon": "logo:/docs-assets/brands/meta.svg",
+						"titleZh": "打造缪斯风格的伴侣"
+					},
+					{
+						"slug": "build/character-ai",
+						"title": "Build a Character-style companion",
+						"icon": "logo:/docs-assets/brands/characterai.png",
+						"titleZh": "建立一个角色风格的伴侣"
+					},
+					{
+						"slug": "build/replika",
+						"title": "Build a Replika-style companion",
+						"icon": "logo:/docs-assets/brands/replika.png",
+						"titleZh": "打造 Replika 风格的伴侣"
+					},
+					{
+						"slug": "build/pi",
+						"title": "Build a Pi-style companion",
+						"icon": "logo:/docs-assets/brands/pi.png",
+						"titleZh": "打造 Pi 风格的伴侣"
+					},
+					{
+						"slug": "build/openclaw",
+						"title": "Run OpenClaw on MIOSA",
+						"icon": "logo:/docs-assets/brands/openclaw.svg",
+						"titleZh": "在 MIOSA 上运行 OpenClaw"
+					}
+				]
+			},
+			{
+				"title": "Answer engines",
+				"icon": "scan-search",
+				"count": "5",
+				"children": [
+					{
+						"slug": "build/perplexity",
+						"title": "Build a Perplexity-style answer engine",
+						"icon": "logo:/docs-assets/brands/perplexity.svg",
+						"titleZh": "构建 Perplexity 风格的答案引擎"
+					},
+					{
+						"slug": "build/comet",
+						"title": "Build a Comet-style agentic browser",
+						"icon": "logo:/docs-assets/brands/perplexity.svg",
+						"titleZh": "构建 Comet 风格的智能体浏览器"
+					},
+					{
+						"slug": "build/you-com",
+						"title": "Build a You.com-style search and answer API",
+						"icon": "logo:/docs-assets/brands/you.png",
+						"titleZh": "构建 You.com 风格的搜索和答案 API"
+					},
+					{
+						"slug": "build/phind",
+						"title": "Build a Phind-style answer engine",
+						"icon": "search-code",
+						"titleZh": "构建 Phind 风格的答案引擎"
+					},
+					{
+						"slug": "build/deep-research",
+						"title": "Build a deep-research-style agent",
+						"icon": "file",
+						"titleZh": "打造深度研究型智能体"
+					}
+				]
+			},
+			{
+				"title": "Multi-agent",
+				"icon": "monitor-smartphone",
+				"count": "3",
+				"children": [
+					{
+						"slug": "build/openswarm",
+						"title": "Build an OpenSwarm-style multi-agent app",
+						"icon": "logo:/docs-assets/brands/openswarm.png",
+						"titleZh": "构建 OpenSwarm 风格的多智能体应用程序"
+					},
+					{
+						"slug": "build/hermes-agent",
+						"title": "Run Hermes Agent on MIOSA",
+						"icon": "logo:/docs-assets/brands/hermes.png",
+						"titleZh": "在 MIOSA 上运行 Hermes 智能体"
+					},
+					{
+						"slug": "build/gemini-agent",
+						"title": "Build an orchestrator that delegates",
+						"icon": "workflow",
+						"titleZh": "构建一个可委派的协调器"
+					}
+				]
+			},
+			{
+				"title": "Voice agents",
+				"icon": "radio",
+				"count": "6",
+				"children": [
+					{
+						"slug": "build/elevenlabs",
+						"title": "Build an ElevenLabs-style voice agent",
+						"icon": "logo:/docs-assets/brands/elevenlabs.svg",
+						"titleZh": "构建 ElevenLabs 风格的语音智能体"
+					},
+					{
+						"slug": "build/vapi",
+						"title": "Build a Vapi-style voice agent",
+						"icon": "logo:/docs-assets/brands/vapi.png",
+						"titleZh": "构建Vapi风格的语音智能体"
+					},
+					{
+						"slug": "build/retell",
+						"title": "Build a Retell-style voice agent",
+						"icon": "logo:/docs-assets/brands/retell.png",
+						"titleZh": "构建 Retell 风格的语音智能体"
+					},
+					{
+						"slug": "build/bland",
+						"title": "Build a Bland-style phone agent",
+						"icon": "logo:/docs-assets/brands/bland.png",
+						"titleZh": "建立一个平淡无奇的电话智能体"
+					},
+					{
+						"slug": "build/pipecat",
+						"title": "Run Pipecat on MIOSA",
+						"icon": "logo:/docs-assets/brands/pipecat.png",
+						"titleZh": "在 MIOSA 上运行 Pipecat"
+					},
+					{
+						"slug": "build/livekit-agents",
+						"title": "Run LiveKit Agents on MIOSA",
+						"icon": "logo:/docs-assets/brands/livekit.svg",
+						"titleZh": "在 MIOSA 上运行 LiveKit 智能体"
+					}
+				]
+			},
+			{
+				"title": "AI design tools",
+				"icon": "folder-git-2",
+				"count": "3",
+				"children": [
+					{
+						"slug": "build/figma-make",
+						"title": "Build a prompt-to-UI design tool",
+						"icon": "logo:/docs-assets/brands/figma.svg",
+						"titleZh": "构建一个提示式 UI 设计工具"
+					},
+					{
+						"slug": "build/uizard",
+						"title": "Build a sketch-to-mockup tool",
+						"icon": "logo:/docs-assets/brands/uizard.png",
+						"titleZh": "构建草图到模型工具"
+					},
+					{
+						"slug": "build/magic-patterns",
+						"title": "Build a Magic-Patterns-style tool",
+						"icon": "logo:/docs-assets/brands/magic-patterns.png",
+						"titleZh": "构建 Magic-Patterns 风格的工具"
+					}
+				]
+			},
+			{
+				"title": "AI video and creative",
+				"icon": "bot",
+				"count": "6",
+				"children": [
+					{
+						"slug": "build/runway",
+						"title": "Build a video-generation app",
+						"icon": "logo:/docs-assets/brands/runway.png",
+						"titleZh": "构建视频生成应用程序"
+					},
+					{
+						"slug": "build/sora",
+						"title": "Build a text-to-video app",
+						"icon": "file",
+						"titleZh": "构建文本转视频应用程序"
+					},
+					{
+						"slug": "build/heygen",
+						"title": "Build an avatar-video app",
+						"icon": "logo:/docs-assets/brands/heygen.png",
+						"titleZh": "构建头像视频应用程序"
+					},
+					{
+						"slug": "build/higgsfield",
+						"title": "Build a Higgsfield-style video studio",
+						"icon": "logo:/docs-assets/brands/higgsfield.svg",
+						"titleZh": "建立希格斯菲尔德风格的视频工作室"
+					},
+					{
+						"slug": "build/gamma",
+						"title": "Build a Gamma-style deck app",
+						"icon": "logo:/docs-assets/brands/gamma.svg",
+						"titleZh": "构建 Gamma 风格的套牌应用程序"
+					},
+					{
+						"slug": "build/descript",
+						"title": "Build a Descript-style editor",
+						"icon": "logo:/docs-assets/brands/descript.png",
+						"titleZh": "构建一个描述风格的编辑器"
+					}
+				]
+			},
+			{
+				"title": "Vertical AI apps",
+				"icon": "store",
+				"count": "5",
+				"children": [
+					{
+						"slug": "build/intercom-fin",
+						"title": "Build a Fin-style support agent",
+						"icon": "logo:/docs-assets/brands/intercom.svg",
+						"titleZh": "建立 Fin 式支持智能体"
+					},
+					{
+						"slug": "build/decagon",
+						"title": "Build a Decagon-style support agent",
+						"icon": "logo:/docs-assets/brands/decagon.png",
+						"titleZh": "构建 Decagon 式支持智能体"
+					},
+					{
+						"slug": "build/clay",
+						"title": "Build a Clay-style sales agent",
+						"icon": "logo:/docs-assets/brands/clay.png",
+						"titleZh": "打造粘土式销售智能体"
+					},
+					{
+						"slug": "build/gong",
+						"title": "Build a post-call analysis agent",
+						"icon": "logo:/docs-assets/brands/gong.png",
+						"titleZh": "构建呼叫后分析智能体"
+					},
+					{
+						"slug": "build/openevidence",
+						"title": "Build an OpenEvidence-style evidence engine",
+						"icon": "logo:/docs-assets/brands/openevidence.png",
+						"titleZh": "构建 OpenEvidence 风格的证据引擎"
+					}
+				]
+			},
+			{
+				"title": "Internal company apps",
+				"icon": "cloud-upload",
+				"count": "6",
+				"children": [
+					{
+						"slug": "build/business-os",
+						"title": "Build an internal Business OS",
+						"icon": "logo:/docs-assets/brands/miosa.svg",
+						"titleZh": "构建内部业务操作系统"
+					},
+					{
+						"slug": "build/team-ai-workspace",
+						"title": "Build an internal AI workspace",
+						"icon": "layout-dashboard",
+						"titleZh": "构建内部 AI 工作空间"
+					},
+					{
+						"slug": "build/ops-support-copilot",
+						"title": "Build an ops and support copilot",
+						"icon": "life-buoy",
+						"titleZh": "建立一名运营人员并提供支持副驾驶"
+					},
+					{
+						"slug": "build/internal-tools-builder",
+						"title": "Build an internal tools builder",
+						"icon": "layout-grid",
+						"titleZh": "构建内部工具构建器"
+					},
+					{
+						"slug": "build/knowledge-base-agent",
+						"title": "Build a knowledge-base agent",
+						"icon": "book-bookmark",
+						"titleZh": "构建知识库智能体"
+					},
+					{
+						"slug": "build/employee-onboarding-agent",
+						"title": "Build an employee onboarding agent",
+						"icon": "clipboard-list",
+						"titleZh": "建立员工入职智能体"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "CLI, SDKs & MCP",
+		"count": "33",
+		"items": [
+			{
+				"slug": "cli/cli-vs-mcp",
+				"title": "CLI or MCP: which to use",
+				"icon": "scale",
+				"titleZh": "CLI 或 MCP：使用哪个"
+			},
+			{
+				"title": "CLI",
+				"icon": "terminal",
+				"count": "14",
+				"children": [
+					{
+						"slug": "cli",
+						"title": "CLI overview",
+						"icon": "terminal",
+						"titleZh": "CLI 概述"
+					},
+					{
+						"slug": "cli/install",
+						"title": "Install the CLI or SDK",
+						"icon": "download"
+					},
+					{
+						"slug": "cli/account",
+						"title": "Account and environment",
+						"icon": "user-cog",
+						"titleZh": "账号及环境"
+					},
+					{
+						"slug": "cli/machines",
+						"title": "Machines and lifecycle",
+						"icon": "server",
+						"titleZh": "机器和生命周期"
+					},
+					{
+						"slug": "cli/work-inside",
+						"title": "Run commands and move files",
+						"icon": "square-terminal",
+						"titleZh": "运行命令并移动文件"
+					},
+					{
+						"slug": "cli/snapshots",
+						"title": "Snapshots, checkpoints and restore",
+						"icon": "camera",
+						"titleZh": "快照、检查点和恢复"
+					},
+					{
+						"slug": "cli/environments",
+						"title": "Environments",
+						"icon": "variable",
+						"titleZh": "环境"
+					},
+					{
+						"slug": "cli/agents",
+						"title": "Agents, chats and runs",
+						"icon": "bot",
+						"titleZh": "智能体、聊天和运行"
+					},
+					{
+						"slug": "cli/platform",
+						"title": "Platform resources",
+						"icon": "blocks",
+						"titleZh": "平台资源"
+					},
+					{
+						"slug": "cli/access-billing",
+						"title": "Access, org and billing",
+						"icon": "credit-card",
+						"titleZh": "访问、组织和计费"
+					},
+					{
+						"slug": "cli/api",
+						"title": "Raw API access",
+						"icon": "command",
+						"titleZh": "原始 API 访问"
+					},
+					{
+						"slug": "cli/config",
+						"title": "Config and profiles",
+						"icon": "sliders-horizontal",
+						"titleZh": "配置和配置文件"
+					},
+					{
+						"slug": "cli/scripting",
+						"title": "JSON output and scripting",
+						"icon": "square-chevron-right",
+						"titleZh": "JSON 输出和脚本"
+					},
+					{
+						"slug": "cli/devices",
+						"title": "Devices",
+						"icon": "cpu",
+						"titleZh": "设备"
+					}
+				]
+			},
+			{
+				"title": "SDKs",
+				"icon": "file-code",
+				"count": "8",
+				"children": [
+					{
+						"slug": "sdks",
+						"title": "SDKs overview",
+						"icon": "blocks",
+						"titleZh": "SDK 概览"
+					},
+					{
+						"slug": "sdks/typescript",
+						"title": "TypeScript SDK",
+						"icon": "file",
+						"titleZh": "TypeScript SDK"
+					},
+					{
+						"slug": "sdks/python",
+						"title": "Python SDK",
+						"icon": "file",
+						"titleZh": "Python SDK"
+					},
+					{
+						"slug": "sdks/go",
+						"title": "Go SDK",
+						"icon": "file",
+						"titleZh": "Go SDK"
+					},
+					{
+						"slug": "sdks/elixir",
+						"title": "Elixir SDK",
+						"icon": "file",
+						"titleZh": "Elixir SDK"
+					},
+					{
+						"slug": "sdks/java",
+						"title": "Java SDK",
+						"icon": "file",
+						"titleZh": "Java SDK"
+					},
+					{
+						"slug": "sdks/rust",
+						"title": "Rust SDK",
+						"icon": "file",
+						"titleZh": "Rust SDK"
+					},
+					{
+						"slug": "sdks/egress",
+						"title": "Egress SDK reference",
+						"icon": "shield",
+						"titleZh": "出口（安全）SDK 参考"
+					}
+				]
+			},
+			{
+				"title": "MCP",
+				"icon": "file",
+				"count": "10",
+				"children": [
+					{
+						"slug": "mcp",
+						"title": "MCP overview",
+						"icon": "file",
+						"titleZh": "MCP概述"
+					},
+					{
+						"slug": "mcp/install",
+						"title": "Install and authenticate",
+						"icon": "file",
+						"titleZh": "安装并验证"
+					},
+					{
+						"slug": "mcp/tools",
+						"title": "Tools reference",
+						"icon": "file",
+						"titleZh": "工具参考"
+					},
+					{
+						"slug": "mcp/tools/sandboxes",
+						"title": "Sandbox tools",
+						"icon": "file",
+						"titleZh": "沙箱工具"
+					},
+					{
+						"slug": "mcp/tools/computers",
+						"title": "Computer tools",
+						"icon": "file",
+						"titleZh": "电脑工具"
+					},
+					{
+						"slug": "mcp/tools/deployments",
+						"title": "Deployment tools",
+						"icon": "file",
+						"titleZh": "部署工具"
+					},
+					{
+						"slug": "mcp/tools/data",
+						"title": "Data tools",
+						"icon": "file",
+						"titleZh": "数据工具"
+					},
+					{
+						"slug": "mcp/tools/platform",
+						"title": "Platform tools",
+						"icon": "file",
+						"titleZh": "平台工具"
+					},
+					{
+						"slug": "mcp/advanced",
+						"title": "Advanced MCP setup",
+						"icon": "file",
+						"titleZh": "高级 MCP 设置"
+					},
+					{
+						"slug": "mcp/catalog",
+						"title": "Tool server catalog",
+						"icon": "store",
+						"titleZh": "工具服务器目录"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "API reference",
+		"count": "56",
+		"items": [
+			{
+				"title": "Using the API",
+				"icon": "building-complex",
+				"count": "9",
+				"children": [
+					{
+						"slug": "authentication",
+						"title": "Authentication",
+						"icon": "key-round",
+						"titleZh": "验证"
+					},
+					{
+						"title": "API fundamentals",
+						"icon": "folder-git-2",
+						"count": "6",
+						"children": [
+							{
+								"slug": "fundamentals",
+								"title": "Fundamental Concepts",
+								"icon": "compass",
+								"titleZh": "基本概念"
+							},
+							{
+								"slug": "fundamentals/authentication",
+								"title": "Authentication",
+								"icon": "key-round",
+								"titleZh": "验证"
+							},
+							{
+								"slug": "fundamentals/requests",
+								"title": "Requests, limits, and errors",
+								"icon": "gauge",
+								"titleZh": "请求、限制和错误"
+							},
+							{
+								"slug": "fundamentals/events",
+								"title": "Events (SSE)",
+								"icon": "radio",
+								"titleZh": "活动（SSE）"
+							},
+							{
+								"slug": "fundamentals/attribution",
+								"title": "Ownership and external attribution",
+								"icon": "badge-check",
+								"titleZh": "所有权和外部归属"
+							},
+							{
+								"slug": "fundamentals/tenant-config",
+								"title": "Tenant configuration",
+								"icon": "settings-2",
+								"titleZh": "租户配置"
+							}
+						]
+					},
+					{
+						"slug": "rate-limits",
+						"title": "Rate limits",
+						"icon": "gauge",
+						"titleZh": "速率限制"
+					},
+					{
+						"slug": "regions",
+						"title": "Regions",
+						"icon": "map-pin",
+						"titleZh": "区域"
+					}
+				]
+			},
+			{
+				"title": "Overview",
+				"icon": "settings",
+				"count": "5",
+				"children": [
+					{
+						"slug": "api-reference",
+						"title": "API Reference",
+						"icon": "compass",
+						"titleZh": "API 参考"
+					},
+					{
+						"slug": "api",
+						"title": "Interactive API Reference",
+						"icon": "play",
+						"titleZh": "交互式 API 参考"
+					},
+					{
+						"slug": "api-reference/errors",
+						"title": "Error Codes",
+						"icon": "triangle-alert",
+						"titleZh": "错误代码"
+					},
+					{
+						"slug": "api-reference/events",
+						"title": "Events (SSE)",
+						"icon": "radio",
+						"titleZh": "活动（SSE）"
+					},
+					{
+						"slug": "api-reference/regions",
+						"title": "Regions API",
+						"icon": "map-pin",
+						"titleZh": "区域 API"
+					}
+				]
+			},
+			{
+				"title": "Sandboxes",
+				"icon": "rotate-ccw-clock",
+				"count": "15",
+				"children": [
+					{
+						"slug": "api-reference/sandboxes",
+						"title": "Sandboxes API",
+						"icon": "box",
+						"titleZh": "沙箱API"
+					},
+					{
+						"slug": "api-reference/sandboxes/create",
+						"title": "Sandboxes API - create and run",
+						"icon": "circle-plus",
+						"titleZh": "沙箱 API - 创建和运行"
+					},
+					{
+						"slug": "api-reference/sandboxes/manage",
+						"title": "Sandboxes API - manage",
+						"icon": "sliders-horizontal",
+						"titleZh": "沙箱 API - 管理"
+					},
+					{
+						"slug": "api-reference/previews",
+						"title": "Previews and publish API",
+						"icon": "eye",
+						"titleZh": "预览并发布API"
+					},
+					{
+						"slug": "api-reference/exec",
+						"title": "Exec API",
+						"icon": "square-terminal",
+						"titleZh": "执行API"
+					},
+					{
+						"slug": "api-reference/streaming-exec",
+						"title": "Streaming Exec API",
+						"icon": "activity",
+						"titleZh": "流式执行 API"
+					},
+					{
+						"slug": "api-reference/filesystem",
+						"title": "Filesystem API",
+						"icon": "folder-tree",
+						"titleZh": "文件系统API"
+					},
+					{
+						"slug": "api-reference/files",
+						"title": "Files API",
+						"icon": "hard-drive-download",
+						"titleZh": "文件API"
+					},
+					{
+						"slug": "api-reference/sandbox-files-advanced",
+						"title": "Sandbox Files (Advanced) API",
+						"icon": "files",
+						"titleZh": "沙盒文件（高级）API"
+					},
+					{
+						"slug": "api-reference/sandbox-processes",
+						"title": "Sandbox Processes API",
+						"icon": "cpu",
+						"titleZh": "沙箱进程API"
+					},
+					{
+						"slug": "api-reference/sandbox-env",
+						"title": "Sandbox Env API",
+						"icon": "variable",
+						"titleZh": "沙盒环境 API"
+					},
+					{
+						"slug": "api-reference/snapshots",
+						"title": "Snapshots API",
+						"icon": "camera",
+						"titleZh": "快照API"
+					},
+					{
+						"slug": "api-reference/sandbox-templates",
+						"title": "Sandbox Templates API",
+						"icon": "layout-template",
+						"titleZh": "沙箱模板 API"
+					},
+					{
+						"slug": "api-reference/sandbox-shares",
+						"title": "Sandbox Shares API",
+						"icon": "share-2",
+						"titleZh": "沙盒共享 API"
+					},
+					{
+						"slug": "api-reference/preview-tokens",
+						"title": "Preview Tokens API",
+						"icon": "ticket",
+						"titleZh": "预览令牌 API"
+					}
+				]
+			},
+			{
+				"title": "Computers",
+				"icon": "shield",
+				"count": "5",
+				"children": [
+					{
+						"slug": "api-reference/computers",
+						"title": "Computers API",
+						"icon": "monitor",
+						"titleZh": "计算机应用程序接口"
+					},
+					{
+						"slug": "api-reference/desktop",
+						"title": "Desktop API",
+						"icon": "mouse-pointer-click",
+						"titleZh": "桌面API"
+					},
+					{
+						"slug": "api-reference/open-computers",
+						"title": "OpenComputers API",
+						"icon": "server-cog",
+						"titleZh": "OpenComputersAPI"
+					},
+					{
+						"slug": "api-reference/cloud",
+						"title": "Cloud and BYOC API",
+						"icon": "cloud-cog",
+						"titleZh": "云和 BYOC API"
+					},
+					{
+						"slug": "api-reference/services",
+						"title": "Services API",
+						"icon": "wrench",
+						"titleZh": "服务API"
+					}
+				]
+			},
+			{
+				"title": "Agents",
+				"icon": "lock",
+				"count": "4",
+				"children": [
+					{
+						"slug": "api-reference/agent-runs",
+						"title": "Agent Runs",
+						"icon": "bot",
+						"titleZh": "智能体运行"
+					},
+					{
+						"slug": "api-reference/agent-run-groups",
+						"title": "Agent Run Groups",
+						"icon": "blocks",
+						"titleZh": "智能体运行组"
+					},
+					{
+						"slug": "api-reference/agent-runtime-profiles",
+						"title": "Agent Runtime Profiles",
+						"icon": "user-cog",
+						"titleZh": "智能体运行时配置文件"
+					},
+					{
+						"slug": "api-reference/runtime-env",
+						"title": "Runtime Env",
+						"icon": "key-round",
+						"titleZh": "运行时环境"
+					}
+				]
+			},
+			{
+				"title": "Deployments",
+				"icon": "layout-template",
+				"count": "6",
+				"children": [
+					{
+						"slug": "api-reference/deployments",
+						"title": "API Reference / Deployments",
+						"icon": "cloud-upload",
+						"titleZh": "API 参考/部署"
+					},
+					{
+						"slug": "api-reference/docker-deploy",
+						"title": "API Reference / Docker Host",
+						"icon": "container",
+						"titleZh": "API 参考/Docker 主机"
+					},
+					{
+						"slug": "api-reference/versions",
+						"title": "API Reference / Versions",
+						"icon": "git-branch",
+						"titleZh": "API 参考/版本"
+					},
+					{
+						"slug": "api-reference/releases",
+						"title": "Releases API",
+						"icon": "package",
+						"titleZh": "发布API"
+					},
+					{
+						"slug": "api-reference/databases",
+						"title": "Databases API",
+						"icon": "database",
+						"titleZh": "数据库API"
+					},
+					{
+						"slug": "api-reference/custom-domains",
+						"title": "Custom Domains API",
+						"icon": "globe-lock",
+						"titleZh": "自定义域 API"
+					}
+				]
+			},
+			{
+				"title": "Workspace and usage",
+				"icon": "files",
+				"count": "6",
+				"children": [
+					{
+						"slug": "api-reference/projects",
+						"title": "Projects API",
+						"icon": "folder-git-2",
+						"titleZh": "项目API"
+					},
+					{
+						"slug": "api-reference/invites",
+						"title": "Invites API",
+						"icon": "user-plus",
+						"titleZh": "邀请API"
+					},
+					{
+						"slug": "api-reference/credits",
+						"title": "Credits API",
+						"icon": "credit-card",
+						"titleZh": "积分API"
+					},
+					{
+						"slug": "api-reference/quotas",
+						"title": "Quotas API",
+						"icon": "gauge",
+						"titleZh": "配额API"
+					},
+					{
+						"slug": "api-reference/usage-rollup",
+						"title": "Usage Rollup API",
+						"icon": "activity",
+						"titleZh": "使用情况汇总 API"
+					},
+					{
+						"slug": "api-reference/audit-log",
+						"title": "Audit Log API",
+						"icon": "scroll-text",
+						"titleZh": "审核日志API"
+					}
+				]
+			},
+			{
+				"title": "Platform builders",
+				"icon": "webhook",
+				"count": "6",
+				"children": [
+					{
+						"slug": "api-reference/webhooks",
+						"title": "Webhooks API",
+						"icon": "webhook",
+						"titleZh": "网络钩子 API"
+					},
+					{
+						"slug": "api-reference/tenant-branding",
+						"title": "Tenant Branding API",
+						"icon": "palette",
+						"titleZh": "租户品牌 API"
+					},
+					{
+						"slug": "api-reference/tenant-preview-domain",
+						"title": "Tenant Preview Domain API",
+						"icon": "earth",
+						"titleZh": "租户预览域 API"
+					},
+					{
+						"slug": "api-reference/tenant-events",
+						"title": "Tenant Events (SSE) API",
+						"icon": "megaphone",
+						"titleZh": "租户事件 (SSE) API"
+					},
+					{
+						"slug": "api-reference/network-policy",
+						"title": "Network Policy API",
+						"icon": "shield",
+						"titleZh": "网络策略API"
+					},
+					{
+						"slug": "api-reference/egress",
+						"title": "Egress (Security) API",
+						"icon": "scroll-text",
+						"titleZh": "出口（安全）API"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Organization & billing",
+		"count": "6",
+		"items": [
+			{
+				"slug": "api-reference/workspaces",
+				"title": "Workspaces API",
+				"icon": "credit-card",
+				"titleZh": "工作区 API"
+			},
+			{
+				"slug": "api-reference/members",
+				"title": "Workspace Members API",
+				"icon": "users",
+				"titleZh": "工作区成员 API"
+			},
+			{
+				"slug": "platform/api-keys",
+				"title": "API Keys",
+				"icon": "user-plus",
+				"titleZh": "API 密钥"
+			},
+			{
+				"title": "Billing and limits",
+				"icon": "mail",
+				"count": "3",
+				"children": [
+					{
+						"slug": "pricing",
+						"title": "Pricing and limits",
+						"icon": "tags",
+						"titleZh": "定价与限制"
+					},
+					{
+						"slug": "plans-and-limits",
+						"title": "Plans and limits",
+						"icon": "receipt",
+						"titleZh": "计划和限制"
+					},
+					{
+						"slug": "platform/usage-and-billing",
+						"title": "Usage & Billing",
+						"icon": "scroll-text",
+						"titleZh": "用量与计费"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Security & compliance",
+		"count": "6",
+		"items": [
+			{
+				"slug": "security",
+				"title": "Security",
+				"icon": "activity",
+				"titleZh": "安全"
+			},
+			{
+				"slug": "security/api-keys",
+				"title": "API keys",
+				"icon": "triangle-alert",
+				"titleZh": "API 密钥"
+			},
+			{
+				"slug": "security/audit-log",
+				"title": "Audit Log",
+				"icon": "rotate-ccw",
+				"titleZh": "审计日志"
+			},
+			{
+				"slug": "data-retention",
+				"title": "Data retention and deletion",
+				"icon": "clipboard-list",
+				"titleZh": "数据保留和删除"
+			},
+			{
+				"slug": "infrastructure/shared-responsibility",
+				"title": "Shared responsibility",
+				"icon": "flask-conical",
+				"titleZh": "共同责任"
+			},
+			{
+				"slug": "security/troubleshooting",
+				"title": "Security  -  Troubleshooting",
+				"icon": "search-code",
+				"titleZh": "安全——故障排查"
+			}
+		]
+	},
+	{
+		"title": "Self-hosting",
+		"count": "6",
+		"items": [
+			{
+				"slug": "infrastructure/overview",
+				"title": "Infrastructure options",
+				"icon": "ticket",
+				"titleZh": "基础设施选项"
+			},
+			{
+				"title": "Bring your own cloud",
+				"icon": "boxes",
+				"count": "3",
+				"children": [
+					{
+						"slug": "infrastructure/byoc/overview",
+						"title": "Bring Your Own Cloud",
+						"icon": "cloud",
+						"titleZh": "自带云"
+					},
+					{
+						"slug": "infrastructure/byoc/aws",
+						"title": "AWS customer-cloud regions",
+						"icon": "file",
+						"titleZh": "AWS 客户云区域"
+					},
+					{
+						"slug": "infrastructure/byoc/gcp",
+						"title": "Google Cloud customer-cloud regions",
+						"icon": "file",
+						"titleZh": "Google Cloud 客户云区域"
+					}
+				]
+			},
+			{
+				"slug": "integrations/external-computers",
+				"title": "External computer providers",
+				"icon": "component",
+				"titleZh": "外部计算机提供商"
+			},
+			{
+				"slug": "integrations/comparison",
+				"title": "Compute provider comparison",
+				"icon": "globe-lock",
+				"titleZh": "计算提供商比较"
+			}
+		]
+	},
+	{
+		"title": "Compare",
+		"count": "15",
+		"items": [
+			{
+				"slug": "compare",
+				"title": "MIOSA vs other platforms",
+				"icon": "earth",
+				"titleZh": "MIOSA 与其他平台对比"
+			},
+			{
+				"title": "App hosting",
+				"icon": "map-pin",
+				"count": "3",
+				"children": [
+					{
+						"slug": "compare/railway",
+						"title": "MIOSA vs Railway",
+						"icon": "logo:/docs-assets/brands/railway.svg",
+						"titleZh": "MIOSA 与 Railway"
+					},
+					{
+						"slug": "compare/render",
+						"title": "MIOSA vs Render",
+						"icon": "logo:/docs-assets/brands/render.svg",
+						"titleZh": "MIOSA 与渲染"
+					},
+					{
+						"slug": "compare/fly",
+						"title": "MIOSA vs Fly.io",
+						"icon": "logo:/docs-assets/brands/fly.svg",
+						"titleZh": "MIOSA 与 Fly.io"
+					}
+				]
+			},
+			{
+				"title": "Sandboxes and agent compute",
+				"icon": "shield-check",
+				"count": "11",
+				"children": [
+					{
+						"slug": "compare/e2b",
+						"title": "MIOSA vs E2B",
+						"icon": "logo:/docs-assets/brands/e2b.svg",
+						"titleZh": "MIOSA 与 E2B"
+					},
+					{
+						"slug": "compare/daytona",
+						"title": "MIOSA vs Daytona",
+						"icon": "logo:/docs-assets/brands/daytona.svg",
+						"titleZh": "MIOSA vs 代托纳"
+					},
+					{
+						"slug": "compare/modal",
+						"title": "MIOSA vs Modal",
+						"icon": "logo:/docs-assets/brands/modal.svg",
+						"titleZh": "MIOSA 与 Modal"
+					},
+					{
+						"slug": "compare/vercel",
+						"title": "MIOSA vs Vercel Sandbox",
+						"icon": "logo:/docs-assets/brands/vercel.svg",
+						"titleZh": "MIOSA 与 Vercel 沙盒"
+					},
+					{
+						"slug": "compare/cloudflare",
+						"title": "MIOSA vs Cloudflare Sandboxes",
+						"icon": "file",
+						"titleZh": "MIOSA 与 Cloudflare 沙盒"
+					},
+					{
+						"slug": "compare/freestyle",
+						"title": "MIOSA vs Freestyle",
+						"icon": "logo:/docs-assets/brands/freestyle.svg",
+						"titleZh": "MIOSA VS 自由泳"
+					},
+					{
+						"slug": "compare/runloop",
+						"title": "MIOSA vs Runloop",
+						"icon": "logo:/docs-assets/brands/runloop.svg",
+						"titleZh": "MIOSA 与 Runloop"
+					},
+					{
+						"slug": "compare/blaxel",
+						"title": "MIOSA vs Blaxel",
+						"icon": "logo:/docs-assets/brands/blaxel.svg",
+						"titleZh": "MIOSA vs 布拉克塞尔"
+					},
+					{
+						"slug": "compare/beam",
+						"title": "MIOSA vs Beam",
+						"icon": "logo:/docs-assets/brands/beam.svg",
+						"titleZh": "MIOSA VS 光束"
+					},
+					{
+						"slug": "compare/boat",
+						"title": "MIOSA vs boat",
+						"icon": "logo:/docs-assets/brands/boat.svg",
+						"titleZh": "MIOSA VS 船"
+					},
+					{
+						"slug": "compare/codesandbox",
+						"title": "MIOSA vs CodeSandbox",
+						"icon": "logo:/docs-assets/brands/codesandbox.svg",
+						"titleZh": "MIOSA 与 CodeSandbox"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Reference",
+		"count": "9",
+		"items": [
+			{
+				"slug": "changelog",
+				"title": "Changelog",
+				"icon": "ship",
+				"titleZh": "变更日志"
+			},
+			{
+				"title": "Migrate",
+				"icon": "layers-2",
+				"count": "3",
+				"children": [
+					{
+						"slug": "migrate/railway",
+						"title": "Move from Railway",
+						"icon": "hard-drive-download"
+					},
+					{
+						"slug": "migrate/vercel",
+						"title": "Moving from Vercel",
+						"icon": "package-open",
+						"titleZh": "从Vercel搬家"
+					},
+					{
+						"slug": "migrating-from-miosa-sandbox",
+						"title": "Migrating from miosa-sandbox",
+						"icon": "scroll-text",
+						"titleZh": "从 miosa-sandbox 迁移"
+					}
+				]
+			},
+			{
+				"title": "Reliability",
+				"icon": "archive-arrow-up",
+				"count": "5",
+				"children": [
+					{
+						"slug": "availability",
+						"title": "Availability & Roadmap",
+						"icon": "gauge",
+						"titleZh": "可用性和路线图"
+					},
+					{
+						"slug": "known-limitations",
+						"title": "Known Limitations",
+						"icon": "triangle-alert",
+						"titleZh": "已知限制"
+					},
+					{
+						"slug": "operations/recovery",
+						"title": "Recovery Playbooks",
+						"icon": "siren",
+						"titleZh": "恢复手册"
+					},
+					{
+						"slug": "evaluations",
+						"title": "Evaluations",
+						"icon": "flask-conical",
+						"titleZh": "评价"
+					},
+					{
+						"slug": "benchmarks",
+						"title": "Benchmarks",
+						"icon": "scroll-text",
+						"titleZh": "基准测试"
+					}
+				]
+			}
+		]
+	},
+	{
+		"title": "Help",
+		"count": "13",
+		"items": [
+			{
+				"title": "FAQ",
+				"icon": "smartphone",
+				"count": "11",
+				"children": [
+					{
+						"slug": "faq",
+						"title": "FAQ",
+						"icon": "book-bookmark",
+						"titleZh": "常问问题"
+					},
+					{
+						"slug": "faq/getting-started",
+						"title": "Getting started",
+						"icon": "rocket",
+						"titleZh": "入门"
+					},
+					{
+						"slug": "faq/sandboxes-and-computers",
+						"title": "Sandboxes and computers",
+						"icon": "box",
+						"titleZh": "沙箱和计算机"
+					},
+					{
+						"slug": "faq/browser-and-computer-use",
+						"title": "Browser and computer use",
+						"icon": "app-window",
+						"titleZh": "浏览器和计算机使用"
+					},
+					{
+						"slug": "faq/agents",
+						"title": "Agents",
+						"icon": "bot",
+						"titleZh": "智能体商"
+					},
+					{
+						"slug": "faq/runtimes",
+						"title": "SOMA and runtimes",
+						"icon": "cpu",
+						"titleZh": "SOMA 和运行时"
+					},
+					{
+						"slug": "faq/white-label",
+						"title": "White-label and platform builders",
+						"icon": "palette",
+						"titleZh": "白标和平台建设者"
+					},
+					{
+						"slug": "faq/business-os",
+						"title": "Business OS and internal use",
+						"icon": "layout-dashboard",
+						"titleZh": "商业操作系统和内部使用"
+					},
+					{
+						"slug": "faq/security-and-compliance",
+						"title": "Security and compliance",
+						"icon": "shield-check",
+						"titleZh": "安全性和合规性"
+					},
+					{
+						"slug": "faq/pricing-and-limits",
+						"title": "Pricing and limits",
+						"icon": "receipt",
+						"titleZh": "定价和限制"
+					},
+					{
+						"slug": "faq/support",
+						"title": "Support",
+						"icon": "life-buoy",
+						"titleZh": "支持"
+					}
+				]
+			},
+			{
+				"slug": "troubleshooting",
+				"title": "Troubleshooting",
+				"icon": "circle-plus",
+				"titleZh": "故障排查"
+			},
+			{
+				"slug": "support",
+				"title": "Support",
+				"icon": "user-cog",
+				"titleZh": "支持"
+			}
+		]
+	}
+]

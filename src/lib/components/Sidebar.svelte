@@ -10,8 +10,10 @@
 		CircleDollarSign,
 		Check
 	} from '@lucide/svelte';
-	import { navigation } from '#lib/content/navigation.js';
+	import { navigationState, loadNavigation } from '#lib/content/navigation.svelte.js';
 	import type { NavNode } from '#lib/content/generated-navigation.js';
+
+	const navigation = $derived(navigationState.groups);
 	import { navLabelsZh } from '#lib/i18n/nav-labels-zh.js';
 	import { navSlugZh } from '#lib/i18n/nav-slug-zh.js';
 	import { preferences } from '#lib/preferences.svelte.js';
@@ -158,6 +160,7 @@
 		}
 	});
 	$effect(() => {
+		void loadNavigation();
 		const path = page.url.pathname;
 		if (path === previousPath) return;
 		previousPath = path;

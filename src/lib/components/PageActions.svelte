@@ -1,11 +1,20 @@
 <script lang="ts">
 	import { copyText } from '#lib/clipboard.js';
 	import { page } from '$app/state';
-	import { Copy, Check, ChevronDown, FileText, MessageCircle, ExternalLink } from '@lucide/svelte';
+	import { Copy, Check, ChevronDown, FileText, MessageCircle, ExternalLink, SquarePen } from '@lucide/svelte';
+	import { articleMeta } from '#lib/content/catalog.js';
+	import { i18n } from '#lib/i18n.svelte.js';
 	import { ask, notify } from '#lib/preferences.svelte.js';
 	import { t } from '#lib/i18n.svelte.js';
 	let copied = $state(false);
 	let menu: HTMLDetailsElement;
+	// Only pages that exist as a Markdown file can be edited on GitHub.
+	const editUrl = $derived.by(() => {
+		const slug = page.url.pathname.replace(/^\/docs\/?/, '').replace(/\/$/, '');
+		if (!articleMeta.some((item) => item.slug === slug)) return null;
+		const locale = i18n.locale === 'zh' ? 'zh' : 'en';
+		return `https://github.com/xuciro-commits/miosa-docs/edit/main/src/content/docs/${locale}/${slug}.md`;
+	});
 	const markdownUrl = $derived(
 		page.url.pathname.replace(/\/$/, '') + (page.url.pathname === '/docs' ? '/index' : '') + '.md'
 	);
@@ -33,6 +42,17 @@
 			>{copied ? t('docs.pageActions.copied') : t('docs.pageActions.copyPage')}</span
 		></button
 	>
+	{#if editUrl}
+		<a
+			class="edit-button"
+			href={editUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+			title={t('docs.pageActions.editHint')}
+			aria-label={t('docs.pageActions.editPage')}
+			><SquarePen size={13} /><span>{t('docs.pageActions.editPage')}</span></a
+		>
+	{/if}
 	<details bind:this={menu}>
 		<summary aria-label={t('docs.pageActions.more')}><ChevronDown size={13} /></summary>
 		<div class="actions-menu">
@@ -43,7 +63,9 @@
 				}}><Copy size={14} />{t('docs.pageActions.copyMarkdown')}</button
 			><a href={markdownUrl} data-sveltekit-reload target="_blank"
 				><FileText size={14} />{t('docs.pageActions.viewMarkdown')}<ExternalLink size={11} /></a
-			><button
+			>{#if editUrl}<a href={editUrl} target="_blank" rel="noopener noreferrer"
+					><SquarePen size={14} />{t('docs.pageActions.editPage')}<ExternalLink size={11} /></a
+				>{/if}<button
 				onclick={() => {
 					ask(t('docs.pageActions.explainPrompt', { path: page.url.pathname }));
 					menu.open = false;
@@ -75,6 +97,32 @@
 	}
 	.copy-button:hover {
 		color: var(--text);
+	}
+	.edit-button {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		height: 100%;
+		padding: 0 10px;
+		border-left: 1px solid var(--border);
+		color: var(--muted);
+		transition: color 0.15s ease, background 0.15s ease;
+	}
+	.edit-button:hover {
+		color: var(--text);
+		background: var(--hover);
+	}
+	.edit-button:focus-visible {
+		outline: 2px solid var(--text);
+		outline-offset: -2px;
+	}
+	@media (max-width: 720px) {
+		.edit-button span {
+			display: none;
+		}
+		.edit-button {
+			padding: 0 8px;
+		}
 	}
 	details {
 		height: 100%;

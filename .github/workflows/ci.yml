@@ -55,7 +55,8 @@ jobs:
         run: |
           npm run qa:content
           npm run docs:export
-          git diff --exit-code -- content src/lib/content/docs-manifest.json || (echo 'content metadata is stale: commit the regenerated content/' && exit 1)
+          git status --porcelain -- content src/lib/content/docs-manifest.json | tee /tmp/content-state
+          test ! -s /tmp/content-state || (echo 'content metadata is stale: commit the regenerated content/' && exit 1)
 
       - name: Build
         run: npm run build:spa

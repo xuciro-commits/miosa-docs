@@ -198,6 +198,72 @@ for (const lang of LANGS) {
 	writeFileSync(join(CONTENT, `search.${lang}.json`), JSON.stringify(rows) + '\n');
 }
 
+// ---------------------------------------------------------------- navigation
+// The sidebar reads this file at runtime, so a page added in the editor shows up
+// without rebuilding the shell.
+const { generatedNavigation } = await import('../src/lib/content/generated-navigation.ts');
+
+const tree = generatedNavigation.map((group) => ({
+	...group,
+	items: group.items.map((item) => ({ ...item }))
+}));
+
+const findNode = (items, slug) => {
+	for (const item of items) {
+		if (item.slug === slug) return item;
+		if (item.children) {
+			const hit = findNode(item.children, slug);
+			if (hit) return hit;
+		}
+	}
+	return undefined;
+};
+
+const countLeaves = (items) =>
+	items.reduce((total, item) => total + (item.children?.length ? countLeaves(item.children) : 1), 0);
+
+const sectionToGroup = new Map(
+	tree.map((group) => [group.title.toLowerCase(), group])
+);
+
+const added = new Map();
+
+for (const page of typed) {
+	// Interactive pages are reached from their section, not listed in the sidebar.
+	if (page.type === 'quiz' || page.type === 'lab') continue;
+	const existing = findNode(tree.flatMap((group) => group.items), page.slug);
+	if (existing) {
+		existing.title = page.title;
+		existing.titleZh = page.titleZh;
+		continue;
+	}
+	const parentSlug = page.slug.includes('/')
+		? page.slug.split('/').slice(0, -1).join('/')
+		: '';
+	const parent = parentSlug
+		? findNode(tree.flatMap((group) => group.items), parentSlug)
+		: undefined;
+	const group =
+		sectionToGroup.get((page.section ?? '').toLowerCase()) ??
+		sectionToGroup.get('reference') ??
+		tree[tree.length - 1];
+	const node = {
+		slug: page.slug,
+		title: page.title,
+		titleZh: page.titleZh,
+		icon: 'file-text'
+	};
+	if (parent?.children) parent.children.push(node);
+	else if (parent) parent.children = [node];
+	else group.items.push(node);
+	added.set(group, (added.get(group) ?? 0) + 1);
+}
+
+for (const [group, count] of added)
+	group.count = String(Number(group.count ?? countLeaves(group.items)) + count);
+
+writeFileSync(join(CONTENT, 'nav.json'), JSON.stringify(tree, null, '\t') + '\n');
+
 console.log(
 	`published metadata: ${typed.length} pages · manifest ${(statSync(join(CONTENT, 'manifest.json')).size / 1024).toFixed(0)} KB · ` +
 		`search ${(statSync(join(CONTENT, 'search.en.json')).size / 1024).toFixed(0)} KB en / ${(statSync(join(CONTENT, 'search.zh.json')).size / 1024).toFixed(0)} KB zh`

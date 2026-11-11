@@ -205,6 +205,8 @@ export const en: Record<string, string> = {
 
 	// Page actions
 	'docs.pageActions.copyPage': 'Copy page',
+	'docs.pageActions.editPage': 'Edit this page',
+	'docs.pageActions.editHint': 'Open this page in GitHub to edit it',
 	'docs.pageActions.copied': 'Copied',
 	'docs.pageActions.more': 'More page actions',
 	'docs.pageActions.copyMarkdown': 'Copy as Markdown',
@@ -708,6 +710,8 @@ export const zh: Record<string, string> = {
 
 	// Page actions
 	'docs.pageActions.copyPage': '复制页面',
+	'docs.pageActions.editPage': '编辑此页',
+	'docs.pageActions.editHint': '在 GitHub 中编辑这一页',
 	'docs.pageActions.copied': '已复制',
 	'docs.pageActions.more': '更多页面操作',
 	'docs.pageActions.copyMarkdown': '复制为 Markdown',
