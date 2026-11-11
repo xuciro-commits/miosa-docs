@@ -28,8 +28,13 @@ async function get(url) {
 	return last;
 }
 
+	// The homepage is static HTML with its own <html>; the rest are routes of the
+	// documentation application.
+	await page.goto(new URL('/', base).href);
+	await expect(page.locator('h1').first()).toContainText('Infrastructure for', { timeout: 30000 });
+	await expect(page.locator('.footer-grid a').first()).toBeVisible();
+
 	for (const [path, title] of [
-		['/', 'Infrastructure for'],
 		['/docs/', 'Build on MIOSA'],
 		['/pricing/', 'Pay per second']
 	]) {

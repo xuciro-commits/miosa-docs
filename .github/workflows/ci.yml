@@ -54,6 +54,7 @@ jobs:
       - name: Content check
         run: |
           npm run qa:content
+          npm run qa:homepage
           npm run docs:export
           npm run docs:layout
           git status --porcelain -- content src/lib/content/docs-manifest.json | tee /tmp/content-state

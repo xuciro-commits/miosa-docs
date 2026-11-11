@@ -47,6 +47,36 @@ npm run hooks:install   # git config core.hooksPath .githooks
 Nothing else belongs in a hook: builds, browsers, network calls and deploys all
 stay in CI.
 
+## The homepage
+
+`/` and `/zh/` are **not** part of the documentation application. The app ships
+one 7.9 MB bundle and renders in the browser, which made every homepage visit pay
+for the whole docs site (measured before the change: 8.3 MB of JS, 13 s to
+download, first paint at 3.8 to 5.6 s, and no HTML for crawlers).
+
+```sh
+npm run build:home    # content/homepage.json + message tables -> static HTML
+npm run qa:homepage   # schema, copy keys, locale parity, link targets
+```
+
+| Piece | Where | Why |
+|---|---|---|
+| Section list and order | `content/homepage.json` (+ `homepage.schema.json`) | structure is data; presets swap section order without code |
+| Copy | `src/lib/i18n/messages/marketing.ts` | one source for the app and the static page, so they cannot drift |
+| Renderer | `scripts/build-home.mjs` | emits `index.html`, `zh/index.html`, `home.css`, `home.js`, `sitemap.xml` |
+| Behaviour | `src/marketing/home.js` (~3 KB) | copy button, theme preference, status pill; the page works without it |
+
+The build preserves the SPA entry as `_spa-shell.html` before the homepage
+replaces `build-static/index.html`, and every docs route stub is copied from that
+shell. After the change a cold homepage visit transfers about **97 KB** with
+first paint around **50 ms** locally, and the page has real HTML for search.
+
+Sections are typed (`hero`, `features`, `steps`, `split`, `cta`, `footer`); the
+guard rejects an unknown type, a missing copy key, an en/zh key mismatch, a
+preset that does not end in the footer, and any link to a document that does not
+exist. `layout` style inference does not apply here: the homepage is generated,
+not parsed.
+
 ## Content and artifacts
 
 One repository holds the code and the prose: `xuciro-commits/miosa-docs`

@@ -54,9 +54,28 @@ for (const route of ROUTES) {
 		continue;
 	}
 	const html = await response.text();
-	// A split build loads an entry module; a single-bundle build loads bundle.js.
+	// The marketing homepage is a standalone static page; every other route is
+	// the documentation application and must reference its bundle.
+	if (route === '/') {
+		if (!/<link rel="stylesheet" href="\/home\.css"/.test(html)) fail('/ does not reference /home.css');
+		if (!/<script src="\/home\.js"/.test(html)) fail('/ does not reference /home.js');
+		if (!/<h1/i.test(html)) fail('/ has no heading in its HTML');
+		continue;
+	}
 	if (!/\/_app\/immutable\/(?:entry\/start|bundle)\.[A-Za-z0-9_-]+\.js/.test(html))
 		fail(`${route} does not reference the application bundle`);
+}
+
+// The homepage is the one page search engines and first visits see: check the
+// prerendered copy is there, not just the shell.
+for (const route of ['/', '/zh/']) {
+	const response = await get(route);
+	if (!response || response.status !== 200) continue;
+	const html = await response.text();
+	for (const marker of ['class="hero"', 'class="footer"', 'og:title']) {
+		if (!html.includes(marker)) fail(`${route} is missing ${marker}`);
+	}
+	if (html.length < 4096) fail(`${route} looks like a shell, not a rendered page (${html.length} bytes)`);
 }
 
 for (const asset of ASSETS) {
