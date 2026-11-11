@@ -241,7 +241,7 @@ function htmlFor(locale, otherLocale) {
 <style>${CRITICAL_CSS}</style>
 </head>
 <body>
-<div class="fabric"><canvas class="fabric-canvas" aria-hidden="true" data-three="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"></canvas><div class="static-fabric" aria-hidden="true"></div></div>
+<div class="fabric"><canvas class="fabric-canvas" aria-hidden="true" data-three="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"></canvas><div class="fabric-glow" aria-hidden="true"></div><div class="static-fabric" aria-hidden="true"></div></div>
 <header class="header">
 	<a class="brand" href="${locale === DEFAULT_LOCALE ? '/' : config.prefix + '/'}" aria-label="MIOSA home"><img src="/brand/osa-orb.png" alt="" width="34" height="34" /><img class="wordmark" src="/brand/miosa-white.png" alt="MIOSA" width="65" height="16" /></a>
 	<nav aria-label="Primary"><a class="nav-docs" href="/docs">${esc(translator(locale)('nav.docs'))}<span class="new-tag">${esc(translator(locale)('nav.new'))}</span></a><a href="/pricing">${esc(translator(locale)('nav.pricing'))}</a><a class="lang" href="${esc(other.prefix || '/')}" hreflang="${esc(other.htmlLang)}">${otherLocale.toUpperCase()}</a><a class="sign-in" href="https://miosa.ai/login">${esc(translator(locale)('nav.signIn'))}</a><a class="cta" href="https://miosa.ai/register">${esc(translator(locale)('nav.startBuilding'))}</a></nav>
