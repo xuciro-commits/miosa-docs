@@ -96,33 +96,6 @@ while the same string inside a 2.2 MB file is accepted. That is why the shell
 stays a single bundle, and why example assignments of the form
 `NAME_SECRET=value` were rewritten as bare names with a comment.
 
-### Publishing content
-
-```sh
-npm run content:publish   # writes the content repo, prints and stores the new SHA
-npm run qa:content:sync   # fails when the SHA is behind the Markdown in this repo
-```
-
-`content:publish` regenerates `manifest.json`, copies `en/` and `zh/`, exports
-`data/learning/categories.json` from `src/lib/content/learning.ts`, writes the
-search excerpt files, commits and pushes, then updates
-`src/lib/content/content-version.json`. Commit that file with the change that
-edited the Markdown. CI runs `qa:content:sync`, which compares the manifest at
-the pinned commit against the files here, so a forgotten publish fails the
-build instead of shipping stale prose.
-
-Pages are typed in the manifest: `markdown`, plus `quiz`, `lab`, `game`,
-`video`, `earn`, `glossary` and `openapi` for pages the shell renders with a
-component. Quiz and lab pages are generated from `data/learning/categories.json`,
-so adding a learning check needs no release.
-
-Note: the publish validator on MIOSA rejects artifacts built as many small
-chunks (`PUBLISH_VALIDATION_FAILED`, no per-file reason). Its scan looks at
-small files only: a 60-byte file containing `AUTH_JWT_SECRET=...` is refused
-while the same string inside a 2.2 MB file is accepted. That is why the shell
-stays a single bundle, and why example assignments of the form
-`NAME_SECRET=value` were rewritten as bare names with a comment.
-
 ## Adding a page
 
 1. Write `src/content/docs/en/<slug>.md` **and** `src/content/docs/zh/<slug>.md`.
