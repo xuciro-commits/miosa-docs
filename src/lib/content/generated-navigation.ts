@@ -1,4 +1,5 @@
-// Extracted from the target documentation sidebar (20 sections, nested menus, 426 pages).
+// Extracted from the target documentation sidebar (20 sections, nested menus, 426 pages),
+// extended with the Xici set (our own formal reconstruction of the Xici).
 export type NavNode = {
 	slug?: string;
 	title: string;
@@ -2734,6 +2735,42 @@ export const generatedNavigation: { title: string; titleZh?: string; count?: str
 				title: "Support",
 				icon: "user-cog",
 			},
+		]
+	},
+	{
+		title: "Xici",
+		titleZh: "系辞",
+		items: [
+			{
+				slug: "xici/overview",
+				title: "Overview",
+				titleZh: "导读",
+				icon: "book-open",
+			},
+			{
+				title: "Canon and commentary",
+				titleZh: "本传与本注",
+				icon: "scroll-text",
+				count: "6",
+				children: [
+					{ slug: "xici/canon", title: "The Canon", titleZh: "本传二十章", icon: "book-open" },
+					{ slug: "xici/commentary/01-dao-vessel", title: "Book I: the Way and the Vessel", titleZh: "卷一：道器与算子", icon: "layers" },
+					{ slug: "xici/commentary/02-dynamics", title: "Book II: transition and emergence", titleZh: "卷二：变通与不测", icon: "activity" },
+					{ slug: "xici/commentary/03-representation", title: "Book III: the simulacrum", titleZh: "卷三：法象与同构", icon: "shapes" },
+					{ slug: "xici/commentary/04-compression", title: "Book IV: compression and the incipient", titleZh: "卷四：易简与研几", icon: "gauge" },
+					{ slug: "xici/commentary/05-alignment", title: "Book V: timing and errancy", titleZh: "卷五：趣时与无妄", icon: "scale" }
+				]
+			},
+			{
+				title: "Formal apparatus",
+				titleZh: "形式系统",
+				icon: "variable",
+				count: "2",
+				children: [
+					{ slug: "xici/lexicon", title: "Lexicon", titleZh: "术语映射表", icon: "file-text" },
+					{ slug: "xici/equations", title: "Symbols and equations", titleZh: "符号与主方程", icon: "variable" }
+				]
+			}
 		]
 	},
 ];

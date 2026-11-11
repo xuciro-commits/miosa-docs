@@ -3824,6 +3824,87 @@
 			"order": 17035,
 			"titleZh": "基准测试",
 			"descriptionZh": "MIOSA 在独立 ComputeSDK 基准测试中的结果。每次运行都可缩短交互时间和 DAX 沙箱构建，并提供原始 JSON 的链接。"
+		},
+		{
+			"slug": "xici/overview",
+			"title": "Xici: A Formal Reconstruction",
+			"description": "Read the Xici as a rigorous treatise on generation, representation and control: the canonical twenty chapters, a chapter-by-chapter exegesis, a lexicon and a formal apparatus.",
+			"section": "Xici",
+			"order": 19001,
+			"titleZh": "系辞：形式化重构",
+			"descriptionZh": "把《系辞》当作一部关于生成、表征与控制的严密著作来读：五卷二十章的定本、逐章本注、术语映射与符号系统。"
+		},
+		{
+			"slug": "xici/canon",
+			"title": "The Canonical Treatise in Twenty Chapters",
+			"description": "The canonical text in five books: way and vessel, the conjugate operators, transition and continuity, formal representation, compression, and alignment.",
+			"section": "Xici",
+			"order": 19002,
+			"titleZh": "《系辞本传》二十章",
+			"descriptionZh": "五卷二十章的定本全文：道器、乾坤、变通、法象、研几、趣时，去占卜、去音译，只留命题。"
+		},
+		{
+			"slug": "xici/lexicon",
+			"title": "The Lexicon: Fidelity, Grace, Reach",
+			"description": "Every core term with its canonical rendering, the rejected alternatives and the reasoning: no transliteration, no divination, no theology, only testable modern concepts.",
+			"section": "Xici",
+			"order": 19003,
+			"titleZh": "术语映射表：信、雅、达",
+			"descriptionZh": "二十余个核心词的定本译法、淘汰译法与取舍理由：去音译、去占卜、去宗教，只留可检验的现代概念。"
+		},
+		{
+			"slug": "xici/equations",
+			"title": "Symbols and the Five Master Equations",
+			"description": "The five books and twenty chapters collapsed into an operator algebra: a symbol dictionary, the formal mapping, and a closed loop of five coupled equations.",
+			"section": "Xici",
+			"order": 19004,
+			"titleZh": "符号系统与五阶主方程",
+			"descriptionZh": "把五卷二十章收敛成一套算子代数：元符号字典、形式化映射与五个耦合方程构成的闭环。"
+		},
+		{
+			"slug": "xici/commentary/01-dao-vessel",
+			"title": "Exegesis, Book I: The Way, the Vessel and the Operators",
+			"description": "Chapter by chapter: the two ontological planes, the differential of polarity, the conjugate operators, and symmetry breaking, written as operator axioms.",
+			"section": "Xici",
+			"order": 19011,
+			"titleZh": "本注·卷一：道器与算子",
+			"descriptionZh": "逐章破译道器分层、阴阳差分、乾坤共轭与太极破缺：把本体论写成算子公理。"
+		},
+		{
+			"slug": "xici/commentary/02-dynamics",
+			"title": "Exegesis, Book II: Transition and the Unfathomable",
+			"description": "Chapter by chapter: opening and closing, resonance, exhaustion and continuity, and computational irreducibility.",
+			"section": "Xici",
+			"order": 19012,
+			"titleZh": "本注·卷二：变通与不测",
+			"descriptionZh": "逐章破译阖辟之变、相摩相荡、穷变通久与计算不可约简：把动力学写成涌现论。"
+		},
+		{
+			"slug": "xici/commentary/03-representation",
+			"title": "Exegesis, Book III: The Simulacrum and Isomorphism",
+			"description": "Chapter by chapter: images, configurations, dicta, and the isomorphism theorem of world models.",
+			"section": "Xici",
+			"order": 19013,
+			"titleZh": "本注·卷三：法象与同构",
+			"descriptionZh": "逐章破译立象、设卦、系辞与同构完备性：把世界模型写成张量表征。"
+		},
+		{
+			"slug": "xici/commentary/04-compression",
+			"title": "Exegesis, Book IV: Compression and Singularity",
+			"description": "Chapter by chapter: minimum description length, zero-bias inference, memory and simulation, and bifurcation detection.",
+			"section": "Xici",
+			"order": 19014,
+			"titleZh": "本注·卷四：易简与研几",
+			"descriptionZh": "逐章破译最小描述长度、零偏推理、藏往知来与分岔奇点侦测。"
+		},
+		{
+			"slug": "xici/commentary/05-alignment",
+			"title": "Exegesis, Book V: Timing and Errancy",
+			"description": "Chapter by chapter: felicity and calamity, foundation and adaptation, acting at the incipient, and negentropic alignment.",
+			"section": "Xici",
+			"order": 19015,
+			"titleZh": "本注·卷五：趣时与无妄",
+			"descriptionZh": "逐章破译吉凶悔吝、立本趣时、见几而作与负熵对齐：把认知闭环到控制论。"
 		}
 	]
 }

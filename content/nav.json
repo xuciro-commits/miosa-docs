@@ -3150,5 +3150,81 @@
 				"titleZh": "支持"
 			}
 		]
+	},
+	{
+		"title": "Xici",
+		"titleZh": "系辞",
+		"items": [
+			{
+				"slug": "xici/overview",
+				"title": "Xici: A Formal Reconstruction",
+				"titleZh": "系辞：形式化重构",
+				"icon": "book-open"
+			},
+			{
+				"title": "Canon and commentary",
+				"titleZh": "本传与本注",
+				"icon": "scroll-text",
+				"count": "6",
+				"children": [
+					{
+						"slug": "xici/canon",
+						"title": "The Canonical Treatise in Twenty Chapters",
+						"titleZh": "《系辞本传》二十章",
+						"icon": "book-open"
+					},
+					{
+						"slug": "xici/commentary/01-dao-vessel",
+						"title": "Exegesis, Book I: The Way, the Vessel and the Operators",
+						"titleZh": "本注·卷一：道器与算子",
+						"icon": "layers"
+					},
+					{
+						"slug": "xici/commentary/02-dynamics",
+						"title": "Exegesis, Book II: Transition and the Unfathomable",
+						"titleZh": "本注·卷二：变通与不测",
+						"icon": "activity"
+					},
+					{
+						"slug": "xici/commentary/03-representation",
+						"title": "Exegesis, Book III: The Simulacrum and Isomorphism",
+						"titleZh": "本注·卷三：法象与同构",
+						"icon": "shapes"
+					},
+					{
+						"slug": "xici/commentary/04-compression",
+						"title": "Exegesis, Book IV: Compression and Singularity",
+						"titleZh": "本注·卷四：易简与研几",
+						"icon": "gauge"
+					},
+					{
+						"slug": "xici/commentary/05-alignment",
+						"title": "Exegesis, Book V: Timing and Errancy",
+						"titleZh": "本注·卷五：趣时与无妄",
+						"icon": "scale"
+					}
+				]
+			},
+			{
+				"title": "Formal apparatus",
+				"titleZh": "形式系统",
+				"icon": "variable",
+				"count": "2",
+				"children": [
+					{
+						"slug": "xici/lexicon",
+						"title": "The Lexicon: Fidelity, Grace, Reach",
+						"titleZh": "术语映射表：信、雅、达",
+						"icon": "file-text"
+					},
+					{
+						"slug": "xici/equations",
+						"title": "Symbols and the Five Master Equations",
+						"titleZh": "符号系统与五阶主方程",
+						"icon": "variable"
+					}
+				]
+			}
+		]
 	}
 ]
