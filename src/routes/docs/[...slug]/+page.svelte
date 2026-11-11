@@ -69,6 +69,8 @@
 			void locale;
 			translateContent(root);
 			wireAccordion(root);
+			wireTabs(root);
+			wireCopy(root);
 			enhanceCode(root);
 			enhanceMermaid(root);
 		});
@@ -78,6 +80,45 @@
 	});
 
 	let highlightQueued = false;
+
+	/** Tabbed code groups: one panel visible at a time. */
+	function wireTabs(root: HTMLElement) {
+		for (const group of root.querySelectorAll<HTMLElement>('.docs-tabs:not([data-wired])')) {
+			group.dataset.wired = 'true';
+			const tabs = [...group.querySelectorAll<HTMLElement>('.docs-tabs__tab')];
+			const panels = [...group.querySelectorAll<HTMLElement>('.docs-tab-panel')];
+			tabs.forEach((tab, index) => {
+				tab.addEventListener('click', () => {
+					tabs.forEach((item, position) => {
+						item.classList.toggle('is-active', position === index);
+						item.setAttribute('aria-selected', String(position === index));
+					});
+					panels.forEach((panel, position) =>
+						panel.classList.toggle('is-active', position === index)
+					);
+					enhanceCode(root);
+				});
+			});
+		}
+	}
+
+	/** Copy buttons in code headers. */
+	function wireCopy(root: HTMLElement) {
+		for (const button of root.querySelectorAll<HTMLButtonElement>('.doc-code-copy:not([data-wired])')) {
+			button.dataset.wired = 'true';
+			button.addEventListener('click', async () => {
+				const frame = button.closest('.doc-code-frame');
+				const text = frame?.querySelector('pre code')?.textContent ?? '';
+				try {
+					await navigator.clipboard.writeText(text);
+					button.classList.add('is-copied');
+					setTimeout(() => button.classList.remove('is-copied'), 1400);
+				} catch {
+					// clipboard unavailable: leave the button unchanged
+				}
+			});
+		}
+	}
 
 	/** Highlight every fenced code block once, lazily loading Shiki. */
 	function enhanceCode(root: HTMLElement) {

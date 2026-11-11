@@ -10,6 +10,7 @@
  */
 import { marked } from 'marked';
 import cardCounts from '#lib/content/cards-by-page.json';
+import { tabIcons } from '#lib/content/tab-icons.js';
 
 function encodeGraph(source: string): string {
 	const bytes = new TextEncoder().encode(source);
@@ -212,13 +213,69 @@ function decorate(html: string): string {
 					.replace(/&amp;/g, '&');
 				return `<div class="docs-mermaid" data-graph="${encodeGraph(source)}"></div>`;
 			}
-			return `<div class="doc-code-frame" data-lang="${language}"><pre><code class="language-${language}">${body}</code></pre></div>`;
+			return `<div class="doc-code-frame" data-lang="${language}"><div class="doc-code-head"><span class="doc-code-lang">${language}</span><button type="button" class="doc-code-copy" data-copy aria-label="Copy code" title="Copy code">${COPY_ICON}</button></div><pre><code class="language-${language}">${body}</code></pre></div>`;
 		}
 	);
-	return withCode.replace(
+	return groupTabs(withCode).replace(
 		/<pre><code>([\s\S]*?)<\/code><\/pre>/g,
-		(_match, body: string) => `<div class="doc-code-frame" data-lang="text"><pre><code>${body}</code></pre></div>`
+		(_match, body: string) =>
+			`<div class="doc-code-frame" data-lang="text"><div class="doc-code-head"><span class="doc-code-lang">text</span><button type="button" class="doc-code-copy" data-copy aria-label="Copy code" title="Copy code">${COPY_ICON}</button></div><pre><code>${body}</code></pre></div>`
 	);
+}
+
+const COPY_ICON =
+	'<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="5" y="1.75" width="8.25" height="9.5" rx="1.5" stroke="currentColor" stroke-width="1.25"/><path d="M2.75 5.5V12a2 2 0 0 0 2 2H10" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/></svg>';
+
+/**
+ * Reference pages present alternative install commands as tabs. In Markdown
+ * that is a bold label line followed by a code fence, repeated; consecutive
+ * runs are turned into the tabbed code group the reference uses.
+ */
+const LABELLED_FRAME =
+	/<p><strong>([^<]{1,24})<\/strong><\/p>\s*(<div class="doc-code-frame"[^>]*><div class="doc-code-head">[\s\S]*?<\/div><pre><code[^>]*>[\s\S]*?<\/code><\/pre><\/div>)/g;
+
+function groupTabs(html: string): string {
+	const matches: { index: number; end: number; label: string; block: string }[] = [];
+	let match: RegExpExecArray | null;
+	LABELLED_FRAME.lastIndex = 0;
+	while ((match = LABELLED_FRAME.exec(html)))
+		matches.push({ index: match.index, end: match.index + match[0].length, label: match[1].trim(), block: match[2] });
+	if (matches.length < 2) return html;
+
+	const groups: typeof matches[] = [];
+	for (const item of matches) {
+		const current = groups[groups.length - 1];
+		const gap = current ? html.slice(current[current.length - 1].end, item.index) : '';
+		if (current && gap.trim() === '') current.push(item);
+		else groups.push([item]);
+	}
+
+	let result = '';
+	let cursor = 0;
+	for (const group of groups) {
+		if (group.length < 2) continue;
+		result += html.slice(cursor, group[0].index);
+		result += renderTabs(group.map((item) => ({ label: item.label, block: item.block })));
+		cursor = group[group.length - 1].end;
+	}
+	if (!cursor) return html;
+	return result + html.slice(cursor);
+}
+
+function renderTabs(runs: { label: string; block: string }[]) {
+	const tabs = runs
+		.map(
+			(run, index) =>
+				`<button type="button" role="tab" class="docs-tabs__tab${index === 0 ? ' is-active' : ''}" data-tab="${index}" aria-selected="${index === 0}">${tabIcons[run.label] ?? ''}<span>${escape(run.label)}</span></button>`
+		)
+		.join('');
+	const panels = runs
+		.map(
+			(run, index) =>
+				`<div class="docs-tab-panel${index === 0 ? ' is-active' : ''}" data-panel="${index}">${run.block}</div>`
+		)
+		.join('');
+	return `<div class="docs-tabs"><div class="docs-tabs__bar" role="tablist">${tabs}</div>${panels}</div>`;
 }
 
 const LABELS = {

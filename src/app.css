@@ -379,6 +379,106 @@ html[data-locale='zh'] .article-content[data-ready='false'] {
 	background: var(--hover);
 }
 
+/* Tabbed code groups: alternative commands for one step. */
+.docs-tabs {
+	margin: 24px 0;
+}
+.docs-tabs__bar {
+	display: flex;
+	gap: 2px;
+	border-bottom: 1px solid var(--border);
+}
+.docs-tabs__tab {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	height: 44px;
+	padding: 0 16px;
+	line-height: 1;
+	border: 0;
+	border-bottom: 2px solid transparent;
+	background: none;
+	color: var(--muted);
+	font-size: 13px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: color 0.15s ease, border-color 0.15s ease;
+}
+.docs-tabs__tab svg {
+	width: 14px;
+	height: 14px;
+	flex: none;
+}
+.docs-tabs__tab:hover {
+	color: var(--text);
+}
+.docs-tabs__tab.is-active {
+	color: var(--text);
+	border-bottom-color: var(--text);
+}
+.docs-tabs__tab:focus-visible {
+	outline: 2px solid var(--text);
+	outline-offset: -2px;
+}
+.docs-tab-panel {
+	display: none;
+}
+.docs-tab-panel.is-active {
+	display: block;
+}
+.docs-tab-panel > .doc-code-frame {
+	margin-top: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+/* Code header: language label and a copy button, as on the reference pages. */
+.doc-code-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	height: 36px;
+	padding: 0 6px 0 16px;
+	border-bottom: 1px solid var(--border);
+}
+.doc-code-lang {
+	font-size: 12px;
+	color: var(--muted);
+}
+.doc-code-copy {
+	display: grid;
+	place-items: center;
+	width: 28px;
+	height: 28px;
+	border: 0;
+	border-radius: 7px;
+	background: transparent;
+	color: var(--muted);
+	cursor: pointer;
+	transition: background 0.15s ease, color 0.15s ease;
+}
+.doc-code-copy:hover {
+	background: var(--hover);
+	color: var(--text);
+}
+.doc-code-copy svg {
+	width: 14px;
+	height: 14px;
+}
+.doc-code-copy.is-copied {
+	color: var(--text);
+}
+.doc-code-copy.is-copied::after {
+	content: '✓';
+	position: absolute;
+	transform: translateY(-1px);
+	font-size: 12px;
+}
+.doc-code-copy.is-copied svg {
+	opacity: 0;
+}
+
 /* Code blocks: quiet frame, highlighted body. */
 .doc-code-frame {
 	margin: 20px 0;
