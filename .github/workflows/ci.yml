@@ -3,7 +3,13 @@ name: CI
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - 'src/content/**'
+      - 'content/manifest.json'
+      - 'content/search.*.json'
+      - '**.md'
   pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:

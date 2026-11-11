@@ -17,10 +17,22 @@ const mirrors = [
 
 export const contentVersion = version;
 
+/** The branch is the live copy: a page read from it may be newer than the build. */
+const liveBase = `https://raw.githubusercontent.com/${repo}/${branch}/`;
+
 export async function fetchContent(
 	path: string,
-	fetcher: typeof fetch = fetch
+	fetcher: typeof fetch = fetch,
+	options: { live?: boolean; cache?: RequestCache } = {}
 ): Promise<string | undefined> {
+	if (options.live) {
+		try {
+			const response = await fetcher(liveBase + path, { cache: options.cache ?? 'no-cache' });
+			if (response.ok) return await response.text();
+		} catch {
+			// fall through to the pinned mirrors
+		}
+	}
 	for (const base of mirrors) {
 		try {
 			const response = await fetcher(base + path);
@@ -34,9 +46,10 @@ export async function fetchContent(
 
 export async function fetchContentJson<T>(
 	path: string,
-	fetcher: typeof fetch = fetch
+	fetcher: typeof fetch = fetch,
+	options: { live?: boolean; cache?: RequestCache } = {}
 ): Promise<T | undefined> {
-	const body = await fetchContent(path, fetcher);
+	const body = await fetchContent(path, fetcher, options);
 	if (!body) return undefined;
 	try {
 		return JSON.parse(body) as T;

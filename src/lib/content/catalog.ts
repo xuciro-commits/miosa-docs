@@ -42,12 +42,35 @@ export async function loadMarkdown(
 	if (!markdownCache.has(key)) {
 		markdownCache.set(
 			key,
-			fetchContent(`src/content/docs/${locale}/${slug}.md`, fetcher).then((body) =>
-				body ? stripFrontmatter(body) : undefined
-			)
+			(async () => {
+				// Page hashes come from the manifest, so a page that changed since
+				// the build is fetched fresh while unchanged pages keep their cache.
+				const hash = await pageHash(slug, locale, fetcher);
+				const path = `src/content/docs/${locale}/${slug}.md${hash ? `?v=${hash}` : ''}`;
+				const body = await fetchContent(path, fetcher, { live: true });
+				return body ? stripFrontmatter(body) : undefined;
+			})()
 		);
 	}
 	return markdownCache.get(key)!;
+}
+
+type ManifestPage = { slug: string; hash?: string; hashZh?: string };
+
+let manifestCache: Promise<Map<string, ManifestPage>> | undefined;
+
+/** The branch manifest: small, revalidated, and the source of per-page hashes. */
+export function loadRemoteManifest(fetcher: typeof fetch = fetch) {
+	manifestCache ??= fetchContentJson<{ pages: ManifestPage[] }>('content/manifest.json', fetcher, {
+		live: true
+	}).then((manifest) => new Map((manifest?.pages ?? []).map((page) => [page.slug, page])));
+	return manifestCache;
+}
+
+async function pageHash(slug: string, locale: 'en' | 'zh', fetcher: typeof fetch) {
+	const pages = await loadRemoteManifest(fetcher);
+	const page = pages.get(slug);
+	return locale === 'zh' ? page?.hashZh : page?.hash;
 }
 
 /** Metadata for every page, without any body text. */

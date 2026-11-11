@@ -1,0 +1,42 @@
+name: Content metadata
+
+# Editing prose must not rebuild or redeploy the site: the app reads page
+# Markdown from the branch and refreshes it with the page hash kept here.
+# This job only regenerates that metadata.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/docs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: content-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Regenerate content metadata
+        run: |
+          npm run docs:export
+          if git diff --quiet -- content src/lib/content/docs-manifest.json; then
+            echo "content metadata already current"
+            exit 0
+          fi
+          git config user.name miosa-docs
+          git config user.email docs@norsky.cn
+          git add content src/lib/content/docs-manifest.json
+          git commit -m "Refresh content metadata [skip ci]"
+          git push

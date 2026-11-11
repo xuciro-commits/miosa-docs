@@ -7,6 +7,7 @@
  * imported modules means a visitor downloads only the language they read, and
  * only when they open a documentation page.
  */
+import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, writeFileSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
@@ -108,8 +109,18 @@ import { mkdirSync } from 'node:fs';
 const CONTENT = join(ROOT, 'content');
 mkdirSync(join(CONTENT, 'data/learning'), { recursive: true });
 
+const hashOf = (file) => {
+	try {
+		return createHash('sha1').update(readFileSync(file)).digest('hex').slice(0, 10);
+	} catch {
+		return '';
+	}
+};
+
 const typed = pages.map((page) => ({
 	slug: page.slug,
+	hash: hashOf(join(ROOT, DOCS, 'en', `${page.slug}.md`)),
+	hashZh: hashOf(join(ROOT, DOCS, 'zh', `${page.slug}.md`)),
 	...pageType(page.slug),
 	title: page.title,
 	titleZh: page.titleZh ?? page.title,
