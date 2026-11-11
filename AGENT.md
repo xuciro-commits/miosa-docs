@@ -47,39 +47,59 @@ npm run hooks:install   # git config core.hooksPath .githooks
 Nothing else belongs in a hook: builds, browsers, network calls and deploys all
 stay in CI.
 
-## Build artifacts
+## Content and artifacts
 
-`npm run build:spa` runs `scripts/export-docs.mjs` first, then the Vite build.
-Egress is billed at $0.054/GB with no free tier and the host does not compress,
-so the artifact is laid out to keep cold loads small:
+Two repositories:
 
-| Artifact | Size | When a browser downloads it |
+| Repository | Holds | Visibility |
+|---|---|---|
+| `xuciro-commits/miosa-docs` | the shell: routes, components, styles, build scripts | private |
+| `xuciro-commits/miosa-docs-content` | every page's Markdown, the page manifest, and the data behind the learning pages | public |
+
+The static host does not compress responses and bills egress at $0.054/GB with
+no free tier, so the prose does not ship from it. `src/lib/content/content-version.json`
+pins the content repository to a commit; jsDelivr serves that commit as
+`immutable` for a year, gzip encoded, and `raw.githubusercontent.com` is the
+fallback mirror (same CORS headers).
+
+| Request | Size | When |
 |---|---|---|
 | `index.html` + `_app/immutable/bundle.*.js` | ~7.9 MB | every cold visit |
-| `docs-content/<lang>.json` | 2.7 MB | first documentation page, that language only, cached afterwards |
+| `manifest.json` (content repo) | 195 KB → 40 KB gzip | not fetched: the shell bundles the manifest so navigation never waits |
+| `<lang>/<slug>.md` (content repo) | 3–8 KB → ~2 KB gzip | on the page that needs it, then cached forever |
+| `data/search.<lang>.json` (content repo) | 107 KB gzip | first search or Ask |
+| `data/learning/categories.json` (content repo) | 8 KB | learning checks and labs |
 
-Chinese content is rendered on demand: an English reader never downloads
-`docs-content/zh.json`. Search builds its index from the content that is already
-loaded instead of shipping a separate index file.
+Measured cold loads after the move: `/docs/quickstart/` 8.3 MB, and the
+Markdown for a page costs about 4 KB instead of the 2.7 MB content asset it
+used to be.
 
-A fully code-split build (entry ~0.56 MB, chunks on demand) was tried and is
-measurably smaller, but the publish validator rejects it with
-`PUBLISH_VALIDATION_FAILED` and no per-file reason. What we established while
-bisecting:
+### Publishing content
 
-- file count is not the limit: an 836-file artifact passes;
-- the validator scans *small* files for secret-looking text. A 60-byte chunk
-  containing `AUTH_JWT_SECRET=...` is rejected, while the same string inside a
-  2.2 MB or 3 MB file is accepted;
-- example assignments of the form `NAME_SECRET=value` in the docs were the
-  first trigger found, so `src/content/docs` keeps such examples as bare names
-  with a comment instead;
-- the remaining cause for the split build is still unknown, which is why the
-  shipped artifact is a single bundle with the content served as an asset.
+```sh
+npm run content:publish   # writes the content repo, prints and stores the new SHA
+npm run qa:content:sync   # fails when the SHA is behind the Markdown in this repo
+```
 
-To go further, move `mermaid`, `shiki` and `three` into separately built
-`static/runtime/*.js` files and import them by URL: that keeps Vite's inlining
-out of the entry bundle without adding many small chunks.
+`content:publish` regenerates `manifest.json`, copies `en/` and `zh/`, exports
+`data/learning/categories.json` from `src/lib/content/learning.ts`, writes the
+search excerpt files, commits and pushes, then updates
+`src/lib/content/content-version.json`. Commit that file with the change that
+edited the Markdown. CI runs `qa:content:sync`, which compares the manifest at
+the pinned commit against the files here, so a forgotten publish fails the
+build instead of shipping stale prose.
+
+Pages are typed in the manifest: `markdown`, plus `quiz`, `lab`, `game`,
+`video`, `earn`, `glossary` and `openapi` for pages the shell renders with a
+component. Quiz and lab pages are generated from `data/learning/categories.json`,
+so adding a learning check needs no release.
+
+Note: the publish validator on MIOSA rejects artifacts built as many small
+chunks (`PUBLISH_VALIDATION_FAILED`, no per-file reason). Its scan looks at
+small files only: a 60-byte file containing `AUTH_JWT_SECRET=...` is refused
+while the same string inside a 2.2 MB file is accepted. That is why the shell
+stays a single bundle, and why example assignments of the form
+`NAME_SECRET=value` were rewritten as bare names with a comment.
 
 ## Adding a page
 

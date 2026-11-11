@@ -7,7 +7,7 @@
  * imported modules means a visitor downloads only the language they read, and
  * only when they open a documentation page.
  */
-import { mkdirSync, readFileSync, readdirSync, writeFileSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
@@ -46,13 +46,11 @@ function walk(dir, base = '') {
 }
 
 const manifest = new Map();
-const content = { en: {}, zh: {} };
 
 for (const lang of LANGS) {
 	for (const relative of walk(join(ROOT, DOCS, lang))) {
 		const slug = relative.replace(/\\/g, '/').replace(/\.md$/, '');
-		const { fields, body } = parseFrontmatter(readFileSync(join(ROOT, DOCS, lang, relative), 'utf8'));
-		content[lang][slug] = body.trim();
+		const { fields } = parseFrontmatter(readFileSync(join(ROOT, DOCS, lang, relative), 'utf8'));
 		const existing = manifest.get(slug) ?? { slug };
 		const entry = {
 			...existing,
@@ -86,17 +84,6 @@ writeFileSync(
 	JSON.stringify({ pages }, null, '\t') + '\n'
 );
 
-// One content module per language. It stays above the publish scanner's
-// file-size cutoff, and the browser downloads only the language it reads.
-mkdirSync(join(ROOT, 'static/docs-content'), { recursive: true });
-for (const lang of LANGS) {
-	const serialized = JSON.stringify(content[lang]);
-	writeFileSync(join(ROOT, OUT, `docs-content.${lang}.json`), serialized);
-	writeFileSync(join(ROOT, 'static/docs-content', `${lang}.json`), serialized);
-}
-
-const mb = (file) => (statSync(join(ROOT, OUT, file)).size / 1024 / 1024).toFixed(1);
 console.log(
-	`docs artifacts: manifest ${(statSync(join(ROOT, OUT, 'docs-manifest.json')).size / 1024).toFixed(0)} KB · ` +
-		`content en ${mb('docs-content.en.json')} MB / zh ${mb('docs-content.zh.json')} MB · ${pages.length} pages`
+	`docs manifest: ${(statSync(join(ROOT, OUT, 'docs-manifest.json')).size / 1024).toFixed(0)} KB · ${pages.length} pages (bodies are published to the content repository)`
 );

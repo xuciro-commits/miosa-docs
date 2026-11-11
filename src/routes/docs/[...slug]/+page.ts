@@ -15,7 +15,11 @@ export async function load({ params, fetch }) {
 			'This page does not exist. Search the documentation or choose a page from the sidebar.'
 		);
 	const en = await loadMarkdown(slug, 'en', fetch);
-	if (!en) error(404, 'Page content is unavailable');
+	if (!en)
+		error(
+			503,
+			'The page text could not be loaded right now. Check the connection and try again.'
+		);
 	const rendered = renderDoc(slug, en, meta.title);
 	return {
 		slug,

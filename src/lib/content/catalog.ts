@@ -1,5 +1,6 @@
 import products from '#lib/content/products.json';
 import manifest from '#lib/content/docs-manifest.json';
+import { fetchContent, fetchContentJson, stripFrontmatter } from '#lib/content/remote.js';
 
 export type DocMeta = {
 	slug: string;
@@ -25,38 +26,28 @@ export type Article = DocMeta & { raw: string; rawZh?: string; generated?: boole
 type ContentMaps = Record<string, string>;
 
 /**
- * Page Markdown ships as one JSON asset per language. It is fetched the first
- * time a documentation page needs it, cached by the browser, and never enters
- * the application bundle.
+ * Page Markdown comes from the public content repository, one file per page and
+ * language, pinned to a content commit. It never enters the app bundle: a page
+ * costs a few kilobytes over the CDN and is cached forever after that.
  */
-const contentCache = new Map<'en' | 'zh', Promise<ContentMaps>>();
+const markdownCache = new Map<string, Promise<string | undefined>>();
 
-export function loadContent(
-	locale: 'en' | 'zh' = 'en',
-	fetcher?: typeof fetch
-): Promise<ContentMaps> {
-	if (!contentCache.has(locale)) {
-		const doFetch = fetcher ?? (typeof fetch === 'function' ? fetch : undefined);
-		if (!doFetch) return Promise.resolve({});
-		contentCache.set(
-			locale,
-			doFetch(`/docs-content/${locale}.json`).then((response) => {
-				if (!response.ok) throw new Error(`docs content ${locale}: ${response.status}`);
-				return response.json() as Promise<ContentMaps>;
-			})
-		);
-	}
-	return contentCache.get(locale)!;
-}
-
-/** Markdown for one page, in the requested language. */
 export async function loadMarkdown(
 	slug: string,
 	locale: 'en' | 'zh' = 'en',
-	fetcher?: typeof fetch
+	fetcher: typeof fetch = fetch
 ) {
-	const map = await loadContent(locale, fetcher);
-	return map[slug];
+	if (!slug) return undefined;
+	const key = `${locale}/${slug}`;
+	if (!markdownCache.has(key)) {
+		markdownCache.set(
+			key,
+			fetchContent(`${locale}/${slug}.md`, fetcher).then((body) =>
+				body ? stripFrontmatter(body) : undefined
+			)
+		);
+	}
+	return markdownCache.get(key)!;
 }
 
 /** Metadata for every page, without any body text. */
@@ -165,25 +156,48 @@ export function plainText(source: string) {
 
 const searchCache = new Map<'en' | 'zh', SearchEntry[]>();
 
-/** Search index for one language, built from the content the reader already loads. */
+/** Search excerpts come from the content repository, only when someone searches. */
 export async function loadSearchIndex(
 	locale: 'en' | 'zh' = 'en',
-	fetcher?: typeof fetch
+	fetcher: typeof fetch = fetch
 ): Promise<SearchEntry[]> {
 	if (searchCache.has(locale)) return searchCache.get(locale)!;
-	const content = await loadContent(locale, fetcher);
-	const index = documents.map((doc) => ({
-		slug: doc.slug,
-		title: locale === 'zh' ? doc.titleZh ?? doc.title : doc.title,
-		description: locale === 'zh' ? doc.descriptionZh ?? doc.description : doc.description,
-		section: doc.section,
-		href: `/docs${doc.slug ? '/' + doc.slug : ''}`,
-		text: plainText(content[doc.slug] ?? doc.description).slice(0, 240)
-	}));
+	const remote = await fetchContentJson<SearchEntry[]>(`data/search.${locale}.json`, fetcher);
+	const index =
+		remote ??
+		documents.map((doc) => ({
+			slug: doc.slug,
+			title: locale === 'zh' ? doc.titleZh ?? doc.title : doc.title,
+			description: locale === 'zh' ? doc.descriptionZh ?? doc.description : doc.description,
+			section: doc.section,
+			href: `/docs${doc.slug ? '/' + doc.slug : ''}`,
+			text: doc.description
+		}));
 	searchCache.set(locale, index);
 	return index;
 }
 
-function descriptionOf(entry: SearchEntry) {
-	return entry.description;
+/** Data behind the learning checks and labs, with the bundled copy as fallback. */
+export type QuizData = {
+	categories: { id: string; name: string; description: string }[];
+	terms: { word: string; category: string; definition: string; example: string }[];
+	units: { id: string; title: string; subtitle: string; reward: number; icon: string; type: string }[];
+	videos: string[];
+};
+
+let quizCache: Promise<QuizData> | undefined;
+
+export function loadLearningData(fetcher: typeof fetch = fetch): Promise<QuizData> {
+	quizCache ??= (async () => {
+		const remote = await fetchContentJson<QuizData>('data/learning/categories.json', fetcher);
+		if (remote?.categories?.length) return remote;
+		const local = await import('#lib/content/learning.js');
+		return {
+			categories: local.categories as QuizData['categories'],
+			terms: local.terms as QuizData['terms'],
+			units: local.units as unknown as QuizData['units'],
+			videos: local.videos as unknown as string[]
+		};
+	})();
+	return quizCache;
 }

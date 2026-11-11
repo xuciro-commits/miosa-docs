@@ -71,7 +71,11 @@ try {
 
 	rmSync('build-static/llms.txt', { force: true });
 	const commit = process.env.GITHUB_SHA ?? execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
-	writeFileSync('build-static/release.json', JSON.stringify({ commit, spa: true, builtAt: new Date().toISOString() }));
+	const content = JSON.parse(readFileSync(join(root, 'src/lib/content/content-version.json'), 'utf8'));
+	writeFileSync(
+		'build-static/release.json',
+		JSON.stringify({ commit, spa: true, content: content.sha, builtAt: new Date().toISOString() })
+	);
 	console.log(`SPA site ready: ${out}`);
 } finally {
 	server.kill('SIGTERM');

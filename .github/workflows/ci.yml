@@ -45,8 +45,10 @@ jobs:
         if: steps.changes.outputs.code == 'true'
         run: npm run check
 
-      - name: Content check
-        run: npm run qa:content
+      - name: Content and published-content check
+        run: |
+          npm run qa:content
+          npm run qa:content:sync
 
       - name: Build
         run: npm run build:spa

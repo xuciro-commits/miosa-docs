@@ -52,7 +52,11 @@ async function get(url) {
 	await expect(codeSample).toBeVisible({ timeout: 30000 });
 	await page.getByRole('button', { name: /Search docs/ }).click();
 	await page.getByRole('textbox', { name: 'Search documentation' }).fill('snapshots');
-	await page.locator('.search-result').first().click();
+	await page
+		.locator('.search-result')
+		.filter({ hasText: /restore, pause/i })
+		.first()
+		.click();
 	await expect(page.locator('#article-body>h1')).toHaveText('Snapshots, restore, pause, and forks');
 	await page.getByRole('button', { name: 'Ask OSA', exact: true }).click();
 	await page
