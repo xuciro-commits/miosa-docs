@@ -71,7 +71,13 @@ try {
 
 	rmSync('build-static/llms.txt', { force: true });
 	const commit = process.env.GITHUB_SHA ?? execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
-	const content = JSON.parse(readFileSync(join(root, 'src/lib/content/content-version.json'), 'utf8'));
+	// Content ships from this repository, pinned to the commit being built.
+	const sha = process.env.CONTENT_SHA ?? execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+	const content = { repo: 'xuciro-commits/miosa-docs', sha, branch: 'main' };
+	writeFileSync(
+		join(root, 'src/lib/content/content-version.json'),
+		JSON.stringify(content, null, '\t') + '\n'
+	);
 	writeFileSync(
 		'build-static/release.json',
 		JSON.stringify({ commit, spa: true, content: content.sha, builtAt: new Date().toISOString() })

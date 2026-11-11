@@ -8,6 +8,7 @@
  * only when they open a documentation page.
  */
 import { readFileSync, readdirSync, writeFileSync, statSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
@@ -67,6 +68,18 @@ for (const lang of LANGS) {
 	}
 }
 
+/** Pages the shell renders with a component instead of plain prose. */
+function pageType(slug) {
+	if (slug.startsWith('learn/final/category/')) return { type: 'quiz', quiz: slug.split('/').pop() };
+	if (slug.startsWith('learn/labs/')) return { type: 'lab', lab: slug.split('/').pop() };
+	if (slug === 'learn/games') return { type: 'game' };
+	if (slug === 'learn/videos') return { type: 'video' };
+	if (slug === 'learn/earn') return { type: 'earn' };
+	if (slug === 'glossary') return { type: 'glossary' };
+	if (slug === 'api') return { type: 'openapi' };
+	return { type: 'markdown' };
+}
+
 const pages = [...manifest.values()]
 	.map((page) => ({
 		slug: page.slug,
@@ -86,4 +99,95 @@ writeFileSync(
 
 console.log(
 	`docs manifest: ${(statSync(join(ROOT, OUT, 'docs-manifest.json')).size / 1024).toFixed(0)} KB · ${pages.length} pages (bodies are published to the content repository)`
+);
+// ---------------------------------------------------------------- published set
+// The Markdown itself is served straight from src/content/docs over the CDN, so
+// only the generated metadata lives here: what each page is, and the search
+// excerpts readers need without downloading every page.
+import { mkdirSync } from 'node:fs';
+const CONTENT = join(ROOT, 'content');
+mkdirSync(join(CONTENT, 'data/learning'), { recursive: true });
+
+const typed = pages.map((page) => ({
+	slug: page.slug,
+	...pageType(page.slug),
+	title: page.title,
+	titleZh: page.titleZh ?? page.title,
+	description: page.description,
+	descriptionZh: page.descriptionZh ?? page.description,
+	section: page.section,
+	order: page.order
+}));
+
+const learning = JSON.parse(
+	execFileSync(
+		process.execPath,
+		[
+			'-e',
+			"import('./src/lib/content/learning.ts').then((m) => console.log(JSON.stringify({ categories: m.categories, terms: m.terms, units: m.units, videos: m.videos })))"
+		],
+		{ cwd: ROOT, encoding: 'utf8' }
+	)
+);
+
+for (const category of learning.categories)
+	typed.push({
+		slug: `learn/final/category/${category.id}`,
+		type: 'quiz',
+		quiz: category.id,
+		title: category.name,
+		titleZh: category.name,
+		description: category.description,
+		descriptionZh: category.description,
+		section: 'Learn',
+		order: 16000 + learning.categories.indexOf(category)
+	});
+for (const unit of learning.units)
+	typed.push({
+		slug: `learn/labs/${unit.id}`,
+		type: 'lab',
+		lab: unit.id,
+		title: unit.title,
+		titleZh: unit.title,
+		description: unit.subtitle,
+		descriptionZh: unit.subtitle,
+		section: 'Learn',
+		order: 17000 + learning.units.indexOf(unit)
+	});
+
+writeFileSync(
+	join(CONTENT, 'manifest.json'),
+	JSON.stringify({ pages: typed }, null, '\t') + '\n'
+);
+writeFileSync(join(CONTENT, 'data/learning/categories.json'), JSON.stringify(learning, null, '\t') + '\n');
+
+for (const lang of LANGS) {
+	const rows = typed.map((page) => {
+		let text = page.description ?? '';
+		try {
+			text = readFileSync(join(ROOT, DOCS, lang, `${page.slug}.md`), 'utf8')
+				.replace(/^---[\s\S]*?---\s*/, '')
+				.replace(/```[\s\S]*?```/g, ' ')
+				.replace(/<[^>]+>/g, ' ')
+				.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+				.replace(/[#*_`{}]/g, '')
+				.replace(/\s+/g, ' ')
+				.trim()
+				.slice(0, 240);
+		} catch {}
+		return {
+			slug: page.slug,
+			title: lang === 'zh' ? page.titleZh : page.title,
+			description: lang === 'zh' ? page.descriptionZh : page.description,
+			section: page.section,
+			href: `/docs${page.slug ? '/' + page.slug : ''}`,
+			text
+		};
+	});
+	writeFileSync(join(CONTENT, `search.${lang}.json`), JSON.stringify(rows) + '\n');
+}
+
+console.log(
+	`published metadata: ${typed.length} pages · manifest ${(statSync(join(CONTENT, 'manifest.json')).size / 1024).toFixed(0)} KB · ` +
+		`search ${(statSync(join(CONTENT, 'search.en.json')).size / 1024).toFixed(0)} KB en / ${(statSync(join(CONTENT, 'search.zh.json')).size / 1024).toFixed(0)} KB zh`
 );

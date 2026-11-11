@@ -45,10 +45,11 @@ jobs:
         if: steps.changes.outputs.code == 'true'
         run: npm run check
 
-      - name: Content and published-content check
+      - name: Content check
         run: |
           npm run qa:content
-          npm run qa:content:sync
+          npm run docs:export
+          git diff --exit-code -- content src/lib/content/docs-manifest.json || (echo 'content metadata is stale: commit the regenerated content/' && exit 1)
 
       - name: Build
         run: npm run build:spa

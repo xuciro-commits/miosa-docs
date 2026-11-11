@@ -6,7 +6,7 @@
 
 线上地址：<https://docs.norsky.cn>。推送到 `main` 会触发 `.github/workflows/deploy-miosa.yml`：
 
-1. 如果是改文档正文：先 `npm run content:publish`（推公开内容仓并记录 SHA），再 `npm run qa:content:sync` 确认一致
+1. 如果是改文档正文：改完跑 `npm run docs:export`，把 `content/` 一起提交（正文本身通过 jsDelivr 从这个仓的固定提交读取）
 2. 检查类型，运行 `npm run build:spa`：先由 `scripts/export-docs.mjs` 生成清单与按语言/分节拆分的正文 JSON，再拆分打包单页应用，并为每个文档路由生成静态入口。
 2. 在真正的静态文件服务器上，用浏览器验证页面、搜索、深层路由、Markdown 与本地 OSA 检索。
 3. 上传未提升的 MIOSA 预览版本，再次进行浏览器验收，检查构建提交号。

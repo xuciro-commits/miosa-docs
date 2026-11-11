@@ -42,7 +42,7 @@ export async function loadMarkdown(
 	if (!markdownCache.has(key)) {
 		markdownCache.set(
 			key,
-			fetchContent(`${locale}/${slug}.md`, fetcher).then((body) =>
+			fetchContent(`src/content/docs/${locale}/${slug}.md`, fetcher).then((body) =>
 				body ? stripFrontmatter(body) : undefined
 			)
 		);
@@ -162,7 +162,7 @@ export async function loadSearchIndex(
 	fetcher: typeof fetch = fetch
 ): Promise<SearchEntry[]> {
 	if (searchCache.has(locale)) return searchCache.get(locale)!;
-	const remote = await fetchContentJson<SearchEntry[]>(`data/search.${locale}.json`, fetcher);
+	const remote = await fetchContentJson<SearchEntry[]>(`content/search.${locale}.json`, fetcher);
 	const index =
 		remote ??
 		documents.map((doc) => ({
@@ -189,7 +189,7 @@ let quizCache: Promise<QuizData> | undefined;
 
 export function loadLearningData(fetcher: typeof fetch = fetch): Promise<QuizData> {
 	quizCache ??= (async () => {
-		const remote = await fetchContentJson<QuizData>('data/learning/categories.json', fetcher);
+		const remote = await fetchContentJson<QuizData>('content/data/learning/categories.json', fetcher);
 		if (remote?.categories?.length) return remote;
 		const local = await import('#lib/content/learning.js');
 		return {

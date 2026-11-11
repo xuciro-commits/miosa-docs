@@ -28,8 +28,7 @@
 		"verify:http": "node scripts/verify-http.mjs",
 		"hooks:install": "git config core.hooksPath .githooks",
 		"docs:export": "node scripts/export-docs.mjs",
-		"content:publish": "node scripts/publish-content.mjs",
-		"qa:content:sync": "node scripts/check-content-sync.mjs"
+		"qa:content:sync": "node -e \"const m=require('./content/manifest.json');console.log('published metadata:',m.pages.length,'pages')\""
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.65.0",

@@ -49,30 +49,52 @@ stay in CI.
 
 ## Content and artifacts
 
-Two repositories:
-
-| Repository | Holds | Visibility |
-|---|---|---|
-| `xuciro-commits/miosa-docs` | the shell: routes, components, styles, build scripts | private |
-| `xuciro-commits/miosa-docs-content` | every page's Markdown, the page manifest, and the data behind the learning pages | public |
-
-The static host does not compress responses and bills egress at $0.054/GB with
-no free tier, so the prose does not ship from it. `src/lib/content/content-version.json`
-pins the content repository to a commit; jsDelivr serves that commit as
-`immutable` for a year, gzip encoded, and `raw.githubusercontent.com` is the
-fallback mirror (same CORS headers).
+One repository holds the code and the prose: `xuciro-commits/miosa-docs`
+(public). The static host does not compress responses and bills egress at
+$0.054/GB with no free tier, so the prose is not served from it. Instead the
+build pins the commit it builds, and page content is read from jsDelivr, which
+serves a pinned commit as `immutable` for a year with gzip, and from
+`raw.githubusercontent.com` when the CDN fails (same CORS headers, no cache).
 
 | Request | Size | When |
 |---|---|---|
 | `index.html` + `_app/immutable/bundle.*.js` | ~7.9 MB | every cold visit |
-| `manifest.json` (content repo) | 195 KB → 40 KB gzip | not fetched: the shell bundles the manifest so navigation never waits |
-| `<lang>/<slug>.md` (content repo) | 3–8 KB → ~2 KB gzip | on the page that needs it, then cached forever |
-| `data/search.<lang>.json` (content repo) | 107 KB gzip | first search or Ask |
-| `data/learning/categories.json` (content repo) | 8 KB | learning checks and labs |
+| `src/content/docs/<lang>/<slug>.md` | 3–8 KB → ~2 KB gzip | the page that needs it, then cached forever |
+| `content/manifest.json` | 205 KB → ~45 KB gzip | generated, also bundled into the shell so navigation never waits |
+| `content/search.<lang>.json` | 217 KB en / 334 KB zh | first search or Ask |
+| `content/data/learning/categories.json` | 8 KB | learning checks and labs |
 
 Measured cold loads after the move: `/docs/quickstart/` 8.3 MB, and the
-Markdown for a page costs about 4 KB instead of the 2.7 MB content asset it
-used to be.
+Markdown for a page costs about 4 KB instead of the 2.7 MB it used to be.
+
+`src/lib/content/content-version.json` is written by `npm run build:spa` from
+`git rev-parse HEAD` (`CONTENT_SHA` overrides it for experiments). The artifact
+records it in `release.json` as `content`, so a deployed site always names the
+exact content commit it renders.
+
+### Generated metadata
+
+```sh
+npm run docs:export   # rewrites content/ and src/lib/content/docs-manifest.json
+```
+
+`content/manifest.json` (every page: slug, titles, section, order and `type`),
+the search excerpts and the learning data are generated from
+`src/content/docs` and `src/lib/content/learning.ts`; commit the result with the
+prose change. CI runs `docs:export` and fails when `git diff` shows the metadata
+was not regenerated, so the site cannot deploy with stale navigation or search.
+
+Pages are typed: `markdown`, plus `quiz`, `lab`, `game`, `video`, `earn`,
+`glossary` and `openapi` for pages the shell renders with a component. Quiz and
+lab pages read `content/data/learning/categories.json`, so adding a learning
+check needs no code change.
+
+Note: the publish validator on MIOSA rejects artifacts built as many small
+chunks (`PUBLISH_VALIDATION_FAILED`, no per-file reason). Its scan looks at
+small files only: a 60-byte file containing `AUTH_JWT_SECRET=...` is refused
+while the same string inside a 2.2 MB file is accepted. That is why the shell
+stays a single bundle, and why example assignments of the form
+`NAME_SECRET=value` were rewritten as bare names with a comment.
 
 ### Publishing content
 
