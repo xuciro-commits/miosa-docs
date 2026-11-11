@@ -299,8 +299,10 @@ html[data-theme="light"] .hero-lead{color:#49515e}
 .button.primary{background:#f7f9fcd6;color:#15171b;border:1px solid #ffffff7a}
 .button.secondary{border:1px solid #ffffff29;color:#f4f5f7;background:#0a0c109e}
 html[data-theme="light"] .button.secondary{color:#0b0c0e;border-color:#00000024;background:#ffffffc2}
-.benchmark{display:flex;align-items:center;gap:7px;margin:2.25rem 0 0;color:#c9d4e694;font-size:.74rem;text-decoration:none}
-.benchmark b{color:#c4cbd7;font-weight:550}
+.benchmark{display:flex;align-items:center;gap:7px;margin:2.25rem 0 0;color:var(--muted);font-size:.76rem;font-weight:450;text-decoration:none}
+.benchmark b{color:var(--text);font-weight:600}
+html[data-theme='light'] .benchmark{color:#4b5462}
+html[data-theme='light'] .benchmark b{color:#0b0c0e}
 `;
 void CRITICAL_CSS;
 

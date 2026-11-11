@@ -318,10 +318,19 @@ html[data-locale='zh'] .article-content[data-ready='false'] {
 	padding-left: 22px;
 }
 .article-content a:not(.button) {
+	/* Reference values: the link text carries the body weight plus a step (500),
+	   is set in full text colour, and underlined 1px at 22% of that colour. */
+	font-weight: 500;
+	color: var(--text);
 	text-decoration: underline;
 	text-decoration-thickness: 1px;
 	text-decoration-color: color-mix(in srgb, var(--text) 22%, transparent);
 	text-underline-offset: 3px;
+	text-decoration-skip-ink: auto;
+}
+
+.article-content a:not(.button) code {
+	color: inherit;
 }
 .article-content a:not(.button):hover {
 	text-decoration-color: color-mix(in srgb, var(--text) 55%, transparent);
@@ -850,6 +859,14 @@ html[data-locale='zh'] .article-content[data-ready='false'] {
 	font-size: 14px;
 	line-height: 1.6;
 	color: var(--muted);
+}
+/* A card is one link; an anchor inside its description is not a separate target,
+   so it is styled as emphasis rather than a second underlined link. */
+.docs-card__body a {
+	color: inherit;
+	font-weight: 500;
+	text-decoration: none;
+	text-decoration-color: transparent;
 }
 @media (max-width: 760px) {
 	.docs-card-grid {

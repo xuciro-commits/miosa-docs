@@ -593,6 +593,27 @@ html[data-theme='light'] .logo-row img {
 	}
 }
 
+/* The benchmark line sits on a busier part of the scene than the heading, so it
+   uses the theme's muted colour at a readable weight (it was near-invisible at
+   58% white on a pale page). */
+.benchmark {
+	color: var(--muted);
+	font-weight: 450;
+}
+
+.benchmark b {
+	color: var(--text);
+	font-weight: 600;
+}
+
+html[data-theme='light'] .benchmark {
+	color: #4b5462;
+}
+
+html[data-theme='light'] .benchmark b {
+	color: #0b0c0e;
+}
+
 /* ------------------------------------------------------------------ footer */
 .footer {
 	max-width: 1280px;
