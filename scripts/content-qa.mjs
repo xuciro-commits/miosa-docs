@@ -19,6 +19,7 @@
 import { readFileSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { dirname, join, relative } from 'node:path';
+import { layoutProblems } from './lib/layout-rules.mjs';
 
 const ROOT = process.cwd();
 const DOCS = 'src/content/docs';
@@ -192,6 +193,10 @@ for (const file of docs) {
 		fail(file, `slug "${fields.slug}" does not match the file path "${slugFromPath}"`);
 	if (fields.order && Number.isNaN(Number(fields.order)))
 		fail(file, `order "${fields.order}" is not a number`);
+
+	// A declared layout has to match the page body, or the rendering lies about
+	// the intent. See docs/handbook/inference for the contract.
+	if (fields.layout) for (const problem of layoutProblems(fields.layout, body)) fail(file, problem);
 
 	for (const pattern of PLACEHOLDER_PATTERNS)
 		if (pattern.test(source)) {

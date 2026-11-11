@@ -1,0 +1,2632 @@
+{
+	"pages": [
+		{
+			"slug": "adk",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "agents/agent-studio",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "agents/chat-on-a-machine",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "agents/confinement",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "agents/harnesses",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "api-reference/agent-run-groups",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "api-reference/agent-runs",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "api-reference/agent-runtime-profiles",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "api-reference/audit-log",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/cloud",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/computers",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/credits",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/custom-domains",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/databases",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "api-reference/deployments",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/desktop",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/docker-deploy",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/egress",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/errors",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/events",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "api-reference/exec",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/files",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/filesystem",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/invites",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/members",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/network-policy",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/open-computers",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/preview-tokens",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/previews",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/projects",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/quotas",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/regions",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/releases",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "api-reference/runtime-env",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "api-reference/sandbox-env",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/sandbox-files-advanced",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/sandbox-processes",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/sandbox-shares",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/sandbox-templates",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/sandboxes",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "api-reference/sandboxes/create",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/sandboxes/manage",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/services",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/snapshots",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/streaming-exec",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/tenant-branding",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/tenant-events",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/tenant-preview-domain",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/usage-rollup",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/versions",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/webhooks",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api-reference/workspaces",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "api",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "authentication",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "availability",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "benchmarks",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "browser-use",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "browser-use/cdp",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "browser-use/how-it-works",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "browser-use/integrations",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "browser-use/limits",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "browser-use/live-viewer",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "browser-use/quickstart",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "build/anything",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/base44",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/bland",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/bolt",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/browser-use",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/business-os",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/character-ai",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/chatgpt-agent",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/claude-code",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/claude-cowork",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/clay",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/cline",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/codex",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/coding-agent-product",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/comet",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/cursor",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/decagon",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/deep-research",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/descript",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/devin",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/dots",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/elevenlabs",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/emergent",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/employee-onboarding-agent",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/figma-make",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/gamma",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/gemini-agent",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/genspark",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/github-copilot",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/gong",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/grok-bot",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/hermes-agent",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/heygen",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/higgsfield",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/intercom-fin",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/internal-tools-builder",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/knowledge-base-agent",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/livekit-agents",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/lovable",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/magic-patterns",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/manus",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/meta-muse",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/openclaw",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/openevidence",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/openhands",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/openswarm",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/ops-support-copilot",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/perplexity",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/phind",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/pi",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/pipecat",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/polar",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/replika",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/replit",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/retell",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/rork",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/run-agents",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/runway",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/same-new",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/sora",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/stagehand",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/team-ai-workspace",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/uizard",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/v0",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/vapi",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/windsurf",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "build/you-com",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "changelog",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "ci",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli",
+			"declared": null,
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "cli/access-billing",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/account",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/agents",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/api",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/cli-vs-mcp",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/config",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/devices",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/environments",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/install",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/machines",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/platform",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/scripting",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/snapshots",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cli/work-inside",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/beam",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/blaxel",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/boat",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/cloudflare",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/codesandbox",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/daytona",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/e2b",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/fly",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/freestyle",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/modal",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/railway",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/render",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/runloop",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "compare/vercel",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "component-library",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "computer-use",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "computer-use/api-reference",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "computer-use/limits",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "computer-use/quickstart",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "computer-use/sdk-examples",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "computer-use/vs-browser-use",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "computers/anatomy",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "computers/embedding",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "computers/fast-start",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "computers/lifecycle",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "computers/overview",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "computers/production-checklist",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "computers/vs-sandbox",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "concepts",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "concepts/computers-desktop",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "concepts/data-and-bindings",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "concepts/publish-pipeline",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "concepts/resource-model",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "concepts/tenancy",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "concepts/tenant-config",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "concepts/tokens",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "cookbook",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "cookbook/agent-builds-app",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "cookbook/agent-with-secrets",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "cookbook/browser-agent",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "cookbook/build-virtual-device-product",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "cookbook/embed-sandbox-iframe",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "cookbook/multi-tenant-saas",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "cookbook/per-user-quotas-billing",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "cookbook/sandbox-events-realtime",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "cookbook/streaming-code-execution",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "data-retention",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "data/auth",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "data/email",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "data/fractal",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "data/mongodb",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "data/mysql",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "data/overview",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "data/postgres",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "data/public-endpoint",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "data/qdrant",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "data/redis",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "data/storage",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "data/volumes",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "develop/files-and-exec",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "develop/previews",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "develop/sandbox-shares",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "develop/sandboxes",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "develop/sandboxes/capabilities",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "develop/sandboxes/connect",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "develop/sandboxes/create",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "develop/sandboxes/docker",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "develop/sandboxes/environments",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "develop/sandboxes/events",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "develop/sandboxes/internet-access",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "develop/sandboxes/lifecycle",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "develop/sandboxes/long-running-tasks",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "develop/sandboxes/metadata",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "develop/sandboxes/production-checklist",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "develop/sandboxes/sizing",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "develop/sandboxes/timeouts",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "develop/snapshots",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "develop/templates",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "docker-host/deploy-from-github",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "docker-host/deployment-model",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "docker-host/docker-deploy",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "docker-host/domains",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "docker-host/environments",
+			"declared": null,
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "docker-host/hosts",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "docker-host/overview",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "docker-host/publishing",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "docker-host/releases",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "docker-host/rollback",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "docker-host/runtime-instances",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "docker-host/templates",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "docker-host/versions",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "evaluations",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "faq",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "faq/agents",
+			"declared": "accordion",
+			"inferred": "default",
+			"rendered": "accordion"
+		},
+		{
+			"slug": "faq/browser-and-computer-use",
+			"declared": "accordion",
+			"inferred": "default",
+			"rendered": "accordion"
+		},
+		{
+			"slug": "faq/business-os",
+			"declared": "accordion",
+			"inferred": "default",
+			"rendered": "accordion"
+		},
+		{
+			"slug": "faq/getting-started",
+			"declared": "accordion",
+			"inferred": "default",
+			"rendered": "accordion"
+		},
+		{
+			"slug": "faq/pricing-and-limits",
+			"declared": "accordion",
+			"inferred": "default",
+			"rendered": "accordion"
+		},
+		{
+			"slug": "faq/runtimes",
+			"declared": "accordion",
+			"inferred": "default",
+			"rendered": "accordion"
+		},
+		{
+			"slug": "faq/sandboxes-and-computers",
+			"declared": "accordion",
+			"inferred": "default",
+			"rendered": "accordion"
+		},
+		{
+			"slug": "faq/security-and-compliance",
+			"declared": "accordion",
+			"inferred": "default",
+			"rendered": "accordion"
+		},
+		{
+			"slug": "faq/support",
+			"declared": "accordion",
+			"inferred": "default",
+			"rendered": "accordion"
+		},
+		{
+			"slug": "faq/white-label",
+			"declared": "accordion",
+			"inferred": "default",
+			"rendered": "accordion"
+		},
+		{
+			"slug": "forge",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "forge/agents",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "forge/cli",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "forge/faq",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "forge/pull-requests",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "forge/quickstart",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "forge/sandboxes",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "fundamentals",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "fundamentals/attribution",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "fundamentals/authentication",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "fundamentals/events",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "fundamentals/requests",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "fundamentals/tenant-config",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "glossary",
+			"declared": null,
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-capabilities",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-cli-workflow",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-company-reference-map",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-company-runtime-artifacts",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "guides/agent-device-selection",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-devices",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-operating-guide",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-orchestration",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-orchestration/examples",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-orchestration/patterns",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-product-model",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-runtime-routing",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-safety",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent-workflow-patterns",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/agent",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/build-agent-company",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/configure-agent",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/connect-agent-accounts",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/internal-business-os",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/managed-connectors",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "guides/runtime-env",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "guides/skills",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "handbook/archetypes",
+			"declared": "collection",
+			"inferred": "default",
+			"rendered": "collection"
+		},
+		{
+			"slug": "handbook/blocks",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "handbook/inference",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "handbook/overview",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "infrastructure/byoc/aws",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "infrastructure/byoc/gcp",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "infrastructure/byoc/overview",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "infrastructure/overview",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "infrastructure/shared-responsibility",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "integrations",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "integrations/backend-orchestration",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "integrations/comparison",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "integrations/examples",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "integrations/external-computers",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "integrations/webhooks",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "known-limitations",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "learn",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "learn/earn",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "learn/first-production-app",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "learn/games",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "learn/videos",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "machines",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "mcp",
+			"declared": null,
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "mcp/advanced",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "mcp/catalog",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "mcp/install",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "mcp/tools",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "mcp/tools/computers",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "mcp/tools/data",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "mcp/tools/deployments",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "mcp/tools/platform",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "mcp/tools/sandboxes",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "migrate/railway",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "migrate/vercel",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "migrating-from-miosa-sandbox",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "opencomputers",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "opencomputers/backups",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "opencomputers/billing",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "opencomputers/connect",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "opencomputers/containers",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "opencomputers/devices",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "opencomputers/gha-runners",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "opencomputers/hosts",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "opencomputers/meshes",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "opencomputers/reference",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "opencomputers/security",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "opencomputers/troubleshooting",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "opencomputers/tunnels",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "operations/recovery",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal-engine",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal-engine/agents-and-workflows",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal-engine/api",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal-engine/cli-sdks-mcp",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal-engine/concepts",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal-engine/ingestion",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal-engine/install",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal-engine/memory-and-retrieval",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal-engine/miosa",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal-engine/operations",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal-engine/quickstart",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal-engine/troubleshooting",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal/api",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal/approvals",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal/brains",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal/chats",
+			"declared": null,
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "optimal/isolation",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal/machines",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal/pricing",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal/quickstart",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal/team-chats",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal/troubleshooting",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "optimal/workspace",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "plans-and-limits",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "platform/agent-credit-metering",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "platform/agents-in-your-product",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "platform/api-keys",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "platform/attribution",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "platform/browser-tokens",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "platform/overview",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "platform/patterns",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "platform/templates-and-sizing",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "platform/usage-and-billing",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "platform/white-label",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "pricing",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "projects",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "projects/lifecycle",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "projects/members-and-usage",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "projects/resources",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "quickstart",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "quickstart/agent-driven-build",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "quickstart/app-engine",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "quickstart/sandbox-to-deployment",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "rate-limits",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "regions",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "sandboxes-or-computers",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "sdks",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "sdks/egress",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "sdks/elixir",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "sdks/go",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "sdks/java",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "sdks/python",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "sdks/rust",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "sdks/typescript",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "security",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "security/api-keys",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "security/audit-log",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "security/connect-accounts",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "security/network",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "security/secrets",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "security/troubleshooting",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "security/white-label",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/cli",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/config-file",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/dedicated-vcpu",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/domains",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/environments",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/logs",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/metrics",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/middleware",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/overview",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/previews",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/protection",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/quickstart",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/releases",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/replicas",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/sdk",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/services",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/static",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "services/variables",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "soma",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "soma/choosing-a-runtime",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "support",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "troubleshooting",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		},
+		{
+			"slug": "ui-components",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "ui-components/foundation",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "ui-components/react",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "ui-components/svelte",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "ui-components/vue",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "use-cases",
+			"declared": "cards",
+			"inferred": "cards",
+			"rendered": "cards"
+		},
+		{
+			"slug": "xici/canon",
+			"declared": "collection",
+			"inferred": "default",
+			"rendered": "collection"
+		},
+		{
+			"slug": "xici/commentary/01-dao-vessel",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "xici/commentary/02-dynamics",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "xici/commentary/03-representation",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "xici/commentary/04-compression",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "xici/commentary/05-alignment",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "xici/equations",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "xici/lexicon",
+			"declared": null,
+			"inferred": "default",
+			"rendered": "default"
+		},
+		{
+			"slug": "xici/overview",
+			"declared": "cards",
+			"inferred": "default",
+			"rendered": "cards"
+		}
+	]
+}

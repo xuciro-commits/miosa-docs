@@ -55,6 +55,7 @@ jobs:
         run: |
           npm run qa:content
           npm run docs:export
+          npm run docs:layout
           git status --porcelain -- content src/lib/content/docs-manifest.json | tee /tmp/content-state
           test ! -s /tmp/content-state || (echo 'content metadata is stale: commit the regenerated content/' && exit 1)
 

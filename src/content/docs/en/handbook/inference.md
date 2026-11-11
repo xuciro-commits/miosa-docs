@@ -15,7 +15,7 @@ Authors know standard Markdown; our rendering has semantics of its own. There ar
 | Syntax itself | Always | Tables, fences, quotes, heading levels | None: the shape is the meaning |
 | Block inference | Automatic | Two or more `**Label**` lines each with a fence become tabs | Low: a mistake affects one block |
 | Layout declaration | One line by the author | `layout: cards`, `accordion`, `collection` | None: it only applies when written |
-| Layout inference | Cards only | Two or more link-and-description lists on a page become a card grid | Low: it only turns lists into cards |
+| Layout inference | Cards only | Two or more colon-separated link-and-description lists on a page become a card grid | Low: it only turns lists into cards |
 
 ## Why only cards can be inferred
 
@@ -32,13 +32,13 @@ Those mistakes do not look different, they hide content. So they must be declare
 
 | Layout | Declared | Coverable by inference | Conclusion |
 |---|---|---|---|
-| `cards` | 98 pages | 23 pages, 18 of them already declared | Infer it, and allow declaring it |
+| `cards` | 98 pages | 5 pages, bringing the rendered total to 103 | Infer it, and allow declaring it |
 | `accordion` | 10 pages | 0 pages | Declaration only |
 | `collection` | 2 pages | 0 pages | Declaration only |
 
 ## The compatibility contract
 
-1. **Inference adds rendering, never changes text**: every sentence in the output comes from the source; nothing is dropped, reordered or rewritten.
+1. **Inference adds rendering, never changes text**: every sentence in the output comes from the source; nothing is dropped, reordered or rewritten. Inference is stricter about the shape (a colon is required), while a declared page may relax it (a link followed directly by text still counts).
 2. **Declaration beats inference**: a written `layout` wins, and `layout: default` switches inference off entirely.
 3. **Block inference cannot be switched off**: tabs, table frames and code frames are styling, not layout; turning them off only makes pages worse.
 4. **Upgrades must be auditable**: after a renderer change, run the page inventory and diff "what the previous version rendered" against "what this version renders", and write the difference into the release note.
