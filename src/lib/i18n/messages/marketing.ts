@@ -93,6 +93,13 @@ export const en: Record<string, string> = {
 	'marketing.home.customer.description':
 		'Give each customer a workspace and each application a project. Keep ownership, usage and deployment boundaries visible.',
 	'marketing.home.customer.cta': 'Explore the resource model',
+	'marketing.home.logos.note': 'Teams building agents on the same primitives.',
+	'marketing.home.terminal.eyebrow': 'Try it',
+	'marketing.home.terminal.titleLine1': 'From install to a live',
+	'marketing.home.terminal.titleLine2': 'URL in four commands.',
+	'marketing.home.terminal.lead':
+		'No dashboard, no configuration file. The CLI is the whole surface.',
+	'marketing.home.terminal.caption': 'A real session, abridged',
 	'marketing.home.closing.eyebrow': 'Start with MIOSA',
 	'marketing.home.closing.titleLine1': 'Give your agents somewhere',
 	'marketing.home.closing.titleLine2': 'real to work.',
@@ -523,6 +530,12 @@ export const zh: Record<string, string> = {
 	'marketing.home.customer.description':
 		'为每位客户提供工作区，为每个应用提供项目。让所有权、用量和部署边界清晰可见。',
 	'marketing.home.customer.cta': '探索资源模型',
+	'marketing.home.logos.note': '在同一套基础设施上构建智能体的团队。',
+	'marketing.home.terminal.eyebrow': '试一试',
+	'marketing.home.terminal.titleLine1': '从安装到可访问的',
+	'marketing.home.terminal.titleLine2': 'URL，只要四条命令。',
+	'marketing.home.terminal.lead': '没有控制台，没有配置文件。CLI 就是全部界面。',
+	'marketing.home.terminal.caption': '真实会话，略有删减',
 	'marketing.home.closing.eyebrow': '从 MIOSA 开始',
 	'marketing.home.closing.titleLine1': '让你的智能体',
 	'marketing.home.closing.titleLine2': '真正开始工作。',

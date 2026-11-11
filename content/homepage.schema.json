@@ -45,7 +45,7 @@
 		"key": {
 			"description": "Translation key under the marketing namespace.",
 			"type": "string",
-			"pattern": "^(nav|home|footer|status)\\.[A-Za-z0-9.]+$"
+			"pattern": "^(nav|home|footer|status|pricing)\\.[A-Za-z0-9.]+$"
 		},
 		"heading": {
 			"type": "object",
@@ -66,7 +66,7 @@
 			"required": ["type"],
 			"properties": {
 				"type": {
-					"enum": ["hero", "features", "steps", "split", "cta", "footer"]
+					"enum": ["hero", "features", "steps", "split", "cta", "footer", "logos", "terminal", "pricing"]
 				},
 				"eyebrow": { "$ref": "#/definitions/key" },
 				"title": { "$ref": "#/definitions/heading" },
@@ -129,7 +129,52 @@
 				"navLabel": { "$ref": "#/definitions/key" },
 				"copyright": { "$ref": "#/definitions/key" },
 				"about": { "$ref": "#/definitions/link" },
-				"github": { "type": "string" }
+				"github": { "type": "string" },
+				"logos": {
+					"type": "array",
+					"minItems": 3,
+					"maxItems": 12,
+					"items": {
+						"type": "object",
+						"required": ["name", "src"],
+						"additionalProperties": false,
+						"properties": {
+							"name": { "type": "string" },
+							"src": { "type": "string", "pattern": "^/(brand|docs-assets)/" }
+						}
+					}
+				},
+				"note": { "$ref": "#/definitions/key" },
+				"lines": {
+					"type": "array",
+					"minItems": 2,
+					"maxItems": 12,
+					"items": {
+						"type": "object",
+						"required": ["kind", "text"],
+						"additionalProperties": false,
+						"properties": {
+							"kind": { "enum": ["prompt", "command", "output", "comment"] },
+							"text": { "type": "string" }
+						}
+					}
+				},
+				"caption": { "$ref": "#/definitions/key" },
+				"plans": {
+					"type": "array",
+					"minItems": 1,
+					"maxItems": 5,
+					"items": {
+						"type": "object",
+						"required": ["id", "highlight"],
+						"additionalProperties": false,
+						"properties": {
+							"id": { "enum": ["free", "developer", "business", "enterprise"] },
+							"highlight": { "type": "boolean" }
+						}
+					}
+				},
+				"more": { "$ref": "#/definitions/link" }
 			}
 		}
 	}

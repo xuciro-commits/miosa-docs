@@ -71,10 +71,23 @@ replaces `build-static/index.html`, and every docs route stub is copied from tha
 shell. After the change a cold homepage visit transfers about **97 KB** with
 first paint around **50 ms** locally, and the page has real HTML for search.
 
-Sections are typed (`hero`, `features`, `steps`, `split`, `cta`, `footer`); the
+Sections are typed: `hero`, `features`, `steps`, `split`, `cta`, `footer`, plus
+`logos` (a social-proof row of brand marks), `terminal` (a scripted CLI session)
+and `pricing` (plan cards read from `pricing-snapshot.json`, so the homepage can
+never quote a rate the pricing page contradicts). Presets compose them:
+
+| Preset | Sections |
+|---|---|
+| `launch-sota` (default) | hero, logos, terminal, infrastructure, pricing, closing, footer |
+| `launch-full` | hero, infrastructure, customer, closing, footer |
+| `launch` | hero, closing, footer |
+| `docs-first` | hero, quickstart, closing, footer |
+
+The
 guard rejects an unknown type, a missing copy key, an en/zh key mismatch, a
-preset that does not end in the footer, and any link to a document that does not
-exist. `layout` style inference does not apply here: the homepage is generated,
+preset that does not end in the footer, a link to a document that does not
+exist, a logo path that is not in `static/`, and a plan id the snapshot does not
+define. `layout` style inference does not apply here: the homepage is generated,
 not parsed.
 
 One publish-validator quirk, found the hard way: a **static asset containing the

@@ -35,6 +35,7 @@ const messages = JSON.parse(
 );
 
 const definition = JSON.parse(readFileSync(join(ROOT, 'content/homepage.json'), 'utf8'));
+const pricing = JSON.parse(readFileSync(join(ROOT, 'src/lib/content/pricing-snapshot.json'), 'utf8'));
 const problems = validateDefinition(definition);
 if (problems.length) {
 	for (const problem of problems) console.error(`homepage: ${problem}`);
@@ -45,10 +46,13 @@ const esc = (value) =>
 	String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 function translator(locale) {
-	return (key) => {
-		const value = messages[locale]?.[`marketing.${key}`];
-		if (value === undefined) throw new Error(`missing message marketing.${key} for ${locale}`);
-		return value;
+	return (key, values) => {
+		const template = messages[locale]?.[`marketing.${key}`];
+		if (template === undefined) throw new Error(`missing message marketing.${key} for ${locale}`);
+		if (!values) return template;
+		return template.replace(/\{(\w+)\}/g, (match, name) =>
+			values[name] === undefined ? match : String(values[name])
+		);
 	};
 }
 
@@ -115,6 +119,60 @@ function renderSection(locale, section) {
 	</div>
 	<code class="install-fallback" hidden>${esc(section.command)}</code>
 	${renderLink(locale, section.link, 'setup-guide')}
+</section>`;
+	}
+
+	if (section.type === 'logos') {
+		const logos = section.logos
+			.map(
+				(logo) =>
+					`<li><img src="${esc(logo.src)}" alt="${esc(logo.name)}" loading="lazy" width="96" height="26" /></li>`
+			)
+			.join('');
+		return `<section class="section logos">
+	${eyebrow}${section.note ? `<p class="logos-note">${esc(tr(section.note))}</p>` : ''}
+	<ul class="logo-row">${logos}</ul>
+</section>`;
+	}
+
+	if (section.type === 'terminal') {
+		const lines = section.lines
+			.map((line) => `<span class="line ${esc(line.kind)}">${esc(line.text)}</span>`)
+			.join('');
+		return `<section class="section terminal">
+	<div class="section-head"><div>${eyebrow}${headingOf(locale, section.title)}</div><p>${esc(tr(section.lead))}</p></div>
+	<figure class="terminal-window" role="img" aria-label="${esc(tr(section.caption))}"><div class="terminal-bar"><i></i><i></i><i></i></div><pre>${lines}</pre><figcaption>${esc(tr(section.caption))}</figcaption></figure>
+</section>`;
+	}
+
+	if (section.type === 'pricing') {
+		// Prices come from the same snapshot the pricing page renders, so the
+		// homepage can never quote a rate that the product page contradicts.
+		const cards = section.plans
+			.map((entry) => {
+				const plan = pricing.plans.find((candidate) => candidate.id === entry.id);
+				if (!plan) return '';
+				const name = tr(`pricing.planNames.${plan.id}`);
+				const description = tr(`pricing.plans.description.${plan.id}`);
+				const use = plan.price_cents ? plan.monthly_commitment_cents : plan.monthly_grant_credits;
+				const price = plan.price_cents
+					? `$${Math.round(plan.price_cents / 100)}<small>${esc(tr('pricing.plans.perMonth'))}</small>`
+					: `<small>${esc(tr('pricing.plans.noMonthlyCharge'))}</small>`;
+				const usage = plan.price_cents
+					? tr('pricing.plans.commitment', { amount: `$${Math.round(use / 100)}` })
+					: tr('pricing.plans.grant', { amount: `$${(use / 100).toFixed(0)}` });
+				return `<article class="plan${entry.highlight ? ' is-highlight' : ''}">
+	<h3>${esc(name)}${entry.highlight ? `<span class="plan-tag">${esc(tr('pricing.plans.popular'))}</span>` : ''}</h3>
+	<p class="plan-price">${price}</p>
+	<p class="plan-use">${esc(usage)}</p>
+	<p class="plan-desc">${esc(description)}</p>
+</article>`;
+			})
+			.join('');
+		return `<section class="section pricing">
+	<div class="section-head"><div>${eyebrow}${headingOf(locale, section.title)}</div><p>${esc(tr(section.lead))}</p></div>
+	<div class="plan-grid">${cards}</div>
+	${section.more ? renderLink(locale, section.more, 'button secondary pricing-more') : ''}
 </section>`;
 	}
 

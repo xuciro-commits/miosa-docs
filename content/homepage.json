@@ -2,63 +2,158 @@
 	"$schema": "./homepage.schema.json",
 	"version": 1,
 	"presets": {
-		"launch-full": ["hero", "infrastructure", "customer", "closing", "footer"],
-		"launch": ["hero", "closing", "footer"],
-		"docs-first": ["hero", "quickstart", "closing", "footer"]
+		"launch-full": [
+			"hero",
+			"infrastructure",
+			"customer",
+			"closing",
+			"footer"
+		],
+		"launch": [
+			"hero",
+			"closing",
+			"footer"
+		],
+		"docs-first": [
+			"hero",
+			"quickstart",
+			"closing",
+			"footer"
+		],
+		"launch-sota": [
+			"hero",
+			"logos",
+			"terminal",
+			"infrastructure",
+			"pricing",
+			"closing",
+			"footer"
+		]
 	},
-	"preset": "launch-full",
+	"preset": "launch-sota",
 	"locales": {
-		"en": { "prefix": "", "htmlLang": "en", "dir": "ltr" },
-		"zh": { "prefix": "/zh", "htmlLang": "zh-CN", "dir": "ltr" }
+		"en": {
+			"prefix": "",
+			"htmlLang": "en",
+			"dir": "ltr"
+		},
+		"zh": {
+			"prefix": "/zh",
+			"htmlLang": "zh-CN",
+			"dir": "ltr"
+		}
 	},
 	"defaultLocale": "en",
 	"sections": {
 		"hero": {
 			"type": "hero",
-			"announcement": { "label": "home.hero.announcementBadge", "text": "home.hero.announcement", "href": "/docs" },
+			"announcement": {
+				"label": "home.hero.announcementBadge",
+				"text": "home.hero.announcement",
+				"href": "/docs"
+			},
 			"eyebrow": "home.hero.eyebrow",
-			"title": { "line": "home.hero.titleLine1", "accent": "home.hero.titleAccent", "tail": "home.hero.titleTail" },
+			"title": {
+				"line": "home.hero.titleLine1",
+				"accent": "home.hero.titleAccent",
+				"tail": "home.hero.titleTail"
+			},
 			"lead": "home.hero.lead",
-			"primary": { "label": "home.hero.startBuilding", "href": "https://miosa.ai/register" },
-			"secondary": { "label": "home.hero.exploreDocs", "href": "/docs" },
-			"benchmark": { "value": "57.1 ms", "label": "home.hero.benchmark", "href": "https://miosa.ai/docs/benchmarks" }
+			"primary": {
+				"label": "home.hero.startBuilding",
+				"href": "https://miosa.ai/register"
+			},
+			"secondary": {
+				"label": "home.hero.exploreDocs",
+				"href": "/docs"
+			},
+			"benchmark": {
+				"value": "57.1 ms",
+				"label": "home.hero.benchmark",
+				"href": "https://miosa.ai/docs/benchmarks"
+			}
 		},
 		"infrastructure": {
 			"type": "features",
 			"eyebrow": "home.infrastructure.eyebrow",
-			"title": { "line1": "home.infrastructure.titleLine1", "line2": "home.infrastructure.titleLine2" },
+			"title": {
+				"line1": "home.infrastructure.titleLine1",
+				"line2": "home.infrastructure.titleLine2"
+			},
 			"lead": "home.infrastructure.description",
 			"numbered": true,
 			"items": [
-				{ "title": "home.infrastructure.step1.title", "text": "home.infrastructure.step1.text", "href": "/docs/develop/sandboxes" },
-				{ "title": "home.infrastructure.step2.title", "text": "home.infrastructure.step2.text", "href": "/docs/computers/overview" },
-				{ "title": "home.infrastructure.step3.title", "text": "home.infrastructure.step3.text", "href": "/docs/docker-host/docker-deploy" }
+				{
+					"title": "home.infrastructure.step1.title",
+					"text": "home.infrastructure.step1.text",
+					"href": "/docs/develop/sandboxes"
+				},
+				{
+					"title": "home.infrastructure.step2.title",
+					"text": "home.infrastructure.step2.text",
+					"href": "/docs/computers/overview"
+				},
+				{
+					"title": "home.infrastructure.step3.title",
+					"text": "home.infrastructure.step3.text",
+					"href": "/docs/docker-host/docker-deploy"
+				}
 			]
 		},
 		"quickstart": {
 			"type": "steps",
 			"eyebrow": "home.infrastructure.eyebrow",
-			"title": { "line1": "home.infrastructure.titleLine1", "line2": "home.infrastructure.titleLine2" },
+			"title": {
+				"line1": "home.infrastructure.titleLine1",
+				"line2": "home.infrastructure.titleLine2"
+			},
 			"lead": "home.infrastructure.description",
 			"items": [
-				{ "title": "home.infrastructure.step1.title", "text": "home.infrastructure.step1.text", "href": "/docs/develop/sandboxes" },
-				{ "title": "home.infrastructure.step2.title", "text": "home.infrastructure.step2.text", "href": "/docs/computers/overview" },
-				{ "title": "home.infrastructure.step3.title", "text": "home.infrastructure.step3.text", "href": "/docs/docker-host/docker-deploy" }
+				{
+					"title": "home.infrastructure.step1.title",
+					"text": "home.infrastructure.step1.text",
+					"href": "/docs/develop/sandboxes"
+				},
+				{
+					"title": "home.infrastructure.step2.title",
+					"text": "home.infrastructure.step2.text",
+					"href": "/docs/computers/overview"
+				},
+				{
+					"title": "home.infrastructure.step3.title",
+					"text": "home.infrastructure.step3.text",
+					"href": "/docs/docker-host/docker-deploy"
+				}
 			]
 		},
 		"customer": {
 			"type": "split",
 			"eyebrow": "home.customer.eyebrow",
-			"title": { "line1": "home.customer.titleLine1", "line2": "home.customer.titleLine2" },
+			"title": {
+				"line1": "home.customer.titleLine1",
+				"line2": "home.customer.titleLine2"
+			},
 			"lead": "home.customer.description",
-			"cta": { "label": "home.customer.cta", "href": "/docs/guides/agent-product-model" }
+			"cta": {
+				"label": "home.customer.cta",
+				"href": "/docs/guides/agent-product-model"
+			}
 		},
 		"closing": {
 			"type": "cta",
 			"eyebrow": "home.closing.eyebrow",
-			"title": { "line1": "home.closing.titleLine1", "line2": "home.closing.titleLine2" },
-			"lead": { "line1": "home.closing.bodyLine1", "line2": "home.closing.bodyLine2" },
-			"primary": { "label": "home.hero.startBuilding", "href": "https://miosa.ai/register" },
+			"title": {
+				"line1": "home.closing.titleLine1",
+				"line2": "home.closing.titleLine2"
+			},
+			"lead": {
+				"line1": "home.closing.bodyLine1",
+				"line2": "home.closing.bodyLine2"
+			},
+			"primary": {
+				"label": "home.hero.startBuilding",
+				"href": "https://miosa.ai/register"
+			},
 			"command": "npm install -g @miosa/cli@latest",
 			"commandLabels": {
 				"aria": "home.closing.copyInstallAria",
@@ -66,7 +161,10 @@
 				"done": "home.closing.copied",
 				"manual": "home.closing.selectToCopy"
 			},
-			"link": { "label": "home.closing.setupGuide", "href": "/docs/cli/install" }
+			"link": {
+				"label": "home.closing.setupGuide",
+				"href": "/docs/cli/install"
+			}
 		},
 		"footer": {
 			"type": "footer",
@@ -80,69 +178,274 @@
 				{
 					"title": "footer.columns.getStarted",
 					"links": [
-						{ "label": "footer.links.introduction", "href": "/docs" },
-						{ "label": "footer.links.quickstart", "href": "/docs/quickstart" },
-						{ "label": "footer.links.installation", "href": "/docs/cli/install" },
-						{ "label": "footer.links.productModel", "href": "/docs/guides/agent-product-model" },
-						{ "label": "footer.links.startLearning", "href": "/docs/learn" }
+						{
+							"label": "footer.links.introduction",
+							"href": "/docs"
+						},
+						{
+							"label": "footer.links.quickstart",
+							"href": "/docs/quickstart"
+						},
+						{
+							"label": "footer.links.installation",
+							"href": "/docs/cli/install"
+						},
+						{
+							"label": "footer.links.productModel",
+							"href": "/docs/guides/agent-product-model"
+						},
+						{
+							"label": "footer.links.startLearning",
+							"href": "/docs/learn"
+						}
 					]
 				},
 				{
 					"title": "footer.columns.products",
 					"links": [
-						{ "label": "footer.links.sandboxes", "href": "/docs/develop/sandboxes" },
-						{ "label": "footer.links.computers", "href": "/docs/computers/overview" },
-						{ "label": "footer.links.agents", "href": "/docs/agents/harnesses" },
-						{ "label": "footer.links.deployments", "href": "/docs/docker-host/docker-deploy" },
-						{ "label": "footer.links.dataStorage", "href": "/docs/data/overview" },
-						{ "label": "footer.links.domains", "href": "/docs/services/domains" }
+						{
+							"label": "footer.links.sandboxes",
+							"href": "/docs/develop/sandboxes"
+						},
+						{
+							"label": "footer.links.computers",
+							"href": "/docs/computers/overview"
+						},
+						{
+							"label": "footer.links.agents",
+							"href": "/docs/agents/harnesses"
+						},
+						{
+							"label": "footer.links.deployments",
+							"href": "/docs/docker-host/docker-deploy"
+						},
+						{
+							"label": "footer.links.dataStorage",
+							"href": "/docs/data/overview"
+						},
+						{
+							"label": "footer.links.domains",
+							"href": "/docs/services/domains"
+						}
 					]
 				},
 				{
 					"title": "footer.columns.developers",
 					"links": [
-						{ "label": "footer.links.sdksOverview", "href": "/docs/sdks" },
-						{ "label": "footer.links.typescript", "href": "/docs/sdks" },
-						{ "label": "footer.links.python", "href": "/docs/sdks" },
-						{ "label": "footer.links.cli", "href": "/docs/cli" },
-						{ "label": "footer.links.mcp", "href": "/docs/mcp" },
-						{ "label": "footer.links.apiReference", "href": "/docs/api" }
+						{
+							"label": "footer.links.sdksOverview",
+							"href": "/docs/sdks"
+						},
+						{
+							"label": "footer.links.typescript",
+							"href": "/docs/sdks"
+						},
+						{
+							"label": "footer.links.python",
+							"href": "/docs/sdks"
+						},
+						{
+							"label": "footer.links.cli",
+							"href": "/docs/cli"
+						},
+						{
+							"label": "footer.links.mcp",
+							"href": "/docs/mcp"
+						},
+						{
+							"label": "footer.links.apiReference",
+							"href": "/docs/api"
+						}
 					]
 				},
 				{
 					"title": "footer.columns.platform",
 					"links": [
-						{ "label": "footer.links.projects", "href": "/docs/projects" },
-						{ "label": "footer.links.services", "href": "/docs/services/overview" },
-						{ "label": "footer.links.workspaces", "href": "/docs/guides/agent-product-model" },
-						{ "label": "footer.links.permissions", "href": "/docs/security" },
-						{ "label": "footer.links.customization", "href": "/docs/api-reference/custom-domains" }
+						{
+							"label": "footer.links.projects",
+							"href": "/docs/projects"
+						},
+						{
+							"label": "footer.links.services",
+							"href": "/docs/services/overview"
+						},
+						{
+							"label": "footer.links.workspaces",
+							"href": "/docs/guides/agent-product-model"
+						},
+						{
+							"label": "footer.links.permissions",
+							"href": "/docs/security"
+						},
+						{
+							"label": "footer.links.customization",
+							"href": "/docs/api-reference/custom-domains"
+						}
 					]
 				},
 				{
 					"title": "footer.columns.resources",
 					"links": [
-						{ "label": "footer.links.changelog", "href": "/docs/changelog" },
-						{ "label": "footer.links.docsForLlms", "href": "/llms.txt" },
-						{ "label": "footer.links.fullContext", "href": "/llms-full.txt" },
-						{ "label": "footer.links.pricing", "href": "/pricing" },
-						{ "label": "footer.links.github", "href": "https://github.com/Miosa-osa" }
+						{
+							"label": "footer.links.changelog",
+							"href": "/docs/changelog"
+						},
+						{
+							"label": "footer.links.docsForLlms",
+							"href": "/llms.txt"
+						},
+						{
+							"label": "footer.links.fullContext",
+							"href": "/llms-full.txt"
+						},
+						{
+							"label": "footer.links.pricing",
+							"href": "/pricing"
+						},
+						{
+							"label": "footer.links.github",
+							"href": "https://github.com/Miosa-osa"
+						}
 					]
 				},
 				{
 					"title": "footer.columns.reference",
 					"links": [
-						{ "label": "footer.links.sourceWebsite", "href": "https://miosa.ai" },
-						{ "label": "footer.links.publishedRates", "href": "https://miosa.ai/pricing" },
-						{ "label": "footer.links.foundationSource", "href": "https://github.com/Miosa-osa/foundation" },
-						{ "label": "footer.links.aboutReconstruction", "href": "/docs/api-reference/custom-domains" }
+						{
+							"label": "footer.links.sourceWebsite",
+							"href": "https://miosa.ai"
+						},
+						{
+							"label": "footer.links.publishedRates",
+							"href": "https://miosa.ai/pricing"
+						},
+						{
+							"label": "footer.links.foundationSource",
+							"href": "https://github.com/Miosa-osa/foundation"
+						},
+						{
+							"label": "footer.links.aboutReconstruction",
+							"href": "/docs/api-reference/custom-domains"
+						}
 					]
 				}
 			],
 			"navLabel": "footer.navLabel",
 			"copyright": "footer.copyright",
-			"about": { "label": "footer.about", "href": "/docs/api-reference/custom-domains" },
+			"about": {
+				"label": "footer.about",
+				"href": "/docs/api-reference/custom-domains"
+			},
 			"github": "https://github.com/Miosa-osa"
+		},
+		"logos": {
+			"type": "logos",
+			"eyebrow": "home.hero.eyebrow",
+			"note": "home.logos.note",
+			"logos": [
+				{
+					"name": "Railway",
+					"src": "/docs-assets/brands/railway.svg"
+				},
+				{
+					"name": "Vercel",
+					"src": "/docs-assets/brands/vercel.svg"
+				},
+				{
+					"name": "Modal",
+					"src": "/docs-assets/brands/modal.svg"
+				},
+				{
+					"name": "GitHub Copilot",
+					"src": "/docs-assets/brands/githubcopilot.svg"
+				},
+				{
+					"name": "E2B",
+					"src": "/docs-assets/brands/e2b.svg"
+				},
+				{
+					"name": "Blaxel",
+					"src": "/docs-assets/brands/blaxel.svg"
+				}
+			]
+		},
+		"terminal": {
+			"type": "terminal",
+			"eyebrow": "home.terminal.eyebrow",
+			"title": {
+				"line": "home.terminal.titleLine1",
+				"line2": "home.terminal.titleLine2"
+			},
+			"lead": "home.terminal.lead",
+			"caption": "home.terminal.caption",
+			"lines": [
+				{
+					"kind": "prompt",
+					"text": "$ npm install -g @miosa/cli@latest"
+				},
+				{
+					"kind": "output",
+					"text": "added 1 package in 2s"
+				},
+				{
+					"kind": "prompt",
+					"text": "$ miosa create my-box --wait"
+				},
+				{
+					"kind": "output",
+					"text": "sandbox my-box ready \u00b7 2 vCPU \u00b7 4 GB"
+				},
+				{
+					"kind": "prompt",
+					"text": "$ miosa exec my-box -- echo hello"
+				},
+				{
+					"kind": "output",
+					"text": "hello"
+				},
+				{
+					"kind": "comment",
+					"text": "# share a live preview"
+				},
+				{
+					"kind": "prompt",
+					"text": "$ miosa preview my-box 3000"
+				},
+				{
+					"kind": "output",
+					"text": "https://my-box.preview.miosa.ai"
+				}
+			]
+		},
+		"pricing": {
+			"type": "pricing",
+			"eyebrow": "pricing.plans.eyebrow",
+			"title": {
+				"line": "pricing.plans.title"
+			},
+			"lead": "pricing.plans.description",
+			"plans": [
+				{
+					"id": "free",
+					"highlight": false
+				},
+				{
+					"id": "developer",
+					"highlight": true
+				},
+				{
+					"id": "business",
+					"highlight": false
+				},
+				{
+					"id": "enterprise",
+					"highlight": false
+				}
+			],
+			"more": {
+				"label": "pricing.plans.startDeveloping",
+				"href": "/pricing"
+			}
 		}
 	}
 }

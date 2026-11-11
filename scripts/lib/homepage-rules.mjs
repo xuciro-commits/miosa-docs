@@ -5,10 +5,35 @@
  */
 
 /** Section types the generator can render. */
-export const SECTION_TYPES = new Set(['hero', 'features', 'steps', 'split', 'cta', 'footer']);
+export const SECTION_TYPES = new Set([
+	'hero',
+	'features',
+	'steps',
+	'split',
+	'cta',
+	'footer',
+	'logos',
+	'terminal',
+	'pricing'
+]);
 
 /** Keys a page may reference: `marketing.` + one of these prefixes. */
 export const KEY_PREFIXES = ['nav.', 'home.', 'footer.', 'status.'];
+
+/** Asset paths a section references; checked by the build and the guard. */
+export function assetPaths(section) {
+	const found = [];
+	const visit = (value) => {
+		if (typeof value === 'string') {
+			if (/^\/(brand|docs-assets|fonts)\//.test(value)) found.push(value);
+			return;
+		}
+		if (Array.isArray(value)) return value.forEach(visit);
+		if (value && typeof value === 'object') for (const child of Object.values(value)) visit(child);
+	};
+	visit(section);
+	return found;
+}
 
 /** Links that must point at a real document, resolved by the route guard. */
 export function internalLinks(section) {
@@ -26,14 +51,15 @@ export function internalLinks(section) {
 /** Every translation key referenced by a section. */
 export function sectionKeys(section) {
 	const keys = [];
-	const visit = (value, keyName) => {
+	const visit = (value) => {
 		if (typeof value === 'string') {
-			if (/^(nav|home|footer|status)\./.test(value)) keys.push(value);
+			// `pricing.*` keys are shared with the pricing page, not duplicated here.
+			if (/^(nav|home|footer|status|pricing)\./.test(value)) keys.push(value);
 			return;
 		}
-		if (Array.isArray(value)) return value.forEach((item) => visit(item, keyName));
+		if (Array.isArray(value)) return value.forEach((item) => visit(item));
 		if (value && typeof value === 'object')
-			for (const [name, child] of Object.entries(value)) visit(child, name);
+			for (const child of Object.values(value)) visit(child);
 	};
 	visit(section);
 	return keys;
