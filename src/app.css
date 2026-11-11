@@ -371,6 +371,72 @@ html[data-locale='zh'] .article-content[data-ready='false'] {
 	border: 0;
 	border-bottom: 1px solid var(--dbd2);
 	vertical-align: top;
+	overflow-wrap: break-word;
+}
+/* Content-aware widths: a short identifier in the first column keeps its own
+   line, so `resource_contract` never breaks mid-word, and the text column
+   absorbs the remaining width. */
+.doc-table-wrap.has-short-key th:first-child,
+.doc-table-wrap.has-short-key td:first-child {
+	white-space: nowrap;
+	max-width: 35%;
+}
+.doc-table-wrap.has-short-key th:nth-child(2),
+.doc-table-wrap.has-short-key td:nth-child(2) {
+	white-space: nowrap;
+}
+/* Column roles come from the content: numbers right-align, short categorical
+   values keep one line, long text wraps. */
+.doc-table-wrap [data-col='num'] {
+	text-align: right;
+	white-space: nowrap;
+	font-variant-numeric: tabular-nums;
+}
+.doc-table-wrap [data-col='short'] {
+	white-space: nowrap;
+}
+.doc-table-wrap td code,
+.doc-table-wrap th code {
+	overflow-wrap: normal;
+}
+/* Narrow screens stack the rows instead of scrolling sideways. */
+@media (max-width: 640px) {
+	.doc-table-wrap.is-stackable thead {
+		display: none;
+	}
+	.doc-table-wrap.is-stackable,
+	.doc-table-wrap.is-stackable .doc-table-frame {
+		overflow: visible;
+	}
+	.doc-table-wrap.is-stackable table,
+	.doc-table-wrap.is-stackable tbody,
+	.doc-table-wrap.is-stackable tr,
+	.doc-table-wrap.is-stackable td {
+		display: block;
+		width: 100%;
+	}
+	.doc-table-wrap.is-stackable tr {
+		padding: 10px 0;
+		border-bottom: 1px solid var(--dbd2);
+	}
+	.doc-table-wrap.is-stackable tr:last-child {
+		border-bottom: 0;
+	}
+	.doc-table-wrap.is-stackable td {
+		display: flex;
+		gap: 10px;
+		padding: 5px 16px;
+		border: 0;
+		white-space: normal;
+		max-width: none;
+	}
+	.doc-table-wrap.is-stackable td::before {
+		content: attr(data-label);
+		flex: 0 0 34%;
+		color: var(--muted);
+		font-size: 11px;
+		line-height: 1.9;
+	}
 }
 .article-content .doc-table-wrap tr:last-child td {
 	border-bottom: 0;

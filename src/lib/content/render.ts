@@ -199,7 +199,7 @@ function accordion(markdown: string, label: string, locale: 'en' | 'zh', budget 
 function decorate(html: string): string {
 	const withTables = html.replace(
 		/<table>([\s\S]*?)<\/table>/g,
-		(_match, inner) => `<div class="doc-table-wrap"><div class="doc-table-frame"><table>${inner}</table></div></div>`
+		(_match, inner) => decorateTable(inner)
 	);
 	const withCode = withTables.replace(
 		/<pre><code class="language-([\w-]+)">([\s\S]*?)<\/code><\/pre>/g,
@@ -276,6 +276,85 @@ function renderTabs(runs: { label: string; block: string }[]) {
 		)
 		.join('');
 	return `<div class="docs-tabs"><div class="docs-tabs__bar" role="tablist">${tabs}</div>${panels}</div>`;
+}
+
+
+/**
+ * Tables are laid out from their content, the way the reference pages do it:
+ * a short identifier in the first column stays on one line (so `resource_contract`
+ * does not break mid-word), the type column shrinks, and the text column takes
+ * the remaining width. The wrapper carries the classes that drive it, and every
+ * cell carries its header as a label so narrow screens can stack the rows.
+ */
+function decorateTable(inner: string): string {
+	const headerRow = inner.match(/<thead>[\s\S]*?<tr>([\s\S]*?)<\/tr>/);
+	const headers = headerRow
+		? [...headerRow[1].matchAll(/<th[^>]*>([\s\S]*?)<\/th>/g)].map((match) =>
+				match[1].replace(/<[^>]+>/g, '').trim()
+			)
+		: [];
+	const firstCells = [...inner.matchAll(/<tr>\s*<td[^>]*>([\s\S]*?)<\/td>/g)].map((match) =>
+		match[1].replace(/<[^>]+>/g, '').trim()
+	);
+	const shortKey =
+		firstCells.length > 0 &&
+		firstCells.length <= 40 &&
+		firstCells.every((cell) => cell.length <= 28 && !/\s{2,}/.test(cell) && /^[\w./:-]+$/.test(cell));
+	// Column roles from content shape: numbers right-align, short categorical
+	// values stay on one line, everything else wraps freely.
+	const rowsCells = [...inner.matchAll(/<tr>([\s\S]*?)<\/tr>/g)]
+		.map((match) => [...match[1].matchAll(/<t[dh][^>]*>([\s\S]*?)<\/t[dh]>/g)].map((cell) => cell[1].replace(/<[^>]+>/g, '').trim()))
+		.filter((cells) => cells.length === headers.length && !cells.every((cell) => headers.includes(cell)));
+	const columnRole = headers.map((header, index) => {
+		const values = rowsCells.map((cells) => cells[index]).filter((value) => value.length > 0);
+		if (!values.length) return 'text';
+		const numeric = values.every((value) => /^[-+\d][\d.,\s%]*(?:ms|s|MB|GB|KiB|MiB|GiB|\/s|\/mo)?$/i.test(value));
+		if (numeric) return 'num';
+		if (values.every((value) => value.length <= 14 && !/\s/.test(value))) return 'short';
+		return 'text';
+	});
+	const lastHeader = headers[headers.length - 1] ?? '';
+	const atEnd = /description|notes|detail|描述|说明|详情/i.test(lastHeader);
+	const stackable = headers.length > 1 && headers.length <= 4;
+
+	let labelled = inner;
+	if (headers.length && columnRole.some((role) => role !== 'text')) {
+		let column = -1;
+		labelled = inner.replace(/<th([^>]*)>/g, (_tag, attributes: string) => {
+			column = (column + 1) % headers.length;
+			return `<th${attributes} data-col="${columnRole[column]}">`;
+		});
+		column = -1;
+		labelled = labelled.replace(/<td([^>]*)>/g, (_tag, attributes: string) => {
+			column = (column + 1) % headers.length;
+			return `<td${attributes} data-col="${columnRole[column]}">`;
+		});
+	}
+	if (headers.length) {
+		let row = -1;
+		labelled = labelled.replace(/<tr>([\s\S]*?)<\/tr>/g, (match, cells: string) => {
+			if (/<th/.test(cells)) return match;
+			row += 1;
+			let column = -1;
+			const replaced = cells.replace(/<td([^>]*)>/g, (_tag, attributes: string) => {
+				column += 1;
+				const label = headers[column] ?? '';
+				const escaped = label.replace(/"/g, '&quot;');
+				return `<td${attributes} data-label="${escaped}">`;
+			});
+			return `<tr>${replaced}</tr>`;
+		});
+	}
+
+	const classes = [
+		'doc-table-wrap',
+		shortKey ? 'has-short-key at-start' : '',
+		atEnd ? 'at-end' : '',
+		stackable ? 'is-stackable' : ''
+	]
+		.filter(Boolean)
+		.join(' ');
+	return `<div class="${classes}"><div class="doc-table-frame"><table>${labelled}</table></div></div>`;
 }
 
 const LABELS = {
