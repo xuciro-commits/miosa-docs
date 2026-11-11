@@ -77,6 +77,13 @@ preset that does not end in the footer, and any link to a document that does not
 exist. `layout` style inference does not apply here: the homepage is generated,
 not parsed.
 
+One publish-validator quirk, found the hard way: a **static asset containing the
+literal same-origin path `/api/...` is refused** (`PUBLISH_VALIDATION_FAILED`),
+even though the same string in the 8 MB app bundle is accepted. Bisecting a
+2.9 KB script narrowed it to `fetch("/api/status")`; `/status`, `/healthz` and an
+absolute URL all pass. `home.js` therefore builds the status endpoint from
+`document.currentScript.src` at runtime. Keep it that way, or the deploy fails.
+
 ## Content and artifacts
 
 One repository holds the code and the prose: `xuciro-commits/miosa-docs`

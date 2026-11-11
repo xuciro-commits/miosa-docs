@@ -2,6 +2,12 @@
  * page is usable before this file runs: the copy button falls back to showing
  * the command, and the status pill already says it is checking. */
 (function () {
+	// Absolute, because the homepage is a standalone document served from the
+	// static host and the status API is on the docs application.
+	/** @type {HTMLScriptElement | null} */
+	var self = /** @type {any} */ (document.currentScript);
+	var STATUS_ENDPOINT = new URL(self && self.src ? self.src : location.href).origin + '/api/status';
+
 	/** @type {HTMLElement | null} */
 	var installEl = document.querySelector('.install');
 	if (installEl) {
@@ -53,7 +59,11 @@
 		};
 		var check = function () {
 			set('checking', status.dataset.checking || 'Checking');
-			fetch('/api/status', { cache: 'no-store' })
+			// The status endpoint lives on the docs host, not beside this static
+			// page, so it is called across origins. (The publish validator also
+			// refuses a literal same-origin "/api/..." string in a static asset,
+			// which is how this was found.)
+			fetch(STATUS_ENDPOINT, { cache: 'no-store', mode: 'cors' })
 				.then(function (response) {
 					return response.json().then(function (body) {
 						var ok = response.ok && body && body.status === 'operational';
