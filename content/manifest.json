@@ -5137,6 +5137,18 @@
 			"order": 18003
 		},
 		{
+			"slug": "handbook/inference",
+			"hash": "648b06ff13",
+			"hashZh": "ffe2dfbeb0",
+			"type": "markdown",
+			"title": "Inference and compatibility",
+			"titleZh": "智能推断与兼容性",
+			"description": "Which renderings can be inferred, which must be declared, and how to upgrade the renderer without disturbing pages already published: the compatibility contract.",
+			"descriptionZh": "哪些渲染可以自动推断、哪些必须声明、升级渲染器时如何不惊动已发布的页面：这是本站的兼容契约。",
+			"section": "Handbook",
+			"order": 18004
+		},
+		{
 			"slug": "xici/overview",
 			"hash": "fac90cab5e",
 			"hashZh": "4481ab5132",

@@ -3961,6 +3961,15 @@
 			"descriptionZh": "全站页面按结构分成几类：导航型、教程型、参考型、交互型。每一类有自己的版面、模板与验收清单。"
 		},
 		{
+			"slug": "handbook/inference",
+			"title": "Inference and compatibility",
+			"description": "Which renderings can be inferred, which must be declared, and how to upgrade the renderer without disturbing pages already published: the compatibility contract.",
+			"section": "Handbook",
+			"order": 18004,
+			"titleZh": "智能推断与兼容性",
+			"descriptionZh": "哪些渲染可以自动推断、哪些必须声明、升级渲染器时如何不惊动已发布的页面：这是本站的兼容契约。"
+		},
+		{
 			"slug": "xici/overview",
 			"title": "Xici: A Formal Reconstruction",
 			"description": "Read the Xici as a rigorous treatise on generation, representation and control: the canonical twenty chapters, a chapter-by-chapter exegesis, a lexicon and a formal apparatus.",

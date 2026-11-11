@@ -3241,7 +3241,7 @@
 				"title": "The conventions",
 				"titleZh": "规范",
 				"icon": "list-checks",
-				"count": "2",
+				"count": "3",
 				"children": [
 					{
 						"slug": "handbook/blocks",
@@ -3254,6 +3254,12 @@
 						"title": "Page archetypes",
 						"titleZh": "页面原型",
 						"icon": "layers"
+					},
+					{
+						"slug": "handbook/inference",
+						"title": "Inference and compatibility",
+						"titleZh": "智能推断与兼容性",
+						"icon": "variable"
 					}
 				]
 			}

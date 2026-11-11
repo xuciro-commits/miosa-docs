@@ -294,6 +294,36 @@ const LABELS = {
 export type DocRender = { html: string; accordion: boolean };
 
 
+
+/**
+ * Conservative inference for authors who only know standard Markdown: a page
+ * that carries two or more lists of linked entries is a hub, so it may be
+ * rendered as a card grid without a `layout` declaration. Nothing else is
+ * inferred: `collection` and `accordion` reinterpret ordinary section headings,
+ * so they must be declared on purpose.
+ */
+const QUALIFYING_ITEM = /^[-*]\s+(\[[^\]]+\]\(\/docs\/[^)]*\)|\*\*[^*]+\*\*)\s*[:：]\s+\S/;
+
+function countLinkBlocks(markdown: string): number {
+	let blocks = 0;
+	let run: string[] = [];
+	const flush = () => {
+		const items = run.filter((line) => QUALIFYING_ITEM.test(line));
+		if (items.length >= 2) blocks += 1;
+		run = [];
+	};
+	for (const line of markdown.split('\n')) {
+		if (/^[-*]\s+/.test(line)) run.push(line);
+		else flush();
+	}
+	flush();
+	return blocks;
+}
+
+function inferLayout(markdown: string): string {
+	return countLinkBlocks(markdown) >= 2 ? 'cards' : 'default';
+}
+
 /**
  * `layout: collection` pages read like the glossary: groups become filter pills,
  * items become collapsible cards with a definition and one line of use. The
@@ -403,7 +433,9 @@ export function renderDoc(
 		const rendered = collectionBody(markdown, locale);
 		if (rendered) return { html: decorate(rendered), accordion: false };
 	}
-	const layout = options.layout ?? null;
+	// A declared layout always wins; `default` opts out of inference entirely.
+	const declared = options.layout ?? null;
+	const layout = declared === null ? inferLayout(markdown) : declared === 'default' ? null : declared;
 	const isFaqTopic = layout === 'accordion' || /^faq\/[^/]+$/.test(slug);
 	if (isFaqTopic) {
 		const result = accordion(markdown, title, locale, (cardCounts as Record<string, number>)[slug] ?? 0);

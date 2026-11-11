@@ -2787,10 +2787,11 @@ export const generatedNavigation: { title: string; titleZh?: string; count?: str
 				title: "The conventions",
 				titleZh: "规范",
 				icon: "list-checks",
-				count: "2",
+				count: "3",
 				children: [
 					{ slug: "handbook/blocks", title: "Block reference", titleZh: "块级对照表", icon: "file-text" },
-					{ slug: "handbook/archetypes", title: "Page archetypes", titleZh: "页面原型", icon: "layers" }
+					{ slug: "handbook/archetypes", title: "Page archetypes", titleZh: "页面原型", icon: "layers" },
+					{ slug: "handbook/inference", title: "Inference and compatibility", titleZh: "智能推断与兼容性", icon: "variable" }
 				]
 			}
 		]
