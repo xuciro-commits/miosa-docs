@@ -32,7 +32,7 @@ type CardEntry = { title: string; href?: string; description: string };
 
 /** `- [Title](/docs/x): description` */
 function linkCard(line: string): CardEntry | null {
-	const match = line.match(/^[-*]\s+\[(.+?)\]\((\S+?)\)\s*:\s*(.+)$/);
+	const match = line.match(/^[-*]\s+\[(.+?)\]\((\S+?)\)\s*[:：]\s*(.+)$/);
 	if (!match) return null;
 	return { title: match[1], href: match[2], description: match[3] };
 }
