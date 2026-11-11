@@ -68,6 +68,7 @@ export const navLabelsZh: Record<string, string> = {
 
 // Section headings (frontmatter `section`) rendered in breadcrumbs and search facets.
 export const sectionZh: Record<string, string> = {
+	Xici: '系辞',
 	'Get started': '开始使用',
 	Learn: '学习',
 	'Services & projects': '服务与项目',
