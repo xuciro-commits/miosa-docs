@@ -33,14 +33,14 @@
 				antialias: true,
 				alpha: true,
 				premultipliedAlpha: false,
-				// A standalone page has no other render pass; without preserveDrawingBuffer
-				// the browser may present an empty buffer between frames (moving between
-				// windows or resizing clears it). Keeping it costs one small copy per frame.
 				preserveDrawingBuffer: true,
 				powerPreference: 'high-performance'
 			});
 			renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
-			renderer.setClearColor(0x000000, 0);
+			// Clear to the page colour so the wireframe reads on either theme.
+			var isLight = document.documentElement.dataset.theme === 'light';
+			renderer.setClearColor(isLight ? 0xfafafa : 0x07080b, 1);
+			renderer.autoClear = false;
 
 			var scene = new T.Scene();
 			var camera = new T.PerspectiveCamera(62, 1, 0.1, 160);
@@ -69,6 +69,9 @@
 						index++;
 					}
 			geometry.instanceCount = count;
+			// Three's renderer only honours an InstancedBufferGeometry when the draw
+			// range is explicit; without it the call is issued but draws nothing.
+			geometry.setDrawRange(0, edges.getAttribute('position').count);
 			geometry.setAttribute('aOffset', new T.InstancedBufferAttribute(offsets, 3));
 			geometry.setAttribute('aPhase', new T.InstancedBufferAttribute(phases, 1));
 			geometry.setAttribute('aActive', new T.InstancedBufferAttribute(actives, 1));
@@ -77,14 +80,19 @@
 				uTime: { value: 0 },
 				uPointer: { value: new T.Vector2() },
 				uMotion: { value: motion.matches ? 0 : 1 },
-				uTravel: { value: 0 }
+				uTravel: { value: 0 },
+				// 0 dark page (pale lines), 1 light page (dark lines).
+				uLight: { value: isLight ? 1 : 0 }
 			};
 
 			var material = new T.ShaderMaterial({
 				uniforms: uniforms,
 				transparent: true,
 				depthWrite: false,
-				blending: T.AdditiveBlending,
+				// Additive blending only reads on a dark page; on a pale page it washes
+				// the dark lines out to nothing. Normal blending with the same alpha
+				// keeps the geometry visible either way.
+				blending: T.NormalBlending,
 				vertexShader: [
 					'uniform float uTime; uniform float uMotion; uniform float uTravel; uniform vec2 uPointer;',
 					'attribute vec3 aOffset; attribute float aPhase; attribute float aActive;',
@@ -144,6 +152,7 @@
 					group.rotation.x += (-pointerY * 0.04 - group.rotation.x) * 0.03;
 				}
 				camera.lookAt(-3.5 + pointerX * 1.1, -0.2 - pointerY * 0.8, -24);
+				renderer.clear();
 				renderer.render(scene, camera);
 				if (!motion.matches && !document.hidden) frame = requestAnimationFrame(draw);
 			};
@@ -167,6 +176,15 @@
 				resume();
 			};
 
+			// A visit can start in either theme; follow later changes without a reload.
+			new MutationObserver(function () {
+				var light = document.documentElement.dataset.theme === 'light';
+				renderer.setClearColor(light ? 0xfafafa : 0x07080b, 1);
+				uniforms.uLight.value = light ? 1 : 0;
+				renderer.clear();
+				renderer.render(scene, camera);
+			}).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
 			if (fallback) fallback.style.display = 'none';
 			var observer = new ResizeObserver(resize);
 			observer.observe(surface);
@@ -183,9 +201,34 @@
 			resize();
 			// Draw one frame immediately: on a static page rAF can be throttled while
 			// the document is still settling, which left the canvas transparent.
+			renderer.clear();
 			renderer.render(scene, camera);
 			surface.dataset.ready = 'true';
-			/** @type {any} */ (window).__fabric = { renderer: renderer, scene: scene, camera: camera };
+			// The theme may resolve after this module starts (the inline head script runs
+			// first, but storage may fill in later); repaint once more when everything is
+			// settled so the light-mode clear colour and ink lines are applied.
+			var settle = function () {
+				resize();
+				renderer.clear();
+				renderer.render(scene, camera);
+			};
+			setTimeout(settle, 0);
+			requestAnimationFrame(settle);
+			window.addEventListener('load', settle);
+			/** @type {any} */ (window).__fabric = {
+				renderer: renderer,
+				scene: scene,
+				camera: camera,
+				info: function () {
+					var lines = scene.children[0] && scene.children[0].children[0];
+					return {
+						instances: lines ? lines.geometry.instanceCount : -1,
+						drawRange: lines ? lines.geometry.drawRange : null,
+						programOk: lines ? !!lines.material.program : false,
+						visible: lines ? lines.visible : null
+					};
+				}
+			};
 		})
 		.catch(function () {
 			// Keep the CSS grid fallback; the page is fully readable without the scene.

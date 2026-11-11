@@ -1,6 +1,8 @@
 /* Homepage behaviour: about 3 KB. Everything here must work without it, so the
  * page is usable before this file runs: the copy button falls back to showing
- * the command, and the status pill already says it is checking. */
+ * the command, and the status pill already says it is checking.
+ *
+ * The page is dark only, matching the reference site: no theme switching here. */
 (function () {
 	// Absolute, because the homepage is a standalone document served from the
 	// static host and the status API is on the docs application.
@@ -80,13 +82,4 @@
 		setTimeout(check, 600);
 	}
 
-	// Keep the theme in step when the reader changes it elsewhere and comes back.
-	window.addEventListener('storage', function (event) {
-		if (event.key !== 'miosa-theme') return;
-		var dark =
-			event.newValue === 'dark' ||
-			(event.newValue === 'system' &&
-				window.matchMedia('(prefers-color-scheme: dark)').matches);
-		document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-	});
 })();

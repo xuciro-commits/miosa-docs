@@ -212,7 +212,10 @@ function pageFor(locale) {
  * The theme is a saved preference in the app; the static page reads the same
  * key so a reader who chose dark does not get a white flash on the homepage.
  */
-const HEAD_SCRIPT = `(function(){try{var m=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)')).matches;var s=localStorage.getItem('miosa-theme')||'system';var d=s==='dark'||(s==='system'&&m);var l=localStorage.getItem('miosa-locale');var loc=l==='zh'||l==='en'?l:((navigator.language||'').toLowerCase().indexOf('zh')===0?'zh':'en');document.documentElement.dataset.theme=d?'dark':'light';window.__homeLocale=document.documentElement.dataset.homeLocale||loc;}catch(e){}})();`;
+// The page follows the reader's system preference, like the docs (the reference
+// marketing site ships a single dark surface, but here light is a first-class
+// theme: the background switches to dark lines on a pale page).
+const HEAD_SCRIPT = `(function(){try{var m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;var saved=localStorage.getItem('miosa-theme');var dark=saved?saved==='dark':m;var l=localStorage.getItem('miosa-locale');var loc=l==='zh'||l==='en'?l:((navigator.language||'').toLowerCase().indexOf('zh')===0?'zh':'en');document.documentElement.dataset.theme=dark?'dark':'light';window.__homeLocale=document.documentElement.dataset.homeLocale||loc;}catch(e){}})();`;
 
 function htmlFor(locale, otherLocale) {
 	const page = pageFor(locale);
@@ -259,7 +262,7 @@ html{background:#07080b}
 html[data-theme="light"]{background:#fafafa}
 body{margin:0;background:inherit;color:#f2f4f7;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
 html[data-theme="light"] body{color:#0b0c0e}
-.fabric{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.fabric{position:fixed;inset:0;z-index:1;overflow:hidden;pointer-events:none;background:#07080b}
 .fabric::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#07080bd6,#07080b61 53%,#07080bb8)}
 html[data-theme="light"] .fabric::before{background:linear-gradient(90deg,#fafafa,#f4f5f7 53%,#fafafa)}
 .fabric-canvas{position:absolute;inset:0;z-index:0;width:100%;height:100%;opacity:.72}

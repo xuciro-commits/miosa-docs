@@ -73,10 +73,17 @@ shell. After the change a cold homepage visit transfers about **97 KB** with
 first paint around **50 ms** locally, and the page has real HTML for search.
 
 The background is a separate module so the marketing page does not depend on the
-app bundle. Two things it has to get right: the fixed layer must not sit at a
-negative z-index (the root background would cover it), and in light mode the
-scene is hidden because it is drawn on a dark clear colour that reads as haze on
-a pale page; light mode uses the CSS grid instead.
+app bundle. Things it has to get right:
+
+- the fixed layer must not sit at a negative z-index (the root background would
+  cover it), and the page colour lives on `.fabric`, never on `body`;
+- `AdditiveBlending` only reads on a dark page: on a pale one the lines wash out,
+  so the material uses normal blending and the shader has a `uLight` uniform that
+  swaps the palette to ink-dark lines;
+- `InstancedBufferGeometry` needs an explicit `setDrawRange`, or three r170 issues
+  the draw call and paints nothing;
+- the canvas must sit above the light-mode veil (`z-index: 2`), with a radial glow
+  under the copy for contrast.
 
 Sections are typed: `hero`, `features`, `steps`, `split`, `cta`, `footer`, plus
 `logos` (a social-proof row of brand marks), `terminal` (a scripted CLI session)
