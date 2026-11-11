@@ -1,12 +1,14 @@
 import { error } from '@sveltejs/kit';
-import { articleMeta, loadMarkdown } from '#lib/content/catalog.js';
-import { renderDoc } from '#lib/content/render.js';
+import { articleMeta } from '#lib/content/catalog.js';
 
-const components = import.meta.glob('/src/content/*.svx');
-
+/**
+ * The loader only resolves the page's metadata: Markdown is fetched by the
+ * component when the page is actually opened. Link preloading therefore stays
+ * cheap and a reader never downloads pages they do not open.
+ */
 export const entries = () => [];
 
-export async function load({ params, fetch }) {
+export async function load({ params }) {
 	const slug = (params.slug ?? '').replace(/\/$/, '');
 	const meta = articleMeta.find((item) => item.slug === slug);
 	if (!meta)
@@ -14,20 +16,5 @@ export async function load({ params, fetch }) {
 			404,
 			'This page does not exist. Search the documentation or choose a page from the sidebar.'
 		);
-	const en = await loadMarkdown(slug, 'en', fetch);
-	if (!en)
-		error(
-			503,
-			'The page text could not be loaded right now. Check the connection and try again.'
-		);
-	const rendered = renderDoc(slug, en, meta.title);
-	return {
-		slug,
-		html: rendered.html,
-		htmlZh: '',
-		title: meta.title,
-		titleZh: meta.titleZh ?? meta.title,
-		accordion: rendered.accordion,
-		Content: null
-	};
+	return { slug, title: meta.title, titleZh: meta.titleZh ?? meta.title };
 }

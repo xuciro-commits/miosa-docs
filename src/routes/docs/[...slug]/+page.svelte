@@ -1,43 +1,65 @@
 <script lang="ts">
 	import { onMount, tick } from 'svelte';
 	import { i18n, t, translateContent } from '#lib/i18n.svelte.js';
+
 	let { data } = $props();
-	let zhHtml = $state('');
-	const html = $derived(i18n.locale === 'zh' ? zhHtml || data.html : data.html);
+
 	let article = $state<HTMLElement>();
-	// The server cannot know the reader's language, so its HTML is English. Once
-	// hydration finishes this flips and the block is rebuilt with the active locale.
+	let html = $state('');
+	let status = $state<'loading' | 'ready' | 'error'>('loading');
+	let rendered = $state('');
 	let hydrated = $state(false);
+
+	/**
+	 * Markdown is fetched when a page is opened, and again only if the reader
+	 * switches language. The loader itself resolves metadata only, so preloading
+	 * a link never downloads a page.
+	 */
+	async function renderPage() {
+		const locale: 'en' | 'zh' = i18n.locale === 'zh' ? 'zh' : 'en';
+		const key = `${locale}:${data.slug}`;
+		if (rendered === key) return;
+		status = 'loading';
+		try {
+			const [catalog, render] = await Promise.all([
+				import('#lib/content/catalog.js'),
+				import('#lib/content/render.js')
+			]);
+			const markdown = await catalog.loadMarkdown(data.slug, locale);
+			if (!markdown) {
+				status = 'error';
+				return;
+			}
+			const meta = catalog.articleMeta.find((page) => page.slug === data.slug);
+			html = render.renderDoc(
+				data.slug,
+				markdown,
+				locale === 'zh' ? (meta?.titleZh ?? data.titleZh ?? '') : (meta?.title ?? data.title ?? ''),
+				locale
+			).html;
+			rendered = key;
+			status = 'ready';
+		} catch {
+			status = 'error';
+		}
+	}
+
 	onMount(() => {
 		hydrated = true;
-		zhHtml = data.htmlZh ?? '';
+		void renderPage();
 	});
 
-	// Chinese is rendered on first use so an English reader never downloads it.
-	let zhLoading = false;
 	$effect(() => {
-		if (i18n.locale !== 'zh' || zhHtml || zhLoading) return;
-		zhLoading = true;
-		Promise.all([import('#lib/content/catalog.js'), import('#lib/content/render.js')]).then(
-			async ([catalog, render]) => {
-				const markdown = await catalog.loadMarkdown(data.slug, 'zh');
-				const meta = catalog.articleMeta.find((page) => page.slug === data.slug);
-				zhHtml = render.renderDoc(
-					data.slug,
-					markdown ?? '',
-					meta?.titleZh ?? data.titleZh ?? '',
-					'zh'
-				).html;
-			}
-		);
+		if (!hydrated) return;
+		void i18n.locale;
+		void data.slug;
+		void renderPage();
 	});
 
 	// Translate rendered text nodes with the content dictionary. Keeping the
 	// source articles intact means there is one canonical copy of every page.
 	$effect(() => {
-		void data.Content;
-		void data.html;
-		void data.htmlZh;
+		void html;
 		const locale = i18n.locale;
 		const root = article;
 		if (!root) return;
@@ -194,8 +216,15 @@
 	}
 </script>
 
-<div class="article-content" bind:this={article} data-ready={hydrated}>
-	{#key hydrated}
+<div class="article-content" bind:this={article} data-ready={status === 'ready'} aria-busy={status === 'loading'}>
+	{#if status === 'ready'}
 		{@html html}
-	{/key}
+	{:else if status === 'error'}
+		<p class="article-error">{t('docs.article.loadFailed')}</p>
+	{:else}
+		<div class="article-skeleton" aria-hidden="true">
+			<span class="article-skeleton__title"></span>
+			<span></span><span></span><span class="short"></span>
+		</div>
+	{/if}
 </div>

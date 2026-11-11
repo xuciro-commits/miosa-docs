@@ -25,6 +25,7 @@ export const en: Record<string, string> = {
 	'docs.header.askOsa': 'Ask OSA',
 
 	'docs.article.zoom': 'Expand',
+	'docs.article.loadFailed': 'This page could not be loaded. Check the connection and reload.',
 	'docs.article.zoomDiagram': 'Open this diagram larger',
 
 	// Navigation groups and items
@@ -536,6 +537,7 @@ export const zh: Record<string, string> = {
 	'docs.header.askOsa': '询问 OSA',
 
 	'docs.article.zoom': '放大',
+	'docs.article.loadFailed': '这一页暂时没有加载成功，请检查网络后刷新。',
 	'docs.article.zoomDiagram': '放大查看这张图',
 
 	// Navigation groups and items

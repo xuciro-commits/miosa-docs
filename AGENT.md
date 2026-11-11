@@ -67,6 +67,11 @@ serves a pinned commit as `immutable` for a year with gzip, and from
 Measured cold loads after the move: `/docs/quickstart/` 8.3 MB, and the
 Markdown for a page costs about 4 KB instead of the 2.7 MB it used to be.
 
+A route loader resolves metadata only; the page component fetches its own
+Markdown once the page is on screen. Hover preloading a link therefore costs a
+route chunk, never a page, and opening three pages downloads three files — not
+the eight a panel full of prefetched pages used to show.
+
 `src/lib/content/content-version.json` is written by `npm run build:spa` from
 `git rev-parse HEAD` (`CONTENT_SHA` overrides it for experiments). The artifact
 records it in `release.json` as `content`, so a deployed site always names the

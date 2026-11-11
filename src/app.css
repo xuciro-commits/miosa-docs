@@ -258,6 +258,43 @@ small {
 	color: var(--muted);
 	margin-bottom: 22px;
 }
+.article-skeleton {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	padding-top: 8px;
+}
+.article-skeleton span {
+	display: block;
+	height: 14px;
+	border-radius: 6px;
+	background: linear-gradient(90deg, var(--hover), var(--border), var(--hover));
+	background-size: 200% 100%;
+	animation: skeleton-sweep 1.1s ease-in-out infinite;
+}
+.article-skeleton span.short {
+	width: 45%;
+}
+.article-skeleton__title {
+	height: 26px !important;
+	width: 55%;
+}
+.article-error {
+	padding: 18px 20px;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	background: var(--surface-2);
+	color: var(--muted);
+}
+@keyframes skeleton-sweep {
+	from {
+		background-position: 120% 0;
+	}
+	to {
+		background-position: -20% 0;
+	}
+}
+
 /* The server renders English; a reader whose stored language is Chinese would
    otherwise see an English flash before hydration swaps the content. */
 html[data-locale='zh'] .article-content[data-ready='false'] {
