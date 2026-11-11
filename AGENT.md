@@ -65,11 +65,18 @@ npm run qa:homepage   # schema, copy keys, locale parity, link targets
 | Copy | `src/lib/i18n/messages/marketing.ts` | one source for the app and the static page, so they cannot drift |
 | Renderer | `scripts/build-home.mjs` | emits `index.html`, `zh/index.html`, `home.css`, `home.js`, `sitemap.xml` |
 | Behaviour | `src/marketing/home.js` (~3 KB) | copy button, theme preference, status pill; the page works without it |
+| Background | `src/marketing/fabric.js` (~7 KB) | the wireframe-cube scene, ported from `ComputeScene.svelte`; three.js from jsDelivr, CSS grid fallback |
 
 The build preserves the SPA entry as `_spa-shell.html` before the homepage
 replaces `build-static/index.html`, and every docs route stub is copied from that
 shell. After the change a cold homepage visit transfers about **97 KB** with
 first paint around **50 ms** locally, and the page has real HTML for search.
+
+The background is a separate module so the marketing page does not depend on the
+app bundle. Two things it has to get right: the fixed layer must not sit at a
+negative z-index (the root background would cover it), and in light mode the
+scene is hidden because it is drawn on a dark clear colour that reads as haze on
+a pale page; light mode uses the CSS grid instead.
 
 Sections are typed: `hero`, `features`, `steps`, `split`, `cta`, `footer`, plus
 `logos` (a social-proof row of brand marks), `terminal` (a scripted CLI session)

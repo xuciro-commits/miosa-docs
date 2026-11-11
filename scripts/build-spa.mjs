@@ -1,6 +1,7 @@
 import { spawn, execFileSync } from 'node:child_process';
 import { copyFileSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { configureCdn } from './configure-cdn.mjs';
 
 const root = process.cwd();
 const out = join(root, 'build-static');
@@ -103,6 +104,7 @@ try {
 		'build-static/release.json',
 		JSON.stringify({ commit, spa: true, content: contentSha, builtAt: new Date().toISOString() })
 	);
+	configureCdn(out);
 	console.log(`SPA site ready: ${out}`);
 } finally {
 	server.kill('SIGTERM');

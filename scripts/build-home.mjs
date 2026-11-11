@@ -238,6 +238,7 @@ function htmlFor(locale, otherLocale) {
 <style>${CRITICAL_CSS}</style>
 </head>
 <body>
+<div class="fabric"><canvas class="fabric-canvas" aria-hidden="true" data-three="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"></canvas><div class="static-fabric" aria-hidden="true"></div></div>
 <header class="header">
 	<a class="brand" href="${locale === DEFAULT_LOCALE ? '/' : config.prefix + '/'}" aria-label="MIOSA home"><img src="/brand/osa-orb.png" alt="" width="34" height="34" /><img class="wordmark" src="/brand/miosa-white.png" alt="MIOSA" width="65" height="16" /></a>
 	<nav aria-label="Primary"><a class="nav-docs" href="/docs">${esc(translator(locale)('nav.docs'))}<span class="new-tag">${esc(translator(locale)('nav.new'))}</span></a><a href="/pricing">${esc(translator(locale)('nav.pricing'))}</a><a class="lang" href="${esc(other.prefix || '/')}" hreflang="${esc(other.htmlLang)}">${otherLocale.toUpperCase()}</a><a class="sign-in" href="https://miosa.ai/login">${esc(translator(locale)('nav.signIn'))}</a><a class="cta" href="https://miosa.ai/register">${esc(translator(locale)('nav.startBuilding'))}</a></nav>
@@ -246,6 +247,7 @@ function htmlFor(locale, otherLocale) {
 ${page.body}
 </main>
 <script src="/home.js" defer></script>
+<script type="module" src="/fabric.js"></script>
 </body>
 </html>`;
 }
@@ -257,6 +259,12 @@ html{background:#07080b}
 html[data-theme="light"]{background:#fafafa}
 body{margin:0;background:inherit;color:#f2f4f7;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
 html[data-theme="light"] body{color:#0b0c0e}
+.fabric{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.fabric::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#07080bd6,#07080b61 53%,#07080bb8)}
+html[data-theme="light"] .fabric::before{background:linear-gradient(90deg,#fafafa,#f4f5f7 53%,#fafafa)}
+.fabric-canvas{position:absolute;inset:0;z-index:0;width:100%;height:100%;opacity:.72}
+.static-fabric{position:absolute;inset:-10%;z-index:0;background-image:linear-gradient(#8294b41a 1px,transparent 1px),linear-gradient(90deg,#8294b41a 1px,transparent 1px);background-size:90px 90px;transform:perspective(600px) rotateY(-15deg);opacity:.4}
+main,.header,.footer{position:relative;z-index:2}
 .header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;height:80px;padding:20px clamp(20px,4vw,64px)}
 .brand{display:flex;align-items:center;gap:13px}
 .brand img:first-child{width:34px;height:34px;filter:drop-shadow(0 0 10px #bcc4dc44)}
@@ -297,6 +305,7 @@ mkdirSync(OUT, { recursive: true });
 
 copyFileSync(join(ROOT, 'src/marketing/home.css'), join(OUT, 'home.css'));
 copyFileSync(join(ROOT, 'src/marketing/home.js'), join(OUT, 'home.js'));
+copyFileSync(join(ROOT, 'src/marketing/fabric.js'), join(OUT, 'fabric.js'));
 
 const locales = Object.keys(definition.locales);
 writeFileSync(join(OUT, 'index.html'), htmlFor(DEFAULT_LOCALE, locales.find((l) => l !== DEFAULT_LOCALE)));
@@ -327,8 +336,9 @@ writeFileSync(join(OUT, 'sitemap.xml'), sitemap);
 const html = writeSize(join(OUT, 'index.html'));
 const css = writeSize(join(OUT, 'home.css'));
 const js = writeSize(join(OUT, 'home.js'));
+const fabric = writeSize(join(OUT, 'fabric.js'));
 console.log(
-	`homepage: ${sections.length} sections · index.html ${html} KB · home.css ${css} KB · home.js ${js} KB · locales ${locales.join(', ')}`
+	`homepage: ${sections.length} sections · index.html ${html} KB · home.css ${css} KB · home.js ${js} KB · fabric.js ${fabric} KB · locales ${locales.join(', ')}`
 );
 
 function writeSize(file) {
