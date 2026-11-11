@@ -4,6 +4,7 @@ title: "Capabilities"
 description: "What sandboxes are for, what a sandbox is concretely, and the core exec, files, preview, snapshot, and lifecycle capabilities."
 section: "Sandboxes"
 order: 2001
+layout: cards
 ---
 
 This page is the reference behind the [Sandboxes overview](/docs/develop/sandboxes): what people build with sandboxes, what one actually is, and the capabilities every sandbox exposes.

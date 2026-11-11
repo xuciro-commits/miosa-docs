@@ -4,6 +4,7 @@ title: "基本概念"
 description: "每个 MIOSA 集成商都需要的心理模型 - 工作空间、身份验证、资源、归因、幂等性、速率限制、错误和事件。"
 section: "API reference"
 order: 12001
+layout: cards
 ---
 
 MIOSA 是一个用于构建和部署应用程序的云平台。在编写第一个 API 调用之前，请阅读此页。它涵盖了支撑每个 MIOSA 集成的概念。

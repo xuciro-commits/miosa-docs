@@ -4,6 +4,7 @@ title: "Support"
 description: "How to get help, what to include in a request, status and changes, and the community."
 section: "Help"
 order: 16010
+layout: accordion
 ---
 
 Short answers on reaching the team and following platform changes.

@@ -4,6 +4,7 @@ title: "Docker Host templates"
 description: "Curated app shapes for Docker Host - Dockerfile, Compose, command, port, environment, and persistence defaults."
 section: "Services & projects"
 order: 1022
+layout: cards
 ---
 
 Docker Host templates are curated app shapes for agents, SDKs, and the UI. They do not replace your project code. They provide Dockerfile, Compose, command, port, environment, persistence, and design-context defaults before a sandbox or repository is published.

@@ -4,6 +4,7 @@ title: "Build your product on MIOSA"
 description: "Ship a white-label SaaS where your end-users never see the MIOSA brand. Isolated compute, custom domains, branded previews, usage rollup, and webhooks - all under your domain."
 section: "Platform builders"
 order: 9000
+layout: cards
 ---
 
 MIOSA gives you the full compute and preview infrastructure. You own the product, the brand, and the user relationship. Your customers never see "MIOSA".

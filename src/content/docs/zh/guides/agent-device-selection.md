@@ -4,6 +4,7 @@ title: "智能体设备选型"
 description: "确定智能体何时不需要设备、沙箱、计算机、本地设备或部署目标。"
 section: "Agents"
 order: 6018
+layout: cards
 ---
 
 并非每个智能体都需要沙箱。正确的问题是：

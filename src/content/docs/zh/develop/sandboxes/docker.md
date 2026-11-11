@@ -4,6 +4,7 @@ title: "沙箱中的 Docker"
 description: "在 MIOSA 沙箱内运行容器、发布端口并通过预览 URL 访问它们。哪些模板附带 Docker Engine、Compose 和 Buildx。"
 section: "Sandboxes"
 order: 2003
+layout: cards
 ---
 
 Docker 已预安装在沙箱映像中。无需启用任何内容，也无需选择单独的模板。

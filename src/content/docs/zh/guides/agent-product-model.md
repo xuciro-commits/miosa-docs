@@ -4,6 +4,7 @@ title: "智能体产品模型"
 description: "适用于智能体、设备、运行、工具、工件、信用和部署的规范 MIOSA 模型。"
 section: "Agents"
 order: 6014
+layout: cards
 ---
 
 MIOSA 让构建者创建这样的产品：智能体在云设备中完成真实工作。

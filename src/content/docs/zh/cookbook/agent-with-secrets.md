@@ -4,6 +4,7 @@ title: "秘密特工 - 完整演练"
 description: "创建一个沙箱，存储 OpenAI 密钥并通过 OAuth 连接 GitHub，运行 AI 智能体，实时观看审核日志，锁定网络，然后在运行中轮换密钥。"
 section: "Sandboxes"
 order: 2032
+layout: cards
 ---
 
 `~20 min` `Python` `TypeScript` `Go`

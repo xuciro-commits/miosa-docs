@@ -4,6 +4,7 @@ title: "Billing and limits"
 description: "What a plan allows on OpenComputers - hosts, containers, tunnels - and the operational caps on commands, transfers, backups, and tunnels."
 section: "Computers"
 order: 3023
+layout: cards
 ---
 
 Your machine is your own bill. You pay for the hardware, the power, the network, and the hosting, and MIOSA does not charge you for the machine.

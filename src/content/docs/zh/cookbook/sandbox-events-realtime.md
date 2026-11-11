@@ -4,6 +4,7 @@ title: "实时沙盒事件"
 description: "使用 HMAC 签名的 Webhook（服务器到服务器）或 SSE 事件流（进程内）对沙箱生命周期事件做出反应。涵盖两种模式、幂等性以及何时选择每种模式。"
 section: "Platform builders"
 order: 9017
+layout: cards
 ---
 
 `~10 min` `Python` `TypeScript`

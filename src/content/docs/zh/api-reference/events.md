@@ -4,6 +4,7 @@ title: "活动（SSE）"
 description: "服务器发送的事件流用于从沙箱、计算机、部署和构建进行实时更新。"
 section: "API reference"
 order: 12012
+layout: cards
 ---
 
 MIOSA 公开 SSE 流以获取产生定时事件的资源：沙箱、计算机会话、部署构建、沙箱模板构建和计算机日志。所有流都遵循相同的身份验证和信封模式。

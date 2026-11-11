@@ -301,7 +301,7 @@ export type DocRender = { html: string; accordion: boolean };
  */
 function collectionBody(markdown: string, locale: 'en' | 'zh'): string {
 	const lines = markdown.split('\n');
-	type Group = { title: string; description: string; items: { title: string; body: string; use: string }[] };
+	type Group = { title: string; description: string; raw: string[]; items: { title: string; body: string; use: string }[] };
 	const groups: Group[] = [];
 	const preamble: string[] = [];
 	let group: Group | null = null;
@@ -327,36 +327,43 @@ function collectionBody(markdown: string, locale: 'en' | 'zh'): string {
 		const h3 = line.match(/^###\s+(.+)$/);
 		if (h2) {
 			flushGroup();
-			group = { title: h2[1].trim(), description: '', items: [] };
+			group = { title: h2[1].trim(), description: '', raw: [], items: [] };
 			continue;
 		}
 		if (h3) {
 			flushItem();
-			if (!group) group = { title: '', description: '', items: [] };
+			if (!group) group = { title: '', description: '', raw: [], items: [] };
 			item = { title: h3[1].trim(), lines: [] };
 			continue;
 		}
 		if (item) item.lines.push(line);
 		else if (!group) preamble.push(line);
-		else if (group && line.trim() && !group.description) group.description = line.trim();
-		else if (group && group.description && line.trim()) group.description += ' ' + line.trim();
+		else if (group) {
+			group.raw.push(line);
+			if (line.trim() && !group.description) group.description = line.trim();
+			else if (line.trim()) group.description += ' ' + line.trim();
+		}
 	}
 	flushGroup();
 
 	if (!groups.length) return '';
 
+	// A section without items is not a filter group: it stays prose below the set.
+	const sectionsWithItems = groups.filter((entry) => entry.items.length);
+	const proseSections = groups.filter((entry) => !entry.items.length);
+
 	const label = locale === 'zh'
 		? { search: '查找一个词…', use: '实际应用', expand: '全部展开', collapse: '全部收起', items: '条', groups: '组' }
 		: { search: 'Find an entry…', use: 'In practice', expand: 'Expand all', collapse: 'Collapse all', items: 'entries', groups: 'groups' };
 
-	const pills = groups
+	const pills = sectionsWithItems
 		.map(
 			(entry, index) =>
 				`<button type="button" class="collection-pill${index === 0 ? ' is-active' : ''}" data-group-tab="${index}">${inline(entry.title)}</button>`
 		)
 		.join('');
 
-	const sections = groups
+	const sections = sectionsWithItems
 		.map((entry, index) => {
 			const cards = entry.items
 				.map((card) => {
@@ -371,13 +378,18 @@ function collectionBody(markdown: string, locale: 'en' | 'zh'): string {
 		})
 		.join('');
 
-	const totalItems = groups.reduce((total, entry) => total + entry.items.length, 0);
+	const totalItems = sectionsWithItems.reduce((total, entry) => total + entry.items.length, 0);
 	const lead = preamble.join('\n').trim() ? (marked.parse(preamble.join('\n').trim()) as string) : '';
 	return `${lead}<div class="collection" data-collection data-items-label="${label.items}" data-groups-label="${label.groups}">
-<div class="collection-toolbar"><label class="collection-search"><input type="search" placeholder="${label.search}" aria-label="${label.search}" /></label><span class="collection-count">${totalItems} ${label.items} · ${groups.length} ${label.groups}</span><button type="button" class="collection-toggle-all" data-collapse="${label.collapse}">${label.expand}</button></div>
+<div class="collection-toolbar"><label class="collection-search"><input type="search" placeholder="${label.search}" aria-label="${label.search}" /></label><span class="collection-count">${totalItems} ${label.items} · ${sectionsWithItems.length} ${label.groups}</span><button type="button" class="collection-toggle-all" data-collapse="${label.collapse}">${label.expand}</button></div>
 <div class="collection-pills">${pills}</div>
 ${sections}
-</div>`;
+</div>${proseSections
+		.map(
+			(entry) =>
+				`<section class="collection-prose"><h2>${inline(entry.title)}</h2>${marked.parse(entry.raw.join('\n')) as string}</section>`
+		)
+		.join('')}`;
 }
 
 export function renderDoc(
@@ -389,14 +401,18 @@ export function renderDoc(
 ): DocRender {
 	if (options.layout === 'collection') {
 		const rendered = collectionBody(markdown, locale);
-		if (rendered) return { html: rendered, accordion: false };
+		if (rendered) return { html: decorate(rendered), accordion: false };
 	}
-	const isFaqTopic = /^faq\/[^/]+$/.test(slug);
+	const layout = options.layout ?? null;
+	const isFaqTopic = layout === 'accordion' || /^faq\/[^/]+$/.test(slug);
 	if (isFaqTopic) {
 		const result = accordion(markdown, title, locale, (cardCounts as Record<string, number>)[slug] ?? 0);
 		if (result.html) return { html: `${decorate(result.intro)}${result.html}`, accordion: true };
 	}
-	const budget = (cardCounts as Record<string, number>)[slug] ?? 0;
+	// `layout: cards` renders every qualifying list as a card grid; pages without
+	// the marker keep the legacy per-page budget from the reference import.
+	const budget =
+		layout === 'cards' ? Number.MAX_SAFE_INTEGER : ((cardCounts as Record<string, number>)[slug] ?? 0);
 	const source = budget > 0 ? replaceCardLists(markdown, budget) : markdown;
 	return { html: decorate(marked.parse(source) as string), accordion: false };
 }

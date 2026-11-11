@@ -4,6 +4,7 @@ title: "Support"
 description: "How to reach the MIOSA team, what to include so a ticket resolves fast, and where to check status and what has shipped."
 section: "Help"
 order: 16012
+layout: cards
 ---
 
 ## Get in touch

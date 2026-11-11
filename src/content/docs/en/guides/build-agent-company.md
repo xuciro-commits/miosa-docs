@@ -4,6 +4,7 @@ title: "Build your own AI platform"
 description: "Build your own Genspark, Emergent, Blackbox AI, Lovable, Replit, Polsia, Cofounder, or Nebula-style product on MIOSA."
 section: "Agents"
 order: 6016
+layout: cards
 ---
 
 You can use MIOSA to build your own product in the same category as **Genspark**, **Emergent**, **Blackbox AI**, **Lovable**, **Replit Agent**, **Polsia**, **Cofounder**, or **Nebula**.

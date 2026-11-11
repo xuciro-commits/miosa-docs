@@ -4,6 +4,7 @@ title: "智能体产品参考图"
 description: "用于在 MIOSA 上构建 Genspark、Emergent、Blackbox AI、Lovable、Replit、CoFounder、Polsia、Nebula 和 BusinessOS 风格产品的参考产品和实施模式。"
 section: "Agents"
 order: 6015
+layout: cards
 ---
 
 此页面映射公共应用程序构建者、智能体公司、虚拟设备和开放

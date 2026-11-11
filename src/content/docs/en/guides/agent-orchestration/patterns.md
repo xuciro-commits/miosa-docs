@@ -4,6 +4,7 @@ title: "Orchestration patterns"
 description: "Coordination patterns for MIOSA agent systems: prompt dispatch, durable run groups, subagents, sandbox-hosted orchestrators, self-configuring agents, artifact export, credentials, and permissions."
 section: "Agents"
 order: 6023
+layout: cards
 ---
 
 These are the coordination patterns that make an agent system work as it grows: how a prompt reaches the right device, how a task fans out into durable run groups, in-sandbox and sandbox-hosted topology, how generated work leaves the runtime, and how credentials and permissions stay scoped.

@@ -4,6 +4,7 @@ title: "MIOSA 智能体可以做什么"
 description: "内置工具、连接的应用程序操作、设备执行、工件、浏览器工作以及在 MIOSA 上运行的智能体的权限模型。"
 section: "Agents"
 order: 6001
+layout: cards
 ---
 
 MIOSA 智能体是可以使用真正的云执行的工作人员。他们可以研究、

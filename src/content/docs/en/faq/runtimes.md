@@ -4,6 +4,7 @@ title: "SOMA and runtimes"
 description: "What SOMA is, the default runtime, how to select one, access requests, and availability."
 section: "Help"
 order: 16005
+layout: accordion
 ---
 
 Short answers on the runtime you boot a sandbox on.

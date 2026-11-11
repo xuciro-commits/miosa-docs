@@ -4,6 +4,7 @@ title: "工具参考"
 description: "所有 MIOSA MCP 工具，按系列分组。此概述涵盖工作区、计费和 API 密钥；工具系列链接到它们自己的页面。"
 section: "CLI, SDKs & MCP"
 order: 11024
+layout: cards
 ---
 
 托管 MIOSA MCP 服务器的每个工具 (`https://api.miosa.ai/api/v1/mcp`)

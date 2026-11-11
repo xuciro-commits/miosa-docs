@@ -4,6 +4,7 @@ title: "定价和限制"
 description: "您需要支付的费用、暂停费用、指定大小、硬上限、费率限制和积分。"
 section: "Help"
 order: 16009
+layout: accordion
 ---
 
 关于计费内容、大小和上限以及积分如何运作的简短回答。

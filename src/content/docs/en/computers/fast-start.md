@@ -4,6 +4,7 @@ title: "Fast start & readiness"
 description: "How MIOSA starts managed desktop Computers quickly, defines browser readiness, and exposes failures without false Live states."
 section: "Computers"
 order: 3003
+layout: cards
 ---
 
 MIOSA Computers use ready capacity on the managed fleet so a new desktop can be assigned without waiting for a full cold boot.

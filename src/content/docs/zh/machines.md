@@ -4,6 +4,7 @@ title: "机器能力"
 description: "每台机器附带的内容、尺寸、运行时间和预装工具。"
 section: "Sandboxes"
 order: 2013
+layout: cards
 ---
 
 机器是沙箱或计算机背后的计算：版本化模板、命名大小、运行时引擎以及映像中已安装的工具。

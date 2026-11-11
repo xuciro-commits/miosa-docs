@@ -4,6 +4,7 @@ title: "智能体积分计量"
 description: "如何为 MIOSA 智能体运行、模型使用、设备、工具、存储和部署计量积分。"
 section: "Platform builders"
 order: 9013
+layout: cards
 ---
 
 积分是 MIOSA 上智能体工作的商业模式。用户不会孤立地购买

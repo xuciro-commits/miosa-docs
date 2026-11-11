@@ -4,6 +4,7 @@ title: "连接到正在运行的沙箱"
 description: "进入实时沙箱的四种方式：SDK、CLI、通过经过身份验证的隧道的 SSH 以及预览 URL。每种方法都有什么用，什么没用。"
 section: "Sandboxes"
 order: 2009
+layout: cards
 ---
 
 除了您公开的端口之外，沙箱没有公共 SSH 端点，也没有开放的入站端口。每条通道都经过 MIOSA API 和经过身份验证的隧道。一共有四个，他们擅长不同的事情。

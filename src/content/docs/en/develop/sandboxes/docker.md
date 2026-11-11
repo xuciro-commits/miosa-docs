@@ -4,6 +4,7 @@ title: "Docker in sandboxes"
 description: "Run containers inside MIOSA sandboxes, publish ports, and reach them through preview URLs. Which templates ship Docker Engine, Compose, and Buildx."
 section: "Sandboxes"
 order: 2003
+layout: cards
 ---
 
 Docker is preinstalled in the sandbox image. There is nothing to enable, and no separate template to pick.

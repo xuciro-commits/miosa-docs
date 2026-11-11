@@ -4,6 +4,7 @@ title: "Machine capabilities"
 description: "What every machine ships with, its sizes, runtimes, and pre-installed tools."
 section: "Sandboxes"
 order: 2013
+layout: cards
 ---
 
 A machine is the compute behind a sandbox or a computer: a versioned template, a named size, a runtime engine, and the tools already installed in the image.

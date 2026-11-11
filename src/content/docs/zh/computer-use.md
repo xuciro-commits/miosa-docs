@@ -4,6 +4,7 @@ title: "电脑使用"
 description: "让软件在 MIOSA 计算机上操作真正的 Linux 桌面 - 屏幕截图、鼠标、键盘、窗口、可访问性以及人类可以接管的实时查看器。"
 section: "Computers"
 order: 3007
+layout: cards
 ---
 
 [计算机](/docs/computers/overview) 是一个耐用的云桌面：从 MIOSA microVM 实时传输的完整 Linux GUI。

@@ -4,6 +4,7 @@ title: "发布API"
 description: "检查并激活精确的不可变部署工件。"
 section: "API reference"
 order: 12041
+layout: cards
 ---
 
 **发布**是从构建或沙箱发布生成的不可变工件。

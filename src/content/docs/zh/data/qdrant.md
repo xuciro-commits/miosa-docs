@@ -4,6 +4,7 @@ title: "Qdrant（矢量数据库）"
 description: "用于语义搜索和嵌入存储的每个项目矢量数据库。 QDRANT_URL 在启动时注入。"
 section: "Databases & storage"
 order: 4004
+layout: cards
 ---
 
 > **提示：可用**

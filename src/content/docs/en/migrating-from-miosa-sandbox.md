@@ -4,6 +4,7 @@ title: "Migrating from miosa-sandbox"
 description: "Move off the deprecated @miosa/sandbox, miosa-sandbox, and sandboxes-go packages onto the canonical MIOSA SDKs."
 section: "Optional"
 order: 17030
+layout: cards
 ---
 
 The standalone sandbox packages are deprecated compatibility wrappers. Each one now delegates to the canonical MIOSA SDK, so the fastest migration is often to install the canonical package and change one import.

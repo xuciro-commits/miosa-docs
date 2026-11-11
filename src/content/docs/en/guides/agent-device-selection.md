@@ -4,6 +4,7 @@ title: "Agent device selection"
 description: "Decide when an agent needs no device, a sandbox, a computer, a local device, or a deployment target."
 section: "Agents"
 order: 6018
+layout: cards
 ---
 
 Not every agent needs a sandbox. The right question is:

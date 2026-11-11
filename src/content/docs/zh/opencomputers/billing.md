@@ -4,6 +4,7 @@ title: "计费和限制"
 description: "计划允许在 OpenComputers 上实现哪些功能 - 主机、容器、隧道 - 以及命令、传输、备份和隧道的操作上限。"
 section: "Computers"
 order: 3023
+layout: cards
 ---
 
 你的机器是你自己的账单。您需要支付硬件、电源、网络和托管费用，MIOSA 不会向您收取机器费用。

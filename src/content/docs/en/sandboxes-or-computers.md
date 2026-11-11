@@ -4,6 +4,7 @@ title: "Sandboxes or Computers?"
 description: "Pick where your app or agent runs on MIOSA: a Sandbox for code, previews and a built-in browser, a Computer for a full desktop, Docker Host to publish."
 section: "Get started"
 order: 6
+layout: cards
 ---
 
 Most work starts in a **Sandbox**.

@@ -4,6 +4,7 @@ title: "智能体开发套件 (ADK)"
 description: "构建使用 MIOSA 沙箱、桌面的 LLM 智能体，并使用已连接的工具调用循环进行部署。首先是 TypeScript ADK；接下来是Python。"
 section: "Agents"
 order: 6012
+layout: cards
 ---
 
 MIOSA ADK 可让您构建本机使用的生产就绪型 LLM 智能体

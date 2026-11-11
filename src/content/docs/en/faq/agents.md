@@ -4,6 +4,7 @@ title: "Agents"
 description: "Supported harnesses, creating and running an agent, OSA, model keys, and where agents run."
 section: "Help"
 order: 16004
+layout: accordion
 ---
 
 Short answers on agent harnesses, model keys, and where agents run.

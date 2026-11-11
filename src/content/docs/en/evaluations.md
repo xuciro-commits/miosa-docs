@@ -4,6 +4,7 @@ title: "Evaluations"
 description: "Measure sandbox, desktop, and agent workflows with reproducible tasks, traces, and desktop-readiness benchmarks."
 section: "Optional"
 order: 17034
+layout: cards
 ---
 
 Evaluations help you answer a simple question: is your agent actually getting work done on a real computer or sandbox, and how long does the work take?

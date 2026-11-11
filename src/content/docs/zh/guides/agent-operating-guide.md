@@ -4,6 +4,7 @@ title: "智能体操作指南"
 description: "使用 MIOSA 的 AI 智能体的 CLI 和发布工作流程。"
 section: "Agents"
 order: 6000
+layout: cards
 ---
 
 当 AI 智能体、编码助理、CI 工作人员或操作员需要通过 MIOSA 构建和发布软件时，请使用此页面。

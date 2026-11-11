@@ -4,6 +4,7 @@ title: "运行时环境"
 description: "存储沙箱、计算机、智能体和部署的继承运行时环境变量。"
 section: "API reference"
 order: 12037
+layout: cards
 ---
 
 Runtime Env 存储租户、工作区和环境的继承环境变量

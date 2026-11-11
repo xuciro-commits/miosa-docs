@@ -4,6 +4,7 @@ title: "Qdrant (Vector Database)"
 description: "Per-project vector database for semantic search and embedding storage. QDRANT_URL injected at boot."
 section: "Databases & storage"
 order: 4004
+layout: cards
 ---
 
 > **Tip: Available**

@@ -4,6 +4,7 @@ title: "Agent Run Groups"
 description: "Create durable multi-agent orchestration groups, dispatch run manifests, inspect counts, and cancel grouped work."
 section: "API reference"
 order: 12035
+layout: cards
 ---
 
 Agent Run Groups are the durable control-plane object for multi-agent fanout.

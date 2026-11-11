@@ -4,6 +4,7 @@ title: "电脑（台式机）"
 description: "适用于浏览器智能体、人工接管、GUI 自动化和长期运行的计算机使用工作流程的耐用云桌面。"
 section: "Computers"
 order: 3000
+layout: cards
 ---
 
 **计算机**是耐用的云桌面。

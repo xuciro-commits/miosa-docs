@@ -4,6 +4,7 @@ title: "数据保留和删除"
 description: "MIOSA 保留什么、保留多长时间以及“删除”实际删除的沙箱、快照、审核日志、使用记录和存储数据。"
 section: "Security & compliance"
 order: 14003
+layout: cards
 ---
 
 本页介绍了 MIOSA 保留的内容、保留的时间以及每个删除操作删除的内容。如果未发布保留窗口，则页面会如此说明而不是猜测。

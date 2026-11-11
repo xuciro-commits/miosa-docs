@@ -4,6 +4,7 @@ title: "Agent workflow patterns"
 description: "Simple-to-complex workflows for using MIOSA agents, devices, events, artifacts, and deployments."
 section: "Agents"
 order: 6017
+layout: cards
 ---
 
 MIOSA workflows scale from a single prompt to a fleet of long-running agents.

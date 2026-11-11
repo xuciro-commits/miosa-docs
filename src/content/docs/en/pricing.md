@@ -4,6 +4,7 @@ title: "Pricing and limits"
 description: "What a sandbox costs per hour, what a plan buys, how many sandboxes you can run and start, and how that compares to other providers."
 section: "Organization & billing"
 order: 13003
+layout: cards
 ---
 
 What a sandbox costs per hour, what a plan buys, how many sandboxes you can run and start, and how that compares to other providers.

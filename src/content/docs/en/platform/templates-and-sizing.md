@@ -4,6 +4,7 @@ title: "Templates and sizing"
 description: "Pick a template and a size for each user's machine, cap concurrency, and set idle defaults so unused machines pause."
 section: "Platform builders"
 order: 9004
+layout: cards
 ---
 
 Every machine you make for a user needs a template and a size.

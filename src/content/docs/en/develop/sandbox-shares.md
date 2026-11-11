@@ -4,6 +4,7 @@ title: "Sandbox shares"
 description: "Create a public, read-only link to a running sandbox so a teammate or an outside user can view it, and revoke the link at any time."
 section: "Sandboxes"
 order: 2016
+layout: cards
 ---
 
 A **share** is a publicly accessible URL that gives read-only access to a running sandbox. Unlike a preview token, a share URL is not scoped to an iframe and the recipient does not need any credentials: the token is embedded in the URL.

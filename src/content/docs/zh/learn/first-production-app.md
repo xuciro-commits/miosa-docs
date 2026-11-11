@@ -4,6 +4,7 @@ title: "构建并部署 Next.js 应用程序"
 description: "使用 miosa CLI 2.x 和 SDK 在沙盒中构建一个小型 Next.js 应用程序、预览它、将其发布为不可变的部署、证明它是实时的、连接自定义域并安全回滚。"
 section: "Get started"
 order: 7
+layout: cards
 ---
 
 本教程将一个小型 Next.js 应用程序从空沙箱转移到经过验证的生产 URL。

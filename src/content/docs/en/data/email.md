@@ -4,6 +4,7 @@ title: "Transactional Email"
 description: "Configure MIOSA-managed transactional email for project auth, password reset, email confirmation, and platform notifications."
 section: "Databases & storage"
 order: 4009
+layout: cards
 ---
 
 MIOSA uses transactional email for platform notifications and for per-project

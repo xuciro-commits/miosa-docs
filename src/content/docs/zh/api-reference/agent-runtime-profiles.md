@@ -4,6 +4,7 @@ title: "智能体运行时配置文件"
 description: "为沙箱、计算机和自定义智能体会话配置可重用智能体运行时默认值。"
 section: "API reference"
 order: 12036
+layout: cards
 ---
 
 智能体运行时配置文件定义 MIOSA 应如何为智能体准备智能体运行时

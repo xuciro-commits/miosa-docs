@@ -4,6 +4,7 @@ title: "Xici: A Formal Reconstruction"
 description: "Read the Xici as a rigorous treatise on generation, representation and control: the canonical twenty chapters, a chapter-by-chapter exegesis, a lexicon and a formal apparatus."
 section: "Xici"
 order: 19001
+layout: cards
 ---
 
 There are two ways to read the Xici, one poor and one excellent. The poor reading treats it as a fortune manual: sixty-four configurations map to luck, and each line is a stroke of fate. The excellent reading treats it as a **formal treatise**. It describes how a system splits polarity out of an undifferentiated initial state, how a pair of conjugate operators drives its evolution, how irreducible evolution produces genuinely novel qualities, and how a cognitive agent must build a model isomorphic to the world in order to intervene before a bifurcation happens.

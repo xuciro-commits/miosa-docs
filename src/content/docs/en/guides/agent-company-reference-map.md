@@ -4,6 +4,7 @@ title: "Agent product reference map"
 description: "Reference products and implementation patterns for building Genspark, Emergent, Blackbox AI, Lovable, Replit, Cofounder, Polsia, Nebula, and BusinessOS-style products on MIOSA."
 section: "Agents"
 order: 6015
+layout: cards
 ---
 
 This page maps public app-builder, agent-company, virtual-device, and open

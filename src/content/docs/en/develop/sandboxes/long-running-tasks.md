@@ -4,6 +4,7 @@ title: "Long-running tasks"
 description: "Work that outlives a single exec: background processes, their logs and status, always-on sandboxes, and what comes back after pause and resume."
 section: "Sandboxes"
 order: 2011
+layout: cards
 ---
 
 A single `exec` call is bounded: the sandbox `exec` endpoint accepts a `timeout` of 1 to 86,400 seconds (default 3,600), independent of the sandbox's own timeout. Work that runs longer - a dev server, a build, a watcher, a worker - should be started as a background process and inspected separately.

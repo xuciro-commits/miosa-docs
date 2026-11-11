@@ -4,6 +4,7 @@ title: "How browser use works"
 description: "The parts of a sandbox browser, the three surfaces that see it, and how the live view and CDP sockets are exposed."
 section: "Sandboxes"
 order: 2024
+layout: cards
 ---
 
 ## What you get

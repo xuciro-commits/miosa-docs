@@ -4,6 +4,7 @@ title: "Agent runtime routing"
 description: "How MIOSA routes prompts to OSA, Codex, Claude Code, Pi, Hermes, custom runtimes, and assigned devices."
 section: "Agents"
 order: 6010
+layout: cards
 ---
 
 An agent run has two separate choices:

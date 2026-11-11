@@ -4,6 +4,7 @@ title: "SOMA 和运行时"
 description: "SOMA 是什么、默认运行时、如何选择、访问请求和可用性。"
 section: "Help"
 order: 16005
+layout: accordion
 ---
 
 关于启动沙箱的运行时的简短答案。

@@ -4,6 +4,7 @@ title: "Business OS and internal use"
 description: "Running your own company on MIOSA, connectors, device choice, and platform checklists."
 section: "Help"
 order: 16007
+layout: accordion
 ---
 
 Short answers on running your own company on MIOSA and building an internal platform.

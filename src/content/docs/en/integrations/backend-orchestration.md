@@ -4,6 +4,7 @@ title: "Backend orchestration"
 description: "Backend patterns for dispatching prompts into MIOSA sandboxes, computers, and local devices."
 section: "Platform builders"
 order: 9005
+layout: cards
 ---
 
 Your backend is the control plane for products built on MIOSA. It owns the user

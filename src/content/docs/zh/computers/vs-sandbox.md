@@ -4,6 +4,7 @@ title: "计算机与沙箱"
 description: "根据经验法则和并排表，为工作负载选择计算机或沙箱。"
 section: "Computers"
 order: 3002
+layout: cards
 ---
 
 > **注意：规则**

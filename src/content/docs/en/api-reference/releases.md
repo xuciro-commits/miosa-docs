@@ -4,6 +4,7 @@ title: "Releases API"
 description: "Inspect and activate exact immutable deployment artifacts."
 section: "API reference"
 order: 12041
+layout: cards
 ---
 
 A **Release** is the immutable artifact produced from a build or sandbox publish.

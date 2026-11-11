@@ -4,6 +4,7 @@ title: "Tools reference"
 description: "All MIOSA MCP tools, grouped by family. This overview covers workspaces, billing, and API keys; the tool families link to their own pages."
 section: "CLI, SDKs & MCP"
 order: 11024
+layout: cards
 ---
 
 Every tool the hosted MIOSA MCP server (`https://api.miosa.ai/api/v1/mcp`)

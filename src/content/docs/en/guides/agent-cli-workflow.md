@@ -4,6 +4,7 @@ title: "Agent CLI workflow"
 description: "The full CLI release workflow for agents: discovery, scope, sandbox development, preview, publish, promote, recovery, and rollback."
 section: "Agents"
 order: 6002
+layout: cards
 ---
 
 Use this page when an AI agent, coding assistant, CI worker, or operator needs the full build-and-release path through MIOSA.

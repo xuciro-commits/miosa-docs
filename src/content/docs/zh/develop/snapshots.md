@@ -4,6 +4,7 @@ title: "快照、恢复、暂停和分叉"
 description: "创建持久的沙箱检查点，恢复或分叉新沙箱，并通过暂停和恢复保留工作。"
 section: "Sandboxes"
 order: 2014
+layout: cards
 ---
 
 MIOSA 沙箱默认是持久的。

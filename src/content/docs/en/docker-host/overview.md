@@ -4,6 +4,7 @@ title: "Docker Host"
 description: "Your own always-on host that runs apps published from a sandbox, with immutable versions, health checks and rollback. Formerly App Engine."
 section: "Services & projects"
 order: 1020
+layout: cards
 ---
 
 Docker Host (formerly App Engine) is a box of your own that runs the apps you publish from a sandbox.

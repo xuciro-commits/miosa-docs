@@ -4,6 +4,7 @@ title: "安全性和合规性"
 description: "SOC 2、HIPAA、数据所在位置、机密存储方式、保留和可发布密钥。"
 section: "Help"
 order: 16008
+layout: accordion
 ---
 
 关于认证、数据位置、秘密和保留的简短回答。

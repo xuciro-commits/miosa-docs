@@ -4,6 +4,7 @@ title: "Agent with secrets  -  full walkthrough"
 description: "Create a sandbox, store an OpenAI key and connect GitHub via OAuth, run an AI agent, watch the audit log live, lock the network down, then rotate the key mid-run."
 section: "Sandboxes"
 order: 2032
+layout: cards
 ---
 
 `~20 min` `Python` `TypeScript` `Go`

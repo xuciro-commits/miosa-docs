@@ -4,6 +4,7 @@ title: "Browser and computer use"
 description: "Where browser automation runs, what starting a browser returns, CDP, live takeover, and billing."
 section: "Help"
 order: 16003
+layout: accordion
 ---
 
 Short answers on browser automation, the computer-use loop, and live takeover.

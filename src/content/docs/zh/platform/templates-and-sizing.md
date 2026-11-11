@@ -4,6 +4,7 @@ title: "模板与规格"
 description: "为每位用户的机器选择模板和规格，限制并发，并设置空闲默认值，让闲置机器暂停。"
 section: "Platform builders"
 order: 9004
+layout: cards
 ---
 
 你为用户创建的每台机器都需要一个模板和一个规格。

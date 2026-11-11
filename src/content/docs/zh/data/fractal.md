@@ -4,6 +4,7 @@ title: "分形企业数据"
 description: "MIOSA 和 Fractal 运行专用的 Fractal 实例，用于大规模结构化数据和计算，为企业、政府和受监管客户提供安全和隔离。"
 section: "Databases & storage"
 order: 4010
+layout: cards
 ---
 
 MIOSA 和 Fractal 运行专用的 Fractal 实例，用于大规模结构化数据和计算，为企业和政府提供安全和隔离。

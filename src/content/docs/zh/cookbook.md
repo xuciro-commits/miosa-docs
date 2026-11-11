@@ -4,6 +4,7 @@ title: "食谱"
 description: "每个 MIOSA 食谱都集中在一个地方，并按区域分组。沙盒程序和平台构建器演练，每个都有一个工作代码路径。"
 section: "Sandboxes"
 order: 2030
+layout: cards
 ---
 
 客户在 MIOSA 上构建的内容的实用演练。每个配方都以产品目标开始，以运行结果结束，并且每个配方都以当前的 SDK 和 API 为基础。

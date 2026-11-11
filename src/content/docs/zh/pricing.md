@@ -4,6 +4,7 @@ title: "定价与限制"
 description: "沙箱的每小时费用、各计划包含的内容、可运行和启动的沙箱数量，以及与其他服务商的对比。"
 section: "Organization & billing"
 order: 13003
+layout: cards
 ---
 
 沙箱的每小时费用、各计划包含的内容、可运行和启动的沙箱数量，以及与其他服务商的对比。

@@ -4,6 +4,7 @@ title: "MySQL"
 description: "Managed MySQL per project with durable storage and DATABASE_URL injection."
 section: "Databases & storage"
 order: 4002
+layout: cards
 ---
 
 > **Tip: Available**

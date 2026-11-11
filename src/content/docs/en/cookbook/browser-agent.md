@@ -4,6 +4,7 @@ title: "Browser agent"
 description: "Put an LLM in the loop of a real browser running inside a sandbox. Start the sandbox browser, drive it over CDP with Playwright, and run the screenshot → action → screenshot loop."
 section: "Sandboxes"
 order: 2034
+layout: cards
 ---
 
 `~12 min` `Python` `TypeScript`

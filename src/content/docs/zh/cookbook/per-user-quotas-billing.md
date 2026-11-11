@@ -4,6 +4,7 @@ title: "每用户配额和计费"
 description: "设置每个最终用户的资源上限，提取由 external_user_id 键控的每月使用情况汇总，并为您的客户生成发票。"
 section: "Platform builders"
 order: 9015
+layout: cards
 ---
 
 `~10 min` `Python` `TypeScript`

@@ -4,6 +4,7 @@ title: "Infrastructure options"
 description: "Choose where workloads run: MIOSA-managed compute, on-premises servers through OpenComputers, or customer-cloud regions."
 section: "Self-hosting"
 order: 15000
+layout: cards
 ---
 
 Run work on MIOSA-managed compute, connect machines you already own, or use governed worker capacity in your own cloud account.

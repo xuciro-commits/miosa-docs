@@ -4,6 +4,7 @@ title: "速率限制"
 description: "按工作区和按端点划分的 API 请求限制，如何读取速率限制响应头，以及遇到 429 时如何退避。"
 section: "API reference"
 order: 12007
+layout: cards
 ---
 
 MIOSA 按 API 密钥、工作区和端点组对 API 请求进行限流。超出限制时，API 会返回 HTTP `429`，并通过 `Retry-After` 响应头告知需要等待多少秒再重试。

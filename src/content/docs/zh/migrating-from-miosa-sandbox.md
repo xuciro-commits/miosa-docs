@@ -4,6 +4,7 @@ title: "从 miosa-sandbox 迁移"
 description: "将已弃用的 @miosa/sandbox、miosa-sandbox 和 sandboxes-go 包移至规范的 MIOSA SDK 上。"
 section: "Optional"
 order: 17030
+layout: cards
 ---
 
 独立沙箱包是已弃用的兼容性包装器。现在，每个包都委托给规范的 MIOSA SDK，因此最快的迁移通常是安装规范包并更改一个导入。

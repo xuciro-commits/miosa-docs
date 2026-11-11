@@ -4,6 +4,7 @@ title: "What MIOSA agents can do"
 description: "Built-in tools, connected app actions, device execution, artifacts, browser work, and the permission model for agents running on MIOSA."
 section: "Agents"
 order: 6001
+layout: cards
 ---
 
 MIOSA agents are workers that can use real cloud execution. They can research,

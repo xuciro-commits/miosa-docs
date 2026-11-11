@@ -4,6 +4,7 @@ title: "智能体运行组"
 description: "创建持久的多智能体编排组、调度运行清单、检查计数并取消分组工作。"
 section: "API reference"
 order: 12035
+layout: cards
 ---
 
 智能体运行组是多智能体扇出的持久控制平面对象。

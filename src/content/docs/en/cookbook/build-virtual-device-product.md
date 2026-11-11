@@ -4,6 +4,7 @@ title: "Build a virtual-device product"
 description: "Build a Nebula-style product on MIOSA with persistent devices, files, browser work, jobs, artifacts, and connected tools."
 section: "Platform builders"
 order: 9018
+layout: cards
 ---
 
 A virtual-device product gives users and agents a shared machine that keeps

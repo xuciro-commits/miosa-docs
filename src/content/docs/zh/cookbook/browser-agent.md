@@ -4,6 +4,7 @@ title: "浏览器智能体"
 description: "将 LLM 放入在沙箱内运行的真实浏览器的循环中。启动沙箱浏览器，使用 Playwright 通过 CDP 驱动它，然后运行屏幕截图 → 操作 → 屏幕截图循环。"
 section: "Sandboxes"
 order: 2034
+layout: cards
 ---
 
 `~12 min` `Python` `TypeScript`

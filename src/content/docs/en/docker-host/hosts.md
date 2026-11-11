@@ -4,6 +4,7 @@ title: "Docker Hosts"
 description: "How a workspace Docker Host works: lifecycle states, publishing flow, proof, updates, recovery, runtime boundary, and domains."
 section: "Services & projects"
 order: 1021
+layout: cards
 ---
 
 A Docker Host host is the always-on workspace VM that runs Docker Host containers.

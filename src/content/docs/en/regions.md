@@ -4,6 +4,7 @@ title: "Regions"
 description: "Which regions MIOSA runs in, what is region-local, how to pin a sandbox or computer to one, and the cross-region story."
 section: "API reference"
 order: 12008
+layout: cards
 ---
 
 Every Computer and every Sandbox is created in exactly one region and stays there for its lifetime. A resource does not span regions, and there is no live migration between them today.

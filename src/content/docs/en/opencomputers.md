@@ -4,6 +4,7 @@ title: "OpenComputers"
 description: "Connect machines you already own to MIOSA and manage them as hosts - commands, containers, meshes, GitHub Actions runners, backups, tunnels, and devices."
 section: "Computers"
 order: 3013
+layout: cards
 ---
 
 **OpenComputers** connects machines you already own to MIOSA.

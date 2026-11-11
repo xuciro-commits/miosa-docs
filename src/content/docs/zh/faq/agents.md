@@ -4,6 +4,7 @@ title: "智能体商"
 description: "支持的工具、创建和运行智能体、OSA、模型密钥以及智能体运行的位置。"
 section: "Help"
 order: 16004
+layout: accordion
 ---
 
 关于智能体运行框架、模型密钥以及智能体运行位置的简短回答。

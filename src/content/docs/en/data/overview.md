@@ -4,6 +4,7 @@ title: "Data"
 description: "Managed databases, object storage, auth, and volumes with explicit lifecycle, credentials, and recovery operations."
 section: "Databases & storage"
 order: 4000
+layout: cards
 ---
 
 MIOSA Data services give your sandboxes and production runtime instances access to persistent storage without any external account setup. When you attach a data service to a project, MIOSA provisions the resource and injects its credentials at boot  -  your code reads `process.env.DATABASE_URL` and connects. That is the entire integration.

@@ -4,6 +4,7 @@ title: "沙箱还是计算机？"
 description: "选择应用或智能体在 MIOSA 上的运行位置：需要代码、预览和内置浏览器时用沙箱，需要完整桌面时用计算机，需要发布上线时用 Docker Host。"
 section: "Get started"
 order: 6
+layout: cards
 ---
 
 大多数工作从**沙箱**开始。

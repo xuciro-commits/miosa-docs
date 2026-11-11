@@ -4,6 +4,7 @@ title: "Build and deploy a Next.js app"
 description: "Build a small Next.js app in a Sandbox, preview it, publish it as an immutable Deployment, prove it is live, connect a custom domain, and roll back safely - with the miosa CLI 2.x and the SDKs."
 section: "Get started"
 order: 7
+layout: cards
 ---
 
 This tutorial takes a small Next.js application from an empty Sandbox to a verified production URL.

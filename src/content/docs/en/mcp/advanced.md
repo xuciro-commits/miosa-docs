@@ -4,6 +4,7 @@ title: "Advanced MCP setup"
 description: "How the MIOSA MCP server works, per-client configuration for Claude Code, Cursor, and Windsurf, environment variable reference, worked usage examples, troubleshooting, and security considerations."
 section: "CLI, SDKs & MCP"
 order: 11030
+layout: cards
 ---
 
 This page covers how the MCP server works under the hood, the full client configuration matrix, worked usage examples, troubleshooting, and security guidance. For the install path, see [Install and authenticate](/docs/mcp/install); for the exact tool list, see the [Tools reference](/docs/mcp/tools).

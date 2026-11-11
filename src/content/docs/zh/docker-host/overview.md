@@ -4,6 +4,7 @@ title: "Docker主机"
 description: "您自己的永远在线主机，运行从沙箱发布的应用程序，具有不可变版本、运行状况检查和回滚。以前是应用程序引擎。"
 section: "Services & projects"
 order: 1020
+layout: cards
 ---
 
 Docker Host（以前称为 App Engine）是您自己的一个盒子，用于运行您从沙箱发布的应用程序。

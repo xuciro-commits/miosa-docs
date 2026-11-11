@@ -4,6 +4,7 @@ title: "配置智能体"
 description: "配置座席的身份、指令、模型、设备、工具、内存、连接帐户、触发器和审批策略。"
 section: "Agents"
 order: 6005
+layout: cards
 ---
 
 智能体是指具有指令、工具、设备、内存、连接的指定工作人员

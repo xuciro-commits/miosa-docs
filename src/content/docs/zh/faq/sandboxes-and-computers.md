@@ -4,6 +4,7 @@ title: "沙箱和计算机"
 description: "沙箱与计算机、默认沙箱、运行长度、状态、暂停和快照。"
 section: "Help"
 order: 16002
+layout: accordion
 ---
 
 ## 沙箱还是计算机？

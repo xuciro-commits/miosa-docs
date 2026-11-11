@@ -4,6 +4,7 @@ title: "API 参考"
 description: "MIOSA 平台的 REST API 参考 - 基本 URL、身份验证、请求/响应信封和端点指南。"
 section: "API reference"
 order: 12009
+layout: cards
 ---
 
 > **提示**

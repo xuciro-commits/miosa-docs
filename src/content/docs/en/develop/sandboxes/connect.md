@@ -4,6 +4,7 @@ title: "Connecting to a running sandbox"
 description: "Four ways into a live sandbox: the SDK, the CLI, SSH over an authenticated tunnel, and preview URLs. What each is good for, and what does not work."
 section: "Sandboxes"
 order: 2009
+layout: cards
 ---
 
 A sandbox has no public SSH endpoint and no open inbound port other than the ones you expose. Every way in goes through the MIOSA API and an authenticated tunnel. There are four, and they are good at different things.

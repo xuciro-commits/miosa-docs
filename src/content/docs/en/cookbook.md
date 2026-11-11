@@ -4,6 +4,7 @@ title: "Cookbook"
 description: "Every MIOSA recipe in one place, grouped by area. Sandbox procedures and platform-builder walkthroughs, each with a working code path."
 section: "Sandboxes"
 order: 2030
+layout: cards
 ---
 
 Practical walkthroughs for the things customers build on MIOSA. Each recipe starts with a product goal and ends with a running result, and every one is grounded in the current SDK and API.

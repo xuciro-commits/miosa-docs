@@ -4,6 +4,7 @@ title: "FAQ"
 description: "Short answers to the questions that come up most, grouped by topic: getting started, sandboxes and computers, agents, browser use, pricing, security, and support."
 section: "Help"
 order: 16000
+layout: cards
 ---
 
 Short answers, grouped by topic, with a link to the full page for each.

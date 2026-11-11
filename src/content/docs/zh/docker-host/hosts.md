@@ -4,6 +4,7 @@ title: "Docker 主机"
 description: "工作区 Docker Host 的工作原理：生命周期状态、发布流程、证明、更新、恢复、运行时边界和域。"
 section: "Services & projects"
 order: 1021
+layout: cards
 ---
 
 Docker Host 主机是运行 Docker Host 容器的始终在线的工作区 VM。

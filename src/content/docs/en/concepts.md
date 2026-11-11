@@ -4,6 +4,7 @@ title: "Core Concepts"
 description: "The canonical MIOSA product model, from mutable sandboxes to immutable releases, stable deployments, persistent data, and customer-owned infrastructure."
 section: "Optional"
 order: 17005
+layout: cards
 ---
 
 MIOSA gives developers and agents a safe development loop without making production mutable.

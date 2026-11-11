@@ -4,6 +4,7 @@ title: "数据库API"
 description: "配置和操作托管数据库、备份、恢复、分支、副本、凭证和放置。"
 section: "API reference"
 order: 12042
+layout: cards
 ---
 
 托管数据库具有独立于沙箱和部署运行时实例的生命周期。

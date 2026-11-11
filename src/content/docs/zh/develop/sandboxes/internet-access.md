@@ -4,6 +4,7 @@ title: "互联网接入和出口"
 description: "沙箱默认是否可以访问互联网、两层出口控制、如何将沙箱锁定到白名单以及如何调试被阻止的调用。"
 section: "Networking & domains"
 order: 5002
+layout: cards
 ---
 
 ## 默认网络行为

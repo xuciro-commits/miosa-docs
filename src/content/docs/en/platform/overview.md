@@ -4,6 +4,7 @@ title: "Platform builder guide"
 description: "Run your users' agents, previews, and workspaces on MIOSA: architectures, costs, and provisioning patterns."
 section: "Platform builders"
 order: 9001
+layout: cards
 ---
 
 MIOSA gives you machines, previews, and deployments.

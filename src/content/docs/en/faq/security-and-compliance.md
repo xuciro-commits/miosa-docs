@@ -4,6 +4,7 @@ title: "Security and compliance"
 description: "SOC 2, HIPAA, where data lives, how secrets are stored, retention, and publishable keys."
 section: "Help"
 order: 16008
+layout: accordion
 ---
 
 Short answers on certifications, data location, secrets, and retention.

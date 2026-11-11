@@ -4,6 +4,7 @@ title: "Availability & Roadmap"
 description: "Current MIOSA product availability, what is generally available, what is in hardening, and what is planned next."
 section: "Optional"
 order: 17031
+layout: cards
 ---
 
 This page gives customers a clean read on what is ready for production today, what is available for selected partners, and what is still on the roadmap.

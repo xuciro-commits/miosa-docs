@@ -4,6 +4,7 @@ title: "Docker主机"
 description: "在一台始终在线的工作区主机上运行许多小型应用程序，而 MIOSA 拥有路由、域和归属。"
 section: "Services & projects"
 order: 1023
+layout: cards
 ---
 
 Docker Host 是 MIOSA 的专用工作区主机模型，适用于需要许多小型应用程序、渠道、铅磁体、API 或客户端站点的客户，而无需为每次部署创建新的生产虚拟机。

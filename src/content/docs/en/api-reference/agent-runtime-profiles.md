@@ -4,6 +4,7 @@ title: "Agent Runtime Profiles"
 description: "Configure reusable agent runtime defaults for sandboxes, computers, and custom agent sessions."
 section: "API reference"
 order: 12036
+layout: cards
 ---
 
 Agent Runtime Profiles define how MIOSA should prepare an agent runtime for a

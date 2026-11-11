@@ -4,6 +4,7 @@ title: "Integrating an AI agent"
 description: "How to bring your own AI agent and drive MIOSA Sandbox or Computer primitives to build, run, and deploy applications autonomously."
 section: "Agents"
 order: 6004
+layout: cards
 ---
 
 MIOSA provides the substrate: sandboxes, computers, file I/O, exec, previews,

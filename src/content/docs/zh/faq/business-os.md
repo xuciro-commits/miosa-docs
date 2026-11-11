@@ -4,6 +4,7 @@ title: "商业操作系统和内部使用"
 description: "在 MIOSA、连接器、设备选择和平台清单上运营您自己的公司。"
 section: "Help"
 order: 16007
+layout: accordion
 ---
 
 关于在 MIOSA 上运营自己的公司和构建内部平台的简短回答。

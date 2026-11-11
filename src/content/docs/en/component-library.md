@@ -4,6 +4,7 @@ title: "Foundation Component Library"
 description: "MIOSA Foundation UI reference with design intent, Tailwind v4 tokens, CSS variables, and design tokens."
 section: "Platform builders"
 order: 9020
+layout: cards
 ---
 
 MIOSA Foundation is the internal component library for the platform frontend. It is the place to inspect components before deciding what to keep, remove, rename, or rebuild.

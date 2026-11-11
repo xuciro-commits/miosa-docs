@@ -3226,5 +3226,37 @@
 				]
 			}
 		]
+	},
+	{
+		"title": "Handbook",
+		"titleZh": "编写手册",
+		"items": [
+			{
+				"slug": "handbook/overview",
+				"title": "Handbook: the Markdown variant",
+				"titleZh": "编写手册：Markdown 变体",
+				"icon": "book-open"
+			},
+			{
+				"title": "The conventions",
+				"titleZh": "规范",
+				"icon": "list-checks",
+				"count": "2",
+				"children": [
+					{
+						"slug": "handbook/blocks",
+						"title": "The block reference",
+						"titleZh": "块级对照表",
+						"icon": "file-text"
+					},
+					{
+						"slug": "handbook/archetypes",
+						"title": "Page archetypes",
+						"titleZh": "页面原型",
+						"icon": "layers"
+					}
+				]
+			}
+		]
 	}
 ]

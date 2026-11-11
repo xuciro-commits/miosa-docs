@@ -4,6 +4,7 @@ title: "Data retention and deletion"
 description: "What MIOSA keeps, for how long, and what \"delete\" actually removes for sandboxes, snapshots, the audit log, usage records, and stored data."
 section: "Security & compliance"
 order: 14003
+layout: cards
 ---
 
 This page describes what MIOSA keeps and for how long, and what each delete operation removes. Where a retention window is not published, the page says so rather than guessing.

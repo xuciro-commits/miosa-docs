@@ -4,6 +4,7 @@ title: "Computers (Desktop)"
 description: "Durable cloud desktops for browser agents, human takeover, GUI automation, and long-running computer-use workflows."
 section: "Computers"
 order: 3000
+layout: cards
 ---
 
 A **Computer** is a durable cloud desktop.

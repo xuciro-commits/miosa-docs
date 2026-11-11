@@ -4,6 +4,7 @@ title: "Quickstart"
 description: "Install the CLI, start a sandbox, let an agent build something inside it, and open it at a live URL."
 section: "Get started"
 order: 1
+layout: cards
 ---
 
 MIOSA runs isolated Linux sandboxes and full cloud desktops for your code and your AI agents, then publishes the result to a live URL.

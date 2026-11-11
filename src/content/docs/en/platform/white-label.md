@@ -4,6 +4,7 @@ title: "Branding and domain setup"
 description: "Configure organization slug, workspace/project ownership, preview domains, deployment domains, branding, and resource attribution."
 section: "Platform builders"
 order: 9011
+layout: cards
 ---
 
 MIOSA can run behind your product and your customers' domains. The important order is: set the organization identity first, create workspaces/projects for downstream customers, configure preview and deployment domains separately, then attach exact custom domains where a customer needs their own hostname.

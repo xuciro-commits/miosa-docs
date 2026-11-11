@@ -4,6 +4,7 @@ title: "项目"
 description: "在一个工作区内为一个应用、站点或交付物组织资源，同时不让项目本身成为运行时。"
 section: "Services & projects"
 order: 1000
+layout: cards
 ---
 
 **项目**是一个工作区内持久的产品边界。

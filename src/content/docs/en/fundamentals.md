@@ -4,6 +4,7 @@ title: "Fundamental Concepts"
 description: "The mental model every MIOSA integrator needs - workspace, authentication, resources, attribution, idempotency, rate limits, errors, and events."
 section: "API reference"
 order: 12001
+layout: cards
 ---
 
 MIOSA is a cloud platform for building and deploying applications. Before writing your first API call, read this page. It covers the concepts that underpin every MIOSA integration.

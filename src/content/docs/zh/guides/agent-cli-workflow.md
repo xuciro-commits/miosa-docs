@@ -4,6 +4,7 @@ title: "智能体 CLI 工作流程"
 description: "智能体的完整 CLI 发布工作流程：发现、范围、沙箱开发、预览、发布、升级、恢复和回滚。"
 section: "Agents"
 order: 6002
+layout: cards
 ---
 
 当 AI 智能体、编码助理、CI 工作人员或操作员需要通过 MIOSA 的完整构建和发布路径时，请使用此页面。

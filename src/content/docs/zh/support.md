@@ -4,6 +4,7 @@ title: "支持"
 description: "如何联系 MIOSA 团队、提供哪些信息能让工单快速解决，以及在哪里查看服务状态和已发布的功能。"
 section: "Help"
 order: 16012
+layout: cards
 ---
 
 ## 联系我们

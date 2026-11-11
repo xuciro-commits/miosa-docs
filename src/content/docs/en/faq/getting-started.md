@@ -4,6 +4,7 @@ title: "Getting started"
 description: "Where to start, how to authenticate, install the CLI, get an API key, attach IDs to a sandbox, and pick a region."
 section: "Help"
 order: 16001
+layout: accordion
 ---
 
 Short answers on the first steps with MIOSA.

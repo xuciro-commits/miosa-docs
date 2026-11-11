@@ -4,6 +4,7 @@ title: "Sandboxes API"
 description: "API reference for creating, managing, and executing code in MIOSA sandboxes - persistent-by-default isolated microVM workspaces."
 section: "API reference"
 order: 12014
+layout: cards
 ---
 
 Sandboxes are persistent-by-default isolated microVM workspaces that restore from pre-seeded snapshots, accept exec and file operations, expose previews, and are billed by compute/runtime usage. They are designed for AI-agent code execution workloads, artifact generation, and app previews.

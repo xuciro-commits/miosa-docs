@@ -4,6 +4,7 @@ title: "成员与用量"
 description: "项目成员、权限、用量归因、操作检查清单以及常见错误。"
 section: "Services & projects"
 order: 1003
+layout: cards
 ---
 
 访问权限遵循层级结构，并在项目层级进一步收窄：

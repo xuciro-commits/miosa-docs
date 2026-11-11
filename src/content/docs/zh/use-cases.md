@@ -4,6 +4,7 @@ title: "使用 MIOSA 可以构建什么"
 description: "面向 MIOSA 沙箱、计算机、智能体运行时、生成产物、预览和部署的具体产品模式。"
 section: "Get started"
 order: 8
+layout: cards
 ---
 
 MIOSA 是 AI 产品底层的基础设施。你的产品或你的智能体可以获得真实机器和真实 URL：

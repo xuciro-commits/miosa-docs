@@ -4,6 +4,7 @@ title: "Events (SSE)"
 description: "Server-Sent Event streams for real-time updates from sandboxes, computers, deployments, and builds."
 section: "API reference"
 order: 12012
+layout: cards
 ---
 
 MIOSA exposes SSE streams for resources that produce timed events: sandboxes, computer sessions, deployment builds, sandbox-template builds, and computer logs. All streams follow the same authentication and envelope pattern.

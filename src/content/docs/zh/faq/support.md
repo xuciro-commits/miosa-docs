@@ -4,6 +4,7 @@ title: "支持"
 description: "如何获得帮助、请求中应包含哪些内容、状态和更改以及社区。"
 section: "Help"
 order: 16010
+layout: accordion
 ---
 
 关于联系团队和遵循平台变化的简短回答。

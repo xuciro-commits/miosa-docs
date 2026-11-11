@@ -4,6 +4,7 @@ title: "故障排查"
 description: "处理沙箱、exec、预览、机密、网络和部署故障的入口，以及每类问题的排查位置。"
 section: "Help"
 order: 16011
+layout: cards
 ---
 
 先确认准确的资源 ID 和失败的操作。大多数请求还会返回 `x-request-id` 响应头——提交支持请求时请附上它。

@@ -4,6 +4,7 @@ title: "沙箱"
 description: "用于代码执行、构建、测试和开发服务器的快速、隔离的 Linux VM，具有实时预览 URL 和快照。"
 section: "Sandboxes"
 order: 2000
+layout: cards
 ---
 
 **沙箱**是 MIOSA 的快速代码执行环境。

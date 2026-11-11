@@ -4,6 +4,7 @@ title: "Browser use"
 description: "A live browser inside any MIOSA sandbox - watch it, take control, share a view-only link, and let agents drive the same browser over CDP."
 section: "Sandboxes"
 order: 2023
+layout: cards
 ---
 
 **Browser use** gives a sandbox a real, interactive browser.

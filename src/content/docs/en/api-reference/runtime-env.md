@@ -4,6 +4,7 @@ title: "Runtime Env"
 description: "Store inherited runtime environment variables for sandboxes, computers, agents, and deployments."
 section: "API reference"
 order: 12037
+layout: cards
 ---
 
 Runtime Env stores inherited environment variables for tenant, workspace, and

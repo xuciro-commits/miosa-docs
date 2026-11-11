@@ -4,6 +4,7 @@ title: "基础组件库"
 description: "MIOSA Foundation UI 参考，包含设计意图、Tailwind v4 令牌、CSS 变量和设计令牌。"
 section: "Platform builders"
 order: 9020
+layout: cards
 ---
 
 MIOSA Foundation 是平台前端的内部组件库。它是在决定保留、删除、重命名或重建哪些组件之前检查组件的地方。

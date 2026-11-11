@@ -4,6 +4,7 @@ title: "快速启动与就绪"
 description: "MIOSA 如何快速启动托管桌面计算机、定义浏览器就绪状态，并在失败时如实暴露错误而不虚报 Live 状态。"
 section: "Computers"
 order: 3003
+layout: cards
 ---
 
 MIOSA 计算机使用托管机群上的就绪容量，因此无需等待完全冷启动即可分配新桌面。

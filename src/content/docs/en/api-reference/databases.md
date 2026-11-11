@@ -4,6 +4,7 @@ title: "Databases API"
 description: "Provision and operate managed databases, backups, restores, branches, replicas, credentials, and placement."
 section: "API reference"
 order: 12042
+layout: cards
 ---
 
 Managed databases have a lifecycle independent from sandboxes and deployment runtime instances.

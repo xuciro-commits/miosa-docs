@@ -4,6 +4,7 @@ title: "Rate limits"
 description: "The per-workspace and per-endpoint API request limits, how to read the rate-limit headers, and how to back off on 429."
 section: "API reference"
 order: 12007
+layout: cards
 ---
 
 MIOSA rate-limits API requests per API key, per workspace, and per endpoint group. When you exceed a limit, the API returns HTTP `429` with a `Retry-After` header telling you how many seconds to wait before retrying.

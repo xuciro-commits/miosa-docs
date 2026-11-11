@@ -4,6 +4,7 @@ title: "Per-user quotas and billing"
 description: "Set per-end-user resource caps, pull monthly usage rollups keyed by external_user_id, and generate invoices for your customers."
 section: "Platform builders"
 order: 9015
+layout: cards
 ---
 
 `~10 min` `Python` `TypeScript`

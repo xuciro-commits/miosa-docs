@@ -4,6 +4,7 @@ title: "Connect agent accounts (keys and subscriptions)"
 description: "Connect a model key, a Claude or ChatGPT plan, or a tool-server key to your workspace, or to one of your end users, from your own code. No console visit needed."
 section: "Agents"
 order: 6019
+layout: cards
 ---
 
 An agent run thinks with an account that belongs to its owner.

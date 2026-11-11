@@ -4,6 +4,7 @@ title: "白标和平台建设者"
 description: "白标架构、品牌 URL、最终用户身份验证、向客户计费和品牌推广。"
 section: "Help"
 order: 16006
+layout: accordion
 ---
 
 关于以您自己的品牌为客户运行 MIOSA 的简短回答。

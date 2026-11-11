@@ -4,6 +4,7 @@ title: "智能体运行"
 description: "将提示调度到 MIOSA 设备中，并为智能体工作提供稳定的运行响应形状。"
 section: "API reference"
 order: 12034
+layout: cards
 ---
 
 智能体运行是 MIOSA 沙箱和计算机的提示调度界面。

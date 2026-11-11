@@ -4,6 +4,7 @@ title: "连接智能体帐户（密钥和订阅）"
 description: "从您自己的代码将模型密钥、Claude 或 ChatGPT 计划或工具服务器密钥连接到您的工作区或您的最终用户之一。无需访问控制台。"
 section: "Agents"
 order: 6019
+layout: cards
 ---
 
 智能体运行时使用属于其所有者的帐户进行思考。

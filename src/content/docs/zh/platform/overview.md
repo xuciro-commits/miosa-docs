@@ -4,6 +4,7 @@ title: "平台构建者指南"
 description: "在 MIOSA 上运行用户的智能体、预览和工作区：架构、成本与资源配置模式。"
 section: "Platform builders"
 order: 9001
+layout: cards
 ---
 
 MIOSA 为你提供机器、预览和部署。

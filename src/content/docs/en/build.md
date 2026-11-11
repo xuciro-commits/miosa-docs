@@ -4,6 +4,7 @@ title: "Build an app like..."
 description: "Guides for platform builders. Run open-source agents and frameworks on MIOSA, or build familiar AI products like Lovable, Manus and Perplexity - app builders, coding agents, autonomous and computer-use agents, chat and companions, answer engines, multi-agent, voice, design, video, vertical apps, and an internal Business OS."
 section: "Build"
 order: 10000
+layout: cards
 ---
 
 Build

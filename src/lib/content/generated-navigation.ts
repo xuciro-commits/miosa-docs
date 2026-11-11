@@ -2773,6 +2773,28 @@ export const generatedNavigation: { title: string; titleZh?: string; count?: str
 			}
 		]
 	},
+	{
+		title: "Handbook",
+		titleZh: "编写手册",
+		items: [
+			{
+				slug: "handbook/overview",
+				title: "Overview",
+				titleZh: "导读",
+				icon: "book-open",
+			},
+			{
+				title: "The conventions",
+				titleZh: "规范",
+				icon: "list-checks",
+				count: "2",
+				children: [
+					{ slug: "handbook/blocks", title: "Block reference", titleZh: "块级对照表", icon: "file-text" },
+					{ slug: "handbook/archetypes", title: "Page archetypes", titleZh: "页面原型", icon: "layers" }
+				]
+			}
+		]
+	},
 ];
 export const generatedNavItems = generatedNavigation.flatMap((group) => {
 	const walk = (items: NavNode[]): NavItem[] => items.flatMap((item: NavNode) =>

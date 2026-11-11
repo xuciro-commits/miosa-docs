@@ -4,6 +4,7 @@ title: "Computers vs sandbox"
 description: "Choose a Computer or a Sandbox for a workload, with the rule of thumb and a side-by-side table."
 section: "Computers"
 order: 3002
+layout: cards
 ---
 
 > **Note: The rule**

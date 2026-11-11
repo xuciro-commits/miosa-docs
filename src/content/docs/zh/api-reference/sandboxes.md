@@ -4,6 +4,7 @@ title: "沙箱API"
 description: "用于在 MIOSA 沙箱（默认情况下持久隔离的 microVM 工作区）中创建、管理和执行代码的 API 参考。"
 section: "API reference"
 order: 12014
+layout: cards
 ---
 
 沙箱是默认情况下永久隔离的 microVM 工作区，可以从预先植入的快照中恢复、接受执行和文件操作、公开预览，并按计算/运行时使用情况计费。它们专为 AI 智能体代码执行工作负载、工件生​​成和应用程序预览而设计。

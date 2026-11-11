@@ -4,6 +4,7 @@ title: "Docker 主机模板"
 description: "为 Docker 主机精心设计的应用程序形状 - Dockerfile、Compose、命令、端口、环境和持久性默认值。"
 section: "Services & projects"
 order: 1022
+layout: cards
 ---
 
 Docker Host 模板是为智能体、SDK 和 UI 精心设计的应用程序形状。它们不会替换您的项目代码。它们在发布沙箱或存储库之前提供 Dockerfile、Compose、命令、端口、环境、持久性和设计上下文默认值。

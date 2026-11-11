@@ -4,6 +4,7 @@ title: "交易电子邮件"
 description: "配置 MIOSA 管理的事务电子邮件以进行项目身份验证、密码重置、电子邮件确认和平台通知。"
 section: "Databases & storage"
 order: 4009
+layout: cards
 ---
 
 MIOSA 使用交易电子邮件进行平台通知和每个项目

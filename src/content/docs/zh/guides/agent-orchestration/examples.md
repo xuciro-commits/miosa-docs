@@ -4,6 +4,7 @@ title: "编排示例"
 description: "在 MIOSA 上工作的编排流程：具有浏览器 QA 的应用程序构建器、沙箱优先代码智能体、计算机 QA 智能体、最小编排器形状和产品 UI 模式。"
 section: "Agents"
 order: 6024
+layout: cards
 ---
 
 显示实际协调模式的具体流程，从具有浏览器 QA 的完整应用程序构建器到最小的编排器形状及其提供的 UI。

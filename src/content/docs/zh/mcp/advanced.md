@@ -4,6 +4,7 @@ title: "高级 MCP 设置"
 description: "MIOSA MCP 服务器的工作原理、Claude Code、Cursor 和 Windsurf 的每个客户端配置、环境变量参考、工作使用示例、故障排除和安全注意事项。"
 section: "CLI, SDKs & MCP"
 order: 11030
+layout: cards
 ---
 
 本页介绍了 MCP 服务器的工作原理、完整的客户端配置矩阵、工作使用示例、故障排除和安全指南。安装路径请参见[安装并验证](/docs/mcp/install)；有关确切的工具列表，请参阅[工具参考](/docs/mcp/tools)。

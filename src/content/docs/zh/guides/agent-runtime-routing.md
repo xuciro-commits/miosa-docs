@@ -4,6 +4,7 @@ title: "智能体运行时路由"
 description: "MIOSA 如何把提示路由到 OSA、Codex、Claude Code、Pi、Hermes、自定义运行时以及指定设备。"
 section: "Agents"
 order: 6010
+layout: cards
 ---
 
 智能体运行有两个单独的选择：

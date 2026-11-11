@@ -4,6 +4,7 @@ title: "自带云"
 description: "当 MIOSA 编排产品时，在客户 AWS 账户或 GCP 项目内运行 MIOSA 工作人员容量。"
 section: "Self-hosting"
 order: 15001
+layout: cards
 ---
 
 自带云让组织可以利用自己的 AWS 账户或 GCP 项目内的基础设施为其产品提供支持。

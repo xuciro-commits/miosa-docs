@@ -4,6 +4,7 @@ title: "浏览器使用"
 description: "任何 MIOSA 沙箱内的实时浏览器 - 监视、控制、共享仅供查看的链接，并让智能体通过 CDP 驱动同一浏览器。"
 section: "Sandboxes"
 order: 2023
+layout: cards
 ---
 
 **浏览器使用**为沙箱提供了一个真正的交互式浏览器。

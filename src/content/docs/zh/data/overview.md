@@ -4,6 +4,7 @@ title: "数据"
 description: "具有明确生命周期、凭证和恢复操作的托管数据库、对象存储、身份验证和卷。"
 section: "Databases & storage"
 order: 4000
+layout: cards
 ---
 
 MIOSA 数据服务使您的沙箱和生产运行时实例可以访问持久存储，而无需设置任何外部帐户。当您将数据服务附加到项目时，MIOSA 会配置资源并在启动时注入其凭据 - 您的代码读取 `process.env.DATABASE_URL` 并连接。这就是整个集成。

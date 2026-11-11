@@ -4,6 +4,7 @@ title: "Docker Host"
 description: "Run many small apps on one always-on workspace host while MIOSA owns routing, domains, and attribution."
 section: "Services & projects"
 order: 1023
+layout: cards
 ---
 
 Docker Host is MIOSA's dedicated workspace host model for customers that need many small apps, funnels, lead magnets, APIs, or client sites without creating a new production VM for every deployment.

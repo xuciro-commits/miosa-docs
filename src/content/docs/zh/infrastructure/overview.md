@@ -4,6 +4,7 @@ title: "基础设施选项"
 description: "选择工作负载运行的位置：MIOSA 管理的计算、通过 OpenComputers 的本地服务器或客户云区域。"
 section: "Self-hosting"
 order: 15000
+layout: cards
 ---
 
 在 MIOSA 管理的计算上运行工作，连接您已拥有的计算机，或在您自己的云帐户中使用受管理的工作人员容量。

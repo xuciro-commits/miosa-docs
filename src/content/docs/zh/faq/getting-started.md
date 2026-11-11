@@ -4,6 +4,7 @@ title: "入门"
 description: "从哪里开始、如何进行身份验证、安装 CLI、获取 API 密钥、将 ID 附加到沙箱以及选择区域。"
 section: "Help"
 order: 16001
+layout: accordion
 ---
 
 关于 MIOSA 第一步的简短回答。

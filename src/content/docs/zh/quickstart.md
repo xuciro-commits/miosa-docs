@@ -4,6 +4,7 @@ title: "快速开始"
 description: "安装 CLI、启动沙箱、让智能体在其中构建应用，并通过实时 URL 打开它。"
 section: "Get started"
 order: 1
+layout: cards
 ---
 
 MIOSA 为您的代码和 AI 智能体运行隔离的 Linux 沙箱和完整云桌面，然后将结果发布到实时 URL。

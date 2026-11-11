@@ -4,6 +4,7 @@ title: "Pricing and limits"
 description: "What you are billed for, paused cost, named sizes, hard caps, rate limits, and credits."
 section: "Help"
 order: 16009
+layout: accordion
 ---
 
 Short answers on what is billable, the sizes and caps, and how credits work.

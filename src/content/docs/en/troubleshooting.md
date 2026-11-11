@@ -4,6 +4,7 @@ title: "Troubleshooting"
 description: "The front door for things that are not working: sandbox, exec, preview, secret, network, and deploy failures, and where to look for each."
 section: "Help"
 order: 16011
+layout: cards
 ---
 
 Start with the exact resource id and the operation that failed. Most requests also return an `x-request-id` header  -  include it in any support request.

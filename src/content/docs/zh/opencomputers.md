@@ -4,6 +4,7 @@ title: "OpenComputers公司"
 description: "将您已经拥有的机器连接到 MIOSA 并将它们作为主机进行管理 - 命令、容器、网格、GitHub Actions 运行器、备份、隧道和设备。"
 section: "Computers"
 order: 3013
+layout: cards
 ---
 
 **OpenComputers** 将您已经拥有的计算机连接到 MIOSA。

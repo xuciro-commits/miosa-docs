@@ -4,6 +4,7 @@ title: "构建虚拟设备产品"
 description: "使用持久设备、文件、浏览器工作、作业、工件和连接工具在 MIOSA 上构建Nebula式产品。"
 section: "Platform builders"
 order: 9018
+layout: cards
 ---
 
 虚拟设备产品为用户和智能体提供了一台共享机器，可以保持

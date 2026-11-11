@@ -4,6 +4,7 @@ title: "构建一个应用程序，例如..."
 description: "平台构建者指南。在 MIOSA 上运行开源智能体和框架，或构建熟悉的 AI 产品，例如 Lovable、Manus 和 Perplexity - 应用程序构建器、编码智能体、自主和计算机使用智能体、聊天和同伴、应答引擎、多智能体、语音、设计、视频、垂直应用程序和内部业务操作系统。"
 section: "Build"
 order: 10000
+layout: cards
 ---
 
 构建

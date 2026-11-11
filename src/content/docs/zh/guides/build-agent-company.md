@@ -4,6 +4,7 @@ title: "打造您自己的AI平台"
 description: "在 MIOSA 上构建您自己的 Genspark、Emergent、Blackbox AI、Lovable、Replit、Polsia、CoFounder 或 Nebula 风格的产品。"
 section: "Agents"
 order: 6016
+layout: cards
 ---
 
 您可以使用 MIOSA 构建自己的产品，与 **Genspark**、**Emergent**、**Blackbox AI**、**Lovable**、**Replit Agent**、**Polsia**、**CoFounder** 或 **Nebula** 属于同一类别。

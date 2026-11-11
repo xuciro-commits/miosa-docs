@@ -4,6 +4,7 @@ title: "能力"
 description: "沙箱的用途、沙箱的具体用途以及核心执行、文件、预览、快照和生命周期功能。"
 section: "Sandboxes"
 order: 2001
+layout: cards
 ---
 
 此页面是[沙箱概述](/docs/develop/sandboxes)背后的参考：人们使用沙箱构建什么，沙箱实际上是什么，以及每个沙箱公开的功能。

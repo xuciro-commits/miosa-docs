@@ -4,6 +4,7 @@ title: "Agent product model"
 description: "The canonical MIOSA model for agents, devices, runs, tools, artifacts, credits, and deployments."
 section: "Agents"
 order: 6014
+layout: cards
 ---
 
 MIOSA lets builders create products where agents do real work in cloud devices.

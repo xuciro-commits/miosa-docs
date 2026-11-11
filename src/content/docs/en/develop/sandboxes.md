@@ -4,6 +4,7 @@ title: "Sandboxes"
 description: "Fast, isolated Linux VMs for code execution, builds, tests, and dev servers, with live preview URLs and snapshots."
 section: "Sandboxes"
 order: 2000
+layout: cards
 ---
 
 A **Sandbox** is MIOSA's fast code execution environment.

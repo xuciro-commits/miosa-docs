@@ -4,6 +4,7 @@ title: "Agent operating guide"
 description: "The CLI and release workflow for AI agents using MIOSA."
 section: "Agents"
 order: 6000
+layout: cards
 ---
 
 Use this page when an AI agent, coding assistant, CI worker, or operator needs to build and release software through MIOSA.

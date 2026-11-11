@@ -4,6 +4,7 @@ title: "Orchestration examples"
 description: "Worked orchestration flows on MIOSA: an app builder with browser QA, a sandbox-first code agent, a computer QA agent, a minimal orchestrator shape, and the product UI pattern."
 section: "Agents"
 order: 6024
+layout: cards
 ---
 
 Concrete flows that show the coordination patterns in action, from a full app builder with browser QA down to the minimal orchestrator shape and the UI it feeds.

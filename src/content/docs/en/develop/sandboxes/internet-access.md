@@ -4,6 +4,7 @@ title: "Internet access and egress"
 description: "Whether a sandbox can reach the internet by default, the two layers of egress control, how to lock a sandbox to an allowlist, and how to debug a blocked call."
 section: "Networking & domains"
 order: 5002
+layout: cards
 ---
 
 ## Default network behavior

@@ -4,6 +4,7 @@ title: "Embed sandbox in an iframe"
 description: "Your server mints a preview token; your frontend uses it as an iframe src. Covers React, Vue, Svelte, and vanilla JS, plus token TTL refresh."
 section: "Platform builders"
 order: 9016
+layout: cards
 ---
 
 `~8 min` `Python` `TypeScript`

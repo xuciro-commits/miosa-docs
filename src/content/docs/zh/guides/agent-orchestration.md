@@ -4,6 +4,7 @@ title: "智能体编排"
 description: "如何跨 MIOSA 沙箱、计算机、工件、预览、事件和部署协调多个智能体。"
 section: "Agents"
 order: 6021
+layout: cards
 ---
 
 MIOSA 允许您构建智能体系统，其中不同的智能体使用正确的运行时

@@ -4,6 +4,7 @@ title: "The deployment model"
 description: "How a publish becomes a stable production URL - the pipeline, static vs dynamic, deployments, versions, domains, and the proof contract."
 section: "Services & projects"
 order: 1024
+layout: cards
 ---
 
 Every publish turns a Sandbox into a stable production app backed by immutable versions, health checks, and a public URL returned by the API.

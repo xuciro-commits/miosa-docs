@@ -4,6 +4,7 @@ title: "Members and usage"
 description: "Project members, permissions, usage attribution, the operating checklist, and common mistakes."
 section: "Services & projects"
 order: 1003
+layout: cards
 ---
 
 Access follows the hierarchy and narrows at the project:

@@ -4,6 +4,7 @@ title: "Streaming code execution"
 description: "Run a long Python script in a sandbox and stream stdout to your UI in real time via SSE, with backpressure handling."
 section: "Sandboxes"
 order: 2033
+layout: cards
 ---
 
 `~8 min` `Python` `TypeScript`

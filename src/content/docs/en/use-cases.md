@@ -4,6 +4,7 @@ title: "What you can build with MIOSA"
 description: "Concrete product patterns for MIOSA sandboxes, computers, agent runtimes, generated artifacts, previews, and deployments."
 section: "Get started"
 order: 8
+layout: cards
 ---
 
 MIOSA is the infrastructure underneath AI products. Your product, or your agent, gets real machines and real URLs:

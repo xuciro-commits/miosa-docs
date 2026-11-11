@@ -4,6 +4,7 @@ title: "Computer use"
 description: "Let software operate a real Linux desktop on a MIOSA Computer - screenshots, mouse, keyboard, windows, accessibility, and a live viewer a human can take over."
 section: "Computers"
 order: 3007
+layout: cards
 ---
 
 A [Computer](/docs/computers/overview) is a durable cloud desktop: a full Linux GUI streamed live from a MIOSA microVM.

@@ -4,6 +4,7 @@ title: "Sandboxes and computers"
 description: "Sandbox vs Computer, the default sandbox, run length, states, pausing, and snapshots."
 section: "Help"
 order: 16002
+layout: accordion
 ---
 
 ## Sandbox or Computer?

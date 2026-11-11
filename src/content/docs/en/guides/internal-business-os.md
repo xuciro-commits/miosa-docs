@@ -4,6 +4,7 @@ title: "Build an internal Business OS for your team"
 description: "Build one internal platform where your team's agents, apps, data, and workflows live together, on MIOSA. Organization and workspaces, a machine per agent, connections, secrets, RBAC, audit, and internal deployments."
 section: "Platform builders"
 order: 9007
+layout: cards
 ---
 
 Some companies build an agent product to sell. Others build one platform for themselves, and run the company on it. This guide is the second one.

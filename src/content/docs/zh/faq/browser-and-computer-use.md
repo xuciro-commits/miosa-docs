@@ -4,6 +4,7 @@ title: "浏览器和计算机使用"
 description: "浏览器自动化运行的位置、启动浏览器返回的内容、CDP、实时接管和计费。"
 section: "Help"
 order: 16003
+layout: accordion
 ---
 
 关于浏览器自动化、计算机使用循环和实时接管的简短回答。

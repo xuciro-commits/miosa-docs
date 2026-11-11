@@ -4,6 +4,7 @@ title: "智能体设备"
 description: "MIOSA 用于智能体工作的设备模型：沙箱工作人员、计算机、本地设备、主要设备、持久性和 Docker 主机边界。"
 section: "Agents"
 order: 6020
+layout: cards
 ---
 
 设备是智能体用来完成实际工作的机器。 MIOSA 有 3 个活跃的

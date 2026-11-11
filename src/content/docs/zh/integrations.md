@@ -4,6 +4,7 @@ title: "在 MIOSA 上构建您的产品"
 description: "交付白标 SaaS，让您的最终用户永远看不到 MIOSA 品牌。独立计算、自定义域、品牌预览、使用情况汇总和 Webhook - 全部都在您的域下。"
 section: "Platform builders"
 order: 9000
+layout: cards
 ---
 
 MIOSA 为您提供完整的计算和预览基础架构。您拥有产品、品牌和用户关系。您的客户永远不会看到“MIOSA”。

@@ -4,6 +4,7 @@ title: "Agent credit metering"
 description: "How to meter credits for MIOSA agent runs, model usage, devices, tools, storage, and deployments."
 section: "Platform builders"
 order: 9013
+layout: cards
 ---
 
 Credits are the business model for agent work on MIOSA. A user does not buy

@@ -4,6 +4,7 @@ title: "流式代码执行"
 description: "在沙箱中运行长 Python 脚本，并通过 SSE 将标准输出实时传输到您的 UI，并进行反压处理。"
 section: "Sandboxes"
 order: 2033
+layout: cards
 ---
 
 `~8 min` `Python` `TypeScript`

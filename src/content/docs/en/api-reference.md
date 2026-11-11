@@ -4,6 +4,7 @@ title: "API Reference"
 description: "REST API reference for the MIOSA platform - base URL, auth, request/response envelopes, and endpoint guides."
 section: "API reference"
 order: 12009
+layout: cards
 ---
 
 > **Tip**

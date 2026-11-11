@@ -4,6 +4,7 @@ title: "在 iframe 中嵌入沙箱"
 description: "您的服务器会铸造一个预览令牌；您的前端将其用作 iframe src。涵盖 React、Vue、Svelte 和 vanilla JS，以及令牌 TTL 刷新。"
 section: "Platform builders"
 order: 9016
+layout: cards
 ---
 
 `~8 min` `Python` `TypeScript`

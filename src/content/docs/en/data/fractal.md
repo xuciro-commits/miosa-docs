@@ -4,6 +4,7 @@ title: "Fractal enterprise data"
 description: "MIOSA and Fractal run dedicated Fractal instances for massive-scale structured data and computation, secure and isolated for enterprise, government, and regulated customers."
 section: "Databases & storage"
 order: 4010
+layout: cards
 ---
 
 MIOSA and Fractal run dedicated Fractal instances for massive-scale structured data and computation, secure and isolated for enterprise and government.

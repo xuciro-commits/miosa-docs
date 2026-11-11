@@ -4,6 +4,7 @@ title: "Agent safety and status"
 description: "How agents interpret deployment health, preserve durable resources, and respect current capability boundaries."
 section: "Agents"
 order: 6003
+layout: cards
 ---
 
 An agent must not treat a single signal as proof that production is healthy, and must not replace durable resources on a guess.

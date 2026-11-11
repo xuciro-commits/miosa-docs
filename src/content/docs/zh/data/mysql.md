@@ -4,6 +4,7 @@ title: "MySQL"
 description: "通过持久存储和 DATABASE_URL 注入来管理每个项目的 MySQL。"
 section: "Databases & storage"
 order: 4002
+layout: cards
 ---
 
 > **提示：可用**

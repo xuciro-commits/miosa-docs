@@ -4,6 +4,7 @@ title: "White-label and platform builders"
 description: "White-label architecture, branded URLs, end-user auth, billing your customers, and branding."
 section: "Help"
 order: 16006
+layout: accordion
 ---
 
 Short answers on running MIOSA under your own brand for your customers.

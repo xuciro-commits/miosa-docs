@@ -4,6 +4,7 @@ title: "智能体设备的运行时环境"
 description: "为租户、工作区或项目范围内的沙箱、计算机和智能体运行时定义继承的环境变量。"
 section: "Agents"
 order: 6013
+layout: cards
 ---
 
 Runtime env 让平台所有者定义一次环境变量并拥有

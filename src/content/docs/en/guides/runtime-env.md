@@ -4,6 +4,7 @@ title: "Runtime env for agent devices"
 description: "Define inherited environment variables for sandboxes, computers, and agent runtimes at tenant, workspace, or project scope."
 section: "Agents"
 order: 6013
+layout: cards
 ---
 
 Runtime env lets a platform owner define environment variables once and have

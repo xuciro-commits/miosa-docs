@@ -4,6 +4,7 @@ title: "部署模型"
 description: "发布如何成为稳定的生产 URL - 管道、静态与动态、部署、版本、域和证明合约。"
 section: "Services & projects"
 order: 1024
+layout: cards
 ---
 
 每次发布都会将沙箱变成稳定的生产应用程序，并由不可变版本、运行状况检查和 API 返回的公共 URL 提供支持。

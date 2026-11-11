@@ -4,6 +4,7 @@ title: "Agent devices"
 description: "MIOSA's device model for agent work: sandbox workers, computers, local devices, primary devices, persistence, and Docker Host boundaries."
 section: "Agents"
 order: 6020
+layout: cards
 ---
 
 Devices are the machines agents use to do real work. MIOSA has three active

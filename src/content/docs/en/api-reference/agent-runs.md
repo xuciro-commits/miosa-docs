@@ -4,6 +4,7 @@ title: "Agent Runs"
 description: "Dispatch prompts into MIOSA devices with a stable run response shape for agent work."
 section: "API reference"
 order: 12034
+layout: cards
 ---
 
 Agent Runs are the prompt-dispatch interface for MIOSA sandboxes and computers.

@@ -4,6 +4,7 @@ title: "Configure an agent"
 description: "Configure an agent's identity, instructions, model, devices, tools, memory, connected accounts, triggers, and approval policy."
 section: "Agents"
 order: 6005
+layout: cards
 ---
 
 An agent is a named worker with instructions, tools, devices, memory, connected

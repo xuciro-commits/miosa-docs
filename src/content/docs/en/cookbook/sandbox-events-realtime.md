@@ -4,6 +4,7 @@ title: "Sandbox events in real time"
 description: "React to sandbox lifecycle events using either HMAC-signed webhooks (server-to-server) or the SSE event stream (in-process). Covers both patterns, idempotency, and when to choose each."
 section: "Platform builders"
 order: 9017
+layout: cards
 ---
 
 `~10 min` `Python` `TypeScript`

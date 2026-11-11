@@ -4,6 +4,7 @@ title: "Agent Development Kit (ADK)"
 description: "Build LLM agents that use MIOSA sandboxes, desktops, and deploys with the tool-call loop already wired. TypeScript ADK first; Python next."
 section: "Agents"
 order: 6012
+layout: cards
 ---
 
 The MIOSA ADK lets you build production-ready LLM agents that natively use

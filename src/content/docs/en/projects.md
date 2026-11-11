@@ -4,6 +4,7 @@ title: "Projects"
 description: "Group the resources for one app, site, or deliverable inside a Workspace, without becoming a runtime."
 section: "Services & projects"
 order: 1000
+layout: cards
 ---
 
 A **Project** is the durable product boundary inside one Workspace.

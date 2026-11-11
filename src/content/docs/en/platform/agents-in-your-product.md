@@ -4,6 +4,7 @@ title: "Agents in your product"
 description: "Give each of your users a machine with an agent or harness working inside it, and show the result in your own UI."
 section: "Platform builders"
 order: 9003
+layout: cards
 ---
 
 A platform makes a machine for each of your users, then puts an agent or harness inside it.

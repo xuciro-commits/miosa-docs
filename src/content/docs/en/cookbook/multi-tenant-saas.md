@@ -4,6 +4,7 @@ title: "Multi-tenant SaaS"
 description: "Embed MIOSA into your SaaS - tag sandboxes per tenant, query usage per workspace, and mint short-lived preview share tokens so customers interact directly with their sandboxes."
 section: "Platform builders"
 order: 9014
+layout: cards
 ---
 
 `~12 min` `Python` `TypeScript`

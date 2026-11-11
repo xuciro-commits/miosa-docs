@@ -4,6 +4,7 @@ title: "Agent orchestration"
 description: "How to coordinate multiple agents across MIOSA sandboxes, computers, artifacts, previews, events, and deployments."
 section: "Agents"
 order: 6021
+layout: cards
 ---
 
 MIOSA lets you build agent systems where different agents use the right runtime

@@ -4,6 +4,7 @@ title: "浏览器的使用原理"
 description: "沙盒浏览器的组成部分、看到它的三个表面以及实时视图和 CDP 套接字的公开方式。"
 section: "Sandboxes"
 order: 2024
+layout: cards
 ---
 
 ## 你得到什么

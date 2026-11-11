@@ -4,6 +4,7 @@ title: "多租户 SaaS"
 description: "将 MIOSA 嵌入到您的 SaaS 中 - 为每个租户标记沙箱，查询每个工作区的使用情况，并创建短期预览共享令牌，以便客​​户直接与其沙箱交互。"
 section: "Platform builders"
 order: 9014
+layout: cards
 ---
 
 `~12 min` `Python` `TypeScript`

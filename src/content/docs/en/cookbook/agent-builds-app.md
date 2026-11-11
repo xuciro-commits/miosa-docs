@@ -4,6 +4,7 @@ title: "Agent builds an app"
 description: "Your AI agent receives a prompt, writes code into a sandbox, iterates visually with live preview, checkpoints progress, branches experiments, shares with stakeholders, and publishes to production."
 section: "Sandboxes"
 order: 2031
+layout: cards
 ---
 
 `~15 min` `Python` `TypeScript`

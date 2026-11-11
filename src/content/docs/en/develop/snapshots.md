@@ -4,6 +4,7 @@ title: "Snapshots, restore, pause, and forks"
 description: "Create durable sandbox checkpoints, restore or fork new sandboxes, and preserve work through pause and resume."
 section: "Sandboxes"
 order: 2014
+layout: cards
 ---
 
 MIOSA sandboxes are persistent by default.

@@ -4,6 +4,7 @@ title: "Bring Your Own Cloud"
 description: "Run MIOSA worker capacity inside a customer AWS account or GCP project while MIOSA orchestrates the product."
 section: "Self-hosting"
 order: 15001
+layout: cards
 ---
 
 Bring Your Own Cloud lets an organization power its product with infrastructure inside its own AWS account or GCP project.

@@ -4,6 +4,7 @@ title: "智能体构建应用程序"
 description: "您的 AI 智能体收到提示，将代码写入沙箱，通过实时预览进行可视化迭代、检查点进度、分支实验、与利益相关者共享以及发布到生产环境。"
 section: "Sandboxes"
 order: 2031
+layout: cards
 ---
 
 `~15 min` `Python` `TypeScript`

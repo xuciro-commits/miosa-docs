@@ -4,6 +4,7 @@ title: "智能体工作流程模式"
 description: "使用 MIOSA 智能体、设备、事件、工件和部署的从简单到复杂的工作流程。"
 section: "Agents"
 order: 6017
+layout: cards
 ---
 
 MIOSA 工作流程可以从一个提示扩展到一支长期运行的智能体队伍。

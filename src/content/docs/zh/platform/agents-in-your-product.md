@@ -4,6 +4,7 @@ title: "产品中的智能体"
 description: "为每位用户分配一台运行智能体或 harness 的机器，并在你自己的 UI 中展示结果。"
 section: "Platform builders"
 order: 9003
+layout: cards
 ---
 
 平台会为每位用户创建一台机器，然后在其中放入一个智能体或 harness。

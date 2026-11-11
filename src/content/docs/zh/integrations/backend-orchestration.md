@@ -4,6 +4,7 @@ title: "后端编排"
 description: "用于将提示分派到 MIOSA 沙箱、计算机和本地设备的后端模式。"
 section: "Platform builders"
 order: 9005
+layout: cards
 ---
 
 您的后端是基于 MIOSA 构建的产品的控制平面。它拥有用户
