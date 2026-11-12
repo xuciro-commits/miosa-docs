@@ -46,8 +46,10 @@ export async function loadMarkdown(
 			(async () => {
 				// Page hashes come from the manifest, so a page that changed since
 				// the build is fetched fresh while unchanged pages keep their cache.
-				const hash = await pageHash(slug, locale, fetcher);
-				const path = `src/content/docs/${locale}/${slug}.md${hash ? `?v=${hash}` : ''}`;
+				// The content commit pins the URL, so the file is immutable; a second
+				// cache buster only risks a mismatch between the live manifest and the
+				// bytes on disk (the two can be a commit apart). The commit is enough.
+				const path = `src/content/docs/${locale}/${slug}.md`;
 				const body = await fetchContent(path, fetcher, { live: true });
 				return body ? stripFrontmatter(body) : undefined;
 			})()
@@ -66,12 +68,6 @@ export function loadRemoteManifest(fetcher: typeof fetch = fetch) {
 		live: true
 	}).then((manifest) => new Map((manifest?.pages ?? []).map((page) => [page.slug, page])));
 	return manifestCache;
-}
-
-async function pageHash(slug: string, locale: 'en' | 'zh', fetcher: typeof fetch) {
-	const pages = await loadRemoteManifest(fetcher);
-	const page = pages.get(slug);
-	return locale === 'zh' ? page?.hashZh : page?.hash;
 }
 
 /** Metadata for every page, without any body text. */

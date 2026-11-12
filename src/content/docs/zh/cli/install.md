@@ -46,8 +46,6 @@ brew install --cask Miosa-osa/homebrew-tap/miosa
 
 **手册**
 
-从 [GitHub Releases](https://github.com/Miosa-osa/miosa-cli-go/releases/latest) 下载适合您平台的存档，并将二进制文件放在 `$PATH` 上的目录中。
-
 ```text
 miosa_2.3.1_darwin_arm64.tar.gz
 miosa_2.3.1_darwin_amd64.tar.gz
@@ -55,6 +53,8 @@ miosa_2.3.1_linux_arm64.tar.gz
 miosa_2.3.1_linux_amd64.tar.gz
 miosa_2.3.1_windows_amd64.zip
 ```
+
+从 [GitHub Releases](https://github.com/Miosa-osa/miosa-cli-go/releases/latest) 下载适合您平台的存档，并将二进制文件放在 `$PATH` 上的目录中。
 
 ## 2. 验证
 

@@ -6,6 +6,8 @@
 			"description": "Install the CLI, start a sandbox, let an agent build something inside it, and open it at a live URL.",
 			"section": "Get started",
 			"layout": "cards",
+			"hash": "73432d4f41",
+			"hashZh": "d4348a3716",
 			"order": 1,
 			"titleZh": "快速开始",
 			"descriptionZh": "安装 CLI、启动沙箱、让智能体在其中构建应用，并通过实时 URL 打开它。"
@@ -15,6 +17,8 @@
 			"title": "Sandbox to deployment",
 			"description": "The full first walkthrough: create a sandbox, write code, preview it live, publish to production, and prove the deployment is running.",
 			"section": "Get started",
+			"hash": "db2117450d",
+			"hashZh": "08efb34da2",
 			"order": 2,
 			"titleZh": "从沙箱到部署",
 			"descriptionZh": "完整的上手演练：创建沙箱、编写代码、实时预览、发布到生产环境，并验证部署正在运行。"
@@ -24,6 +28,8 @@
 			"title": "Agent-driven build",
 			"description": "Dispatch work to your agent, stream events, and collect artifacts from your backend, tagging every resource with your own customer IDs.",
 			"section": "Get started",
+			"hash": "199af1c42c",
+			"hashZh": "c6d627986e",
 			"order": 3,
 			"titleZh": "智能体驱动的构建",
 			"descriptionZh": "将工作分派给你的智能体，流式传输事件，从你的后端收集产物，并用你自己的客户 ID 标记每个资源。"
@@ -33,6 +39,8 @@
 			"title": "Docker Host",
 			"description": "Run containerized applications on a workspace Docker Host host, then confirm the app is live.",
 			"section": "Get started",
+			"hash": "9af223347a",
+			"hashZh": "0e831f78c9",
 			"order": 4,
 			"titleZh": "Docker Host",
 			"descriptionZh": "在工作区 Docker Host 上运行容器化应用，然后确认应用已上线。"
@@ -42,6 +50,8 @@
 			"title": "Install and authenticate",
 			"description": "Install the miosa CLI from npm, Homebrew, the install script or a release archive on macOS, Linux and Windows, verify 2.3, then sign in.",
 			"section": "Get started",
+			"hash": "0e0e207495",
+			"hashZh": "c39652fbe1",
 			"order": 5,
 			"titleZh": "安装并验证",
 			"descriptionZh": "从 macOS、Linux 和 Windows 上的 npm、Homebrew、安装脚本或发布存档安装 miosa CLI，验证 2.3，然后登录。"
@@ -52,6 +62,8 @@
 			"description": "Pick where your app or agent runs on MIOSA: a Sandbox for code, previews and a built-in browser, a Computer for a full desktop, Docker Host to publish.",
 			"section": "Get started",
 			"layout": "cards",
+			"hash": "70e8c4c780",
+			"hashZh": "632a5e136c",
 			"order": 6,
 			"titleZh": "沙箱还是计算机？",
 			"descriptionZh": "选择应用或智能体在 MIOSA 上的运行位置：需要代码、预览和内置浏览器时用沙箱，需要完整桌面时用计算机，需要发布上线时用 Docker Host。"
@@ -62,6 +74,8 @@
 			"description": "Build a small Next.js app in a Sandbox, preview it, publish it as an immutable Deployment, prove it is live, connect a custom domain, and roll back safely - with the miosa CLI 2.x and the SDKs.",
 			"section": "Get started",
 			"layout": "cards",
+			"hash": "362978e811",
+			"hashZh": "6b34caef92",
 			"order": 7,
 			"titleZh": "构建并部署 Next.js 应用程序",
 			"descriptionZh": "使用 miosa CLI 2.x 和 SDK 在沙盒中构建一个小型 Next.js 应用程序、预览它、将其发布为不可变的部署、证明它是实时的、连接自定义域并安全回滚。"
@@ -72,6 +86,8 @@
 			"description": "Concrete product patterns for MIOSA sandboxes, computers, agent runtimes, generated artifacts, previews, and deployments.",
 			"section": "Get started",
 			"layout": "cards",
+			"hash": "cc8235a08a",
+			"hashZh": "ba86843f7c",
 			"order": 8,
 			"titleZh": "使用 MIOSA 可以构建什么",
 			"descriptionZh": "面向 MIOSA 沙箱、计算机、智能体运行时、生成产物、预览和部署的具体产品模式。"
@@ -82,6 +98,8 @@
 			"description": "Group the resources for one app, site, or deliverable inside a Workspace, without becoming a runtime.",
 			"section": "Services & projects",
 			"layout": "cards",
+			"hash": "6251ddd4ec",
+			"hashZh": "c49abcfb23",
 			"order": 1000,
 			"titleZh": "项目",
 			"descriptionZh": "在一个工作区内为一个应用、站点或交付物组织资源，同时不让项目本身成为运行时。"
@@ -91,6 +109,8 @@
 			"title": "Project lifecycle",
 			"description": "Create a project, add resources, configure environments and secrets, deploy, then retire it.",
 			"section": "Services & projects",
+			"hash": "d70835d46c",
+			"hashZh": "43da23e271",
 			"order": 1001,
 			"titleZh": "项目生命周期",
 			"descriptionZh": "创建项目、添加资源、配置环境与密钥、部署，然后下线。"
@@ -100,6 +120,8 @@
 			"title": "Project resources",
 			"description": "The project record, everything that attaches to a project, and how a project maps to your own platform.",
 			"section": "Services & projects",
+			"hash": "ebab045b47",
+			"hashZh": "0739d0e3a8",
 			"order": 1002,
 			"titleZh": "项目资源",
 			"descriptionZh": "项目记录、附加到项目的一切，以及项目如何映射到你自己的平台。"
@@ -110,6 +132,8 @@
 			"description": "Project members, permissions, usage attribution, the operating checklist, and common mistakes.",
 			"section": "Services & projects",
 			"layout": "cards",
+			"hash": "2aab65c220",
+			"hashZh": "dbf9b597bc",
 			"order": 1003,
 			"titleZh": "成员与用量",
 			"descriptionZh": "项目成员、权限、用量归因、操作检查清单以及常见错误。"
@@ -119,6 +143,8 @@
 			"title": "Services",
 			"description": "Run web services, workers, private services and static sites in a project, with releases, variables, domains and rollback.",
 			"section": "Services & projects",
+			"hash": "ea16b04324",
+			"hashZh": "959a2658c7",
 			"order": 1004,
 			"titleZh": "服务",
 			"descriptionZh": "在项目中运行 Web 服务、Worker、私有服务和静态站点，支持发布、变量、域名和回滚。"
@@ -128,6 +154,8 @@
 			"title": "Services quick start",
 			"description": "Take a repository to a live URL, add Postgres and Redis, add a worker, attach a domain, read a failed release and roll back.",
 			"section": "Services & projects",
+			"hash": "e1509cbb8a",
+			"hashZh": "7f2d4c500a",
 			"order": 1005,
 			"titleZh": "服务快速入门",
 			"descriptionZh": "将仓库部署到可访问的 URL，添加 Postgres 和 Redis，添加 worker，绑定域名，读取失败的发布并回滚。"
@@ -137,6 +165,8 @@
 			"title": "Services and types",
 			"description": "The source, settings, address and limits of a web service, worker, private service, static site, cron job and database service.",
 			"section": "Services & projects",
+			"hash": "84694ef5b8",
+			"hashZh": "cc1abdf291",
 			"order": 1006,
 			"titleZh": "服务与类型",
 			"descriptionZh": "Web 服务、Worker、私有服务、静态站点、Cron 任务和数据库服务的来源、设置、地址与限制。"
@@ -146,6 +176,8 @@
 			"title": "Static sites from Git",
 			"description": "Build a static site from a repository and serve it from the static lane, with an optional build command and output directory.",
 			"section": "Services & projects",
+			"hash": "21e4afd442",
+			"hashZh": "15aba9adaf",
 			"order": 1007,
 			"titleZh": "从 Git 构建静态站点",
 			"descriptionZh": "从仓库构建静态站点，并通过静态通道提供服务，可选用构建命令和输出目录。"
@@ -155,6 +187,8 @@
 			"title": "Service settings as code",
 			"description": "Put a service's settings in a file at the repository root, so the repository says how the service runs and the console shows where each value came from.",
 			"section": "Services & projects",
+			"hash": "6517d9a0a7",
+			"hashZh": "68b8ab0062",
 			"order": 1008,
 			"titleZh": "以代码方式管理服务设置",
 			"descriptionZh": "将服务的设置放在仓库根目录的文件中，让仓库说明服务如何运行，并在控制台中显示每个值的来源。"
@@ -164,6 +198,8 @@
 			"title": "Services variables",
 			"description": "Set a service's variables, reference another service's, share variables across an environment, and generate secrets.",
 			"section": "Services & projects",
+			"hash": "3f60f6c9e1",
+			"hashZh": "c25f94b739",
 			"order": 1009,
 			"titleZh": "服务变量",
 			"descriptionZh": "设置服务的变量、引用另一服务的变量、在同一环境中共享变量，并生成密钥。"
@@ -173,6 +209,8 @@
 			"title": "Services environments",
 			"description": "Every project starts with a production environment. Fork it into staging or a preview, and switch between environments on the canvas.",
 			"section": "Services & projects",
+			"hash": "364821d2b2",
+			"hashZh": "65a7181eb2",
 			"order": 1010,
 			"titleZh": "服务环境",
 			"descriptionZh": "每个项目都从生产环境开始。将其分叉为暂存环境或预览环境，并在画布上切换环境。"
@@ -182,6 +220,8 @@
 			"title": "Preview environments",
 			"description": "Open a pull request and MIOSA deploys it to its own environment with its own addresses, then removes it when the pull request closes.",
 			"section": "Services & projects",
+			"hash": "1bf8faca65",
+			"hashZh": "6856d44da9",
 			"order": 1011,
 			"titleZh": "预览环境",
 			"descriptionZh": "打开拉取请求，MIOSA 就会将其部署到拥有独立地址的专属环境中，并在拉取请求关闭后将其移除。"
@@ -191,6 +231,8 @@
 			"title": "Services releases",
 			"description": "Deploy a service, follow the release state machine, read a failure reason, promote or roll back, and cancel a release.",
 			"section": "Services & projects",
+			"hash": "24b30bdf9c",
+			"hashZh": "f874b249f7",
 			"order": 1012,
 			"titleZh": "服务发布",
 			"descriptionZh": "部署服务、跟踪发布状态机、读取失败原因、提升或回滚，以及取消发布。"
@@ -200,6 +242,8 @@
 			"title": "Moving from Railway",
 			"description": "Bring a Railway project to MIOSA with one reviewed plan, every environment in its own Deploy target, services created stopped, and an exact list of what carries over and what you finish by hand.",
 			"section": "Services & projects",
+			"hash": "608810e51b",
+			"hashZh": "561ad2cec8",
 			"order": 1013,
 			"titleZh": "从Railway搬家",
 			"descriptionZh": "将Railway项目带到 MIOSA，其中包括一份经过审查的计划、每个环境都有自己的部署目标、已停止创建的服务以及一份保留的内容和您手动完成的内容的准确列表。"
@@ -209,6 +253,8 @@
 			"title": "Services replicas and scaling",
 			"description": "Set how many replicas a service runs, where, and how large they are, and what a scale change does to the running release.",
 			"section": "Services & projects",
+			"hash": "0390edf6da",
+			"hashZh": "a2a3cc2bb6",
 			"order": 1014,
 			"titleZh": "服务副本与扩缩容",
 			"descriptionZh": "设置服务运行的副本数量、区域和规格，并了解扩缩容变更对运行中发布的影响。"
@@ -218,6 +264,8 @@
 			"title": "Dedicated vCPU",
 			"description": "Run a service on vCPUs that are one hardware thread each and never shared: sizes, prices, and how to select one.",
 			"section": "Services & projects",
+			"hash": "0669060e7c",
+			"hashZh": "aa4771ccd6",
 			"order": 1015,
 			"titleZh": "专用 vCPU",
 			"descriptionZh": "在每颗 vCPU 均为独立硬件线程且从不共享的配置上运行服务：规格、价格以及如何选择。"
@@ -227,6 +275,8 @@
 			"title": "Services logs",
 			"description": "Read a service's runtime logs per replica, the build log of a release, and the events that led to its state.",
 			"section": "Services & projects",
+			"hash": "94c538ecdf",
+			"hashZh": "c725c743c1",
 			"order": 1016,
 			"titleZh": "服务日志",
 			"descriptionZh": "按副本读取服务的运行时日志、某次发布的构建日志，以及导致其状态的事件。"
@@ -236,6 +286,8 @@
 			"title": "Service metrics",
 			"description": "Requests, errors and latency per service, and what the series does not measure.",
 			"section": "Services & projects",
+			"hash": "331399e12f",
+			"hashZh": "67f0332a60",
 			"order": 1017,
 			"titleZh": "服务指标",
 			"descriptionZh": "每个服务的请求、错误和延迟，以及这些序列不衡量哪些内容。"
@@ -245,6 +297,8 @@
 			"title": "Services CLI",
 			"description": "Every miosa service command and flag, from create and deploy to variables, domains, releases and rollback.",
 			"section": "Services & projects",
+			"hash": "c085bbdb41",
+			"hashZh": "fa404dc5ff",
 			"order": 1018,
 			"titleZh": "服务 CLI",
 			"descriptionZh": "所有 miosa service 命令和标志，涵盖创建、部署、变量、域名、发布和回滚。"
@@ -254,6 +308,8 @@
 			"title": "Services SDKs",
 			"description": "TypeScript and Python methods for services, releases, variables, addresses and projects.",
 			"section": "Services & projects",
+			"hash": "d560bec7ec",
+			"hashZh": "aa71df651a",
 			"order": 1019,
 			"titleZh": "服务 SDK",
 			"descriptionZh": "用于服务、发布、变量、地址和项目的 TypeScript 与 Python 方法。"
@@ -264,6 +320,8 @@
 			"description": "Your own always-on host that runs apps published from a sandbox, with immutable versions, health checks and rollback. Formerly App Engine.",
 			"section": "Services & projects",
 			"layout": "cards",
+			"hash": "09ecb9acc8",
+			"hashZh": "a3e4c1451d",
 			"order": 1020,
 			"titleZh": "Docker主机",
 			"descriptionZh": "您自己的永远在线主机，运行从沙箱发布的应用程序，具有不可变版本、运行状况检查和回滚。以前是应用程序引擎。"
@@ -274,6 +332,8 @@
 			"description": "How a workspace Docker Host works: lifecycle states, publishing flow, proof, updates, recovery, runtime boundary, and domains.",
 			"section": "Services & projects",
 			"layout": "cards",
+			"hash": "9d1f6f055c",
+			"hashZh": "639f9be5ea",
 			"order": 1021,
 			"titleZh": "Docker 主机",
 			"descriptionZh": "工作区 Docker Host 的工作原理：生命周期状态、发布流程、证明、更新、恢复、运行时边界和域。"
@@ -284,6 +344,8 @@
 			"description": "Curated app shapes for Docker Host - Dockerfile, Compose, command, port, environment, and persistence defaults.",
 			"section": "Services & projects",
 			"layout": "cards",
+			"hash": "c2de8f1d9b",
+			"hashZh": "1d76fb791e",
 			"order": 1022,
 			"titleZh": "Docker 主机模板",
 			"descriptionZh": "为 Docker 主机精心设计的应用程序形状 - Dockerfile、Compose、命令、端口、环境和持久性默认值。"
@@ -294,6 +356,8 @@
 			"description": "Run many small apps on one always-on workspace host while MIOSA owns routing, domains, and attribution.",
 			"section": "Services & projects",
 			"layout": "cards",
+			"hash": "fe4c72a897",
+			"hashZh": "20735cd1d1",
 			"order": 1023,
 			"titleZh": "Docker主机",
 			"descriptionZh": "在一台始终在线的工作区主机上运行许多小型应用程序，而 MIOSA 拥有路由、域和归属。"
@@ -304,6 +368,8 @@
 			"description": "How a publish becomes a stable production URL - the pipeline, static vs dynamic, deployments, versions, domains, and the proof contract.",
 			"section": "Services & projects",
 			"layout": "cards",
+			"hash": "c051dba495",
+			"hashZh": "1ef34b617a",
 			"order": 1024,
 			"titleZh": "部署模型",
 			"descriptionZh": "发布如何成为稳定的生产 URL - 管道、静态与动态、部署、版本、域和证明合约。"
@@ -313,6 +379,8 @@
 			"title": "Publishing",
 			"description": "Turn a Sandbox into an immutable Deployment Version. Source snapshots, build modes, static artifacts, dynamic runtimes, Docker Host containers, public URLs, and proof.",
 			"section": "Services & projects",
+			"hash": "c850f5e7c4",
+			"hashZh": "a032c079c7",
 			"order": 1025,
 			"titleZh": "出版",
 			"descriptionZh": "将沙箱变成不可变的部署版本。源快照、构建模式、静态工件、动态运行时、Docker 主机容器、公共 URL 和证明。"
@@ -322,6 +390,8 @@
 			"title": "Deploy from GitHub",
 			"description": "Build and publish a GitHub repository with miosa deploy create --git - connect GitHub, public and private repositories, the branch, logs, redeploys, and the webhook that rebuilds on every push.",
 			"section": "Services & projects",
+			"hash": "b76ae11526",
+			"hashZh": "7523d4380a",
 			"order": 1026,
 			"titleZh": "从 GitHub 部署",
 			"descriptionZh": "使用 miosa deploy create --git 构建并发布 GitHub 存储库 - 连接 GitHub、公共和私有存储库、分支、日志、重新部署以及每次推送时重建的 Webhook。"
@@ -331,6 +401,8 @@
 			"title": "Versions",
 			"description": "Immutable history of every publish. Inspect, promote, archive.",
 			"section": "Services & projects",
+			"hash": "ead2da41cd",
+			"hashZh": "6946ab25c1",
 			"order": 1027,
 			"titleZh": "版本",
 			"descriptionZh": "每次发布的历史记录都是不可变的。检查、宣传、归档。"
@@ -340,6 +412,8 @@
 			"title": "Releases",
 			"description": "The immutable build artifact: static files or dynamic server artifact, sha256-keyed.",
 			"section": "Services & projects",
+			"hash": "5d16fd062a",
+			"hashZh": "30fd0533b2",
 			"order": 1028,
 			"titleZh": "发布",
 			"descriptionZh": "不可变的构建工件：静态文件或动态服务器工件，sha256 键控。"
@@ -349,6 +423,8 @@
 			"title": "Rollback",
 			"description": "Repoint a deployment at an older version. Seconds, no rebuild.",
 			"section": "Services & projects",
+			"hash": "5d8ab1365b",
+			"hashZh": "8cdea722c9",
 			"order": 1029,
 			"titleZh": "回滚",
 			"descriptionZh": "将部署重新指向旧版本。秒了，没有重建。"
@@ -358,6 +434,8 @@
 			"title": "Environments",
 			"description": "Production, staging, preview/<source>: variable and secret scoping for deployments.",
 			"section": "Services & projects",
+			"hash": "295b3f82b2",
+			"hashZh": "28b7047691",
 			"order": 1030,
 			"titleZh": "环境",
 			"descriptionZh": "生产、暂存、预览/<source>：部署的变量和秘密范围。"
@@ -367,6 +445,8 @@
 			"title": "Dynamic Runtimes",
 			"description": "Dynamic deployments: production runtimes started from a release, health-checked, and reconciled by MIOSA.",
 			"section": "Services & projects",
+			"hash": "75ca80cbcb",
+			"hashZh": "0077a33a35",
 			"order": 1031,
 			"titleZh": "动态运行时",
 			"descriptionZh": "动态部署：生产运行时从发布开始，由 MIOSA 进行运行状况检查和协调。"
@@ -376,6 +456,8 @@
 			"title": "Deployment Domains",
 			"description": "Preview domains, tenant deployment domains, managed fallback URLs, exact custom domains, DNS verification, automatic TLS, and route changes.",
 			"section": "Services & projects",
+			"hash": "cb15a0b65c",
+			"hashZh": "ecf586260f",
 			"order": 1032,
 			"titleZh": "部署域",
 			"descriptionZh": "预览域、租户部署域、托管回退 URL、精确自定义域、DNS 验证、自动 TLS 和路由更改。"
@@ -385,6 +467,8 @@
 			"title": "Forge",
 			"description": "Git hosting built into MIOSA: a home for code written by you, your sandboxes and your agents, with deploys, pull request previews and merge rules.",
 			"section": "Services & projects",
+			"hash": "e00946c63b",
+			"hashZh": "0b875bd5a2",
 			"order": 1033,
 			"titleZh": "锻造",
 			"descriptionZh": "MIOSA 中内置的 Git 托管：由您、您的沙箱和您的智能体编写的代码的家，具有部署、拉取请求预览和合并规则。"
@@ -394,6 +478,8 @@
 			"title": "Forge quickstart",
 			"description": "Create a Forge repository, push to it with plain git and open your first pull request, in five minutes.",
 			"section": "Services & projects",
+			"hash": "46decb7077",
+			"hashZh": "752c48c095",
 			"order": 1034,
 			"titleZh": "Forge 快速入门",
 			"descriptionZh": "创建一个 Forge 存储库，使用普通 git 推送到它并在五分钟内打开您的第一个拉取请求。"
@@ -403,6 +489,8 @@
 			"title": "Pull requests and checks",
 			"description": "Open a pull request on Forge, report checks, set branch policy and merge.",
 			"section": "Services & projects",
+			"hash": "67cc696798",
+			"hashZh": "07320620d6",
 			"order": 1035,
 			"titleZh": "拉取请求和检查",
 			"descriptionZh": "在 Forge 上打开拉取请求、报告检查、设置分支策略并合并。"
@@ -412,6 +500,8 @@
 			"title": "Forge from a sandbox",
 			"description": "Clone and push to Forge from inside a sandbox with plain git, using the sandbox's own identity.",
 			"section": "Services & projects",
+			"hash": "2e4601a13c",
+			"hashZh": "cea5aafe6e",
 			"order": 1036,
 			"titleZh": "从沙箱中锻造",
 			"descriptionZh": "使用沙箱自己的身份，使用普通 git 从沙箱内部克隆并推送到 Forge。"
@@ -421,6 +511,8 @@
 			"title": "Agents and the Forge API",
 			"description": "Use Forge from the TypeScript and Python SDKs and the REST API: repositories, files, branches, pull requests, checks and releases.",
 			"section": "Services & projects",
+			"hash": "cbff6f8e35",
+			"hashZh": "4593f449a3",
 			"order": 1037,
 			"titleZh": "智能体和 Forge API",
 			"descriptionZh": "使用 TypeScript 和 Python SDK 以及 REST API 中的 Forge：存储库、文件、分支、拉取请求、检查和发布。"
@@ -430,6 +522,8 @@
 			"title": "Forge CLI reference",
 			"description": "Every miosa forge command with an example: auth, repositories, pull requests, checks, branch policy, grants, forks and releases.",
 			"section": "Services & projects",
+			"hash": "e6d3eaf658",
+			"hashZh": "ab49085883",
 			"order": 1038,
 			"titleZh": "Forge CLI 参考",
 			"descriptionZh": "每个 miosa forge 命令都有一个示例：身份验证、存储库、拉取请求、检查、分支策略、授权、分叉和发布。"
@@ -439,6 +533,8 @@
 			"title": "Forge limits and FAQ",
 			"description": "What Forge does and does not do yet: visibility, permissions, merge methods, issues, repository secrets and CI.",
 			"section": "Services & projects",
+			"hash": "ad37c93fbe",
+			"hashZh": "c3917dae95",
 			"order": 1039,
 			"titleZh": "伪造限制和常见问题解答",
 			"descriptionZh": "Forge 做了什么和没有做什么：可见性、权限、合并方法、问题、存储库机密和 CI。"
@@ -448,6 +544,8 @@
 			"title": "CI on MIOSA",
 			"description": "Run GitHub Actions jobs on MIOSA. Connect the MIOSA CI app, use runs-on miosa in a workflow, and each job runs in its own sandbox, billed per second.",
 			"section": "Services & projects",
+			"hash": "a6ec90be0d",
+			"hashZh": "a04167a7ac",
 			"order": 1040,
 			"titleZh": "MIOSA 上的 CI",
 			"descriptionZh": "在 MIOSA 上运行 GitHub Actions 作业。连接 MIOSA CI 应用程序，在工作流程中使用运行式 miosa，每个作业都在自己的沙箱中运行，按秒计费。"
@@ -458,6 +556,8 @@
 			"description": "Fast, isolated Linux VMs for code execution, builds, tests, and dev servers, with live preview URLs and snapshots.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "f295b7d42d",
+			"hashZh": "965b593d8c",
 			"order": 2000,
 			"titleZh": "沙箱",
 			"descriptionZh": "用于代码执行、构建、测试和开发服务器的快速、隔离的 Linux VM，具有实时预览 URL 和快照。"
@@ -468,6 +568,8 @@
 			"description": "What sandboxes are for, what a sandbox is concretely, and the core exec, files, preview, snapshot, and lifecycle capabilities.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "8e270661b1",
+			"hashZh": "dd9aadacc7",
 			"order": 2001,
 			"titleZh": "能力",
 			"descriptionZh": "沙箱的用途、沙箱的具体用途以及核心执行、文件、预览、快照和生命周期功能。"
@@ -477,6 +579,8 @@
 			"title": "Create and connect",
 			"description": "Create a sandbox with the fused run endpoint or a full create, manage its lifetime in Python context managers, and connect to an existing sandbox by id or name.",
 			"section": "Sandboxes",
+			"hash": "0691fbb0bb",
+			"hashZh": "41dde93849",
 			"order": 2002,
 			"titleZh": "创建并连接",
 			"descriptionZh": "使用融合运行端点或完整创建创建沙箱，在 Python 上下文管理器中管理其生命周期，并通过 ID 或名称连接到现有沙箱。"
@@ -487,6 +591,8 @@
 			"description": "Run containers inside MIOSA sandboxes, publish ports, and reach them through preview URLs. Which templates ship Docker Engine, Compose, and Buildx.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "5f1255cd97",
+			"hashZh": "ae0618cdec",
 			"order": 2003,
 			"titleZh": "沙箱中的 Docker",
 			"descriptionZh": "在 MIOSA 沙箱内运行容器、发布端口并通过预览 URL 访问它们。哪些模板附带 Docker Engine、Compose 和 Buildx。"
@@ -496,6 +602,8 @@
 			"title": "Sandbox lifecycle",
 			"description": "The sandbox state machine from creating to destroyed, what each state means, what stop keeps, what resets the idle clock, and how to stop, pause, resume, and restart.",
 			"section": "Sandboxes",
+			"hash": "504c220420",
+			"hashZh": "f5ee32a28e",
 			"order": 2004,
 			"titleZh": "沙箱生命周期",
 			"descriptionZh": "沙箱状态机从创建到销毁，每个状态意味着什么，停止保留什么，重置空闲时钟什么，以及如何停止、暂停、恢复和重新启动。"
@@ -505,6 +613,8 @@
 			"title": "Files & Exec",
 			"description": "Read, write, watch files inside a sandbox. Run commands, stream stdout/stderr, manage processes.",
 			"section": "Sandboxes",
+			"hash": "be8fc6d7e3",
+			"hashZh": "33678b0df2",
 			"order": 2005,
 			"titleZh": "文件与执行",
 			"descriptionZh": "在沙箱内读取、写入、监视文件。运行命令、流式传输标准输出/标准错误、管理进程。"
@@ -514,6 +624,8 @@
 			"title": "Sizing and limits",
 			"description": "Named sandbox resource contracts, raw resource overrides, how sandbox usage is billed, and the opt-in runner fast path.",
 			"section": "Sandboxes",
+			"hash": "f4a95978b8",
+			"hashZh": "d144efec85",
 			"order": 2006,
 			"titleZh": "尺寸和限制",
 			"descriptionZh": "命名沙箱资源合同、原始资源覆盖、沙箱使用如何计费以及选择加入运行程序快速路径。"
@@ -523,6 +635,8 @@
 			"title": "Timeouts and auto-stop",
 			"description": "The sandbox active-session timeout, how to extend it, and how runtime, CPU, and network usage are measured and reported.",
 			"section": "Sandboxes",
+			"hash": "eed00f5e94",
+			"hashZh": "bbed5f6314",
 			"order": 2007,
 			"titleZh": "超时和自动停止",
 			"descriptionZh": "沙箱活动会话超时、如何延长它以及如何测量和报告运行时、CPU 和网络使用情况。"
@@ -532,6 +646,8 @@
 			"title": "Sandbox events",
 			"description": "Subscribe to sandbox lifecycle and activity events over SSE to monitor agent runs and detect unexpected exits.",
 			"section": "Sandboxes",
+			"hash": "c1d2dffa04",
+			"hashZh": "abdd0fff75",
 			"order": 2008,
 			"titleZh": "沙盒活动",
 			"descriptionZh": "通过 SSE 订阅沙箱生命周期和活动事件，以监控智能体运行并检测意外退出。"
@@ -542,6 +658,8 @@
 			"description": "Four ways into a live sandbox: the SDK, the CLI, SSH over an authenticated tunnel, and preview URLs. What each is good for, and what does not work.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "15ccaf03be",
+			"hashZh": "a27b3f4ccc",
 			"order": 2009,
 			"titleZh": "连接到正在运行的沙箱",
 			"descriptionZh": "进入实时沙箱的四种方式：SDK、CLI、通过经过身份验证的隧道的 SSH 以及预览 URL。每种方法都有什么用，什么没用。"
@@ -551,6 +669,8 @@
 			"title": "Metadata and labels",
 			"description": "Attach arbitrary metadata to a sandbox at create time, read it back, and use external IDs for anything you need to query or bill on.",
 			"section": "Sandboxes",
+			"hash": "04bd4aecef",
+			"hashZh": "bcd544b699",
 			"order": 2010,
 			"titleZh": "元数据和标签",
 			"descriptionZh": "在创建时将任意元数据附加到沙箱，读回它，并使用外部 ID 来查询或计费所需的任何内容。"
@@ -561,6 +681,8 @@
 			"description": "Work that outlives a single exec: background processes, their logs and status, always-on sandboxes, and what comes back after pause and resume.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "6ab83762ef",
+			"hashZh": "119ebb7c53",
 			"order": 2011,
 			"titleZh": "长时间运行的任务",
 			"descriptionZh": "比单个执行程序寿命更长的工作：后台进程、它们的日志和状态、始终在线的沙箱以及暂停和恢复后返回的内容。"
@@ -570,6 +692,8 @@
 			"title": "Production checklist",
 			"description": "The defaults to set on sandboxes before relying on them in production: timeouts, persistence, idempotency, templates, secrets, and event subscription.",
 			"section": "Sandboxes",
+			"hash": "df966da2ab",
+			"hashZh": "70c1445a60",
 			"order": 2012,
 			"titleZh": "生产清单",
 			"descriptionZh": "在生产中依赖沙箱之前，默认设置沙箱：超时、持久性、幂等性、模板、秘密和事件订阅。"
@@ -580,6 +704,8 @@
 			"description": "What every machine ships with, its sizes, runtimes, and pre-installed tools.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "e32b5a57f8",
+			"hashZh": "4e12ba7e06",
 			"order": 2013,
 			"titleZh": "机器能力",
 			"descriptionZh": "每台机器附带的内容、尺寸、运行时间和预装工具。"
@@ -590,6 +716,8 @@
 			"description": "Create durable sandbox checkpoints, restore or fork new sandboxes, and preserve work through pause and resume.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "8bb9559e08",
+			"hashZh": "ee72e09c66",
 			"order": 2014,
 			"titleZh": "快照、恢复、暂停和分叉",
 			"descriptionZh": "创建持久的沙箱检查点，恢复或分叉新沙箱，并通过暂停和恢复保留工作。"
@@ -599,6 +727,8 @@
 			"title": "Templates",
 			"description": "The one sandbox image, the templates that stage content inside it, the desktop, and how to start a Next.js, FastAPI, or static project.",
 			"section": "Sandboxes",
+			"hash": "024ac07f17",
+			"hashZh": "67444828b8",
 			"order": 2015,
 			"titleZh": "模板",
 			"descriptionZh": "一个沙盒映像、在其中暂存内容的模板、桌面以及如何启动 Next.js、FastAPI 或静态项目。"
@@ -609,6 +739,8 @@
 			"description": "Create a public, read-only link to a running sandbox so a teammate or an outside user can view it, and revoke the link at any time.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "3aa3758d69",
+			"hashZh": "fb7484bdbc",
 			"order": 2016,
 			"titleZh": "沙盒股份",
 			"descriptionZh": "创建指向正在运行的沙箱的公共只读链接，以便队友或外部用户可以查看它，并随时撤销该链接。"
@@ -618,6 +750,8 @@
 			"title": "Environment variables",
 			"description": "Set sandbox-level env at create time, inherit account-level runtime env by scope and target, and understand precedence, the per-sandbox env API, secret files, and secrets, and how a value reaches exec.",
 			"section": "Sandboxes",
+			"hash": "20e8381f9b",
+			"hashZh": "e0a0a91383",
 			"order": 2017,
 			"titleZh": "环境变量",
 			"descriptionZh": "在创建时设置沙箱级环境，按范围和目标继承帐户级运行时环境，并了解优先级、每个沙箱环境 API、秘密文件和秘密，以及值如何到达执行。"
@@ -627,6 +761,8 @@
 			"title": "Secrets  -  Quickstart",
 			"description": "Store API keys in MIOSA. Your sandbox uses an opaque placeholder. The real key never lives inside the VM.",
 			"section": "Sandboxes",
+			"hash": "e62ca79821",
+			"hashZh": "96cd97a413",
 			"order": 2018,
 			"titleZh": "机密 - 快速入门",
 			"descriptionZh": "在 MIOSA 中存储 API 密钥。你的沙箱使用不透明占位符，真实密钥永远不会存在虚拟机内。"
@@ -636,6 +772,8 @@
 			"title": "Connect Accounts (OAuth)",
 			"description": "Authorize accounts (GitHub, Google, Slack, …) once. MIOSA manages token refresh; your sandbox sees an env var.",
 			"section": "Sandboxes",
+			"hash": "20dd0d0322",
+			"hashZh": "0699e41805",
 			"order": 2019,
 			"titleZh": "连接账户（OAuth）",
 			"descriptionZh": "一次性授权账户（GitHub、Google、Slack 等）。MIOSA 管理令牌刷新；你的沙盒只会看到一个环境变量。"
@@ -645,6 +783,8 @@
 			"title": "Managed connectors for sandbox agents",
 			"description": "Attach MIOSA-managed tools like Refero to sandbox or computer agents without client-supplied vendor tokens.",
 			"section": "Sandboxes",
+			"hash": "6755c1ed26",
+			"hashZh": "8d391fd600",
 			"order": 2020,
 			"titleZh": "沙盒智能体的托管连接器",
 			"descriptionZh": "将 MIOSA 管理的工具（例如 Refero）附加到沙箱或计算机智能体，无需客户端提供的供应商令牌。"
@@ -654,6 +794,8 @@
 			"title": "SOMA",
 			"description": "SOMA is MIOSA's own open-source virtual machine monitor, written in Rust. It gives every sandbox a hardware-isolated machine with its own Linux kernel, restored from a certified snapshot.",
 			"section": "Sandboxes",
+			"hash": "ea7ec5dcf2",
+			"hashZh": "2dc1477e1a",
 			"order": 2021,
 			"titleZh": "SOMA",
 			"descriptionZh": "SOMA 是 MIOSA 自研的开源虚拟机监视器，使用 Rust 编写。它为每个沙箱提供一台硬件隔离的机器，拥有独立 Linux 内核，并从经过认证的快照恢复。"
@@ -663,6 +805,8 @@
 			"title": "Choosing a runtime",
 			"description": "Choose Firecracker, SOMA or auto when you create a sandbox with the runtime option. List the runtimes your organization offers and see what each runtime reports it supports today.",
 			"section": "Sandboxes",
+			"hash": "a7b953d33d",
+			"hashZh": "b9a06d991e",
 			"order": 2022,
 			"titleZh": "选择运行时",
 			"descriptionZh": "在使用 runtime 选项创建沙箱时选择 Firecracker、SOMA 或 auto。列出你的组织提供的运行时，并查看每个运行时当前声明支持的功能。"
@@ -673,6 +817,8 @@
 			"description": "A live browser inside any MIOSA sandbox - watch it, take control, share a view-only link, and let agents drive the same browser over CDP.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "a3e7b3303f",
+			"hashZh": "4e6a0097ae",
 			"order": 2023,
 			"titleZh": "浏览器使用",
 			"descriptionZh": "任何 MIOSA 沙箱内的实时浏览器 - 监视、控制、共享仅供查看的链接，并让智能体通过 CDP 驱动同一浏览器。"
@@ -683,6 +829,8 @@
 			"description": "The parts of a sandbox browser, the three surfaces that see it, and how the live view and CDP sockets are exposed.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "576b12bb97",
+			"hashZh": "1194eef170",
 			"order": 2024,
 			"titleZh": "浏览器的使用原理",
 			"descriptionZh": "沙盒浏览器的组成部分、看到它的三个表面以及实时视图和 CDP 套接字的公开方式。"
@@ -692,6 +840,8 @@
 			"title": "Browser use quickstart",
 			"description": "Start a live browser in any MIOSA sandbox, read its stream and CDP endpoints, and stop it when you are done.",
 			"section": "Sandboxes",
+			"hash": "1fa07973ee",
+			"hashZh": "2101ce3ad1",
 			"order": 2025,
 			"titleZh": "浏览器使用快速入门",
 			"descriptionZh": "在任何 MIOSA 沙箱中启动实时浏览器，读取其流和 CDP 端点，并在完成后停止它。"
@@ -701,6 +851,8 @@
 			"title": "Browser use live viewer",
 			"description": "Watch a sandbox browser live, take control, share a revocable view-only link, and go full screen.",
 			"section": "Sandboxes",
+			"hash": "c828aa28c9",
+			"hashZh": "09b0b3afd1",
 			"order": 2026,
 			"titleZh": "浏览器使用实时查看器",
 			"descriptionZh": "实时观看沙盒浏览器、控制、共享可撤销的仅供查看的链接，然后全屏显示。"
@@ -710,6 +862,8 @@
 			"title": "Drive a sandbox browser over CDP",
 			"description": "Connect Playwright and Puppeteer to a live sandbox browser over CDP and drive the same session a viewer is watching.",
 			"section": "Sandboxes",
+			"hash": "3faf1fb80a",
+			"hashZh": "855c82c4b6",
 			"order": 2027,
 			"titleZh": "通过 CDP 驱动沙箱浏览器",
 			"descriptionZh": "通过 CDP 将 Playwright 和 Puppeteer 连接到实时沙箱浏览器，并驱动观众正在观看的同一会话。"
@@ -719,6 +873,8 @@
 			"title": "Browser use integrations",
 			"description": "Connect a Chrome DevTools Protocol client to a MIOSA sandbox browser. Only clients verified end to end are listed.",
 			"section": "Sandboxes",
+			"hash": "38e0623277",
+			"hashZh": "f8dc5db872",
 			"order": 2028,
 			"titleZh": "浏览器使用集成",
 			"descriptionZh": "将 Chrome DevTools 协议客户端连接到 MIOSA 沙箱浏览器。仅列出经过端到端验证的客户端。"
@@ -728,6 +884,8 @@
 			"title": "Browser use limits, billing, and security",
 			"description": "Availability and size, lifecycle across pause and resume, how browser use is billed, and how access is enforced.",
 			"section": "Sandboxes",
+			"hash": "b487fc8611",
+			"hashZh": "d795aeb174",
 			"order": 2029,
 			"titleZh": "浏览器使用限制、计费和安全性",
 			"descriptionZh": "可用性和大小、暂停和恢复的生命周期、浏览器使用如何计费以及如何强制访问。"
@@ -738,6 +896,8 @@
 			"description": "Every MIOSA recipe in one place, grouped by area. Sandbox procedures and platform-builder walkthroughs, each with a working code path.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "599380e7a8",
+			"hashZh": "06714d5711",
 			"order": 2030,
 			"titleZh": "食谱",
 			"descriptionZh": "每个 MIOSA 食谱都集中在一个地方，并按区域分组。沙盒程序和平台构建器演练，每个都有一个工作代码路径。"
@@ -748,6 +908,8 @@
 			"description": "Your AI agent receives a prompt, writes code into a sandbox, iterates visually with live preview, checkpoints progress, branches experiments, shares with stakeholders, and publishes to production.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "c6aa6d6b9d",
+			"hashZh": "b0d66f649c",
 			"order": 2031,
 			"titleZh": "智能体构建应用程序",
 			"descriptionZh": "您的 AI 智能体收到提示，将代码写入沙箱，通过实时预览进行可视化迭代、检查点进度、分支实验、与利益相关者共享以及发布到生产环境。"
@@ -758,6 +920,8 @@
 			"description": "Create a sandbox, store an OpenAI key and connect GitHub via OAuth, run an AI agent, watch the audit log live, lock the network down, then rotate the key mid-run.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "ea542f8182",
+			"hashZh": "bc51f85bb9",
 			"order": 2032,
 			"titleZh": "秘密特工 - 完整演练",
 			"descriptionZh": "创建一个沙箱，存储 OpenAI 密钥并通过 OAuth 连接 GitHub，运行 AI 智能体，实时观看审核日志，锁定网络，然后在运行中轮换密钥。"
@@ -768,6 +932,8 @@
 			"description": "Run a long Python script in a sandbox and stream stdout to your UI in real time via SSE, with backpressure handling.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "0d7afe6bf7",
+			"hashZh": "ada176d721",
 			"order": 2033,
 			"titleZh": "流式代码执行",
 			"descriptionZh": "在沙箱中运行长 Python 脚本，并通过 SSE 将标准输出实时传输到您的 UI，并进行反压处理。"
@@ -778,6 +944,8 @@
 			"description": "Put an LLM in the loop of a real browser running inside a sandbox. Start the sandbox browser, drive it over CDP with Playwright, and run the screenshot → action → screenshot loop.",
 			"section": "Sandboxes",
 			"layout": "cards",
+			"hash": "e021548624",
+			"hashZh": "8baa2a7291",
 			"order": 2034,
 			"titleZh": "浏览器智能体",
 			"descriptionZh": "将 LLM 放入在沙箱内运行的真实浏览器的循环中。启动沙箱浏览器，使用 Playwright 通过 CDP 驱动它，然后运行屏幕截图 → 操作 → 屏幕截图循环。"
@@ -788,6 +956,8 @@
 			"description": "Durable cloud desktops for browser agents, human takeover, GUI automation, and long-running computer-use workflows.",
 			"section": "Computers",
 			"layout": "cards",
+			"hash": "f535fa362b",
+			"hashZh": "609606f027",
 			"order": 3000,
 			"titleZh": "电脑（台式机）",
 			"descriptionZh": "适用于浏览器智能体、人工接管、GUI 自动化和长期运行的计算机使用工作流程的耐用云桌面。"
@@ -797,6 +967,8 @@
 			"title": "Inside a Computer",
 			"description": "What ships in a Computer and how the desktop, persistent disk, stream gateway, and control API fit together.",
 			"section": "Computers",
+			"hash": "4e81b64b0e",
+			"hashZh": "548493d425",
 			"order": 3001,
 			"titleZh": "电脑内部",
 			"descriptionZh": "计算机中包含哪些内容以及桌面、永久磁盘、流网关和控制 API 如何组合在一起。"
@@ -807,6 +979,8 @@
 			"description": "Choose a Computer or a Sandbox for a workload, with the rule of thumb and a side-by-side table.",
 			"section": "Computers",
 			"layout": "cards",
+			"hash": "b160d4d0f3",
+			"hashZh": "6834d2f316",
 			"order": 3002,
 			"titleZh": "计算机与沙箱",
 			"descriptionZh": "根据经验法则和并排表，为工作负载选择计算机或沙箱。"
@@ -817,6 +991,8 @@
 			"description": "How MIOSA starts managed desktop Computers quickly, defines browser readiness, and exposes failures without false Live states.",
 			"section": "Computers",
 			"layout": "cards",
+			"hash": "1820050705",
+			"hashZh": "183cee17b6",
 			"order": 3003,
 			"titleZh": "快速启动与就绪",
 			"descriptionZh": "MIOSA 如何快速启动托管桌面计算机、定义浏览器就绪状态，并在失败时如实暴露错误而不虚报 Live 状态。"
@@ -826,6 +1002,8 @@
 			"title": "Embedding & Streaming",
 			"description": "Embed a live Computer desktop in your own UI with a short-lived stream URL. Pixel streaming and input forwarding are handled by MIOSA.",
 			"section": "Computers",
+			"hash": "e52a680795",
+			"hashZh": "7a7193ba72",
 			"order": 3004,
 			"titleZh": "嵌入与流式传输",
 			"descriptionZh": "用短期有效的推流地址把你自己的界面嵌入一台运行中的计算机桌面；像素推流与输入转发由 MIOSA 处理。"
@@ -835,6 +1013,8 @@
 			"title": "Lifecycle and sizing",
 			"description": "Computer fast startup, the desktop state machine, resource sizes, and workspace-scoped creation for per-tenant attribution.",
 			"section": "Computers",
+			"hash": "88e8bcae83",
+			"hashZh": "751ec98e19",
 			"order": 3005,
 			"titleZh": "生命周期和规模",
 			"descriptionZh": "计算机快速启动、桌面状态机、资源大小以及每个租户归因的工作区范围创建。"
@@ -844,6 +1024,8 @@
 			"title": "Production checklist",
 			"description": "The defaults to verify before relying on a Computer in production: workspace attribution, access, secrets, state, observability, and recovery.",
 			"section": "Computers",
+			"hash": "37e2121ea1",
+			"hashZh": "e1a92bc59a",
 			"order": 3006,
 			"titleZh": "生产清单",
 			"descriptionZh": "在生产中依赖计算机之前要验证的默认设置：工作区归属、访问、机密、状态、可观察性和恢复。"
@@ -854,6 +1036,8 @@
 			"description": "Let software operate a real Linux desktop on a MIOSA Computer - screenshots, mouse, keyboard, windows, accessibility, and a live viewer a human can take over.",
 			"section": "Computers",
 			"layout": "cards",
+			"hash": "a852064a72",
+			"hashZh": "4c78451019",
 			"order": 3007,
 			"titleZh": "电脑使用",
 			"descriptionZh": "让软件在 MIOSA 计算机上操作真正的 Linux 桌面 - 屏幕截图、鼠标、键盘、窗口、可访问性以及人类可以接管的实时查看器。"
@@ -863,6 +1047,8 @@
 			"title": "Computer use quickstart",
 			"description": "Create a MIOSA Computer, run the first screenshot-act-verify loop, and watch the live desktop a human can take over.",
 			"section": "Computers",
+			"hash": "d955d1a247",
+			"hashZh": "3175a54bed",
 			"order": 3008,
 			"titleZh": "电脑使用快速入门",
 			"descriptionZh": "创建一台 MIOSA 计算机，运行第一个屏幕截图-执行-验证循环，然后观看人类可以接管的实时桌面。"
@@ -872,6 +1058,8 @@
 			"title": "Computer use API reference",
 			"description": "Every MIOSA Computer desktop control endpoint - screenshot, mouse, keyboard, scroll, clipboard, windows, accessibility tree, and the one-shot window-state read.",
 			"section": "Computers",
+			"hash": "9a4f2256ac",
+			"hashZh": "e187dab135",
 			"order": 3009,
 			"titleZh": "电脑使用API​​参考",
 			"descriptionZh": "每个 MIOSA 计算机桌面控制端点 - 屏幕截图、鼠标、键盘、滚动、剪贴板、窗口、辅助功能树和一次性窗口状态读取。"
@@ -881,6 +1069,8 @@
 			"title": "Computer use SDK examples",
 			"description": "Python and TypeScript method names for driving a MIOSA Computer desktop, with runnable examples for screenshots, input, windows, accessibility, and shell.",
 			"section": "Computers",
+			"hash": "49e19eda96",
+			"hashZh": "875a732918",
 			"order": 3010,
 			"titleZh": "电脑端使用SDK示例",
 			"descriptionZh": "用于驱动 MIOSA 计算机桌面的 Python 和 TypeScript 方法名称，以及屏幕截图、输入、窗口、辅助功能和 shell 的可运行示例。"
@@ -890,6 +1080,8 @@
 			"title": "Computer use limits",
 			"description": "Latency, coordinate space, sizing, authentication, and rate limits for MIOSA Computer desktop control.",
 			"section": "Computers",
+			"hash": "2e0be8f994",
+			"hashZh": "15acebc052",
 			"order": 3011,
 			"titleZh": "计算机使用限制",
 			"descriptionZh": "MIOSA 计算机桌面控制的延迟、坐标空间、大小、身份验证和速率限制。"
@@ -899,6 +1091,8 @@
 			"title": "Computer use vs browser use: which to pick",
 			"description": "A short comparison of MIOSA browser use inside a sandbox and full computer use on a durable desktop, to pick the right one for a task.",
 			"section": "Computers",
+			"hash": "d30b4895c8",
+			"hashZh": "7e69364464",
 			"order": 3012,
 			"titleZh": "计算机使用与浏览器使用：选择哪一个",
 			"descriptionZh": "对沙箱内的 MIOSA 浏览器使用与耐用桌面上的完整计算机使用进行简短比较，以选择适合任务的浏览器。"
@@ -909,6 +1103,8 @@
 			"description": "Connect machines you already own to MIOSA and manage them as hosts - commands, containers, meshes, GitHub Actions runners, backups, tunnels, and devices.",
 			"section": "Computers",
 			"layout": "cards",
+			"hash": "e8beb29e0b",
+			"hashZh": "9ac5e80fd4",
 			"order": 3013,
 			"titleZh": "OpenComputers公司",
 			"descriptionZh": "将您已经拥有的机器连接到 MIOSA 并将它们作为主机进行管理 - 命令、容器、网格、GitHub Actions 运行器、备份、隧道和设备。"
@@ -918,6 +1114,8 @@
 			"title": "Connect your first host",
 			"description": "Install the host agent, enroll a machine, verify a command on that exact host, and configure service startup for Linux, macOS, or Windows.",
 			"section": "Computers",
+			"hash": "0c86bfd2a3",
+			"hashZh": "7abc043409",
 			"order": 3014,
 			"titleZh": "连接您的第一台主机",
 			"descriptionZh": "安装主机智能体、注册计算机、验证该主机上的命令，并为 Linux、macOS 或 Windows 配置服务启动。"
@@ -927,6 +1125,8 @@
 			"title": "Hosts and capabilities",
 			"description": "Inspect enrolled hosts, read their runtime and services, run commands on one host or a group, manage files, apps, compose projects, secrets, SSH keys, and clusters.",
 			"section": "Computers",
+			"hash": "0195e2633e",
+			"hashZh": "ea500623a3",
 			"order": 3015,
 			"titleZh": "主机和功能",
 			"descriptionZh": "检查注册的主机、读取其运行时和服务、在一台主机或一组主机上运行命令、管理文件、应用程序、编写项目、机密、SSH 密钥和集群。"
@@ -936,6 +1136,8 @@
 			"title": "Containers on a host",
 			"description": "Run Docker or Podman containers on one of your hosts, stream their logs and resource usage, and keep docker-compose projects running.",
 			"section": "Computers",
+			"hash": "cd96ac4b75",
+			"hashZh": "94e6e4ca2c",
 			"order": 3016,
 			"titleZh": "主机上的容器",
 			"descriptionZh": "在一台主机上运行 Docker 或 Podman 容器，流式传输其日志和资源使用情况，并保持 docker-compose 项目运行。"
@@ -945,6 +1147,8 @@
 			"title": "Meshes",
 			"description": "Link several of your hosts on a private encrypted WireGuard network so they reach each other without going over the public internet.",
 			"section": "Computers",
+			"hash": "c9fc90d047",
+			"hashZh": "af294db6a8",
 			"order": 3017,
 			"titleZh": "网格",
 			"descriptionZh": "在私有加密 WireGuard 网络上链接多台主机，以便它们无需通过公共互联网即可相互访问。"
@@ -954,6 +1158,8 @@
 			"title": "GitHub Actions runners",
 			"description": "Register self-hosted GitHub Actions runners on your own hosts for one repository, and stream their activity from MIOSA.",
 			"section": "Computers",
+			"hash": "8a01745b22",
+			"hashZh": "08e332a505",
 			"order": 3018,
 			"titleZh": "GitHub Actions 跑步者",
 			"descriptionZh": "在您自己的主机上为一个存储库注册自托管 GitHub Actions 运行器，并从 MIOSA 流式传输其活动。"
@@ -963,6 +1169,8 @@
 			"title": "Backups and snapshots",
 			"description": "Schedule directory backups on your own hosts, keep a rolling snapshot history, and restore a snapshot onto the same host or a different one.",
 			"section": "Computers",
+			"hash": "61bc568b00",
+			"hashZh": "bc68a52534",
 			"order": 3019,
 			"titleZh": "备份和快照",
 			"descriptionZh": "在您自己的主机上安排目录备份，保留滚动快照历史记录，并将快照还原到同一主机或不同主机上。"
@@ -972,6 +1180,8 @@
 			"title": "Tunnels and exposing services",
 			"description": "Expose a port on a host at a MIOSA-managed address, choose who can reach it, and understand what a tunnel does and does not do.",
 			"section": "Computers",
+			"hash": "ec3cd32d81",
+			"hashZh": "e2ce28a099",
 			"order": 3020,
 			"titleZh": "隧道和暴露服务",
 			"descriptionZh": "公开位于 MIOSA 管理地址的主机上的端口，选择谁可以访问该端口，并了解隧道可以做什么和不能做什么。"
@@ -981,6 +1191,8 @@
 			"title": "Devices",
 			"description": "The device model - one id-addressed surface for running commands, moving files, exposing ports, and driving lifecycle across runtime kinds.",
 			"section": "Computers",
+			"hash": "c1c776a3cb",
+			"hashZh": "0eb11ef781",
 			"order": 3021,
 			"titleZh": "设备",
 			"descriptionZh": "设备模型 - 一个 ID 寻址的表面，用于运行命令、移动文件、公开端口以及跨运行时类型驱动生命周期。"
@@ -990,6 +1202,8 @@
 			"title": "Security model",
 			"description": "How the host agent connects, what MIOSA can and cannot reach on your machine, which credentials exist, and how audit and revocation work.",
 			"section": "Computers",
+			"hash": "536d4dc27b",
+			"hashZh": "969872f593",
 			"order": 3022,
 			"titleZh": "安全模型",
 			"descriptionZh": "主机智能体如何连接、MIOSA 可以或不能访问您的计算机上的内容、存在哪些凭据以及审核和撤销如何工作。"
@@ -1000,6 +1214,8 @@
 			"description": "What a plan allows on OpenComputers - hosts, containers, tunnels - and the operational caps on commands, transfers, backups, and tunnels.",
 			"section": "Computers",
 			"layout": "cards",
+			"hash": "50b15c6058",
+			"hashZh": "604164ae6f",
 			"order": 3023,
 			"titleZh": "计费和限制",
 			"descriptionZh": "计划允许在 OpenComputers 上实现哪些功能 - 主机、容器、隧道 - 以及命令、传输、备份和隧道的操作上限。"
@@ -1009,6 +1225,8 @@
 			"title": "OpenComputers troubleshooting",
 			"description": "Diagnose offline hosts, rejected credentials, failed commands, container, mesh, runner, backup, and tunnel problems.",
 			"section": "Computers",
+			"hash": "0e157d3c41",
+			"hashZh": "57bc420d8d",
 			"order": 3024,
 			"titleZh": "OpenComputers 故障排除",
 			"descriptionZh": "诊断离线主机、拒绝的凭据、失败的命令、容器、网格、运行器、备份和隧道问题。"
@@ -1018,6 +1236,8 @@
 			"title": "API, CLI, and SDK reference",
 			"description": "Every OpenComputers endpoint group, the CLI command families that call them, and the SDK namespaces that wrap them.",
 			"section": "Computers",
+			"hash": "845e019615",
+			"hashZh": "fb91e37b40",
 			"order": 3025,
 			"titleZh": "API、CLI 和 SDK 参考",
 			"descriptionZh": "每个 OpenComputers 端点组、调用它们的 CLI 命令系列以及包装它们的 SDK 命名空间。"
@@ -1028,6 +1248,8 @@
 			"description": "Managed databases, object storage, auth, and volumes with explicit lifecycle, credentials, and recovery operations.",
 			"section": "Databases & storage",
 			"layout": "cards",
+			"hash": "94537b5c8c",
+			"hashZh": "a94572a71e",
 			"order": 4000,
 			"titleZh": "数据",
 			"descriptionZh": "具有明确生命周期、凭证和恢复操作的托管数据库、对象存储、身份验证和卷。"
@@ -1037,6 +1259,8 @@
 			"title": "Postgres",
 			"description": "Managed Postgres per project with lifecycle controls, backup, restore, and DATABASE_URL injection.",
 			"section": "Databases & storage",
+			"hash": "20d0017c37",
+			"hashZh": "64be70c107",
 			"order": 4001,
 			"titleZh": "Postgres",
 			"descriptionZh": "通过生命周期控制、备份、恢复和 DATABASE_URL 注入来管理每个项目的 Postgres。"
@@ -1047,6 +1271,8 @@
 			"description": "Managed MySQL per project with durable storage and DATABASE_URL injection.",
 			"section": "Databases & storage",
 			"layout": "cards",
+			"hash": "93191c2167",
+			"hashZh": "e0b7c48493",
 			"order": 4002,
 			"titleZh": "MySQL",
 			"descriptionZh": "通过持久存储和 DATABASE_URL 注入来管理每个项目的 MySQL。"
@@ -1056,6 +1282,8 @@
 			"title": "Redis / Cache",
 			"description": "Managed Redis per project for caching, sessions, and pub/sub.",
 			"section": "Databases & storage",
+			"hash": "1663fe6fb9",
+			"hashZh": "a3812648ad",
 			"order": 4003,
 			"titleZh": "Redis/缓存",
 			"descriptionZh": "每个项目托管 Redis，用于缓存、会话和发布/订阅。"
@@ -1066,6 +1294,8 @@
 			"description": "Per-project vector database for semantic search and embedding storage. QDRANT_URL injected at boot.",
 			"section": "Databases & storage",
 			"layout": "cards",
+			"hash": "cb96ae14df",
+			"hashZh": "b5c7c71440",
 			"order": 4004,
 			"titleZh": "Qdrant（矢量数据库）",
 			"descriptionZh": "用于语义搜索和嵌入存储的每个项目矢量数据库。 QDRANT_URL 在启动时注入。"
@@ -1075,6 +1305,8 @@
 			"title": "MongoDB",
 			"description": "Managed MongoDB per project for document data.",
 			"section": "Databases & storage",
+			"hash": "546db52a75",
+			"hashZh": "2b7ef1b495",
 			"order": 4005,
 			"titleZh": "MongoDB",
 			"descriptionZh": "管理每个项目的 MongoDB 文档数据。"
@@ -1084,6 +1316,8 @@
 			"title": "Storage / Buckets",
 			"description": "Per-project object storage with signed-URL uploads and downloads.",
 			"section": "Databases & storage",
+			"hash": "c6dbddb488",
+			"hashZh": "b89021629a",
 			"order": 4006,
 			"titleZh": "存储/桶",
 			"descriptionZh": "每个项目的对象存储，带有签名 URL 上传和下载。"
@@ -1093,6 +1327,8 @@
 			"title": "Volumes",
 			"description": "Persistent block storage attached to a runtime instance. State that doesn't fit in Postgres.",
 			"section": "Databases & storage",
+			"hash": "18d0a0e90a",
+			"hashZh": "21031c3553",
 			"order": 4007,
 			"titleZh": "卷",
 			"descriptionZh": "附加到运行时实例的持久块存储。不适合 Postgres 的状态。"
@@ -1102,6 +1338,8 @@
 			"title": "Auth-as-a-Service",
 			"description": "Opt-in end-user signup, login, and JWT issuance for a sandbox or deployment.",
 			"section": "Databases & storage",
+			"hash": "917df4c138",
+			"hashZh": "172bf3f2d3",
 			"order": 4008,
 			"titleZh": "身份验证即服务",
 			"descriptionZh": "选择沙箱或部署的最终用户注册、登录和 JWT 颁发。"
@@ -1112,6 +1350,8 @@
 			"description": "Configure MIOSA-managed transactional email for project auth, password reset, email confirmation, and platform notifications.",
 			"section": "Databases & storage",
 			"layout": "cards",
+			"hash": "ded17efdcd",
+			"hashZh": "01a2fb7922",
 			"order": 4009,
 			"titleZh": "交易电子邮件",
 			"descriptionZh": "配置 MIOSA 管理的事务电子邮件以进行项目身份验证、密码重置、电子邮件确认和平台通知。"
@@ -1122,6 +1362,8 @@
 			"description": "MIOSA and Fractal run dedicated Fractal instances for massive-scale structured data and computation, secure and isolated for enterprise, government, and regulated customers.",
 			"section": "Databases & storage",
 			"layout": "cards",
+			"hash": "461dc6dc00",
+			"hashZh": "f3c082c7bc",
 			"order": 4010,
 			"titleZh": "分形企业数据",
 			"descriptionZh": "MIOSA 和 Fractal 运行专用的 Fractal 实例，用于大规模结构化数据和计算，为企业、政府和受监管客户提供安全和隔离。"
@@ -1131,6 +1373,8 @@
 			"title": "Services addresses and domains",
 			"description": "How services reach databases while private networking is not available, the public miosa.app address a web service or static site can have, and how TLS is handled.",
 			"section": "Networking & domains",
+			"hash": "de26d603f1",
+			"hashZh": "74cf103d29",
 			"order": 5000,
 			"titleZh": "服务地址与域名",
 			"descriptionZh": "私有网络尚不可用时服务如何访问数据库、Web 服务或静态站点可拥有的公共 miosa.app 地址，以及 TLS 如何处理。"
@@ -1140,6 +1384,8 @@
 			"title": "Previews",
 			"description": "Live URLs that proxy into a sandbox port. Public, private, embeddable, share-tokenized.",
 			"section": "Networking & domains",
+			"hash": "871b431a9b",
+			"hashZh": "029150d384",
 			"order": 5001,
 			"titleZh": "预览",
 			"descriptionZh": "智能体到沙箱端口的实时 URL。公开、私有、可嵌入、共享代币化。"
@@ -1150,6 +1396,8 @@
 			"description": "Whether a sandbox can reach the internet by default, the two layers of egress control, how to lock a sandbox to an allowlist, and how to debug a blocked call.",
 			"section": "Networking & domains",
 			"layout": "cards",
+			"hash": "5e1e9cc7f7",
+			"hashZh": "1852b12af3",
 			"order": 5002,
 			"titleZh": "互联网接入和出口",
 			"descriptionZh": "沙箱默认是否可以访问互联网、两层出口控制、如何将沙箱锁定到白名单以及如何调试被阻止的调用。"
@@ -1159,6 +1407,8 @@
 			"title": "Network Allowlist",
 			"description": "Watch what your sandbox calls. When you're ready, lock it down with a one-click allowlist. Reversible.",
 			"section": "Networking & domains",
+			"hash": "068ed398ad",
+			"hashZh": "ffcdae4317",
 			"order": 5003,
 			"titleZh": "网络白名单",
 			"descriptionZh": "观察沙箱会访问哪些主机；准备好后，一键启用白名单锁定。随时可撤销。"
@@ -1168,6 +1418,8 @@
 			"title": "Edge middleware",
 			"description": "Ordered path rules and an optional function that run at the edge, in front of a server service.",
 			"section": "Networking & domains",
+			"hash": "abfc9d0771",
+			"hashZh": "79aadcaea6",
 			"order": 5004,
 			"titleZh": "边缘中间件",
 			"descriptionZh": "在服务器服务前方、于边缘运行的有序路径规则和可选函数。"
@@ -1177,6 +1429,8 @@
 			"title": "Protection and WAF",
 			"description": "Put a password in front of a service, mint share links, and set the web application firewall rules the proxy enforces.",
 			"section": "Networking & domains",
+			"hash": "3e4dc1ade4",
+			"hashZh": "e4c4ae45ac",
 			"order": 5005,
 			"titleZh": "防护与 WAF",
 			"descriptionZh": "为服务加上密码保护、生成分享链接，并设置智能体执行的 Web 应用防火墙规则。"
@@ -1186,6 +1440,8 @@
 			"title": "Public database endpoint",
 			"description": "Open a TLS-only TCP endpoint for one managed database, with an allowlist, so a laptop or an outside service can connect.",
 			"section": "Networking & domains",
+			"hash": "457f74274e",
+			"hashZh": "ad8f0d8a64",
 			"order": 5006,
 			"titleZh": "公共数据库端点",
 			"descriptionZh": "使用允许列表为一个托管数据库打开仅 TLS TCP 端点，以便笔记本电脑或外部服务可以连接。"
@@ -1196,6 +1452,8 @@
 			"description": "The CLI and release workflow for AI agents using MIOSA.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "1d0389b945",
+			"hashZh": "941ad28dd0",
 			"order": 6000,
 			"titleZh": "智能体操作指南",
 			"descriptionZh": "使用 MIOSA 的 AI 智能体的 CLI 和发布工作流程。"
@@ -1206,6 +1464,8 @@
 			"description": "Built-in tools, connected app actions, device execution, artifacts, browser work, and the permission model for agents running on MIOSA.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "b49086e6c6",
+			"hashZh": "202383ffcd",
 			"order": 6001,
 			"titleZh": "MIOSA 智能体可以做什么",
 			"descriptionZh": "内置工具、连接的应用程序操作、设备执行、工件、浏览器工作以及在 MIOSA 上运行的智能体的权限模型。"
@@ -1216,6 +1476,8 @@
 			"description": "The full CLI release workflow for agents: discovery, scope, sandbox development, preview, publish, promote, recovery, and rollback.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "f14ed3ea67",
+			"hashZh": "b1e18a2d50",
 			"order": 6002,
 			"titleZh": "智能体 CLI 工作流程",
 			"descriptionZh": "智能体的完整 CLI 发布工作流程：发现、范围、沙箱开发、预览、发布、升级、恢复和回滚。"
@@ -1226,6 +1488,8 @@
 			"description": "How agents interpret deployment health, preserve durable resources, and respect current capability boundaries.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "c9873930f8",
+			"hashZh": "e591931d53",
 			"order": 6003,
 			"titleZh": "智能体安全和状态",
 			"descriptionZh": "智能体如何解释部署运行状况、保留持久资源并尊重当前的能力边界。"
@@ -1236,6 +1500,8 @@
 			"description": "How to bring your own AI agent and drive MIOSA Sandbox or Computer primitives to build, run, and deploy applications autonomously.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "d78c4026ec",
+			"hashZh": "e78d99a442",
 			"order": 6004,
 			"titleZh": "接入自有 AI 智能体",
 			"descriptionZh": "如何接入你自己的 AI 智能体，驱动 MIOSA 的沙箱或计算机原语来自主构建、运行与部署应用。"
@@ -1246,6 +1512,8 @@
 			"description": "Configure an agent's identity, instructions, model, devices, tools, memory, connected accounts, triggers, and approval policy.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "2706b9639a",
+			"hashZh": "c108298a47",
 			"order": 6005,
 			"titleZh": "配置智能体",
 			"descriptionZh": "配置座席的身份、指令、模型、设备、工具、内存、连接帐户、触发器和审批策略。"
@@ -1255,6 +1523,8 @@
 			"title": "Chat with an agent on a machine",
 			"description": "Open a computer, or the Agent section of a sandbox, and chat with an agent bound to that machine.",
 			"section": "Agents",
+			"hash": "8db6494cd3",
+			"hashZh": "4db1abb413",
 			"order": 6006,
 			"titleZh": "与机器上的智能体聊天",
 			"descriptionZh": "打开计算机或沙箱的智能体部分，并与绑定到该计算机的智能体聊天。"
@@ -1264,6 +1534,8 @@
 			"title": "Agent Studio",
 			"description": "Chat with an agent in a dedicated workspace, with one warm sandbox per chat and honest status and errors.",
 			"section": "Agents",
+			"hash": "a0501e8898",
+			"hashZh": "831d1ac099",
 			"order": 6007,
 			"titleZh": "智能体工作室",
 			"descriptionZh": "在专用工作区中与客服人员聊天，每次聊天都有一个温暖的沙箱，并提供诚实的状态和错误。"
@@ -1273,6 +1545,8 @@
 			"title": "Harnesses and auth",
 			"description": "The agents MIOSA can run on your machine, how each one authenticates, and how MIOSA gets each one ready.",
 			"section": "Agents",
+			"hash": "01fd09c9a8",
+			"hashZh": "a772cae4b7",
 			"order": 6008,
 			"titleZh": "运行框架和授权",
 			"descriptionZh": "MIOSA 智能体可以在您的计算机上运行，​​每个智能体如何进行身份验证，以及 MIOSA 如何让每个智能体做好准备。"
@@ -1282,6 +1556,8 @@
 			"title": "Agent confinement",
 			"description": "An agent runs inside its machine and cannot use MIOSA's own platform key unless an Environment grants it a scoped one.",
 			"section": "Agents",
+			"hash": "eef7c410a1",
+			"hashZh": "a33e2bc690",
 			"order": 6009,
 			"titleZh": "智能体禁闭",
 			"descriptionZh": "智能体在其机器内部运行，并且不能使用 MIOSA 自己的平台密钥，除非环境授予它一个范围内的密钥。"
@@ -1292,6 +1568,8 @@
 			"description": "How MIOSA routes prompts to OSA, Codex, Claude Code, Pi, Hermes, custom runtimes, and assigned devices.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "04f842427d",
+			"hashZh": "294c4e8c2a",
 			"order": 6010,
 			"titleZh": "智能体运行时路由",
 			"descriptionZh": "MIOSA 如何把提示路由到 OSA、Codex、Claude Code、Pi、Hermes、自定义运行时以及指定设备。"
@@ -1301,6 +1579,8 @@
 			"title": "Claude Code Skills for MIOSA",
 			"description": "Install MIOSA skills for Claude Code, so it loads the right sandbox, computer, and deploy knowledge when you ask for cloud infrastructure.",
 			"section": "Agents",
+			"hash": "2f80e2ea78",
+			"hashZh": "182f7f8fe4",
 			"order": 6011,
 			"titleZh": "MIOSA 的 Claude 代码技能",
 			"descriptionZh": "为 Claude Code 安装 MIOSA 技能，以便在您请求云基础设施时加载正确的沙箱、计算机和部署知识。"
@@ -1311,6 +1591,8 @@
 			"description": "Build LLM agents that use MIOSA sandboxes, desktops, and deploys with the tool-call loop already wired. TypeScript ADK first; Python next.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "e54fb5c083",
+			"hashZh": "2601797e3a",
 			"order": 6012,
 			"titleZh": "智能体开发套件 (ADK)",
 			"descriptionZh": "构建使用 MIOSA 沙箱、桌面的 LLM 智能体，并使用已连接的工具调用循环进行部署。首先是 TypeScript ADK；接下来是Python。"
@@ -1321,6 +1603,8 @@
 			"description": "Define inherited environment variables for sandboxes, computers, and agent runtimes at tenant, workspace, or project scope.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "a5124e81fb",
+			"hashZh": "2ff6ac8f72",
 			"order": 6013,
 			"titleZh": "智能体设备的运行时环境",
 			"descriptionZh": "为租户、工作区或项目范围内的沙箱、计算机和智能体运行时定义继承的环境变量。"
@@ -1331,6 +1615,8 @@
 			"description": "The canonical MIOSA model for agents, devices, runs, tools, artifacts, credits, and deployments.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "65adc3ef75",
+			"hashZh": "11f8da5d34",
 			"order": 6014,
 			"titleZh": "智能体产品模型",
 			"descriptionZh": "适用于智能体、设备、运行、工具、工件、信用和部署的规范 MIOSA 模型。"
@@ -1341,6 +1627,8 @@
 			"description": "Reference products and implementation patterns for building Genspark, Emergent, Blackbox AI, Lovable, Replit, Cofounder, Polsia, Nebula, and BusinessOS-style products on MIOSA.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "8780275276",
+			"hashZh": "c175c0a2e7",
 			"order": 6015,
 			"titleZh": "智能体产品参考图",
 			"descriptionZh": "用于在 MIOSA 上构建 Genspark、Emergent、Blackbox AI、Lovable、Replit、CoFounder、Polsia、Nebula 和 BusinessOS 风格产品的参考产品和实施模式。"
@@ -1351,6 +1639,8 @@
 			"description": "Build your own Genspark, Emergent, Blackbox AI, Lovable, Replit, Polsia, Cofounder, or Nebula-style product on MIOSA.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "6f67f4fac6",
+			"hashZh": "646a35a234",
 			"order": 6016,
 			"titleZh": "打造您自己的AI平台",
 			"descriptionZh": "在 MIOSA 上构建您自己的 Genspark、Emergent、Blackbox AI、Lovable、Replit、Polsia、CoFounder 或 Nebula 风格的产品。"
@@ -1361,6 +1651,8 @@
 			"description": "Simple-to-complex workflows for using MIOSA agents, devices, events, artifacts, and deployments.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "65f0b6ac13",
+			"hashZh": "1956962960",
 			"order": 6017,
 			"titleZh": "智能体工作流程模式",
 			"descriptionZh": "使用 MIOSA 智能体、设备、事件、工件和部署的从简单到复杂的工作流程。"
@@ -1371,6 +1663,8 @@
 			"description": "Decide when an agent needs no device, a sandbox, a computer, a local device, or a deployment target.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "f2c76a5629",
+			"hashZh": "beb9445832",
 			"order": 6018,
 			"titleZh": "智能体设备选型",
 			"descriptionZh": "确定智能体何时不需要设备、沙箱、计算机、本地设备或部署目标。"
@@ -1381,6 +1675,8 @@
 			"description": "Connect a model key, a Claude or ChatGPT plan, or a tool-server key to your workspace, or to one of your end users, from your own code. No console visit needed.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "2560ac4762",
+			"hashZh": "4625172726",
 			"order": 6019,
 			"titleZh": "连接智能体帐户（密钥和订阅）",
 			"descriptionZh": "从您自己的代码将模型密钥、Claude 或 ChatGPT 计划或工具服务器密钥连接到您的工作区或您的最终用户之一。无需访问控制台。"
@@ -1391,6 +1687,8 @@
 			"description": "MIOSA's device model for agent work: sandbox workers, computers, local devices, primary devices, persistence, and Docker Host boundaries.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "9706b4fb52",
+			"hashZh": "2c63216d5e",
 			"order": 6020,
 			"titleZh": "智能体设备",
 			"descriptionZh": "MIOSA 用于智能体工作的设备模型：沙箱工作人员、计算机、本地设备、主要设备、持久性和 Docker 主机边界。"
@@ -1401,6 +1699,8 @@
 			"description": "How to coordinate multiple agents across MIOSA sandboxes, computers, artifacts, previews, events, and deployments.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "c0b8949be7",
+			"hashZh": "0be9f8d21a",
 			"order": 6021,
 			"titleZh": "智能体编排",
 			"descriptionZh": "如何跨 MIOSA 沙箱、计算机、工件、预览、事件和部署协调多个智能体。"
@@ -1410,6 +1710,8 @@
 			"title": "Runtime profiles and artifacts",
 			"description": "The end-to-end lane from runtime profile to artifact export, the prompt-to-device flow, how env and secrets are inherited, and how agent outputs become downloads.",
 			"section": "Agents",
+			"hash": "f29cfd47d1",
+			"hashZh": "f940f3a91a",
 			"order": 6022,
 			"titleZh": "运行时配置文件和工件",
 			"descriptionZh": "从运行时配置文件到工件导出的端到端通道、提示到设备流程、环境和机密如何继承以及智能体输出如何变成下载。"
@@ -1420,6 +1722,8 @@
 			"description": "Coordination patterns for MIOSA agent systems: prompt dispatch, durable run groups, subagents, sandbox-hosted orchestrators, self-configuring agents, artifact export, credentials, and permissions.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "2948d53187",
+			"hashZh": "3a51f6ab98",
 			"order": 6023,
 			"titleZh": "编排模式",
 			"descriptionZh": "MIOSA 智能体系统的协调模式：提示调度、持久运行组、子智能体、沙箱托管的协调器、自配置智能体、工件导出、凭证和权限。"
@@ -1430,6 +1734,8 @@
 			"description": "Worked orchestration flows on MIOSA: an app builder with browser QA, a sandbox-first code agent, a computer QA agent, a minimal orchestrator shape, and the product UI pattern.",
 			"section": "Agents",
 			"layout": "cards",
+			"hash": "5527ad6c4f",
+			"hashZh": "523738f54b",
 			"order": 6024,
 			"titleZh": "编排示例",
 			"descriptionZh": "在 MIOSA 上工作的编排流程：具有浏览器 QA 的应用程序构建器、沙箱优先代码智能体、计算机 QA 智能体、最小编排器形状和产品 UI 模式。"
@@ -1439,6 +1745,8 @@
 			"title": "Optimal",
 			"description": "Optimal is MIOSA's built-in agent. Chat with it to answer questions about your workspace, build on your own sandboxes and computers, and investigate problems.",
 			"section": "Optimal",
+			"hash": "565ad52977",
+			"hashZh": "535aa9f0bc",
 			"order": 7000,
 			"titleZh": "最佳的",
 			"descriptionZh": "Optimal 是 MIOSA 的内置智能体。与它聊天以回答有关您的工作区的问题、在您自己的沙箱和计算机上构建并调查问题。"
@@ -1448,6 +1756,8 @@
 			"title": "Optimal quickstart",
 			"description": "Ask Optimal a question, build and preview a small app on a sandbox, then send your first message over the Optimal API.",
 			"section": "Optimal",
+			"hash": "311564e278",
+			"hashZh": "ce54083749",
 			"order": 7001,
 			"titleZh": "最佳快速入门",
 			"descriptionZh": "向 Optimal 提出问题，在沙盒上构建并预览一个小型应用程序，然后通过 Optimal API 发送您的第一条消息。"
@@ -1457,6 +1767,8 @@
 			"title": "Chats and modes",
 			"description": "How an Optimal chat works - the composer, Ask, Build and Investigate, attachments, queued messages, the context meter, and renaming or deleting a chat.",
 			"section": "Optimal",
+			"hash": "8aaf3dcf33",
+			"hashZh": "18765081c2",
 			"order": 7002,
 			"titleZh": "聊天和模式",
 			"descriptionZh": "最佳聊天的工作原理 - 编写器、询问、构建和调查、附件、排队消息、上下文计量器以及重命名或删除聊天。"
@@ -1466,6 +1778,8 @@
 			"title": "Brains and agents",
 			"description": "Choose who answers an Optimal chat - the built-in Optimal model, a coding harness on your own account, or a saved agent you built in Agent Studio.",
 			"section": "Optimal",
+			"hash": "ee79c9c993",
+			"hashZh": "03c2bdcc21",
 			"order": 7003,
 			"titleZh": "大脑和智能体人",
 			"descriptionZh": "选择谁回答最佳聊天 - 内置最佳模型、您自己帐户上的编码工具或您在 Agent Studio 中构建的已保存智能体。"
@@ -1475,6 +1789,8 @@
 			"title": "Build on your machines",
 			"description": "Choose the sandbox or computer Optimal works on, use the side panel to watch and steer it, publish a preview, and take over from the agent at any time.",
 			"section": "Optimal",
+			"hash": "9bdb7cdb78",
+			"hashZh": "785d0ee1d7",
 			"order": 7004,
 			"titleZh": "在您的机器上构建",
 			"descriptionZh": "选择 Optimal 运行的沙箱或计算机，使用侧面板监视和引导它，发布预览，并随时从智能体手中接管。"
@@ -1484,6 +1800,8 @@
 			"title": "Approvals",
 			"description": "Decide which Optimal steps wait for you, approve or decline them in the chat, allow a step for the rest of a chat, and let an API key approve.",
 			"section": "Optimal",
+			"hash": "fed240bfe0",
+			"hashZh": "7df665f545",
 			"order": 7005,
 			"titleZh": "批准",
 			"descriptionZh": "决定哪些最佳步骤等待您，在聊天中批准或拒绝它们，允许对话的其余部分执行该步骤，并让 API 密钥批准。"
@@ -1493,6 +1811,8 @@
 			"title": "Tasks, artifacts and history",
 			"description": "The Optimal sidebar pages - Tasks, Investigations, Artifacts, Approvals, History, Usage and Preferences - and what each one keeps for you.",
 			"section": "Optimal",
+			"hash": "92a8b5943c",
+			"hashZh": "c3bbe2df3a",
 			"order": 7006,
 			"titleZh": "任务、工件和历史",
 			"descriptionZh": "最佳侧边栏页面 - 任务、调查、工件、批准、历史记录、使用情况和首选项 - 以及每页为您保留的内容。"
@@ -1502,6 +1822,8 @@
 			"title": "Team chats and sharing",
 			"description": "Optimal chats are personal until you share them with your workspace. Owners and admins can read and join members' chats, and every view is recorded.",
 			"section": "Optimal",
+			"hash": "8e0886ec1d",
+			"hashZh": "a508eebbc9",
 			"order": 7007,
 			"titleZh": "团队聊天和分享",
 			"descriptionZh": "最佳聊天是私人的，直到您与工作空间共享为止。所有者和管理员可以阅读和加入成员的聊天，并且每次查看都会被记录。"
@@ -1511,6 +1833,8 @@
 			"title": "Pricing and usage",
 			"description": "What an Optimal chat costs, how the cost strip and the Usage page report it, what happens when credits run out, and how harness brains are billed.",
 			"section": "Optimal",
+			"hash": "2dbf93c340",
+			"hashZh": "afaab2efa9",
 			"order": 7008,
 			"titleZh": "定价和使用",
 			"descriptionZh": "最佳聊天的成本是多少，成本条和使用页面如何报告它，信用用完时会发生什么，以及如何对利用大脑进行计费。"
@@ -1520,6 +1844,8 @@
 			"title": "Isolation and permissions",
 			"description": "Optimal acts only inside your organization and workspace, with your permissions, and never on MIOSA's own keys.",
 			"section": "Optimal",
+			"hash": "200f90872c",
+			"hashZh": "2e26ac8909",
 			"order": 7009,
 			"titleZh": "隔离和权限",
 			"descriptionZh": "Optimal 仅在您的组织和工作空间内根据您的权限执行操作，而绝不会使用 MIOSA 自己的密钥。"
@@ -1529,6 +1855,8 @@
 			"title": "Optimal API",
 			"description": "HTTP reference for Optimal - mint an Optimal token, create chats, send messages, stream replies, bind a machine, upload attachments, decide approvals, and read a chat's cost.",
 			"section": "Optimal",
+			"hash": "51ee817497",
+			"hashZh": "6dc25bf258",
 			"order": 7010,
 			"titleZh": "最佳API",
 			"descriptionZh": "Optimal 的 HTTP 参考 - 创建 Optimal 令牌、创建聊天、发送消息、流式回复、绑定机器、上传附件、决定批准以及读取聊天费用。"
@@ -1538,6 +1866,8 @@
 			"title": "Optimal troubleshooting",
 			"description": "Fixes for common Optimal problems - no credits, no workspace, a missing machine, attachments, harness sign-in, taking over, and API errors.",
 			"section": "Optimal",
+			"hash": "89183bb011",
+			"hashZh": "7b2c7c4192",
 			"order": 7011,
 			"titleZh": "最佳故障排除",
 			"descriptionZh": "修复了常见的 Optimal 问题 - 没有积分、没有工作区、丢失机器、附件、运行框架登录、接管和 API 错误。"
@@ -1547,6 +1877,8 @@
 			"title": "Optimal Engine",
 			"description": "Optimal Engine is the self-hosted memory and knowledge engine behind a workspace - it keeps source evidence, builds reviewed memory, and returns cited context to people and agents over HTTP, a CLI, and MCP.",
 			"section": "Optimal Engine",
+			"hash": "58185bed65",
+			"hashZh": "4f538bf45b",
 			"order": 8000,
 			"titleZh": "Optimal Engine",
 			"descriptionZh": "Optimal Engine 是工作区背后的自托管内存和知识引擎 - 它保留源证据，构建经过审查的内存，并通过 HTTP、CLI 和 MCP 将引用的上下文返回给人员和智能体。"
@@ -1556,6 +1888,8 @@
 			"title": "Optimal Engine concepts",
 			"description": "The objects Optimal Engine is built from - tenants, workspaces, nodes, signals, source packages, claims, facts, memories, context packages, and projections - and how a source becomes reviewed memory.",
 			"section": "Optimal Engine",
+			"hash": "5193791e08",
+			"hashZh": "31b8a4017f",
 			"order": 8001,
 			"titleZh": "Optimal Engine概念",
 			"descriptionZh": "Optimal Engine的对象是由租户、工作空间、节点、信号、源包、声明、事实、记忆、上下文包和投影构建的，以及源如何成为审查记忆。"
@@ -1565,6 +1899,8 @@
 			"title": "Optimal Engine quickstart",
 			"description": "Run Optimal Engine on your own machine, mint an API key, create a workspace, store a source, and search it - from a checkout or with Docker - plus the shortest path on MIOSA.",
 			"section": "Optimal Engine",
+			"hash": "977157ac09",
+			"hashZh": "7da049a728",
 			"order": 8002,
 			"titleZh": "Optimal Engine快速入门",
 			"descriptionZh": "在您自己的计算机上运行 Optimal Engine、创建 API 密钥、创建工作区、存储源并进行搜索（通过结帐或使用 Docker）以及 MIOSA 上的最短路径。"
@@ -1574,6 +1910,8 @@
 			"title": "Install and configure Optimal Engine",
 			"description": "Requirements, the three ways to install a self-hosted Optimal Engine (checkout, Docker, release), every setting it reads, where it stores data, embeddings, and how API keys and scopes work.",
 			"section": "Optimal Engine",
+			"hash": "edd54fc877",
+			"hashZh": "0aaa50e0aa",
 			"order": 8003,
 			"titleZh": "安装和配置Optimal Engine",
 			"descriptionZh": "要求、安装自托管Optimal Engine的三种方法（签出、Docker、发布）、它读取的每个设置、存储数据的位置、嵌入以及 API 密钥和范围如何工作。"
@@ -1583,6 +1921,8 @@
 			"title": "Operate a self-hosted Optimal Engine",
 			"description": "Backups and restore, upgrades and migrations, size profiles and rate limits, replication between Engines, moving a workspace, erasure and retention, and metrics for a self-hosted Optimal Engine.",
 			"section": "Optimal Engine",
+			"hash": "55fb1cebad",
+			"hashZh": "356a2793f5",
 			"order": 8004,
 			"titleZh": "运行自托管优化引擎",
 			"descriptionZh": "备份和恢复、升级和迁移、大小配置文件和速率限制、引擎之间的复制、移动工作区、擦除和保留以及自托管Optimal Engine的指标。"
@@ -1592,6 +1932,8 @@
 			"title": "Sources and ingestion",
 			"description": "Every way to get data into Optimal Engine - text, files, chat sessions, Notion exports, batch imports, and apps such as Slack, GitHub, and Linear - with the file types it parses and the limits that apply.",
 			"section": "Optimal Engine",
+			"hash": "b0bd876640",
+			"hashZh": "bf6d646d19",
 			"order": 8005,
 			"titleZh": "来源和摄入",
 			"descriptionZh": "将数据导入 Optimal Engine 的各种方式 - 文本、文件、聊天会话、Notion 导出、批量导入以及 Slack、GitHub 和 Linear 等应用程序 - 以及它解析的文件类型和适用的限制。"
@@ -1601,6 +1943,8 @@
 			"title": "Memory and retrieval",
 			"description": "How Optimal Engine searches (full-text, vector, hybrid), what ask and assemble return, how claims are reviewed into facts, how versioned memories work, and what the benchmark numbers mean.",
 			"section": "Optimal Engine",
+			"hash": "94e60af663",
+			"hashZh": "3c810f120a",
 			"order": 8006,
 			"titleZh": "记忆与检索",
 			"descriptionZh": "Optimal Engine如何搜索（全文、矢量、混合）、询问和组合返回内容、如何将声明审查为事实、版本化内存如何工作以及基准数字的含义。"
@@ -1610,6 +1954,8 @@
 			"title": "Agents and workflows",
 			"description": "What Optimal Engine gives an agent - a boot briefing, open loops, a daily rhythm, an operating protocol, allow, ask, or deny rules, organization policy, scheduled analyses, webhooks, and action traces.",
 			"section": "Optimal Engine",
+			"hash": "9151f7bc75",
+			"hashZh": "48b4b0fbbb",
 			"order": 8007,
 			"titleZh": "智能体和工作流程",
 			"descriptionZh": "Optimal Engine为智能体提供的内容 - 启动简报、开环、每日节奏、操作协议、允许、询问或拒绝规则、组织策略、计划分析、网络钩子和操作跟踪。"
@@ -1619,6 +1965,8 @@
 			"title": "Optimal Engine API reference",
 			"description": "The Optimal Engine HTTP API - base URL, keys, scopes, paging, rate limits, errors, and the main routes for workspaces, ingest, search, ask, memory, claims, and operations, with curl examples.",
 			"section": "Optimal Engine",
+			"hash": "041fda20c1",
+			"hashZh": "dd2b6d7ec3",
 			"order": 8008,
 			"titleZh": "Optimal Engine API 参考",
 			"descriptionZh": "Optimal Engine HTTP API - 基本 URL、键、范围、分页、速率限制、错误以及工作区、摄取、搜索、询问、内存、声明和操作的主要路由，以及curl 示例。"
@@ -1628,6 +1976,8 @@
 			"title": "Optimal Engine CLI, SDKs and MCP",
 			"description": "The optimal client CLI, the Engine's MCP server for Claude Code and Codex, the mix tasks for operators, and the TypeScript and Python clients - how to install each from the repository and point it at an Engine.",
 			"section": "Optimal Engine",
+			"hash": "9405139147",
+			"hashZh": "eef6c689df",
 			"order": 8009,
 			"titleZh": "Optimal Engine CLI、SDK 和 MCP",
 			"descriptionZh": "最佳客户端 CLI、用于 Claude Code 和 Codex 的引擎 MCP 服务器、操作员的混合任务以及 TypeScript 和 Python 客户端 - 如何从存储库安装每个客户端并将其指向引擎。"
@@ -1637,6 +1987,8 @@
 			"title": "Optimal Engine on MIOSA",
 			"description": "Run a managed Optimal Engine on MIOSA - workspace Memory in the console, how Optimal chat uses it, the miosa engine commands, client keys for the optimal CLI and MCP server, the API, sizes, backups, and how to get it enabled.",
 			"section": "Optimal Engine",
+			"hash": "9827397df4",
+			"hashZh": "40dfa7eea3",
 			"order": 8010,
 			"titleZh": "MIOSA 上的Optimal Engine",
 			"descriptionZh": "在 MIOSA 上运行托管Optimal Engine - 控制台中的工作区内存、最佳聊天如何使用它、miosa 引擎命令、最佳 CLI 和 MCP 服务器的客户端密钥、API、大小、备份以及如何启用它。"
@@ -1646,6 +1998,8 @@
 			"title": "Optimal Engine troubleshooting",
 			"description": "Fixes for common Optimal Engine problems - nothing listening, health checks, keys refused, empty search, hybrid search unavailable, busy store, failed migrations, Docker health, and errors from a managed Engine on MIOSA.",
 			"section": "Optimal Engine",
+			"hash": "179af1ff1e",
+			"hashZh": "5503532c28",
 			"order": 8011,
 			"titleZh": "Optimal Engine 故障排查",
 			"descriptionZh": "常见 Optimal Engine 问题的修复方法——端口无监听、健康检查、密钥被拒、搜索为空、混合搜索不可用、存储正忙、迁移失败、Docker 健康检查，以及 MIOSA 上托管引擎的报错。"
@@ -1656,6 +2010,8 @@
 			"description": "Ship a white-label SaaS where your end-users never see the MIOSA brand. Isolated compute, custom domains, branded previews, usage rollup, and webhooks - all under your domain.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "3c9f957bb0",
+			"hashZh": "33bde9f334",
 			"order": 9000,
 			"titleZh": "在 MIOSA 上构建您的产品",
 			"descriptionZh": "交付白标 SaaS，让您的最终用户永远看不到 MIOSA 品牌。独立计算、自定义域、品牌预览、使用情况汇总和 Webhook - 全部都在您的域下。"
@@ -1666,6 +2022,8 @@
 			"description": "Run your users' agents, previews, and workspaces on MIOSA: architectures, costs, and provisioning patterns.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "eb6882faa8",
+			"hashZh": "5bc1aa1f74",
 			"order": 9001,
 			"titleZh": "平台构建者指南",
 			"descriptionZh": "在 MIOSA 上运行用户的智能体、预览和工作区：架构、成本与资源配置模式。"
@@ -1675,6 +2033,8 @@
 			"title": "Platform patterns",
 			"description": "The three architectures that cover most products on MIOSA, plus the model and backend jobs every platform shares.",
 			"section": "Platform builders",
+			"hash": "6b279ca555",
+			"hashZh": "a6f217c4be",
 			"order": 9002,
 			"titleZh": "平台模式",
 			"descriptionZh": "覆盖 MIOSA 上大多数产品的三种架构，以及每个平台共用的模型和后端任务。"
@@ -1685,6 +2045,8 @@
 			"description": "Give each of your users a machine with an agent or harness working inside it, and show the result in your own UI.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "69da2b3a2d",
+			"hashZh": "882e9c69c2",
 			"order": 9003,
 			"titleZh": "产品中的智能体",
 			"descriptionZh": "为每位用户分配一台运行智能体或 harness 的机器，并在你自己的 UI 中展示结果。"
@@ -1695,6 +2057,8 @@
 			"description": "Pick a template and a size for each user's machine, cap concurrency, and set idle defaults so unused machines pause.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "25ffe4689f",
+			"hashZh": "10fbc284f0",
 			"order": 9004,
 			"titleZh": "模板与规格",
 			"descriptionZh": "为每位用户的机器选择模板和规格，限制并发，并设置空闲默认值，让闲置机器暂停。"
@@ -1705,6 +2069,8 @@
 			"description": "Backend patterns for dispatching prompts into MIOSA sandboxes, computers, and local devices.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "c7998f0c42",
+			"hashZh": "640492cd3d",
 			"order": 9005,
 			"titleZh": "后端编排",
 			"descriptionZh": "用于将提示分派到 MIOSA 沙箱、计算机和本地设备的后端模式。"
@@ -1714,6 +2080,8 @@
 			"title": "Example Apps",
 			"description": "Four full-stack white-label examples you can clone, run locally, and adapt to your own stack.",
 			"section": "Platform builders",
+			"hash": "897a2883ef",
+			"hashZh": "ecebb4400e",
 			"order": 9006,
 			"titleZh": "示例应用程序",
 			"descriptionZh": "您可以克隆、在本地运行并适应您自己的堆栈的四个全堆栈白标签示例。"
@@ -1724,6 +2092,8 @@
 			"description": "Build one internal platform where your team's agents, apps, data, and workflows live together, on MIOSA. Organization and workspaces, a machine per agent, connections, secrets, RBAC, audit, and internal deployments.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "f7a228c941",
+			"hashZh": "a34e96eaab",
 			"order": 9007,
 			"titleZh": "为您的团队构建内部业务操作系统",
 			"descriptionZh": "在 MIOSA 上构建一个内部平台，让您的团队的智能体、应用程序、数据和工作流程共存。组织和工作区、每个智能体一台机器、连接、机密、RBAC、审计和内部部署。"
@@ -1733,6 +2103,8 @@
 			"title": "Resource Ownership and Attribution",
 			"description": "Scope resources to MIOSA workspaces and projects while preserving your own workspace / user / project IDs for billing and reconciliation.",
 			"section": "Platform builders",
+			"hash": "a56944c219",
+			"hashZh": "2d4a1c1dc7",
 			"order": 9008,
 			"titleZh": "资源所有权与归属",
 			"descriptionZh": "将资源关联到 MIOSA 工作区和项目，同时保留你自己的工作区 / 用户 / 项目 ID，用于计费和对账。"
@@ -1742,6 +2114,8 @@
 			"title": "Browser Tokens",
 			"description": "Short-lived scoped credentials your backend mints for end-user-facing access. Never expose `msk_*` to the browser.",
 			"section": "Platform builders",
+			"hash": "7149a5b468",
+			"hashZh": "0e57d47547",
 			"order": 9009,
 			"titleZh": "浏览器令牌",
 			"descriptionZh": "由你的后端为面向最终用户的访问签发的短期、限定范围凭证。绝不要把 `msk_*` 暴露给浏览器。"
@@ -1751,6 +2125,8 @@
 			"title": "End-user credentials and OAuth",
 			"description": "How to scope secrets and OAuth connections to your own end-users on top of MIOSA - with your branding, not ours.",
 			"section": "Platform builders",
+			"hash": "ec48253551",
+			"hashZh": "37a770f3fd",
 			"order": 9010,
 			"titleZh": "最终用户凭据和 OAuth",
 			"descriptionZh": "如何在 MIOSA 之上将机密和 OAuth 连接限定到您自己的最终用户——使用您的品牌，而不是我们的。"
@@ -1761,6 +2137,8 @@
 			"description": "Configure organization slug, workspace/project ownership, preview domains, deployment domains, branding, and resource attribution.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "f518a81916",
+			"hashZh": "3cd2c0282d",
 			"order": 9011,
 			"titleZh": "品牌与域名设置",
 			"descriptionZh": "配置组织 slug、工作区/项目归属、预览域名、部署域名、品牌和资源归属。"
@@ -1770,6 +2148,8 @@
 			"title": "Webhooks",
 			"description": "Subscribe to sandbox and deployment lifecycle events, verify HMAC-SHA256 signatures, handle retries, and test locally.",
 			"section": "Platform builders",
+			"hash": "61ff43c6d6",
+			"hashZh": "f3fc128dd7",
 			"order": 9012,
 			"titleZh": "网络钩子",
 			"descriptionZh": "订阅沙箱和部署生命周期事件、验证 HMAC-SHA256 签名、处理重试和本地测试。"
@@ -1780,6 +2160,8 @@
 			"description": "How to meter credits for MIOSA agent runs, model usage, devices, tools, storage, and deployments.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "5bd2e414b5",
+			"hashZh": "f55292843d",
 			"order": 9013,
 			"titleZh": "智能体积分计量",
 			"descriptionZh": "如何为 MIOSA 智能体运行、模型使用、设备、工具、存储和部署计量积分。"
@@ -1790,6 +2172,8 @@
 			"description": "Embed MIOSA into your SaaS - tag sandboxes per tenant, query usage per workspace, and mint short-lived preview share tokens so customers interact directly with their sandboxes.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "b0020b45e8",
+			"hashZh": "f120aa44b4",
 			"order": 9014,
 			"titleZh": "多租户 SaaS",
 			"descriptionZh": "将 MIOSA 嵌入到您的 SaaS 中 - 为每个租户标记沙箱，查询每个工作区的使用情况，并创建短期预览共享令牌，以便客​​户直接与其沙箱交互。"
@@ -1800,6 +2184,8 @@
 			"description": "Set per-end-user resource caps, pull monthly usage rollups keyed by external_user_id, and generate invoices for your customers.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "49f6fda248",
+			"hashZh": "1c8138627f",
 			"order": 9015,
 			"titleZh": "每用户配额和计费",
 			"descriptionZh": "设置每个最终用户的资源上限，提取由 external_user_id 键控的每月使用情况汇总，并为您的客户生成发票。"
@@ -1810,6 +2196,8 @@
 			"description": "Your server mints a preview token; your frontend uses it as an iframe src. Covers React, Vue, Svelte, and vanilla JS, plus token TTL refresh.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "4c42aa0925",
+			"hashZh": "55153e5e41",
 			"order": 9016,
 			"titleZh": "在 iframe 中嵌入沙箱",
 			"descriptionZh": "您的服务器会铸造一个预览令牌；您的前端将其用作 iframe src。涵盖 React、Vue、Svelte 和 vanilla JS，以及令牌 TTL 刷新。"
@@ -1820,6 +2208,8 @@
 			"description": "React to sandbox lifecycle events using either HMAC-signed webhooks (server-to-server) or the SSE event stream (in-process). Covers both patterns, idempotency, and when to choose each.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "b1830ad5b3",
+			"hashZh": "578288c0bc",
 			"order": 9017,
 			"titleZh": "实时沙盒事件",
 			"descriptionZh": "使用 HMAC 签名的 Webhook（服务器到服务器）或 SSE 事件流（进程内）对沙箱生命周期事件做出反应。涵盖两种模式、幂等性以及何时选择每种模式。"
@@ -1830,6 +2220,8 @@
 			"description": "Build a Nebula-style product on MIOSA with persistent devices, files, browser work, jobs, artifacts, and connected tools.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "04a295a24a",
+			"hashZh": "4cd7f0302a",
 			"order": 9018,
 			"titleZh": "构建虚拟设备产品",
 			"descriptionZh": "使用持久设备、文件、浏览器工作、作业、工件和连接工具在 MIOSA 上构建Nebula式产品。"
@@ -1839,6 +2231,8 @@
 			"title": "UI Components",
 			"description": "Drop-in React, Vue, and Svelte components for embedding MIOSA sandboxes in your own frontend.",
 			"section": "Platform builders",
+			"hash": "9a546ce174",
+			"hashZh": "707f58d8ce",
 			"order": 9019,
 			"titleZh": "UI 组件",
 			"descriptionZh": "用于在自有前端中嵌入 MIOSA 沙盒的 React、Vue 和 Svelte 组件。"
@@ -1849,6 +2243,8 @@
 			"description": "MIOSA Foundation UI reference with design intent, Tailwind v4 tokens, CSS variables, and design tokens.",
 			"section": "Platform builders",
 			"layout": "cards",
+			"hash": "474921fd76",
+			"hashZh": "320ec7d357",
 			"order": 9020,
 			"titleZh": "基础组件库",
 			"descriptionZh": "MIOSA Foundation UI 参考，包含设计意图、Tailwind v4 令牌、CSS 变量和设计令牌。"
@@ -1858,6 +2254,8 @@
 			"title": "Foundation UI",
 			"description": "The owned MIOSA frontend primitives used by the platform application.",
 			"section": "Platform builders",
+			"hash": "916f053c30",
+			"hashZh": "03669f855c",
 			"order": 9021,
 			"titleZh": "Foundation UI",
 			"descriptionZh": "平台应用所使用的 MIOSA 自有前端基础组件。"
@@ -1867,6 +2265,8 @@
 			"title": "React UI Components",
 			"description": "Drop-in React components for embedding MIOSA sandboxes - MiosaPreview, MiosaTerminal, MiosaFileTree, MiosaUsage.",
 			"section": "Platform builders",
+			"hash": "ac1cda2700",
+			"hashZh": "209580078f",
 			"order": 9022,
 			"titleZh": "React UI 组件",
 			"descriptionZh": "用于嵌入 MIOSA 沙箱的即插即用 React 组件——MiosaPreview、MiosaTerminal、MiosaFileTree、MiosaUsage。"
@@ -1876,6 +2276,8 @@
 			"title": "Vue UI Components",
 			"description": "Drop-in Vue 3 components for embedding MIOSA sandboxes - MiosaPreview, MiosaTerminal, MiosaFileTree, MiosaUsage.",
 			"section": "Platform builders",
+			"hash": "d143981636",
+			"hashZh": "0649d43694",
 			"order": 9023,
 			"titleZh": "Vue UI 组件",
 			"descriptionZh": "用于嵌入 MIOSA 沙箱的即插即用 Vue 3 组件——MiosaPreview、MiosaTerminal、MiosaFileTree、MiosaUsage。"
@@ -1885,6 +2287,8 @@
 			"title": "Svelte UI Components",
 			"description": "Drop-in Svelte 5 components for embedding MIOSA sandboxes - MiosaPreview, MiosaTerminal, MiosaFileTree, MiosaUsage.",
 			"section": "Platform builders",
+			"hash": "ba2d7cb87e",
+			"hashZh": "b065a5e68b",
 			"order": 9024,
 			"titleZh": "Svelte UI 组件",
 			"descriptionZh": "用于嵌入 MIOSA 沙箱的开箱即用 Svelte 5 组件——MiosaPreview、MiosaTerminal、MiosaFileTree、MiosaUsage。"
@@ -1895,6 +2299,8 @@
 			"description": "Guides for platform builders. Run open-source agents and frameworks on MIOSA, or build familiar AI products like Lovable, Manus and Perplexity - app builders, coding agents, autonomous and computer-use agents, chat and companions, answer engines, multi-agent, voice, design, video, vertical apps, and an internal Business OS.",
 			"section": "Build",
 			"layout": "cards",
+			"hash": "e38a04a62b",
+			"hashZh": "8ca20d3e35",
 			"order": 10000,
 			"titleZh": "构建一个应用程序，例如...",
 			"descriptionZh": "平台构建者指南。在 MIOSA 上运行开源智能体和框架，或构建熟悉的 AI 产品，例如 Lovable、Manus 和 Perplexity - 应用程序构建器、编码智能体、自主和计算机使用智能体、聊天和同伴、应答引擎、多智能体、语音、设计、视频、垂直应用程序和内部业务操作系统。"
@@ -1904,6 +2310,8 @@
 			"title": "Build a Lovable-style app",
 			"description": "Lovable: Prompt a full-stack app, preview it live, publish it. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "105b18031d",
+			"hashZh": "e362aaedd5",
 			"order": 10001,
 			"titleZh": "构建 Lovable 风格的应用程序",
 			"descriptionZh": "Lovable：提示全栈应用程序，实时预览，发布。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -1913,6 +2321,8 @@
 			"title": "Build a Bolt-style app",
 			"description": "Bolt: Full-stack apps from a prompt, on a real dev server. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "4d18994ffe",
+			"hashZh": "d86a783202",
 			"order": 10002,
 			"titleZh": "构建 Bolt 风格的应用程序",
 			"descriptionZh": "Bolt：在真实的开发服务器上通过提示生成全栈应用程序。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -1922,6 +2332,8 @@
 			"title": "Build a v0-style app",
 			"description": "v0: Generate a UI from a prompt and publish it. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "7b74cb18be",
+			"hashZh": "a0cd8793c3",
 			"order": 10003,
 			"titleZh": "构建 v0 风格的应用程序",
 			"descriptionZh": "v0：根据提示生成 UI 并发布。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -1931,6 +2343,8 @@
 			"title": "Build a Replit-Agent-style app",
 			"description": "Replit Agent: A cloud workspace where a prompt becomes a running app. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "c22badf6df",
+			"hashZh": "a31467055f",
 			"order": 10004,
 			"titleZh": "构建 Replit-Agent 风格的应用程序",
 			"descriptionZh": "Replit Agent：一个云工作区，其中提示成为正在运行的应用程序。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -1940,6 +2354,8 @@
 			"title": "Build a Base44-style app",
 			"description": "Base44: Describe an app, get a working, previewed one. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "ea9f0b77e8",
+			"hashZh": "bccc254eae",
 			"order": 10005,
 			"titleZh": "构建 Base44 风格的应用程序",
 			"descriptionZh": "Base44：描述一个应用程序，获取一个可用的、预览过的应用程序。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -1949,6 +2365,8 @@
 			"title": "Build an Emergent-style app",
 			"description": "Emergent: Prompts become running software with real infrastructure. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "c5d700ae5e",
+			"hashZh": "c355ad8316",
 			"order": 10006,
 			"titleZh": "构建 Emergent 风格的应用程序",
 			"descriptionZh": "Emergent：提示变成运行具有真实基础设施的软件。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -1958,6 +2376,8 @@
 			"title": "Build a Rork-style app",
 			"description": "Rork: Prompt to a mobile app you can preview. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "8ddd2790bb",
+			"hashZh": "f0b06e67ab",
 			"order": 10007,
 			"titleZh": "构建 Rork 风格的应用程序",
 			"descriptionZh": "Rork：提示您可以预览的移动应用程序。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -1967,6 +2387,8 @@
 			"title": "Build an Anything-style app",
 			"description": "Anything: Prompt to a working web or mobile app. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "dbb14aecd5",
+			"hashZh": "a1dae63dd4",
 			"order": 10008,
 			"titleZh": "构建任何风格的应用程序",
 			"descriptionZh": "任何内容：提示到正在运行的网络或移动应用程序。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -1976,6 +2398,8 @@
 			"title": "Build a Same-style app",
 			"description": "Same: Clone and rebuild a UI from a screenshot or URL. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "4b0d1ae0e5",
+			"hashZh": "618d9769be",
 			"order": 10009,
 			"titleZh": "构建一个相同风格的应用程序",
 			"descriptionZh": "相同：从屏幕截图或 URL 克隆并重建 UI。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -1985,6 +2409,8 @@
 			"title": "Run coding agents in the cloud",
 			"description": "Cloud coding agents: Claude Code, Codex, Cursor: background agents in the cloud. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "ce3d04dd5d",
+			"hashZh": "f2d830306d",
 			"order": 10010,
 			"titleZh": "在云中运行编码智能体",
 			"descriptionZh": "云编码智能体：Claude Code、Codex、Cursor：云中的后台智能体。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -1994,6 +2420,8 @@
 			"title": "Run Claude Code on MIOSA",
 			"description": "Claude Code: Install it in a sandbox; stream and collect its work. Install and run it on a MIOSA sandbox or computer, then wrap it for your team or your customers.",
 			"section": "Build",
+			"hash": "6a70c50cb3",
+			"hashZh": "a5bde5bd3d",
 			"order": 10011,
 			"titleZh": "在 MIOSA 上运行 Claude 代码",
 			"descriptionZh": "Claude Code：安装在沙箱中；流式传输并收集其工作。在 MIOSA 沙箱或计算机上安装并运行它，然后为您的团队或客户包装它。"
@@ -2003,6 +2431,8 @@
 			"title": "Run Codex on MIOSA",
 			"description": "Codex: Install the Codex CLI in a sandbox with streamed events. Install and run it on a MIOSA sandbox or computer, then wrap it for your team or your customers.",
 			"section": "Build",
+			"hash": "6c03bd8614",
+			"hashZh": "ee54cc3e1d",
 			"order": 10012,
 			"titleZh": "在 MIOSA 上运行 Codex",
 			"descriptionZh": "Codex：在包含流式事件的沙箱中安装 Codex CLI。在 MIOSA 沙箱或计算机上安装并运行它，然后为您的团队或客户包装它。"
@@ -2012,6 +2442,8 @@
 			"title": "Run Cursor agents on MIOSA",
 			"description": "Cursor: Install the Cursor CLI agent and run it headless on isolated machines. Install and run it on a MIOSA sandbox or computer, then wrap it for your team or your customers.",
 			"section": "Build",
+			"hash": "605ebd2c26",
+			"hashZh": "066a1adff0",
 			"order": 10013,
 			"titleZh": "在 MIOSA 上运行 Cursor 智能体",
 			"descriptionZh": "Cursor：安装 Cursor CLI 智能体并在隔离的计算机上无头运行它。在 MIOSA 沙箱或计算机上安装并运行它，然后为您的团队或客户包装它。"
@@ -2021,6 +2453,8 @@
 			"title": "Build a Windsurf-style agentic IDE",
 			"description": "Windsurf: An editor with an agent that edits across files and runs commands. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "f891373cf4",
+			"hashZh": "4802783887",
 			"order": 10014,
 			"titleZh": "构建 Windsurf 风格的智能体 IDE",
 			"descriptionZh": "Windsurf：带有智能体的编辑器，可以跨文件编辑并运行命令。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2030,6 +2464,8 @@
 			"title": "Build a GitHub Copilot-style coding agent",
 			"description": "GitHub Copilot coding agent: An agent that takes an issue, works, and opens a PR. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "cc8c639bea",
+			"hashZh": "f866660116",
 			"order": 10015,
 			"titleZh": "构建 GitHub Copilot 风格的编码智能体",
 			"descriptionZh": "GitHub Copilot 编码智能体：处理问题、工作并打开 PR 的智能体。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2039,6 +2475,8 @@
 			"title": "Run OpenHands on MIOSA",
 			"description": "OpenHands: Install the open-source software agent; the sandbox is its workspace. Install and run it on a MIOSA sandbox or computer, then wrap it for your team or your customers.",
 			"section": "Build",
+			"hash": "5d7543bd2e",
+			"hashZh": "313425e442",
 			"order": 10016,
 			"titleZh": "在 MIOSA 上运行 OpenHands",
 			"descriptionZh": "OpenHands：安装开源软件智能体；沙箱是它的工作空间。在 MIOSA 沙箱或计算机上安装并运行它，然后为您的团队或客户包装它。"
@@ -2048,6 +2486,8 @@
 			"title": "Run Cline on MIOSA",
 			"description": "Cline: The most-installed open-source coding agent, headless in a sandbox. Install and run it on a MIOSA sandbox or computer, then wrap it for your team or your customers.",
 			"section": "Build",
+			"hash": "24f8e1b37c",
+			"hashZh": "d267aa9e53",
 			"order": 10017,
 			"titleZh": "在 MIOSA 上运行 Cline",
 			"descriptionZh": "Cline：安装最多的开源编码智能体，在沙箱中无头。在 MIOSA 沙箱或计算机上安装并运行它，然后为您的团队或客户包装它。"
@@ -2057,6 +2497,8 @@
 			"title": "Build a coding-agent product",
 			"description": "A branded coding-agent product: Wrap a harness in your own branded product. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "351a36705f",
+			"hashZh": "7b47006745",
 			"order": 10018,
 			"titleZh": "构建编码智能体产品",
 			"descriptionZh": "品牌编码剂产品：将运行框架包裹在您自己的品牌产品中。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2066,6 +2508,8 @@
 			"title": "Build a Manus-style agent",
 			"description": "Manus: A general agent with a desktop, browser, and files. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "6193dab256",
+			"hashZh": "402af7a59a",
 			"order": 10019,
 			"titleZh": "构建 Manus 风格的智能体",
 			"descriptionZh": "Manus：具有桌面、浏览器和文件的总智能体。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2075,6 +2519,8 @@
 			"title": "Build a Genspark-style agent",
 			"description": "Genspark Super Agent: A super-agent that plans and produces finished work. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "9855438683",
+			"hashZh": "4f71e9af2c",
 			"order": 10020,
 			"titleZh": "构建 Genspark 风格的智能体",
 			"descriptionZh": "Genspark Super Agent：规划并制作完成作品的超级智能体。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2084,6 +2530,8 @@
 			"title": "Build a Devin-style SWE agent",
 			"description": "Devin: An autonomous engineer with a shell, IDE, and browser. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "eba9bd18d3",
+			"hashZh": "c4cdf98401",
 			"order": 10021,
 			"titleZh": "构建 Devin 风格的 SWE 智能体",
 			"descriptionZh": "Devin：一位拥有 shell、IDE 和浏览器的自主工程师。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2093,6 +2541,8 @@
 			"title": "Build a Cowork-style desktop agent",
 			"description": "Claude Cowork: An agent that works alongside you on your desktop. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "f6e7b7346a",
+			"hashZh": "3164ff59b6",
 			"order": 10022,
 			"titleZh": "构建 Cowork 风格的桌面智能体",
 			"descriptionZh": "Claude Cowork：在桌面上与您一起工作的智能体。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2102,6 +2552,8 @@
 			"title": "Build a browser and computer-use agent",
 			"description": "Browser and computer-use agent: An agent that browses, clicks and fills forms to finish a task. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "37c84d71e9",
+			"hashZh": "366d74240e",
 			"order": 10023,
 			"titleZh": "构建浏览器和计算机使用智能体",
 			"descriptionZh": "浏览器和计算机使用智能体：通过浏览、单击和填写表格来完成任务的智能体。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2111,6 +2563,8 @@
 			"title": "Build a Polar-style AI browser",
 			"description": "AI browser: Build your own browser that runs hours-long tasks and scheduled workflows, on a live MIOSA browser you control. Exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "8f3db67d0c",
+			"hashZh": "8a09ed0123",
 			"order": 10024,
 			"titleZh": "构建一个Polar风格的AI浏览器",
 			"descriptionZh": "AI 浏览器：在您控制的实时 MIOSA 浏览器上构建您自己的浏览器，运行长达数小时的任务和计划的工作流程。确切的资源、步骤和命令。"
@@ -2120,6 +2574,8 @@
 			"title": "Run Browser Use on MIOSA",
 			"description": "Browser Use: Install the open-source library and let an agent drive a real browser. Install and run it on a MIOSA sandbox or computer, then wrap it for your team or your customers.",
 			"section": "Build",
+			"hash": "2c5cba1fa3",
+			"hashZh": "371e98d84d",
 			"order": 10025,
 			"titleZh": "在 MIOSA 上运行浏览器使用",
 			"descriptionZh": "浏览器使用：安装开源库并让智能体驱动真正的浏览器。在 MIOSA 沙箱或计算机上安装并运行它，然后为您的团队或客户包装它。"
@@ -2129,6 +2585,8 @@
 			"title": "Run Stagehand on MIOSA",
 			"description": "Stagehand: Install the framework and run reliable browser automations on a computer. Install and run it on a MIOSA sandbox or computer, then wrap it for your team or your customers.",
 			"section": "Build",
+			"hash": "a3f075036e",
+			"hashZh": "dd0970fe24",
 			"order": 10026,
 			"titleZh": "在 MIOSA 上运行 Stagehand",
 			"descriptionZh": "Stagehand：安装框架并在计算机上运行可靠的浏览器自动化。在 MIOSA 沙箱或计算机上安装并运行它，然后为您的团队或客户包装它。"
@@ -2138,6 +2596,8 @@
 			"title": "Build a dots-style companion",
 			"description": "dots: Always-on companions, each with its own cloud computer. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "88b265d63e",
+			"hashZh": "fe6b314065",
 			"order": 10027,
 			"titleZh": "打造圆点式伴侣",
 			"descriptionZh": "点：永远在线的伙伴，每个伙伴都有自己的云计算机。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2147,6 +2607,8 @@
 			"title": "Build a Grok Bot-style chat app",
 			"description": "Grok Bot: A team of named bots sharing one cloud computer. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "d0daa8bb28",
+			"hashZh": "7a6c181c90",
 			"order": 10028,
 			"titleZh": "构建 Grok Bot 风格的聊天应用程序",
 			"descriptionZh": "Grok Bot：一组共享一台云计算机的指定机器人。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2156,6 +2618,8 @@
 			"title": "Build a Muse-style companion",
 			"description": "Muse: A personal companion that acts on your behalf across apps. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "c6a875c0bb",
+			"hashZh": "93ae0cbe71",
 			"order": 10029,
 			"titleZh": "打造缪斯风格的伴侣",
 			"descriptionZh": "Muse：在应用程序中代表您行事的个人伴侣。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2165,6 +2629,8 @@
 			"title": "Build a Character-style companion",
 			"description": "Character.AI: Persona companions users chat with over time. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "16aa86b931",
+			"hashZh": "e952958476",
 			"order": 10030,
 			"titleZh": "建立一个角色风格的伴侣",
 			"descriptionZh": "Character.AI：随着时间的推移，角色会陪伴用户聊天。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2174,6 +2640,8 @@
 			"title": "Build a Replika-style companion",
 			"description": "Replika: A personal companion with long-term memory. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "eee506eb48",
+			"hashZh": "e324a538a2",
 			"order": 10031,
 			"titleZh": "打造 Replika 风格的伴侣",
 			"descriptionZh": "Replika：具有长期记忆的个人伴侣。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2183,6 +2651,8 @@
 			"title": "Build a Pi-style companion",
 			"description": "Pi: A warm, conversational personal assistant. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "33af3ae3d0",
+			"hashZh": "01fe920deb",
 			"order": 10032,
 			"titleZh": "打造 Pi 风格的伴侣",
 			"descriptionZh": "Pi：热情、健谈的私人助理。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2192,6 +2662,8 @@
 			"title": "Run OpenClaw on MIOSA",
 			"description": "OpenClaw: Install the open-source assistant on a persistent computer that never sleeps. Install and run it on a MIOSA sandbox or computer, then wrap it for your team or your customers.",
 			"section": "Build",
+			"hash": "b11ab08885",
+			"hashZh": "942351c0b1",
 			"order": 10033,
 			"titleZh": "在 MIOSA 上运行 OpenClaw",
 			"descriptionZh": "OpenClaw：在永不休眠的持久计算机上安装开源助手。在 MIOSA 沙箱或计算机上安装并运行它，然后为您的团队或客户包装它。"
@@ -2201,6 +2673,8 @@
 			"title": "Build a Perplexity-style answer engine",
 			"description": "Perplexity: Search, read, and answer with citations. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "b998fcfdf0",
+			"hashZh": "ad0fa05211",
 			"order": 10034,
 			"titleZh": "构建 Perplexity 风格的答案引擎",
 			"descriptionZh": "困惑：搜索、阅读并引用引文回答。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2210,6 +2684,8 @@
 			"title": "Build a Comet-style agentic browser",
 			"description": "Comet: A browser that navigates and answers in place. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "f69adaf4ff",
+			"hashZh": "2a131808e0",
 			"order": 10035,
 			"titleZh": "构建 Comet 风格的智能体浏览器",
 			"descriptionZh": "Comet：就地导航和应答的浏览器。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2219,6 +2695,8 @@
 			"title": "Build a You.com-style search and answer API",
 			"description": "You.com: An API your agents call to search and answer, with sources. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "7d691d0602",
+			"hashZh": "916d037b82",
 			"order": 10036,
 			"titleZh": "构建 You.com 风格的搜索和答案 API",
 			"descriptionZh": "You.com：您的智能体调用的 API 来搜索和回答，并带有来源。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2228,6 +2706,8 @@
 			"title": "Build a Phind-style answer engine",
 			"description": "Phind: Technical answers rendered as interactive mini-apps. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "95d70b1e1f",
+			"hashZh": "f73d682c5c",
 			"order": 10037,
 			"titleZh": "构建 Phind 风格的答案引擎",
 			"descriptionZh": "Phind：以交互式迷你应用程序呈现的技术答案。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2237,6 +2717,8 @@
 			"title": "Build a deep-research-style agent",
 			"description": "ChatGPT deep research: A long-running research agent producing a report. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "e1b7524b4d",
+			"hashZh": "9c88881b13",
 			"order": 10038,
 			"titleZh": "打造深度研究型智能体",
 			"descriptionZh": "ChatGPT 深度研究：长期运行的研究智能体生成报告。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2246,6 +2728,8 @@
 			"title": "Build an OpenSwarm-style multi-agent app",
 			"description": "OpenSwarm: An AI desktop built around running several agents in parallel. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "88c243bb7b",
+			"hashZh": "39dccf2fb6",
 			"order": 10039,
 			"titleZh": "构建 OpenSwarm 风格的多智能体应用程序",
 			"descriptionZh": "OpenSwarm：围绕并行运行多个智能体构建的 AI 桌面。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2255,6 +2739,8 @@
 			"title": "Run Hermes Agent on MIOSA",
 			"description": "Hermes Agent: Install the open-source agent harness and run many tool-using agents. Install and run it on a MIOSA sandbox or computer, then wrap it for your team or your customers.",
 			"section": "Build",
+			"hash": "75a56fa97d",
+			"hashZh": "6f4f4f214f",
 			"order": 10040,
 			"titleZh": "在 MIOSA 上运行 Hermes 智能体",
 			"descriptionZh": "Hermes Agent：安装开源智能体工具并运行许多使用工具的智能体。在 MIOSA 沙箱或计算机上安装并运行它，然后为您的团队或客户包装它。"
@@ -2264,6 +2750,8 @@
 			"title": "Build an orchestrator that delegates",
 			"description": "An orchestrator that delegates: One agent that plans, delegates to sub-agents and joins the result. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "3104b960f0",
+			"hashZh": "f3e332b39f",
 			"order": 10041,
 			"titleZh": "构建一个可委派的协调器",
 			"descriptionZh": "委托的编排器：一个智能体进行计划、委托给子智能体并加入结果。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2273,6 +2761,8 @@
 			"title": "Build an ElevenLabs-style voice agent",
 			"description": "ElevenLabs Agents: A voice agent that talks and takes real actions. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "47f818b4ad",
+			"hashZh": "1c9ece6618",
 			"order": 10042,
 			"titleZh": "构建 ElevenLabs 风格的语音智能体",
 			"descriptionZh": "ElevenLabs Agents：可以说话并采取实际行动的语音智能体。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2282,6 +2772,8 @@
 			"title": "Build a Vapi-style voice agent",
 			"description": "Vapi: Voice agents for phone and web. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "5e3645a740",
+			"hashZh": "d3085ca270",
 			"order": 10043,
 			"titleZh": "构建Vapi风格的语音智能体",
 			"descriptionZh": "Vapi：电话和网络语音智能体。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2291,6 +2783,8 @@
 			"title": "Build a Retell-style voice agent",
 			"description": "Retell AI: Phone agents that handle real calls. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "71fb08542f",
+			"hashZh": "24b65c4c77",
 			"order": 10044,
 			"titleZh": "构建 Retell 风格的语音智能体",
 			"descriptionZh": "Retell AI：处理真实呼叫的电话智能体。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2300,6 +2794,8 @@
 			"title": "Build a Bland-style phone agent",
 			"description": "Bland AI: Programmable phone agents at scale. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "90f3be6aa3",
+			"hashZh": "32797d5ce0",
 			"order": 10045,
 			"titleZh": "建立一个平淡无奇的电话智能体",
 			"descriptionZh": "Bland AI：大规模可编程电话智能体。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2309,6 +2805,8 @@
 			"title": "Run Pipecat on MIOSA",
 			"description": "Pipecat: Install the open-source voice pipeline from speech-to-text to text-to-speech. Install and run it on a MIOSA sandbox or computer, then wrap it for your team or your customers.",
 			"section": "Build",
+			"hash": "2cf0801242",
+			"hashZh": "0c7c1fc57d",
 			"order": 10046,
 			"titleZh": "在 MIOSA 上运行 Pipecat",
 			"descriptionZh": "Pipecat：安装从语音到文本到文本到语音的开源语音管道。在 MIOSA 沙箱或计算机上安装并运行它，然后为您的团队或客户包装它。"
@@ -2318,6 +2816,8 @@
 			"title": "Run LiveKit Agents on MIOSA",
 			"description": "LiveKit Agents: The leading open-source realtime voice agent framework. Install and run it on a MIOSA sandbox or computer, then wrap it for your team or your customers.",
 			"section": "Build",
+			"hash": "fa4178d0f2",
+			"hashZh": "9edd0860d8",
 			"order": 10047,
 			"titleZh": "在 MIOSA 上运行 LiveKit 智能体",
 			"descriptionZh": "LiveKit Agents：领先的开源实时语音智能体框架。在 MIOSA 沙箱或计算机上安装并运行它，然后为您的团队或客户包装它。"
@@ -2327,6 +2827,8 @@
 			"title": "Build a prompt-to-UI design tool",
 			"description": "Figma Make: Prompt (and a design file) to a working, previewed UI. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "d5c9a439b9",
+			"hashZh": "abbfc8956f",
 			"order": 10048,
 			"titleZh": "构建一个提示式 UI 设计工具",
 			"descriptionZh": "Figma Make：提示（和设计文件）到工作的、预览的 UI。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2336,6 +2838,8 @@
 			"title": "Build a sketch-to-mockup tool",
 			"description": "Uizard: A sketch or screenshot becomes editable UI code. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "0fac1b67eb",
+			"hashZh": "b9d6d5692b",
 			"order": 10049,
 			"titleZh": "构建草图到模型工具",
 			"descriptionZh": "Uizard：草图或屏幕截图变成可编辑的 UI 代码。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2345,6 +2849,8 @@
 			"title": "Build a Magic-Patterns-style tool",
 			"description": "Magic Patterns: Generate UI components from a prompt. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "00ed541e5b",
+			"hashZh": "fda8c2c9c4",
 			"order": 10050,
 			"titleZh": "构建 Magic-Patterns 风格的工具",
 			"descriptionZh": "Magic Patterns：根据提示生成 UI 组件。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2354,6 +2860,8 @@
 			"title": "Build a video-generation app",
 			"description": "Runway: Generate and edit video on top of video-model APIs. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "87c2fbb437",
+			"hashZh": "3b4b0af959",
 			"order": 10051,
 			"titleZh": "构建视频生成应用程序",
 			"descriptionZh": "Runway：在视频模型 API 之上生成和编辑视频。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2363,6 +2871,8 @@
 			"title": "Build a text-to-video app",
 			"description": "Sora: Prompt to video through a video-model API. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "e0c0a7c03f",
+			"hashZh": "6f8c3342bb",
 			"order": 10052,
 			"titleZh": "构建文本转视频应用程序",
 			"descriptionZh": "Sora：通过视频模型 API 提示视频。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2372,6 +2882,8 @@
 			"title": "Build an avatar-video app",
 			"description": "HeyGen: Script to talking-avatar video with TTS and lip-sync APIs. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "945bc88e81",
+			"hashZh": "fb9f501241",
 			"order": 10053,
 			"titleZh": "构建头像视频应用程序",
 			"descriptionZh": "HeyGen：使用 TTS 和口型同步 API 编写说话头像视频的脚本。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2381,6 +2893,8 @@
 			"title": "Build a Higgsfield-style video studio",
 			"description": "Higgsfield: A multi-model studio: brief, steer camera and look, generate. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "68d41e4e73",
+			"hashZh": "e56adba49e",
 			"order": 10054,
 			"titleZh": "建立希格斯菲尔德风格的视频工作室",
 			"descriptionZh": "Higgsfield：一个多模型工作室：简要、控制摄像机、观察、生成。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2390,6 +2904,8 @@
 			"title": "Build a Gamma-style deck app",
 			"description": "Gamma: Prompt or document to a polished, shareable deck or page. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "5748dd46e6",
+			"hashZh": "2402383498",
 			"order": 10055,
 			"titleZh": "构建 Gamma 风格的套牌应用程序",
 			"descriptionZh": "Gamma：提示或记录到精美的、可共享的平台或页面。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2399,6 +2915,8 @@
 			"title": "Build a Descript-style editor",
 			"description": "Descript: Edit video by editing the transcript. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "ab33d1a261",
+			"hashZh": "b8f265d451",
 			"order": 10056,
 			"titleZh": "构建一个描述风格的编辑器",
 			"descriptionZh": "描述：通过编辑脚本来编辑视频。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2408,6 +2926,8 @@
 			"title": "Build a Fin-style support agent",
 			"description": "Fin: An AI support agent resolving customer tickets. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "2ae8d4c334",
+			"hashZh": "cc0b534013",
 			"order": 10057,
 			"titleZh": "建立 Fin 式支持智能体",
 			"descriptionZh": "Fin：解决客户问题的人工智能支持智能体。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2417,6 +2937,8 @@
 			"title": "Build a Decagon-style support agent",
 			"description": "Decagon: Resolve tickets across chat and email, with handoff. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "b1eede09b3",
+			"hashZh": "5114d48612",
 			"order": 10058,
 			"titleZh": "构建 Decagon 式支持智能体",
 			"descriptionZh": "Decagon：通过聊天和电子邮件解决工单，并进行交接。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2426,6 +2948,8 @@
 			"title": "Build a Clay-style sales agent",
 			"description": "Clay: Research and enrich leads at scale. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "0787251bbc",
+			"hashZh": "062c2ba6f5",
 			"order": 10059,
 			"titleZh": "打造粘土式销售智能体",
 			"descriptionZh": "Clay：大规模研究和丰富潜在客户。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2435,6 +2959,8 @@
 			"title": "Build a post-call analysis agent",
 			"description": "Gong: Turn call transcripts into sourced insights and next steps. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "449da9d4c1",
+			"hashZh": "1e8e79cb82",
 			"order": 10060,
 			"titleZh": "构建呼叫后分析智能体",
 			"descriptionZh": "龚：将通话记录转化为原始见解和后续步骤。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2444,6 +2970,8 @@
 			"title": "Build an OpenEvidence-style evidence engine",
 			"description": "OpenEvidence: Cited answers over a trusted corpus. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "8eca21b151",
+			"hashZh": "f3a7594311",
 			"order": 10061,
 			"titleZh": "构建 OpenEvidence 风格的证据引擎",
 			"descriptionZh": "OpenEvidence：在可信语料库中引用答案。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2453,6 +2981,8 @@
 			"title": "Build an internal Business OS",
 			"description": "BusinessOS is MIOSA's own Apache-2.0 internal company OS. Clone the real repo, run it on a MIOSA sandbox or computer, preview it, customize the modules, and publish it behind your own domain.",
 			"section": "Build",
+			"hash": "881b3c5381",
+			"hashZh": "599c4221ec",
 			"order": 10062,
 			"titleZh": "构建内部业务操作系统",
 			"descriptionZh": "BusinessOS是MIOSA自己的Apache-2.0内部公司操作系统。克隆真实的存储库，在 MIOSA 沙箱或计算机上运行它，预览它，自定义模块，然后将其发布到您自己的域后面。"
@@ -2462,6 +2992,8 @@
 			"title": "Build an internal AI workspace",
 			"description": "Internal AI workspace: One place for your team's agents, apps, and data. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "cf455c5b8b",
+			"hashZh": "ce4c24b494",
 			"order": 10063,
 			"titleZh": "构建内部 AI 工作空间",
 			"descriptionZh": "内部 AI 工作区：存放团队智能体、应用程序和数据的一处地方。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2471,6 +3003,8 @@
 			"title": "Build an ops and support copilot",
 			"description": "Ops and support copilot: Triage tickets and run runbooks, with human approval. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "579f997684",
+			"hashZh": "049c65db70",
 			"order": 10064,
 			"titleZh": "建立一名运营人员并提供支持副驾驶",
 			"descriptionZh": "运营和支持副驾驶：在人工批准的情况下对票据进行分类并运行操作手册。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2480,6 +3014,8 @@
 			"title": "Build an internal tools builder",
 			"description": "Internal tools builder: Prompt to a shipped dashboard behind your domain. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "4622f32761",
+			"hashZh": "b3c638a033",
 			"order": 10065,
 			"titleZh": "构建内部工具构建器",
 			"descriptionZh": "内部工具构建器：提示您域后面的已发货仪表板。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2489,6 +3025,8 @@
 			"title": "Build a knowledge-base agent",
 			"description": "Knowledge-base agent: Answer from the company docs with citations. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "94ae4789c5",
+			"hashZh": "5b46079e3a",
 			"order": 10066,
 			"titleZh": "构建知识库智能体",
 			"descriptionZh": "知识库智能体：来自公司文档的答案并附有引文。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2498,6 +3036,8 @@
 			"title": "Build an employee onboarding agent",
 			"description": "Employee onboarding agent: Walks a new hire through their first week. Build it on MIOSA with the exact resources, steps and commands.",
 			"section": "Build",
+			"hash": "583d5b26e4",
+			"hashZh": "75909ad5f4",
 			"order": 10067,
 			"titleZh": "建立员工入职智能体",
 			"descriptionZh": "员工入职智能体：引导新员工度过第一周。使用确切的资源、步骤和命令在 MIOSA 上构建它。"
@@ -2507,6 +3047,8 @@
 			"title": "CLI or MCP: which to use",
 			"description": "The miosa CLI is for humans and scripts in a terminal; MCP gives AI clients the same capabilities as tools. Both use the same API key and scopes.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "4c4d755ac2",
+			"hashZh": "ae1c0f822e",
 			"order": 11000,
 			"titleZh": "CLI 或 MCP：使用哪个",
 			"descriptionZh": "miosa CLI 适用于终端中的人类和脚本； MCP 为 AI 客户端提供了与工具相同的功能。两者都使用相同的 API 密钥和范围。"
@@ -2516,6 +3058,8 @@
 			"title": "CLI overview",
 			"description": "The miosa command line tool. Install, sign in, and drive sandboxes, computers, agents, deployments and every platform resource from the terminal.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "1e708268de",
+			"hashZh": "4d30856977",
 			"order": 11001,
 			"titleZh": "CLI 概述",
 			"descriptionZh": "miosa 命令行工具。从终端安装、登录和驱动沙箱、计算机、智能体、部署和每个平台资源。"
@@ -2525,6 +3069,8 @@
 			"title": "Account and environment",
 			"description": "Check who you are, which organization pays, the organization's members and limits, and the CLI version.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "1fd0d96628",
+			"hashZh": "3f7c0e2d0d",
 			"order": 11002,
 			"titleZh": "账号及环境",
 			"descriptionZh": "检查您是谁、哪个组织付费、该组织的成员和限制以及 CLI 版本。"
@@ -2534,6 +3080,8 @@
 			"title": "Machines and lifecycle",
 			"description": "Create, list, inspect, stop, fork, recover and destroy sandboxes and computers with the miosa CLI.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "a60da4e28f",
+			"hashZh": "7fe99cf1b3",
 			"order": 11003,
 			"titleZh": "机器和生命周期",
 			"descriptionZh": "使用 miosa CLI 创建、列出、检查、停止、分叉、恢复和销毁沙箱和计算机。"
@@ -2543,6 +3091,8 @@
 			"title": "Run commands and move files",
 			"description": "exec, ssh, console, files, background processes, services, logs, ports and public previews in a sandbox.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "98da2cd074",
+			"hashZh": "bb472fba5b",
 			"order": 11004,
 			"titleZh": "运行命令并移动文件",
 			"descriptionZh": "沙箱中的 exec、ssh、控制台、文件、后台进程、服务、日志、端口和公共预览。"
@@ -2552,6 +3102,8 @@
 			"title": "Snapshots, checkpoints and restore",
 			"description": "Browse, name, fork and delete snapshots of sandboxes and computers, plus checkpoints and restore.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "1659f47d01",
+			"hashZh": "694f603216",
 			"order": 11005,
 			"titleZh": "快照、检查点和恢复",
 			"descriptionZh": "浏览、命名、分叉和删除沙箱和计算机的快照，以及检查点和恢复。"
@@ -2561,6 +3113,8 @@
 			"title": "Environments",
 			"description": "The template a new sandbox or computer starts from: repositories, variables, secret files and credentials, with immutable versions.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "3f11c3ddc5",
+			"hashZh": "689e5fdc1c",
 			"order": 11006,
 			"titleZh": "环境",
 			"descriptionZh": "新沙箱或计算机的模板始于：存储库、变量、秘密文件和凭证，具有不可变的版本。"
@@ -2570,6 +3124,8 @@
 			"title": "Agents, chats and runs",
 			"description": "Run agents on a sandbox or computer, manage saved agent definitions, chats and durable runs, and see how runs stream.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "0138933814",
+			"hashZh": "b735287ac0",
 			"order": 11007,
 			"titleZh": "智能体、聊天和运行",
 			"descriptionZh": "在沙箱或计算机上运行智能体，管理保存的智能体定义、聊天和持久运行，并查看运行流的情况。"
@@ -2579,6 +3135,8 @@
 			"title": "Platform resources",
 			"description": "Deployments, databases, storage, volumes, workflows, schedules, functions, templates, hosts, forge, cloud, egress and the AI gateway from the miosa CLI.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "7594af51cb",
+			"hashZh": "d8264a9297",
 			"order": 11008,
 			"titleZh": "平台资源",
 			"descriptionZh": "miosa CLI 中的部署、数据库、存储、卷、工作流程、计划、功能、模板、主机、锻造、云、出口和 AI 网关。"
@@ -2588,6 +3146,8 @@
 			"title": "Access, org and billing",
 			"description": "API keys, service accounts, webhooks, members, billing, audit log, alerts and notifications from the miosa CLI.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "642662c394",
+			"hashZh": "476706f56f",
 			"order": 11009,
 			"titleZh": "访问、组织和计费",
 			"descriptionZh": "来自 miosa CLI 的 API 密钥、服务帐户、Webhook、成员、计费、审核日志、警报和通知。"
@@ -2597,6 +3157,8 @@
 			"title": "Raw API access",
 			"description": "Call any MIOSA API endpoint from the CLI with your stored credentials, using miosa api.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "7e7b4a6a0e",
+			"hashZh": "c856216d97",
 			"order": 11010,
 			"titleZh": "原始 API 访问",
 			"descriptionZh": "使用 miosa api，使用您存储的凭据从 CLI 调用任何 MIOSA API 端点。"
@@ -2606,6 +3168,8 @@
 			"title": "Config and profiles",
 			"description": "Named sign-ins and defaults in ~/.miosa/config.toml, plus the config commands, options and environment variables.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "10d23e84b1",
+			"hashZh": "b8fe958d68",
 			"order": 11011,
 			"titleZh": "配置和配置文件",
 			"descriptionZh": "~/.miosa/config.toml 中的命名登录和默认设置，以及配置命令、选项和环境变量。"
@@ -2615,6 +3179,8 @@
 			"title": "JSON output and scripting",
 			"description": "Machine-readable output, streaming, error shapes, exit codes and CI patterns for the miosa CLI.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "033be5da19",
+			"hashZh": "7297818ec6",
 			"order": 11012,
 			"titleZh": "JSON 输出和脚本",
 			"descriptionZh": "miosa CLI 的机器可读输出、流式传输、错误形状、退出代码和 CI 模式。"
@@ -2624,6 +3190,8 @@
 			"title": "Devices",
 			"description": "miosa device is one surface over every runtime kind you can run work on - sandboxes, computers and more - for listing, exec, files, ports and lifecycle.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "3b21e1ec9e",
+			"hashZh": "b11e72874c",
 			"order": 11013,
 			"titleZh": "设备",
 			"descriptionZh": "miosa 设备是您可以在其上运行工作的所有运行时类型（沙箱、计算机等）的一个表面，用于列表、执行、文件、端口和生命周期。"
@@ -2633,6 +3201,8 @@
 			"title": "SDKs overview",
 			"description": "Official MIOSA client libraries for TypeScript, Python, Go, Elixir, Java and Rust, with package names, versions, install commands and status.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "7d9b66143a",
+			"hashZh": "bdee186c43",
 			"order": 11014,
 			"titleZh": "SDK 概览",
 			"descriptionZh": "MIOSA 官方 TypeScript、Python、Go、Elixir、Java 和 Rust 客户端库，包含包名、版本、安装命令和状态。"
@@ -2642,6 +3212,8 @@
 			"title": "TypeScript SDK",
 			"description": "Install, authenticate and use @miosa/sdk 3.7.1 - sandboxes, exec, files, snapshots, computers, agents and typed errors.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "dc5ce496bb",
+			"hashZh": "a01e033036",
 			"order": 11015,
 			"titleZh": "TypeScript SDK",
 			"descriptionZh": "安装、验证并使用 @miosa/sdk 3.7.1——沙箱、exec、文件、快照、计算机、智能体和类型化错误。"
@@ -2651,6 +3223,8 @@
 			"title": "Python SDK",
 			"description": "Install, authenticate and use the miosa Python SDK 2.16.5 - sync and async, sandboxes, exec, files, snapshots, computers, agents and typed errors.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "bef13b6094",
+			"hashZh": "ae3fbf4c00",
 			"order": 11016,
 			"titleZh": "Python SDK",
 			"descriptionZh": "安装、认证并使用 miosa Python SDK 2.16.5——同步与异步、沙箱、exec、文件、快照、计算机、智能体和类型化错误。"
@@ -2660,6 +3234,8 @@
 			"title": "Go SDK",
 			"description": "Install, authenticate and use the miosa-go v2 SDK - sandboxes, exec, files, snapshots, computers, agent runs and typed errors.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "997647cb77",
+			"hashZh": "d4fa5c2f8b",
 			"order": 11017,
 			"titleZh": "Go SDK",
 			"descriptionZh": "安装、验证并使用 miosa-go v2 SDK——沙箱、exec、文件、快照、计算机、智能体运行和类型化错误。"
@@ -2669,6 +3245,8 @@
 			"title": "Elixir SDK",
 			"description": "Install, authenticate and use the miosa Elixir SDK 1.1.0 - sandboxes, exec, files, snapshots, computers, agents and typed errors.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "29947fb81c",
+			"hashZh": "607758daa8",
 			"order": 11018,
 			"titleZh": "Elixir SDK",
 			"descriptionZh": "安装、验证并使用 miosa Elixir SDK 1.1.0——沙箱、exec、文件、快照、计算机、智能体和类型化错误。"
@@ -2678,6 +3256,8 @@
 			"title": "Java SDK",
 			"description": "Install, authenticate and use the miosa Java SDK 0.5.1 - sandboxes, exec, files, snapshots, computers, agent runs and thrown exceptions.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "c5b0f26498",
+			"hashZh": "a5f1a484fb",
 			"order": 11019,
 			"titleZh": "Java SDK",
 			"descriptionZh": "安装、验证并使用 miosa Java SDK 0.5.1——沙箱、exec、文件、快照、计算机、智能体运行和抛出的异常。"
@@ -2687,6 +3267,8 @@
 			"title": "Rust SDK",
 			"description": "Install, authenticate and use the miosa Rust SDK 0.1.0 - sandboxes, exec, files, computers, agents and a typed error enum.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "2ea6590888",
+			"hashZh": "8ebce665cf",
 			"order": 11020,
 			"titleZh": "Rust SDK",
 			"descriptionZh": "安装、认证并使用 miosa Rust SDK 0.1.0——沙箱、exec、文件、计算机、智能体和类型化错误枚举。"
@@ -2696,6 +3278,8 @@
 			"title": "Egress SDK reference",
 			"description": "Every Secrets, Connect Accounts, Network Allowlist, and Audit Log SDK method across Python, TypeScript, Go, Java, and Elixir - side by side.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "3632d35387",
+			"hashZh": "0eb7e84104",
 			"order": 11021,
 			"titleZh": "出口（安全）SDK 参考",
 			"descriptionZh": "Python、TypeScript、Go、Java 和 Elixir 中所有机密、连接账户、网络允许列表和审计日志 SDK 方法——并排对照。"
@@ -2705,6 +3289,8 @@
 			"title": "MCP overview",
 			"description": "Connect OSA, Claude Code, Codex, Cursor, Hermes or Claude Desktop to the MIOSA MCP server for sandboxes, computers, deployments, storage and 151 tools across the platform.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "e5a891e74b",
+			"hashZh": "2dd6ab6aff",
 			"order": 11022,
 			"titleZh": "MCP概述",
 			"descriptionZh": "将 OSA、Claude Code、Codex、Cursor、Hermes 或 Claude Desktop 连接到 MIOSA MCP 服务器，以实现跨平台的沙箱、计算机、部署、存储和 151 种工具。"
@@ -2714,6 +3300,8 @@
 			"title": "Install and authenticate",
 			"description": "Choose the hosted MIOSA MCP endpoint or the local stdio package, create a key, and set organization context.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "617b2f0009",
+			"hashZh": "52bdbbb53a",
 			"order": 11023,
 			"titleZh": "安装并验证",
 			"descriptionZh": "选择托管的 MIOSA MCP 端点或本地 stdio 包，创建密钥并设置组织上下文。"
@@ -2724,6 +3312,8 @@
 			"description": "All MIOSA MCP tools, grouped by family. This overview covers workspaces, billing, and API keys; the tool families link to their own pages.",
 			"section": "CLI, SDKs & MCP",
 			"layout": "cards",
+			"hash": "e31c96607f",
+			"hashZh": "483937dd8d",
 			"order": 11024,
 			"titleZh": "工具参考",
 			"descriptionZh": "所有 MIOSA MCP 工具，按系列分组。此概述涵盖工作区、计费和 API 密钥；工具系列链接到它们自己的页面。"
@@ -2733,6 +3323,8 @@
 			"title": "Sandbox tools",
 			"description": "Hosted MIOSA MCP sandbox tools: create, exec, files, previews, deploy, snapshots and templates.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "22b3d262ce",
+			"hashZh": "016f22fece",
 			"order": 11025,
 			"titleZh": "沙箱工具",
 			"descriptionZh": "托管 MIOSA MCP 沙箱工具：创建、执行、文件、预览、部署、快照和模板。"
@@ -2742,6 +3334,8 @@
 			"title": "Computer tools",
 			"description": "Hosted MIOSA MCP computer tools: lifecycle, files, checkpoints, env, domains, and the desktop surface (screen, pointer, keyboard, windows).",
 			"section": "CLI, SDKs & MCP",
+			"hash": "c89d5200a3",
+			"hashZh": "722dab3344",
 			"order": 11026,
 			"titleZh": "电脑工具",
 			"descriptionZh": "托管 MIOSA MCP 计算机工具：生命周期、文件、检查点、环境、域和桌面表面（屏幕、指针、键盘、窗口）。"
@@ -2751,6 +3345,8 @@
 			"title": "Deployment tools",
 			"description": "Hosted MIOSA MCP deployment tools: deployments, Docker Host, versions, env, and logs.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "04558e13f0",
+			"hashZh": "9771097409",
 			"order": 11027,
 			"titleZh": "部署工具",
 			"descriptionZh": "托管 MIOSA MCP 部署工具：部署、Docker 主机、版本、环境和日志。"
@@ -2760,6 +3356,8 @@
 			"title": "Data tools",
 			"description": "Hosted MIOSA MCP data tools: managed databases and object storage.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "ff162cb52a",
+			"hashZh": "9080dc84a9",
 			"order": 11028,
 			"titleZh": "数据工具",
 			"descriptionZh": "托管 MIOSA MCP 数据工具：托管数据库和对象存储。"
@@ -2769,6 +3367,8 @@
 			"title": "Platform tools",
 			"description": "Hosted MIOSA MCP platform tools: computer services, cron, volumes, webhooks, functions, and regions.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "8b91886c14",
+			"hashZh": "d8ef76cc8e",
 			"order": 11029,
 			"titleZh": "平台工具",
 			"descriptionZh": "托管 MIOSA MCP 平台工具：计算机服务、cron、卷、webhooks、函数和区域。"
@@ -2779,6 +3379,8 @@
 			"description": "How the MIOSA MCP server works, per-client configuration for Claude Code, Cursor, and Windsurf, environment variable reference, worked usage examples, troubleshooting, and security considerations.",
 			"section": "CLI, SDKs & MCP",
 			"layout": "cards",
+			"hash": "134915f402",
+			"hashZh": "3a8ae37b4c",
 			"order": 11030,
 			"titleZh": "高级 MCP 设置",
 			"descriptionZh": "MIOSA MCP 服务器的工作原理、Claude Code、Cursor 和 Windsurf 的每个客户端配置、环境变量参考、工作使用示例、故障排除和安全注意事项。"
@@ -2788,6 +3390,8 @@
 			"title": "Tool server catalog",
 			"description": "Add an official tool server in one step, test its key before saving, and keep the key in the workspace vault.",
 			"section": "CLI, SDKs & MCP",
+			"hash": "3a93b1b247",
+			"hashZh": "0a302b717c",
 			"order": 11031,
 			"titleZh": "工具服务器目录",
 			"descriptionZh": "一步添加官方工具服务器，保存前测试其密钥，并将密钥保存在工作区保管库中。"
@@ -2797,6 +3401,8 @@
 			"title": "Authentication",
 			"description": "How to authenticate with the MIOSA API using msk_ API keys or JWT tokens.",
 			"section": "API reference",
+			"hash": "afcf854106",
+			"hashZh": "439505cc30",
 			"order": 12000,
 			"titleZh": "验证",
 			"descriptionZh": "如何使用 msk_ API 密钥或 JWT 令牌通过 MIOSA API 进行身份验证。"
@@ -2807,6 +3413,8 @@
 			"description": "The mental model every MIOSA integrator needs - workspace, authentication, resources, attribution, idempotency, rate limits, errors, and events.",
 			"section": "API reference",
 			"layout": "cards",
+			"hash": "4cad03b808",
+			"hashZh": "03e12cfd83",
 			"order": 12001,
 			"titleZh": "基本概念",
 			"descriptionZh": "每个 MIOSA 集成商都需要的心理模型 - 工作空间、身份验证、资源、归因、幂等性、速率限制、错误和事件。"
@@ -2816,6 +3424,8 @@
 			"title": "Authentication",
 			"description": "API keys, browser tokens, and the five MIOSA token types with their prefixes, callers, and trust levels.",
 			"section": "API reference",
+			"hash": "3636f8dd85",
+			"hashZh": "9aaaa69f1f",
 			"order": 12002,
 			"titleZh": "验证",
 			"descriptionZh": "API 密钥、浏览器令牌和五种 MIOSA 令牌类型及其前缀、调用者和信任级别。"
@@ -2825,6 +3435,8 @@
 			"title": "Requests, limits, and errors",
 			"description": "Idempotency keys, rate limits and quota headers, and the MIOSA error envelope with its HTTP status codes.",
 			"section": "API reference",
+			"hash": "ce6be94493",
+			"hashZh": "a575d0c31a",
 			"order": 12003,
 			"titleZh": "请求、限制和错误",
 			"descriptionZh": "幂等性密钥、速率限制和配额标头，以及 MIOSA 错误信封及其 HTTP 状态代码。"
@@ -2834,6 +3446,8 @@
 			"title": "Events (SSE)",
 			"description": "Stream progress over Server-Sent Events using one-time tickets - per-resource streams, the tenant-wide stream, and the event catalog.",
 			"section": "API reference",
+			"hash": "8feb18b524",
+			"hashZh": "ba27a52d07",
 			"order": 12004,
 			"titleZh": "活动（SSE）",
 			"descriptionZh": "使用一次性票证流式传输服务器发送的事件的进度 - 每个资源流、租户范围的流和事件目录。"
@@ -2843,6 +3457,8 @@
 			"title": "Ownership and external attribution",
 			"description": "Canonical ownership fields, opaque external attribution, and usage rollup for platforms that resell MIOSA to their own customers.",
 			"section": "API reference",
+			"hash": "89a1ed3165",
+			"hashZh": "182d21d66a",
 			"order": 12005,
 			"titleZh": "所有权和外部归属",
 			"descriptionZh": "规范的所有权字段、不透明的外部归属以及将 MIOSA 转售给自己的客户的平台的使用情况汇总。"
@@ -2852,6 +3468,8 @@
 			"title": "Tenant configuration",
 			"description": "Tenant-level API surfaces for white-label integrators - webhook subscriptions and per-end-user quotas.",
 			"section": "API reference",
+			"hash": "766ba8841a",
+			"hashZh": "9c997c7f4c",
 			"order": 12006,
 			"titleZh": "租户配置",
 			"descriptionZh": "白标集成商的租户级 API 界面 - Webhook 订阅和每最终用户配额。"
@@ -2862,6 +3480,8 @@
 			"description": "The per-workspace and per-endpoint API request limits, how to read the rate-limit headers, and how to back off on 429.",
 			"section": "API reference",
 			"layout": "cards",
+			"hash": "8508e7eda7",
+			"hashZh": "8719f93a1f",
 			"order": 12007,
 			"titleZh": "速率限制",
 			"descriptionZh": "按工作区和按端点划分的 API 请求限制，如何读取速率限制响应头，以及遇到 429 时如何退避。"
@@ -2872,6 +3492,8 @@
 			"description": "Which regions MIOSA runs in, what is region-local, how to pin a sandbox or computer to one, and the cross-region story.",
 			"section": "API reference",
 			"layout": "cards",
+			"hash": "f6f777b078",
+			"hashZh": "673037cfa5",
 			"order": 12008,
 			"titleZh": "区域",
 			"descriptionZh": "MIOSA 在哪些区域运行、哪些资源属于区域本地、如何将沙箱或计算机固定到某个区域，以及跨区域的情况。"
@@ -2882,6 +3504,8 @@
 			"description": "REST API reference for the MIOSA platform - base URL, auth, request/response envelopes, and endpoint guides.",
 			"section": "API reference",
 			"layout": "cards",
+			"hash": "d4990e6687",
+			"hashZh": "4ce0ee9306",
 			"order": 12009,
 			"titleZh": "API 参考",
 			"descriptionZh": "MIOSA 平台的 REST API 参考 - 基本 URL、身份验证、请求/响应信封和端点指南。"
@@ -2891,6 +3515,8 @@
 			"title": "Interactive API Reference",
 			"description": "Browse and try the allowlisted MIOSA Sandbox V1 API interactively. Use the written endpoint guides for the wider platform API.",
 			"section": "API reference",
+			"hash": "14a0f101ab",
+			"hashZh": "04af404376",
 			"order": 12010,
 			"titleZh": "交互式 API 参考",
 			"descriptionZh": "以交互方式浏览并尝试列入白名单的 MIOSA Sandbox V1 API。使用针对更广泛平台 API 的书面端点指南。"
@@ -2900,6 +3526,8 @@
 			"title": "Error Codes",
 			"description": "Every error code the MIOSA API returns, what it means, and how to handle it.",
 			"section": "API reference",
+			"hash": "739b772516",
+			"hashZh": "bdc8e7a284",
 			"order": 12011,
 			"titleZh": "错误代码",
 			"descriptionZh": "MIOSA API 返回的每个错误代码、其含义以及如何处理它。"
@@ -2910,6 +3538,8 @@
 			"description": "Server-Sent Event streams for real-time updates from sandboxes, computers, deployments, and builds.",
 			"section": "API reference",
 			"layout": "cards",
+			"hash": "980bc2f2e2",
+			"hashZh": "71c2042674",
 			"order": 12012,
 			"titleZh": "活动（SSE）",
 			"descriptionZh": "服务器发送的事件流用于从沙箱、计算机、部署和构建进行实时更新。"
@@ -2919,6 +3549,8 @@
 			"title": "Regions API",
 			"description": "List available regions and pin Computers and Sandboxes to a specific region.",
 			"section": "API reference",
+			"hash": "4507e36823",
+			"hashZh": "5239a966b8",
 			"order": 12013,
 			"titleZh": "区域 API",
 			"descriptionZh": "列出可用区域并将计算机和沙箱固定到特定区域。"
@@ -2929,6 +3561,8 @@
 			"description": "API reference for creating, managing, and executing code in MIOSA sandboxes - persistent-by-default isolated microVM workspaces.",
 			"section": "API reference",
 			"layout": "cards",
+			"hash": "fa7bc605a0",
+			"hashZh": "116729ad33",
 			"order": 12014,
 			"titleZh": "沙箱API",
 			"descriptionZh": "用于在 MIOSA 沙箱（默认情况下持久隔离的 microVM 工作区）中创建、管理和执行代码的 API 参考。"
@@ -2938,6 +3572,8 @@
 			"title": "Sandboxes API - create and run",
 			"description": "Create a MIOSA sandbox, use the fused run endpoint, start a template app, get artifacts, and the custom-template boundary.",
 			"section": "API reference",
+			"hash": "4cd61adb61",
+			"hashZh": "28c9f5806b",
 			"order": 12015,
 			"titleZh": "沙箱 API - 创建和运行",
 			"descriptionZh": "创建 MIOSA 沙箱，使用融合运行端点，启动模板应用程序，获取工件和自定义模板边界。"
@@ -2947,6 +3583,8 @@
 			"title": "Sandboxes API - manage",
 			"description": "List, get, destroy, pause, resume, restart, fork, extend the timeout, and read usage for MIOSA sandboxes.",
 			"section": "API reference",
+			"hash": "1febe9bb09",
+			"hashZh": "414a509724",
 			"order": 12016,
 			"titleZh": "沙箱 API - 管理",
 			"descriptionZh": "列出、获取、销毁、暂停、恢复、重新启动、分叉、延长超时以及读取 MIOSA 沙箱的使用情况。"
@@ -2956,6 +3594,8 @@
 			"title": "Previews and publish API",
 			"description": "Expose a sandbox port as a preview URL, publish a sandbox to a stable deployment, and promote a running sandbox to a deployment route.",
 			"section": "API reference",
+			"hash": "13e5388d84",
+			"hashZh": "bf07021374",
 			"order": 12017,
 			"titleZh": "预览并发布API",
 			"descriptionZh": "将沙箱端口公开为预览 URL，将沙箱发布到稳定部署，并将正在运行的沙箱提升到部署路由。"
@@ -2965,6 +3605,8 @@
 			"title": "Exec API",
 			"description": "API reference for executing bash commands and Python code on MIOSA computers.",
 			"section": "API reference",
+			"hash": "7d29beaa1b",
+			"hashZh": "1b8cc28cc9",
 			"order": 12018,
 			"titleZh": "执行API",
 			"descriptionZh": "用于在 MIOSA 计算机上执行 bash 命令和 Python 代码的 API 参考。"
@@ -2974,6 +3616,8 @@
 			"title": "Streaming Exec API",
 			"description": "API reference for streaming command output in real-time from MIOSA computers via SSE.",
 			"section": "API reference",
+			"hash": "91efb37d07",
+			"hashZh": "5a2675bc9d",
 			"order": 12019,
 			"titleZh": "流式执行 API",
 			"descriptionZh": "通过 SSE 从 MIOSA 计算机实时流式传输命令输出的 API 参考。"
@@ -2983,6 +3627,8 @@
 			"title": "Filesystem API",
 			"description": "Complete API reference for file and directory operations on MIOSA computers - upload, download, stat, mkdir, rename, copy, chmod, and readdir.",
 			"section": "API reference",
+			"hash": "3e9b5660bb",
+			"hashZh": "5405937ffc",
 			"order": 12020,
 			"titleZh": "文件系统API",
 			"descriptionZh": "MIOSA 计算机上文件和目录操作的完整 API 参考 - 上传、下载、stat、mkdir、重命名、复制、chmod 和 readdir。"
@@ -2992,6 +3638,8 @@
 			"title": "Files API",
 			"description": "API reference for file upload, download, list, export, and delete operations.",
 			"section": "API reference",
+			"hash": "1f7ef744b9",
+			"hashZh": "0955942cc1",
 			"order": 12021,
 			"titleZh": "文件API",
 			"descriptionZh": "文件上传、下载、列出、导出和删除操作的 API 参考。"
@@ -3001,6 +3649,8 @@
 			"title": "Sandbox Files (Advanced) API",
 			"description": "Upload a file, write bytes as well as text, traverse the file tree, batch write, and watch file-change events in a sandbox.",
 			"section": "API reference",
+			"hash": "1ac912b1c5",
+			"hashZh": "4787e8cfb4",
 			"order": 12022,
 			"titleZh": "沙盒文件（高级）API",
 			"descriptionZh": "上传文件、写入字节和文本、遍历文件树、批量写入以及监视沙箱中的文件更改事件。"
@@ -3010,6 +3660,8 @@
 			"title": "Sandbox Processes API",
 			"description": "Start, monitor, and stream logs for long-running background processes inside sandboxes.",
 			"section": "API reference",
+			"hash": "b2d72592df",
+			"hashZh": "cc8ecaaa27",
 			"order": 12023,
 			"titleZh": "沙箱进程API",
 			"descriptionZh": "启动、监视和流式传输沙箱内长时间运行的后台进程的日志。"
@@ -3019,6 +3671,8 @@
 			"title": "Sandbox Env API",
 			"description": "CRUD for per-sandbox environment variables, encrypted at rest.",
 			"section": "API reference",
+			"hash": "467f8b7ef4",
+			"hashZh": "8555b45648",
 			"order": 12024,
 			"titleZh": "沙盒环境 API",
 			"descriptionZh": "针对每个沙箱环境变量的 CRUD，静态加密。"
@@ -3028,6 +3682,8 @@
 			"title": "Snapshots API",
 			"description": "API reference for creating, listing, and restoring microVM snapshots (checkpoints).",
 			"section": "API reference",
+			"hash": "e6bfcaded4",
+			"hashZh": "9594f9d426",
 			"order": 12025,
 			"titleZh": "快照API",
 			"descriptionZh": "用于创建、列出和恢复 microVM 快照（检查点）的 API 参考。"
@@ -3037,6 +3693,8 @@
 			"title": "Sandbox Templates API",
 			"description": "The templates that stage content inside the one sandbox image, the legacy image ids that are aliases, and how to create a sandbox from a template.",
 			"section": "API reference",
+			"hash": "98c9449c4d",
+			"hashZh": "fa881b6b2e",
 			"order": 12026,
 			"titleZh": "沙箱模板 API",
 			"descriptionZh": "在一个沙箱映像内暂存内容的模板、作为别名的旧映像 ID，以及如何从模板创建沙箱。"
@@ -3046,6 +3704,8 @@
 			"title": "Sandbox Shares API",
 			"description": "Create and manage public share URLs for sandboxes.",
 			"section": "API reference",
+			"hash": "30d5e08e47",
+			"hashZh": "23c90cb1e6",
 			"order": 12027,
 			"titleZh": "沙盒共享 API",
 			"descriptionZh": "创建和管理沙箱的公共共享 URL。"
@@ -3055,6 +3715,8 @@
 			"title": "Preview Tokens API",
 			"description": "Generate short-lived signed tokens for iframe embedding without exposing an API key.",
 			"section": "API reference",
+			"hash": "df57b9be09",
+			"hashZh": "575e0cc592",
 			"order": 12028,
 			"titleZh": "预览令牌 API",
 			"descriptionZh": "为 iframe 嵌入生成短期签名令牌，而无需暴露 API 密钥。"
@@ -3064,6 +3726,8 @@
 			"title": "Computers API",
 			"description": "API reference for creating, managing, and controlling MIOSA computers - full lifecycle, desktop control, files, metrics, and env vars.",
 			"section": "API reference",
+			"hash": "4ee3e8b738",
+			"hashZh": "e04ecf5ef7",
 			"order": 12029,
 			"titleZh": "计算机应用程序接口",
 			"descriptionZh": "用于创建、管理和控制 MIOSA 计算机的 API 参考 - 完整生命周期、桌面控制、文件、指标和环境变量。"
@@ -3073,6 +3737,8 @@
 			"title": "Desktop API",
 			"description": "API reference for all desktop control endpoints - screenshot, mouse, keyboard, clipboard, windows, accessibility tree.",
 			"section": "API reference",
+			"hash": "b285ff0d83",
+			"hashZh": "6fd90e8639",
 			"order": 12030,
 			"titleZh": "桌面API",
 			"descriptionZh": "所有桌面控制端点的 API 参考 - 屏幕截图、鼠标、键盘、剪贴板、窗口、辅助功能树。"
@@ -3082,6 +3748,8 @@
 			"title": "OpenComputers API",
 			"description": "Register and control customer-owned machines, including on-premises servers, via the MIOSA API - exec, files, tunnels, AI agents, inference clusters, and secrets.",
 			"section": "API reference",
+			"hash": "cd75949fb0",
+			"hashZh": "a1e31452ec",
 			"order": 12031,
 			"titleZh": "OpenComputersAPI",
 			"descriptionZh": "通过 MIOSA API - exec、文件、隧道、AI 智能体、推理集群和机密，注册和控制客户拥有的计算机，包括本地服务器。"
@@ -3091,6 +3759,8 @@
 			"title": "Cloud and BYOC API",
 			"description": "Organization-scoped AWS and GCP accounts, regions, pools, nodes, preflight, and host provisioning.",
 			"section": "API reference",
+			"hash": "9511120b29",
+			"hashZh": "f554c67c5b",
 			"order": 12032,
 			"titleZh": "云和 BYOC API",
 			"descriptionZh": "组织范围内的 AWS 和 GCP 账户、区域、池、节点、预检和主机配置。"
@@ -3100,6 +3770,8 @@
 			"title": "Services API",
 			"description": "API reference for managing long-running systemd services inside MIOSA computers.",
 			"section": "API reference",
+			"hash": "0d2ce357b2",
+			"hashZh": "41c4beb9fe",
 			"order": 12033,
 			"titleZh": "服务API",
 			"descriptionZh": "用于管理 MIOSA 计算机内长期运行的 systemd 服务的 API 参考。"
@@ -3110,6 +3782,8 @@
 			"description": "Dispatch prompts into MIOSA devices with a stable run response shape for agent work.",
 			"section": "API reference",
 			"layout": "cards",
+			"hash": "288900d3a7",
+			"hashZh": "a8e6310b53",
 			"order": 12034,
 			"titleZh": "智能体运行",
 			"descriptionZh": "将提示调度到 MIOSA 设备中，并为智能体工作提供稳定的运行响应形状。"
@@ -3120,6 +3794,8 @@
 			"description": "Create durable multi-agent orchestration groups, dispatch run manifests, inspect counts, and cancel grouped work.",
 			"section": "API reference",
 			"layout": "cards",
+			"hash": "f8f9626339",
+			"hashZh": "c11ca7b971",
 			"order": 12035,
 			"titleZh": "智能体运行组",
 			"descriptionZh": "创建持久的多智能体编排组、调度运行清单、检查计数并取消分组工作。"
@@ -3130,6 +3806,8 @@
 			"description": "Configure reusable agent runtime defaults for sandboxes, computers, and custom agent sessions.",
 			"section": "API reference",
 			"layout": "cards",
+			"hash": "b7f59aab34",
+			"hashZh": "f989e3d699",
 			"order": 12036,
 			"titleZh": "智能体运行时配置文件",
 			"descriptionZh": "为沙箱、计算机和自定义智能体会话配置可重用智能体运行时默认值。"
@@ -3140,6 +3818,8 @@
 			"description": "Store inherited runtime environment variables for sandboxes, computers, agents, and deployments.",
 			"section": "API reference",
 			"layout": "cards",
+			"hash": "d3c276b7b2",
+			"hashZh": "c00af0fe5c",
 			"order": 12037,
 			"titleZh": "运行时环境",
 			"descriptionZh": "存储沙箱、计算机、智能体和部署的继承运行时环境变量。"
@@ -3149,6 +3829,8 @@
 			"title": "API Reference / Deployments",
 			"description": "REST API for the Deployment resource - create, list, get, update, delete, publish, rollback.",
 			"section": "API reference",
+			"hash": "cf596ef2a5",
+			"hashZh": "8476e1a0af",
 			"order": 12038,
 			"titleZh": "API 参考/部署",
 			"descriptionZh": "用于部署资源的 REST API - 创建、列出、获取、更新、删除、发布、回滚。"
@@ -3158,6 +3840,8 @@
 			"title": "API Reference / Docker Host",
 			"description": "REST API for Docker Host templates, workspace hosts, and sandbox-to-container publishing.",
 			"section": "API reference",
+			"hash": "77db4163f7",
+			"hashZh": "2d4a7debd5",
 			"order": 12039,
 			"titleZh": "API 参考/Docker 主机",
 			"descriptionZh": "用于 Docker 主机模板、工作区主机和沙箱到容器发布的 REST API。"
@@ -3167,6 +3851,8 @@
 			"title": "API Reference / Versions",
 			"description": "Immutable deployment version sub-resource. List, get, promote, archive.",
 			"section": "API reference",
+			"hash": "d160334e12",
+			"hashZh": "a5ec20eb02",
 			"order": 12040,
 			"titleZh": "API 参考/版本",
 			"descriptionZh": "不可变的部署版本子资源。列出、获取、推广、存档。"
@@ -3177,6 +3863,8 @@
 			"description": "Inspect and activate exact immutable deployment artifacts.",
 			"section": "API reference",
 			"layout": "cards",
+			"hash": "0242606e68",
+			"hashZh": "e78a2cd656",
 			"order": 12041,
 			"titleZh": "发布API",
 			"descriptionZh": "检查并激活精确的不可变部署工件。"
@@ -3187,6 +3875,8 @@
 			"description": "Provision and operate managed databases, backups, restores, branches, replicas, credentials, and placement.",
 			"section": "API reference",
 			"layout": "cards",
+			"hash": "845b476e14",
+			"hashZh": "4f5879efde",
 			"order": 12042,
 			"titleZh": "数据库API",
 			"descriptionZh": "配置和操作托管数据库、备份、恢复、分支、副本、凭证和放置。"
@@ -3196,6 +3886,8 @@
 			"title": "Custom Domains API",
 			"description": "API reference for mapping tenant-owned FQDNs to MIOSA previews with automatic TLS.",
 			"section": "API reference",
+			"hash": "36a9768036",
+			"hashZh": "3739fec91d",
 			"order": 12043,
 			"titleZh": "自定义域 API",
 			"descriptionZh": "用于使用自动 TLS 将租户拥有的 FQDN 映射到 MIOSA 预览的 API 参考。"
@@ -3205,6 +3897,8 @@
 			"title": "Projects API",
 			"description": "API reference for creating and managing projects inside MIOSA workspaces.",
 			"section": "API reference",
+			"hash": "bccdb0214c",
+			"hashZh": "878903d160",
 			"order": 12044,
 			"titleZh": "项目API",
 			"descriptionZh": "用于在 MIOSA 工作区中创建和管理项目的 API 参考。"
@@ -3214,6 +3908,8 @@
 			"title": "Invites API",
 			"description": "API reference for the workspace invite and org invite flows - send, list, revoke, preview, and accept email invitations.",
 			"section": "API reference",
+			"hash": "1eb209d558",
+			"hashZh": "6a5e2944ac",
 			"order": 12045,
 			"titleZh": "邀请API",
 			"descriptionZh": "工作区邀请和组织邀请流程的 API 参考 - 发送、列出、撤销、预览和接受电子邮件邀请。"
@@ -3223,6 +3919,8 @@
 			"title": "Credits API",
 			"description": "API reference for checking credit balance, transaction history, and usage data.",
 			"section": "API reference",
+			"hash": "b8a2f15809",
+			"hashZh": "af2a058bd0",
 			"order": 12046,
 			"titleZh": "积分API",
 			"descriptionZh": "用于检查信用余额、交易历史记录和使用数据的 API 参考。"
@@ -3232,6 +3930,8 @@
 			"title": "Quotas API",
 			"description": "Set per-end-user resource limits for white-label multi-tenant deployments.",
 			"section": "API reference",
+			"hash": "0653fbe795",
+			"hashZh": "e3f89e084f",
 			"order": 12047,
 			"titleZh": "配额API",
 			"descriptionZh": "为白标签多租户部署设置每个最终用户的资源限制。"
@@ -3241,6 +3941,8 @@
 			"title": "Usage Rollup API",
 			"description": "Aggregate sandbox compute usage and spend by external user, project, or workspace.",
 			"section": "API reference",
+			"hash": "99ddbd1a7f",
+			"hashZh": "7ad593fc75",
 			"order": 12048,
 			"titleZh": "使用情况汇总 API",
 			"descriptionZh": "按外部用户、项目或工作区汇总沙箱计算使用情况和支出。"
@@ -3250,6 +3952,8 @@
 			"title": "Audit Log API",
 			"description": "Retrieve a cursor-paginated audit log of all actions taken within your tenant.",
 			"section": "API reference",
+			"hash": "f7296349f1",
+			"hashZh": "44d9ce50fe",
 			"order": 12049,
 			"titleZh": "审核日志API",
 			"descriptionZh": "检索租户内执行的所有操作的光标分页审核日志。"
@@ -3259,6 +3963,8 @@
 			"title": "Webhooks API",
 			"description": "Subscribe to platform lifecycle events via outgoing HTTP callbacks with HMAC signature verification.",
 			"section": "API reference",
+			"hash": "8919b66fd9",
+			"hashZh": "7a8623078d",
 			"order": 12050,
 			"titleZh": "网络钩子 API",
 			"descriptionZh": "通过带有 HMAC 签名验证的传出 HTTP 回调来订阅平台生命周期事件。"
@@ -3268,6 +3974,8 @@
 			"title": "Tenant Branding API",
 			"description": "Customize the logo, name, and colors shown on sandbox 404 and 502 error pages.",
 			"section": "API reference",
+			"hash": "022f3abd8a",
+			"hashZh": "e20f24f3c8",
 			"order": 12051,
 			"titleZh": "租户品牌 API",
 			"descriptionZh": "自定义沙盒 404 和 502 错误页面上显示的徽标、名称和颜色。"
@@ -3277,6 +3985,8 @@
 			"title": "Tenant Preview Domain API",
 			"description": "Configure a custom apex domain for sandbox preview URLs (white-label).",
 			"section": "API reference",
+			"hash": "9521e36156",
+			"hashZh": "05f2ef703c",
 			"order": 12052,
 			"titleZh": "租户预览域 API",
 			"descriptionZh": "为沙箱预览 URL（白标签）配置自定义 apex 域。"
@@ -3286,6 +3996,8 @@
 			"title": "Tenant Events (SSE) API",
 			"description": "Subscribe to a real-time server-sent event stream of all tenant-wide platform events.",
 			"section": "API reference",
+			"hash": "451046c49e",
+			"hashZh": "a3bbb7ea42",
 			"order": 12053,
 			"titleZh": "租户事件 (SSE) API",
 			"descriptionZh": "订阅所有租户范围平台事件的实时服务器发送事件流。"
@@ -3295,6 +4007,8 @@
 			"title": "Network Policy API",
 			"description": "API reference for configuring per-computer network access controls on MIOSA computers.",
 			"section": "API reference",
+			"hash": "58bc5b86bd",
+			"hashZh": "87b529a6c1",
 			"order": 12054,
 			"titleZh": "网络策略API",
 			"descriptionZh": "用于在 MIOSA 计算机上配置每台计算机网络访问控制的 API 参考。"
@@ -3304,6 +4018,8 @@
 			"title": "Egress (Security) API",
 			"description": "API reference for the MIOSA Egress credential vault, network allowlist, OAuth Connect, and audit log.",
 			"section": "API reference",
+			"hash": "ba71deb711",
+			"hashZh": "8e098ebbf0",
 			"order": 12055,
 			"titleZh": "出口（安全）API",
 			"descriptionZh": "MIOSA Egress 凭证库、网络白名单、OAuth Connect 和审核日志的 API 参考。"
@@ -3313,6 +4029,8 @@
 			"title": "Workspaces API",
 			"description": "API reference for creating and managing MIOSA workspaces - the customer/client layer inside an organization.",
 			"section": "Organization & billing",
+			"hash": "8bc43ce704",
+			"hashZh": "edd2605516",
 			"order": 13000,
 			"titleZh": "工作区 API",
 			"descriptionZh": "用于创建和管理 MIOSA 工作区（组织内的客户/客户端层）的 API 参考。"
@@ -3322,6 +4040,8 @@
 			"title": "Workspace Members API",
 			"description": "API reference for managing workspace member rosters - add, remove, and update roles for users inside a workspace.",
 			"section": "Organization & billing",
+			"hash": "3324391b40",
+			"hashZh": "b6e4c6b300",
 			"order": 13001,
 			"titleZh": "工作区成员 API",
 			"descriptionZh": "用于管理工作区成员名册的 API 参考 - 添加、删除和更新工作区内用户的角色。"
@@ -3331,6 +4051,8 @@
 			"title": "API Keys",
 			"description": "User and platform API keys for personal tools, backend automation, and scoped MIOSA API access.",
 			"section": "Organization & billing",
+			"hash": "985d4ff99e",
+			"hashZh": "9746ceda8f",
 			"order": 13002,
 			"titleZh": "API 密钥",
 			"descriptionZh": "用于个人工具、后端自动化和限定范围 MIOSA API 访问的用户密钥与平台密钥。"
@@ -3341,6 +4063,8 @@
 			"description": "What a sandbox costs per hour, what a plan buys, how many sandboxes you can run and start, and how that compares to other providers.",
 			"section": "Organization & billing",
 			"layout": "cards",
+			"hash": "6d4b9f53be",
+			"hashZh": "5b9a320e98",
 			"order": 13003,
 			"titleZh": "定价与限制",
 			"descriptionZh": "沙箱的每小时费用、各计划包含的内容、可运行和启动的沙箱数量，以及与其他服务商的对比。"
@@ -3350,6 +4074,8 @@
 			"title": "Plans and limits",
 			"description": "The four MIOSA plans, what each includes, and the limits per service and per account.",
 			"section": "Organization & billing",
+			"hash": "a24d159e26",
+			"hashZh": "82822f36a4",
 			"order": 13004,
 			"titleZh": "计划和限制",
 			"descriptionZh": "四个 MIOSA 计划、每个计划的内容以及每个服务和每个帐户的限制。"
@@ -3359,6 +4085,8 @@
 			"title": "Usage & Billing",
 			"description": "Track MIOSA usage per workspace, per project, per external customer, and per user. Chargeback to your customers.",
 			"section": "Organization & billing",
+			"hash": "71ecaaf58e",
+			"hashZh": "13a0195b02",
 			"order": 13005,
 			"titleZh": "用量与计费",
 			"descriptionZh": "按工作区、项目、外部客户和用户跟踪 MIOSA 用量，并向你的客户进行成本分摊。"
@@ -3368,6 +4096,8 @@
 			"title": "Security",
 			"description": "Built-in credential vault, outbound network controls, and audit log on every MIOSA sandbox and computer. No setup. Free on all plans.",
 			"section": "Security & compliance",
+			"hash": "dd9763f7a8",
+			"hashZh": "b87885159b",
 			"order": 14000,
 			"titleZh": "安全",
 			"descriptionZh": "每个 MIOSA 沙箱和计算机都内置凭证保险库、出站网络控制和审计日志。无需设置。所有计划免费。"
@@ -3377,6 +4107,8 @@
 			"title": "API keys",
 			"description": "Create, scope, rotate and revoke the keys programs use, with the presets and limits the platform enforces.",
 			"section": "Security & compliance",
+			"hash": "37c07e5c29",
+			"hashZh": "abc5cc00bc",
 			"order": 14001,
 			"titleZh": "API 密钥",
 			"descriptionZh": "创建、限定范围、轮换和撤销程序使用的密钥，并了解平台强制执行的预设和限制。"
@@ -3386,6 +4118,8 @@
 			"title": "Audit Log",
 			"description": "Egress audit log for outbound calls: rows, live tail, filters and export. Capture is not yet enabled in the current release.",
 			"section": "Security & compliance",
+			"hash": "b30a3c2ef4",
+			"hashZh": "f3c6641480",
 			"order": 14002,
 			"titleZh": "审计日志",
 			"descriptionZh": "出站调用的出口审计日志：每行内容、实时跟踪、筛选和导出。当前版本尚未启用捕获功能。"
@@ -3396,6 +4130,8 @@
 			"description": "What MIOSA keeps, for how long, and what \\\"delete\\\" actually removes for sandboxes, snapshots, the audit log, usage records, and stored data.",
 			"section": "Security & compliance",
 			"layout": "cards",
+			"hash": "831199fa09",
+			"hashZh": "0d51cbb09e",
 			"order": 14003,
 			"titleZh": "数据保留和删除",
 			"descriptionZh": "MIOSA 保留什么、保留多长时间以及“删除”实际删除的沙箱、快照、审核日志、使用记录和存储数据。"
@@ -3405,6 +4141,8 @@
 			"title": "Shared responsibility",
 			"description": "Responsibility boundaries for MIOSA-managed, on-premises servers connected through OpenComputers, and customer-cloud infrastructure.",
 			"section": "Security & compliance",
+			"hash": "78e8164ec2",
+			"hashZh": "1651a94fc8",
 			"order": 14004,
 			"titleZh": "共同责任",
 			"descriptionZh": "通过 OpenComputers 连接的 MIOSA 管理的本地服务器和客户云基础设施的责任边界。"
@@ -3414,6 +4152,8 @@
 			"title": "Security  -  Troubleshooting",
 			"description": "Top 15 issues across MIOSA Secrets, Connect Accounts, Network Allowlist, Audit Log, and White-label Credentials - with root causes and fixes.",
 			"section": "Security & compliance",
+			"hash": "7ba09467d6",
+			"hashZh": "47f318c127",
 			"order": 14005,
 			"titleZh": "安全——故障排查",
 			"descriptionZh": "MIOSA 机密、连接账户、网络允许列表、审计日志和白标凭据中最常见的 15 个问题，以及根因和修复方法。"
@@ -3424,6 +4164,8 @@
 			"description": "Choose where workloads run: MIOSA-managed compute, on-premises servers through OpenComputers, or customer-cloud regions.",
 			"section": "Self-hosting",
 			"layout": "cards",
+			"hash": "e5d0735980",
+			"hashZh": "67cc2d3040",
 			"order": 15000,
 			"titleZh": "基础设施选项",
 			"descriptionZh": "选择工作负载运行的位置：MIOSA 管理的计算、通过 OpenComputers 的本地服务器或客户云区域。"
@@ -3434,6 +4176,8 @@
 			"description": "Run MIOSA worker capacity inside a customer AWS account or GCP project while MIOSA orchestrates the product.",
 			"section": "Self-hosting",
 			"layout": "cards",
+			"hash": "fd802c7e9a",
+			"hashZh": "e99c8303f7",
 			"order": 15001,
 			"titleZh": "自带云",
 			"descriptionZh": "当 MIOSA 编排产品时，在客户 AWS 账户或 GCP 项目内运行 MIOSA 工作人员容量。"
@@ -3443,6 +4187,8 @@
 			"title": "AWS customer-cloud regions",
 			"description": "Architecture and readiness contract for running MIOSA worker capacity inside a customer AWS account.",
 			"section": "Self-hosting",
+			"hash": "fe115ce00d",
+			"hashZh": "ceecfd0102",
 			"order": 15002,
 			"titleZh": "AWS 客户云区域",
 			"descriptionZh": "用于在客户 AWS 账户内运行 MIOSA 工作人员容量的架构和准备合同。"
@@ -3452,6 +4198,8 @@
 			"title": "Google Cloud customer-cloud regions",
 			"description": "Architecture and readiness contract for running MIOSA worker capacity inside a customer GCP project.",
 			"section": "Self-hosting",
+			"hash": "5dc2a3e9ae",
+			"hashZh": "c76f5d0832",
 			"order": 15003,
 			"titleZh": "Google Cloud 客户云区域",
 			"descriptionZh": "用于在客户 GCP 项目内运行 MIOSA 工作人员能力的架构和准备合同。"
@@ -3461,6 +4209,8 @@
 			"title": "External computer providers",
 			"description": "Which kinds of compute MIOSA can run on today, and why connecting a third-party sandbox or desktop provider is not offered.",
 			"section": "Self-hosting",
+			"hash": "8b30677460",
+			"hashZh": "df2ff69b08",
 			"order": 15004,
 			"titleZh": "外部计算机提供商",
 			"descriptionZh": "目前 MIOSA 可以在哪些类型的计算上运行，以及为什么不提供连接第三方沙箱或桌面提供商。"
@@ -3470,6 +4220,8 @@
 			"title": "Compute provider comparison",
 			"description": "How MIOSA's published compute rates compare with Freestyle, E2B, Railway and Vercel Sandbox. Competitor prices checked 2026-10-20.",
 			"section": "Self-hosting",
+			"hash": "a09c3fefef",
+			"hashZh": "b45a18cda6",
 			"order": 15005,
 			"titleZh": "计算提供商比较",
 			"descriptionZh": "MIOSA 公布的计算速率与 Freestyle、E2B、Railway 和 Vercel Sandbox 相比如何。 2026 年 10 月 20 日检查竞争对手价格。"
@@ -3480,6 +4232,8 @@
 			"description": "Short answers to the questions that come up most, grouped by topic: getting started, sandboxes and computers, agents, browser use, pricing, security, and support.",
 			"section": "Help",
 			"layout": "cards",
+			"hash": "ded0b6c3cd",
+			"hashZh": "242e21625d",
 			"order": 16000,
 			"titleZh": "常问问题",
 			"descriptionZh": "对最常见问题的简短回答，按主题分组：入门、沙箱和计算机、智能体、浏览器使用、定价、安全性和支持。"
@@ -3490,6 +4244,8 @@
 			"description": "Where to start, how to authenticate, install the CLI, get an API key, attach IDs to a sandbox, and pick a region.",
 			"section": "Help",
 			"layout": "accordion",
+			"hash": "e1d4f8e1ec",
+			"hashZh": "34ff8f8341",
 			"order": 16001,
 			"titleZh": "入门",
 			"descriptionZh": "从哪里开始、如何进行身份验证、安装 CLI、获取 API 密钥、将 ID 附加到沙箱以及选择区域。"
@@ -3500,6 +4256,8 @@
 			"description": "Sandbox vs Computer, the default sandbox, run length, states, pausing, and snapshots.",
 			"section": "Help",
 			"layout": "accordion",
+			"hash": "dfdcb47da6",
+			"hashZh": "fd77068456",
 			"order": 16002,
 			"titleZh": "沙箱和计算机",
 			"descriptionZh": "沙箱与计算机、默认沙箱、运行长度、状态、暂停和快照。"
@@ -3510,6 +4268,8 @@
 			"description": "Where browser automation runs, what starting a browser returns, CDP, live takeover, and billing.",
 			"section": "Help",
 			"layout": "accordion",
+			"hash": "67cd0e7593",
+			"hashZh": "ba8720524f",
 			"order": 16003,
 			"titleZh": "浏览器和计算机使用",
 			"descriptionZh": "浏览器自动化运行的位置、启动浏览器返回的内容、CDP、实时接管和计费。"
@@ -3520,6 +4280,8 @@
 			"description": "Supported harnesses, creating and running an agent, OSA, model keys, and where agents run.",
 			"section": "Help",
 			"layout": "accordion",
+			"hash": "6aff46bd88",
+			"hashZh": "48f99d5daa",
 			"order": 16004,
 			"titleZh": "智能体商",
 			"descriptionZh": "支持的工具、创建和运行智能体、OSA、模型密钥以及智能体运行的位置。"
@@ -3530,6 +4292,8 @@
 			"description": "What SOMA is, the default runtime, how to select one, access requests, and availability.",
 			"section": "Help",
 			"layout": "accordion",
+			"hash": "528bcce13e",
+			"hashZh": "e8389009de",
 			"order": 16005,
 			"titleZh": "SOMA 和运行时",
 			"descriptionZh": "SOMA 是什么、默认运行时、如何选择、访问请求和可用性。"
@@ -3540,6 +4304,8 @@
 			"description": "White-label architecture, branded URLs, end-user auth, billing your customers, and branding.",
 			"section": "Help",
 			"layout": "accordion",
+			"hash": "b21ed90d74",
+			"hashZh": "27cee2e0d9",
 			"order": 16006,
 			"titleZh": "白标和平台建设者",
 			"descriptionZh": "白标架构、品牌 URL、最终用户身份验证、向客户计费和品牌推广。"
@@ -3550,6 +4316,8 @@
 			"description": "Running your own company on MIOSA, connectors, device choice, and platform checklists.",
 			"section": "Help",
 			"layout": "accordion",
+			"hash": "e8b37bd576",
+			"hashZh": "786b64a1a6",
 			"order": 16007,
 			"titleZh": "商业操作系统和内部使用",
 			"descriptionZh": "在 MIOSA、连接器、设备选择和平台清单上运营您自己的公司。"
@@ -3560,6 +4328,8 @@
 			"description": "SOC 2, HIPAA, where data lives, how secrets are stored, retention, and publishable keys.",
 			"section": "Help",
 			"layout": "accordion",
+			"hash": "3ab04df19e",
+			"hashZh": "248b1ae86a",
 			"order": 16008,
 			"titleZh": "安全性和合规性",
 			"descriptionZh": "SOC 2、HIPAA、数据所在位置、机密存储方式、保留和可发布密钥。"
@@ -3570,6 +4340,8 @@
 			"description": "What you are billed for, paused cost, named sizes, hard caps, rate limits, and credits.",
 			"section": "Help",
 			"layout": "accordion",
+			"hash": "9c1b309c89",
+			"hashZh": "82c2d9430b",
 			"order": 16009,
 			"titleZh": "定价和限制",
 			"descriptionZh": "您需要支付的费用、暂停费用、指定大小、硬上限、费率限制和积分。"
@@ -3580,6 +4352,8 @@
 			"description": "How to get help, what to include in a request, status and changes, and the community.",
 			"section": "Help",
 			"layout": "accordion",
+			"hash": "f8ae4d315c",
+			"hashZh": "ffbb71793d",
 			"order": 16010,
 			"titleZh": "支持",
 			"descriptionZh": "如何获得帮助、请求中应包含哪些内容、状态和更改以及社区。"
@@ -3590,6 +4364,8 @@
 			"description": "The front door for things that are not working: sandbox, exec, preview, secret, network, and deploy failures, and where to look for each.",
 			"section": "Help",
 			"layout": "cards",
+			"hash": "5dee811dd5",
+			"hashZh": "75fb90ac3b",
 			"order": 16011,
 			"titleZh": "故障排查",
 			"descriptionZh": "处理沙箱、exec、预览、机密、网络和部署故障的入口，以及每类问题的排查位置。"
@@ -3600,6 +4376,8 @@
 			"description": "How to reach the MIOSA team, what to include so a ticket resolves fast, and where to check status and what has shipped.",
 			"section": "Help",
 			"layout": "cards",
+			"hash": "ef2449c880",
+			"hashZh": "89ac3921e0",
 			"order": 16012,
 			"titleZh": "支持",
 			"descriptionZh": "如何联系 MIOSA 团队、提供哪些信息能让工单快速解决，以及在哪里查看服务状态和已发布的功能。"
@@ -3609,6 +4387,8 @@
 			"title": "Learn MIOSA your way",
 			"description": "Learn MIOSA your way - read the basics, learn the words, or play the games - then follow five steps from zero to production.",
 			"section": "Optional",
+			"hash": "c4045f796f",
+			"hashZh": "7ba3d1cf49",
 			"order": 17000,
 			"titleZh": "以您的方式学习 MIOSA",
 			"descriptionZh": "以您的方式学习 MIOSA - 阅读基础知识、学习单词或玩游戏 - 然后遵循从零到生产的五个步骤。"
@@ -3618,6 +4398,8 @@
 			"title": "Learn and earn",
 			"description": "Earn up to $100 in credits by learning MIOSA - learn the words and play the games, then pass a short final in each. The videos track pays $30 and opens when the videos are ready.",
 			"section": "Optional",
+			"hash": "7ca470bf0f",
+			"hashZh": "b237ebc692",
 			"order": 17001,
 			"titleZh": "学习并赚取",
 			"descriptionZh": "通过学习 MIOSA 赚取高达 100 美元的学分 - 学习单词并玩游戏，然后通过每个项目的简短期末考试。视频轨道需支付 30 美元，并在视频准备好后开放。"
@@ -3627,6 +4409,8 @@
 			"title": "MIOSA Glossary",
 			"description": "Plain-language definitions for MIOSA resources, services, deployment stages, domains, on-premises infrastructure, OpenComputers, Optimal, agent workflows, data, and billing. Search by topic, study with flashcards, and link straight to any term.",
 			"section": "Optional",
+			"hash": "793fc034de",
+			"hashZh": "17d16e2514",
 			"order": 17002,
 			"titleZh": "MIOSA 术语表",
 			"descriptionZh": "MIOSA 资源、服务、部署阶段、域、本地基础设施、OpenComputers、Optimal、智能体工作流程、数据和计费的简单语言定义。按主题搜索、使用抽认卡学习并直接链接到任何术语。"
@@ -3636,6 +4420,8 @@
 			"title": "Learn with games",
 			"description": "Learn how MIOSA works by playing. One puzzle game for each part of the path, from the words to building a product, with no timers and wording for your level, from like I'm 9 to technical.",
 			"section": "Optional",
+			"hash": "621017354c",
+			"hashZh": "40ea36b4e3",
 			"order": 17003,
 			"titleZh": "通过游戏学习",
 			"descriptionZh": "通过玩耍了解 MIOSA 的工作原理。从单词到构建产品，每一个部分都有一款益智游戏，没有计时器，也没有适合您级别的措辞，从“我是 9 岁”到技术级别。"
@@ -3645,6 +4431,8 @@
 			"title": "Learn with videos",
 			"description": "Every MIOSA video in one place - each topic explained through the documentation's code, and clicked through in the console.",
 			"section": "Optional",
+			"hash": "bed66b0f9b",
+			"hashZh": "ac38af6d1c",
 			"order": 17004,
 			"titleZh": "通过视频学习",
 			"descriptionZh": "每个 MIOSA 视频都集中在一个位置 - 每个主题都通过文档代码进行解释，并在控制台中单击。"
@@ -3655,6 +4443,8 @@
 			"description": "The canonical MIOSA product model, from mutable sandboxes to immutable releases, stable deployments, persistent data, and customer-owned infrastructure.",
 			"section": "Optional",
 			"layout": "cards",
+			"hash": "67cb306e3f",
+			"hashZh": "6d718d3da8",
 			"order": 17005,
 			"titleZh": "核心概念",
 			"descriptionZh": "MIOSA 的标准产品模型：从可变的沙箱到不可变的发布、稳定的部署、持久数据，以及客户自有的基础设施。"
@@ -3664,6 +4454,8 @@
 			"title": "Resource model",
 			"description": "The MIOSA ownership chain and the mutable development resources - Organization, Workspace, Project, Sandbox, and Preview.",
 			"section": "Optional",
+			"hash": "a6dc1d0a4f",
+			"hashZh": "8c61f6d98e",
 			"order": 17006,
 			"titleZh": "资源模型",
 			"descriptionZh": "MIOSA 所有权链和可变的开发资源 - 组织、工作空间、项目、沙箱和预览。"
@@ -3673,6 +4465,8 @@
 			"title": "The publish pipeline",
 			"description": "Builder, Release, Runtime Instance, Domain, Deployment, and Version - how a mutable Sandbox becomes an immutable, verified production release.",
 			"section": "Optional",
+			"hash": "5ff3c4a5af",
+			"hashZh": "e8b4242382",
 			"order": 17007,
 			"titleZh": "发布管道",
 			"descriptionZh": "构建器、发布、运行时实例、域、部署和版本 - 可变沙箱如何成为不可变的、经过验证的生产版本。"
@@ -3682,6 +4476,8 @@
 			"title": "Computers (desktop product)",
 			"description": "The MIOSA cloud desktop product: full GUI environments with screenshot, click, type, and keyboard APIs, and how they differ from Sandboxes.",
 			"section": "Optional",
+			"hash": "f542d2aa18",
+			"hashZh": "6debf47e8f",
 			"order": 17008,
 			"titleZh": "计算机（桌面产品）",
 			"descriptionZh": "MIOSA 云桌面产品：完整的 GUI 环境，具有屏幕截图、单击、键入和键盘 API，以及它们与沙箱的不同之处。"
@@ -3691,6 +4487,8 @@
 			"title": "Tenancy",
 			"description": "White-label tenancy and external attribution - how platforms build a product on MIOSA and map MIOSA resources to their own customers.",
 			"section": "Optional",
+			"hash": "927815a353",
+			"hashZh": "d9cbce9144",
 			"order": 17009,
 			"titleZh": "租赁",
 			"descriptionZh": "白标租赁和外部归因 - 平台如何在 MIOSA 上构建产品并将 MIOSA 资源映射到自己的客户。"
@@ -3700,6 +4498,8 @@
 			"title": "Tenant configuration",
 			"description": "Tenant preview domain and tenant branding - the apex hostname that replaces the MIOSA fallback preview domain and the error pages your end users see.",
 			"section": "Optional",
+			"hash": "e741491f45",
+			"hashZh": "523cfda23c",
 			"order": 17010,
 			"titleZh": "租户配置",
 			"descriptionZh": "租户预览域和租户品牌 - 替换 MIOSA 后备预览域和最终用户看到的错误页面的 apex 主机名。"
@@ -3709,6 +4509,8 @@
 			"title": "Data and bindings",
 			"description": "Managed Postgres, Redis, object storage, volumes, and auth - the durable resources a Deployment attaches to, and how bindings inject credentials.",
 			"section": "Optional",
+			"hash": "72e3e47966",
+			"hashZh": "8f2d304b86",
 			"order": 17011,
 			"titleZh": "数据和绑定",
 			"descriptionZh": "托管 Postgres、Redis、对象存储、卷和身份验证 - 部署附加到的持久资源，以及绑定如何注入凭据。"
@@ -3718,6 +4520,8 @@
 			"title": "Preview and share tokens",
 			"description": "Short-lived preview tokens (mp_*) and revocable share tokens (ms_*) for loading a sandbox preview in a browser without exposing a workspace key.",
 			"section": "Optional",
+			"hash": "36db5eba7b",
+			"hashZh": "0f48017118",
 			"order": 17012,
 			"titleZh": "预览与分享令牌",
 			"descriptionZh": "短期预览令牌（mp_*）与可撤销的分享令牌（ms_*），让浏览器可以加载沙箱预览而无需暴露工作区密钥。"
@@ -3727,6 +4531,8 @@
 			"title": "MIOSA vs other platforms",
 			"description": "How MIOSA compares to Railway, Render, Fly.io, E2B, Daytona, Modal, Vercel, Cloudflare, Freestyle, Runloop, Blaxel, Beam, boat and CodeSandbox, using independent benchmark data and each vendor's public documentation as of 2026-10-23.",
 			"section": "Optional",
+			"hash": "b9f99a1fff",
+			"hashZh": "5d57ed545e",
 			"order": 17013,
 			"titleZh": "MIOSA 与其他平台对比",
 			"descriptionZh": "使用截至 2026 年 10 月 23 日的独立基准数据和每个供应商的公共文档，将 MIOSA 与 Railway、Render、Fly.io、E2B、Daytona、Modal、Vercel、Cloudflare、Freestyle、Runloop、Blaxel、Beam、boat 和 CodeSandbox 进行比较。"
@@ -3736,6 +4542,8 @@
 			"title": "MIOSA vs Railway",
 			"description": "A factual comparison of MIOSA and Railway for running services, using Railway's public documentation as of 2026-10-23.",
 			"section": "Optional",
+			"hash": "ebb7dacf2c",
+			"hashZh": "5f688b4637",
 			"order": 17014,
 			"titleZh": "MIOSA 与 Railway",
 			"descriptionZh": "使用截至 2026 年 10 月 23 日的 Railway 公共文档，对 MIOSA 和 Railway 运行服务进行事实比较。"
@@ -3745,6 +4553,8 @@
 			"title": "MIOSA vs Render",
 			"description": "A factual comparison of MIOSA and Render for running services, using Render's public documentation as of 2026-10-23.",
 			"section": "Optional",
+			"hash": "2b3b876ac9",
+			"hashZh": "bd26e169a0",
 			"order": 17015,
 			"titleZh": "MIOSA 与渲染",
 			"descriptionZh": "使用截至 2026 年 10 月 23 日的 Render 公共文档，对运行服务的 MIOSA 和 Render 进行事实比较。"
@@ -3754,6 +4564,8 @@
 			"title": "MIOSA vs Fly.io",
 			"description": "A factual comparison of MIOSA and Fly.io for running apps and machines, using Fly.io's public documentation as of 2026-10-23.",
 			"section": "Optional",
+			"hash": "497a2976c1",
+			"hashZh": "5b88ba42ea",
 			"order": 17016,
 			"titleZh": "MIOSA 与 Fly.io",
 			"descriptionZh": "使用截至 2026 年 10 月 23 日的 Fly.io 公共文档，对 MIOSA 和 Fly.io 在运行应用程序和机器方面进行了事实比较。"
@@ -3763,6 +4575,8 @@
 			"title": "MIOSA vs E2B",
 			"description": "A factual comparison of MIOSA and E2B, using the independent ComputeSDK benchmark and E2B's public documentation as of October 2026.",
 			"section": "Optional",
+			"hash": "d1ec76cbfb",
+			"hashZh": "4e76c126e3",
 			"order": 17017,
 			"titleZh": "MIOSA 与 E2B",
 			"descriptionZh": "使用截至 2026 年 10 月的独立 ComputeSDK 基准和 E2B 公共文档对 MIOSA 和 E2B 进行事实比较。"
@@ -3772,6 +4586,8 @@
 			"title": "MIOSA vs Daytona",
 			"description": "A factual comparison of MIOSA and Daytona, using the independent ComputeSDK benchmark and Daytona's public documentation as of October 2026.",
 			"section": "Optional",
+			"hash": "60521714b4",
+			"hashZh": "e7ae0a3692",
 			"order": 17018,
 			"titleZh": "MIOSA vs 代托纳",
 			"descriptionZh": "使用截至 2026 年 10 月的独立 ComputeSDK 基准测试和 Daytona 的公共文档对 MIOSA 和 Daytona 进行事实比较。"
@@ -3781,6 +4597,8 @@
 			"title": "MIOSA vs Modal",
 			"description": "A factual comparison of MIOSA and Modal, using the independent ComputeSDK benchmark and Modal's public documentation as of October 2026.",
 			"section": "Optional",
+			"hash": "3dd4ee4de3",
+			"hashZh": "38fe9ec39f",
 			"order": 17019,
 			"titleZh": "MIOSA 与 Modal",
 			"descriptionZh": "使用截至 2026 年 10 月的独立 ComputeSDK 基准和 Modal 公共文档对 MIOSA 和 Modal 进行事实比较。"
@@ -3790,6 +4608,8 @@
 			"title": "MIOSA vs Vercel Sandbox",
 			"description": "A factual comparison of MIOSA and Vercel Sandbox, using the independent ComputeSDK benchmark and Vercel Sandbox's public documentation as of October 2026.",
 			"section": "Optional",
+			"hash": "0bf3be5430",
+			"hashZh": "9d4c1f8622",
 			"order": 17020,
 			"titleZh": "MIOSA 与 Vercel 沙盒",
 			"descriptionZh": "使用截至 2026 年 10 月的独立 ComputeSDK 基准测试和 Vercel Sandbox 的公共文档对 MIOSA 和 Vercel Sandbox 进行事实比较。"
@@ -3799,6 +4619,8 @@
 			"title": "MIOSA vs Cloudflare Sandboxes",
 			"description": "A factual comparison of MIOSA and Cloudflare Sandboxes, using the independent ComputeSDK benchmark and Cloudflare Sandboxes's public documentation as of October 2026.",
 			"section": "Optional",
+			"hash": "d328129ae3",
+			"hashZh": "146df443f5",
 			"order": 17021,
 			"titleZh": "MIOSA 与 Cloudflare 沙盒",
 			"descriptionZh": "使用截至 2026 年 10 月的独立 ComputeSDK 基准和 Cloudflare Sandboxes 公共文档对 MIOSA 和 Cloudflare Sandboxes 进行事实比较。"
@@ -3808,6 +4630,8 @@
 			"title": "MIOSA vs Freestyle",
 			"description": "A factual comparison of MIOSA and Freestyle, using the independent ComputeSDK benchmark and Freestyle's public documentation as of October 2026.",
 			"section": "Optional",
+			"hash": "6be91b4431",
+			"hashZh": "4562760795",
 			"order": 17022,
 			"titleZh": "MIOSA VS 自由泳",
 			"descriptionZh": "使用截至 2026 年 10 月的独立 ComputeSDK 基准和 Freestyle 公共文档对 MIOSA 和 Freestyle 进行事实比较。"
@@ -3817,6 +4641,8 @@
 			"title": "MIOSA vs Runloop",
 			"description": "A factual comparison of MIOSA and Runloop, using the independent ComputeSDK benchmark and Runloop's public documentation as of October 2026.",
 			"section": "Optional",
+			"hash": "fdc9d37d30",
+			"hashZh": "39fc638b4b",
 			"order": 17023,
 			"titleZh": "MIOSA 与 Runloop",
 			"descriptionZh": "使用截至 2026 年 10 月的独立 ComputeSDK 基准测试和 Runloop 的公共文档对 MIOSA 和 Runloop 进行事实比较。"
@@ -3826,6 +4652,8 @@
 			"title": "MIOSA vs Blaxel",
 			"description": "A factual comparison of MIOSA and Blaxel, using the independent ComputeSDK benchmark and Blaxel's public documentation as of October 2026.",
 			"section": "Optional",
+			"hash": "91206a32d1",
+			"hashZh": "18ccebee4f",
 			"order": 17024,
 			"titleZh": "MIOSA vs 布拉克塞尔",
 			"descriptionZh": "使用截至 2026 年 10 月的独立 ComputeSDK 基准和 Blaxel 公共文档对 MIOSA 和 Blaxel 进行事实比较。"
@@ -3835,6 +4663,8 @@
 			"title": "MIOSA vs Beam",
 			"description": "A factual comparison of MIOSA and Beam, using the independent ComputeSDK benchmark and Beam's public documentation as of October 2026.",
 			"section": "Optional",
+			"hash": "1e52e67d37",
+			"hashZh": "389861d435",
 			"order": 17025,
 			"titleZh": "MIOSA VS 光束",
 			"descriptionZh": "使用截至 2026 年 10 月的独立 ComputeSDK 基准和 Beam 公共文档对 MIOSA 和 Beam 进行事实比较。"
@@ -3844,6 +4674,8 @@
 			"title": "MIOSA vs boat",
 			"description": "A factual comparison of MIOSA and boat (boat.dev), cloud sandboxes for AI agents, using boat's public documentation as of 2026-10-23.",
 			"section": "Optional",
+			"hash": "596755d8d8",
+			"hashZh": "900ccc308c",
 			"order": 17026,
 			"titleZh": "MIOSA VS 船",
 			"descriptionZh": "使用截至 2026 年 10 月 23 日的 Boat 公共文档，对 MIOSA 和 Boat (boat.dev)（AI 智能体的云沙箱）进行事实比较。"
@@ -3853,6 +4685,8 @@
 			"title": "MIOSA vs CodeSandbox",
 			"description": "A factual comparison of MIOSA and CodeSandbox, using the independent ComputeSDK benchmark and CodeSandbox's public documentation as of October 2026.",
 			"section": "Optional",
+			"hash": "06d9d29f53",
+			"hashZh": "260c011940",
 			"order": 17027,
 			"titleZh": "MIOSA 与 CodeSandbox",
 			"descriptionZh": "使用截至 2026 年 10 月的独立 ComputeSDK 基准测试和 CodeSandbox 的公共文档对 MIOSA 和 CodeSandbox 进行事实比较。"
@@ -3862,6 +4696,8 @@
 			"title": "Changelog",
 			"description": "Customer-facing updates to MIOSA products, platform capabilities, SDKs, CLI tools, and documentation.",
 			"section": "Optional",
+			"hash": "2c9a49e36e",
+			"hashZh": "309825d728",
 			"order": 17028,
 			"titleZh": "变更日志",
 			"descriptionZh": "面向客户的 MIOSA 产品、平台功能、SDK、CLI 工具和文档的更新。"
@@ -3871,6 +4707,8 @@
 			"title": "Moving from Vercel",
 			"description": "Import a Vercel project with miosa import vercel, review the plan, and what carries over.",
 			"section": "Optional",
+			"hash": "ea23735456",
+			"hashZh": "7bd75aec40",
 			"order": 17029,
 			"titleZh": "从Vercel搬家",
 			"descriptionZh": "使用 miosa import vercel 导入 Vercel 项目，检查计划以及结转的内容。"
@@ -3881,6 +4719,8 @@
 			"description": "Move off the deprecated @miosa/sandbox, miosa-sandbox, and sandboxes-go packages onto the canonical MIOSA SDKs.",
 			"section": "Optional",
 			"layout": "cards",
+			"hash": "dbb41a090b",
+			"hashZh": "e18313a5d8",
 			"order": 17030,
 			"titleZh": "从 miosa-sandbox 迁移",
 			"descriptionZh": "将已弃用的 @miosa/sandbox、miosa-sandbox 和 sandboxes-go 包移至规范的 MIOSA SDK 上。"
@@ -3891,6 +4731,8 @@
 			"description": "Current MIOSA product availability, what is generally available, what is in hardening, and what is planned next.",
 			"section": "Optional",
 			"layout": "cards",
+			"hash": "36f32c7afb",
+			"hashZh": "6068037fa9",
 			"order": 17031,
 			"titleZh": "可用性和路线图",
 			"descriptionZh": "当前 MIOSA 产品的可用性、普遍可用的产品、正在强化的产品以及下一步计划的产品。"
@@ -3900,6 +4742,8 @@
 			"title": "Known Limitations",
 			"description": "An honest list of what doesn't work yet, what's in progress, and what's intentionally out of scope. Updated continuously.",
 			"section": "Optional",
+			"hash": "91893937ba",
+			"hashZh": "3bf9c433c8",
 			"order": 17032,
 			"titleZh": "已知限制",
 			"descriptionZh": "一份诚实的清单，列出哪些内容尚未生效、哪些内容正在进行中以及哪些内容故意超出范围。持续更新。"
@@ -3909,6 +4753,8 @@
 			"title": "Recovery Playbooks",
 			"description": "Symptom-first recovery procedures for deployments, domains, TLS, Docker Host hosts, sandboxes, and production rollback.",
 			"section": "Optional",
+			"hash": "b5b641f61f",
+			"hashZh": "b6183bb3cb",
 			"order": 17033,
 			"titleZh": "恢复手册",
 			"descriptionZh": "针对部署、域、TLS、Docker Host 主机、沙箱和生产回滚的症状优先恢复过程。"
@@ -3919,6 +4765,8 @@
 			"description": "Measure sandbox, desktop, and agent workflows with reproducible tasks, traces, and desktop-readiness benchmarks.",
 			"section": "Optional",
 			"layout": "cards",
+			"hash": "6476dac92c",
+			"hashZh": "25809127b2",
 			"order": 17034,
 			"titleZh": "评价",
 			"descriptionZh": "通过可重现的任务、跟踪和桌面就绪基准来衡量沙箱、桌面和智能体工作流程。"
@@ -3928,6 +4776,8 @@
 			"title": "Benchmarks",
 			"description": "MIOSA's results in the independent ComputeSDK benchmarks. Burst time-to-interactive and DAX sandbox builds, every run, with links to the raw JSON.",
 			"section": "Optional",
+			"hash": "ecb8d73efe",
+			"hashZh": "affdbf589b",
 			"order": 17035,
 			"titleZh": "基准测试",
 			"descriptionZh": "MIOSA 在独立 ComputeSDK 基准测试中的结果。每次运行都可缩短交互时间和 DAX 沙箱构建，并提供原始 JSON 的链接。"
@@ -3937,6 +4787,8 @@
 			"title": "Handbook: the Markdown variant",
 			"description": "Our Markdown is not rendered straight: common meanings become cards, tabs, accordions and diagrams. This set states the conventions, the boundaries and the trade-offs.",
 			"section": "Handbook",
+			"hash": "e5dce468ac",
+			"hashZh": "5bc607f1ed",
 			"order": 18001,
 			"titleZh": "编写手册：Markdown 变体",
 			"descriptionZh": "本站的 Markdown 不是标准语法直出：常见的语义会被渲染成卡片、标签页、手风琴、图表。这一组页面说明约定、边界与取舍。"
@@ -3946,6 +4798,8 @@
 			"title": "The block reference",
 			"description": "Every Markdown shape, what it renders as, when to use it and when it breaks: the block-level grammar of this site.",
 			"section": "Handbook",
+			"hash": "89ce6c29fd",
+			"hashZh": "691f661e10",
 			"order": 18002,
 			"titleZh": "块级对照表",
 			"descriptionZh": "每一种 Markdown 写法对应什么渲染结果、什么时候该用、什么时候会坏：这是本站的块级语法。"
@@ -3956,6 +4810,8 @@
 			"description": "Every page on the site falls into a few structural classes: hub, tutorial, reference and interactive. Each has its own layout, template and checklist.",
 			"section": "Handbook",
 			"layout": "collection",
+			"hash": "edaedd05fc",
+			"hashZh": "0c58474d2d",
 			"order": 18003,
 			"titleZh": "页面原型",
 			"descriptionZh": "全站页面按结构分成几类：导航型、教程型、参考型、交互型。每一类有自己的版面、模板与验收清单。"
@@ -3965,6 +4821,8 @@
 			"title": "Inference and compatibility",
 			"description": "Which renderings can be inferred, which must be declared, and how to upgrade the renderer without disturbing pages already published: the compatibility contract.",
 			"section": "Handbook",
+			"hash": "45f7a07587",
+			"hashZh": "74950b7538",
 			"order": 18004,
 			"titleZh": "智能推断与兼容性",
 			"descriptionZh": "哪些渲染可以自动推断、哪些必须声明、升级渲染器时如何不惊动已发布的页面：这是本站的兼容契约。"
@@ -3975,6 +4833,8 @@
 			"description": "Read the Xici as a rigorous treatise on generation, representation and control: the canonical twenty chapters, a chapter-by-chapter exegesis, a lexicon and a formal apparatus.",
 			"section": "Xici",
 			"layout": "cards",
+			"hash": "fac90cab5e",
+			"hashZh": "4481ab5132",
 			"order": 19001,
 			"titleZh": "系辞：形式化重构",
 			"descriptionZh": "把《系辞》当作一部关于生成、表征与控制的严密著作来读：五卷二十章的定本、逐章本注、术语映射与符号系统。"
@@ -3985,6 +4845,8 @@
 			"description": "The canonical text in five books: way and vessel, the conjugate operators, transition and continuity, formal representation, compression, and alignment.",
 			"section": "Xici",
 			"layout": "collection",
+			"hash": "9a3b6a4374",
+			"hashZh": "72368019fb",
 			"order": 19002,
 			"titleZh": "《系辞本传》二十章",
 			"descriptionZh": "五卷二十章的定本全文：道器、乾坤、变通、法象、研几、趣时，去占卜、去音译，只留命题。"
@@ -3994,6 +4856,8 @@
 			"title": "The Lexicon: Fidelity, Grace, Reach",
 			"description": "Every core term with its canonical rendering, the rejected alternatives and the reasoning: no transliteration, no divination, no theology, only testable modern concepts.",
 			"section": "Xici",
+			"hash": "06c9142ad5",
+			"hashZh": "243afecc38",
 			"order": 19003,
 			"titleZh": "术语映射表：信、雅、达",
 			"descriptionZh": "二十余个核心词的定本译法、淘汰译法与取舍理由：去音译、去占卜、去宗教，只留可检验的现代概念。"
@@ -4003,6 +4867,8 @@
 			"title": "Symbols and the Five Master Equations",
 			"description": "The five books and twenty chapters collapsed into an operator algebra: a symbol dictionary, the formal mapping, and a closed loop of five coupled equations.",
 			"section": "Xici",
+			"hash": "f63b6b4536",
+			"hashZh": "ba88c840e6",
 			"order": 19004,
 			"titleZh": "符号系统与五阶主方程",
 			"descriptionZh": "把五卷二十章收敛成一套算子代数：元符号字典、形式化映射与五个耦合方程构成的闭环。"
@@ -4012,6 +4878,8 @@
 			"title": "Exegesis, Book I: The Way, the Vessel and the Operators",
 			"description": "Chapter by chapter: the two ontological planes, the differential of polarity, the conjugate operators, and symmetry breaking, written as operator axioms.",
 			"section": "Xici",
+			"hash": "c536732de6",
+			"hashZh": "7a59d0fe86",
 			"order": 19011,
 			"titleZh": "本注·卷一：道器与算子",
 			"descriptionZh": "逐章破译道器分层、阴阳差分、乾坤共轭与太极破缺：把本体论写成算子公理。"
@@ -4021,6 +4889,8 @@
 			"title": "Exegesis, Book II: Transition and the Unfathomable",
 			"description": "Chapter by chapter: opening and closing, resonance, exhaustion and continuity, and computational irreducibility.",
 			"section": "Xici",
+			"hash": "106c52de8b",
+			"hashZh": "d5fae6f99d",
 			"order": 19012,
 			"titleZh": "本注·卷二：变通与不测",
 			"descriptionZh": "逐章破译阖辟之变、相摩相荡、穷变通久与计算不可约简：把动力学写成涌现论。"
@@ -4030,6 +4900,8 @@
 			"title": "Exegesis, Book III: The Simulacrum and Isomorphism",
 			"description": "Chapter by chapter: images, configurations, dicta, and the isomorphism theorem of world models.",
 			"section": "Xici",
+			"hash": "f6d7b04c91",
+			"hashZh": "4b1b785274",
 			"order": 19013,
 			"titleZh": "本注·卷三：法象与同构",
 			"descriptionZh": "逐章破译立象、设卦、系辞与同构完备性：把世界模型写成张量表征。"
@@ -4039,6 +4911,8 @@
 			"title": "Exegesis, Book IV: Compression and Singularity",
 			"description": "Chapter by chapter: minimum description length, zero-bias inference, memory and simulation, and bifurcation detection.",
 			"section": "Xici",
+			"hash": "60121067b6",
+			"hashZh": "a129f5c256",
 			"order": 19014,
 			"titleZh": "本注·卷四：易简与研几",
 			"descriptionZh": "逐章破译最小描述长度、零偏推理、藏往知来与分岔奇点侦测。"
@@ -4048,6 +4922,8 @@
 			"title": "Exegesis, Book V: Timing and Errancy",
 			"description": "Chapter by chapter: felicity and calamity, foundation and adaptation, acting at the incipient, and negentropic alignment.",
 			"section": "Xici",
+			"hash": "8060abb43d",
+			"hashZh": "ba156ccf12",
 			"order": 19015,
 			"titleZh": "本注·卷五：趣时与无妄",
 			"descriptionZh": "逐章破译吉凶悔吝、立本趣时、见几而作与负熵对齐：把认知闭环到控制论。"

@@ -213,14 +213,17 @@ function decorate(html: string): string {
 					.replace(/&amp;/g, '&');
 				return `<div class="docs-mermaid" data-graph="${encodeGraph(source)}"></div>`;
 			}
-			return `<div class="doc-code-frame" data-lang="${language}"><div class="doc-code-head"><span class="doc-code-lang">${language}</span><button type="button" class="doc-code-copy" data-copy aria-label="Copy code" title="Copy code">${COPY_ICON}</button></div><pre><code class="language-${language}">${body}</code></pre></div>`;
+			return `<div class="doc-code-frame" data-lang="${language}"><div class="doc-code-head"><span class="doc-code-lang">${language}</span><button type="button" class="doc-code-copy" aria-label="Copy code" title="Copy code">${COPY_ICON}</button></div><pre><code class="language-${language}">${body}</code></pre></div>`;
 		}
 	);
-	return groupTabs(withCode).replace(
+	// Wrap bare (language-less) fences before grouping, so a variant that is a
+	// plain ```text block still looks like a code frame to the tab grouper.
+	const wrapped = withCode.replace(
 		/<pre><code>([\s\S]*?)<\/code><\/pre>/g,
 		(_match, body: string) =>
-			`<div class="doc-code-frame" data-lang="text"><div class="doc-code-head"><span class="doc-code-lang">text</span><button type="button" class="doc-code-copy" data-copy aria-label="Copy code" title="Copy code">${COPY_ICON}</button></div><pre><code>${body}</code></pre></div>`
+			`<div class="doc-code-frame" data-lang="text"><div class="doc-code-head"><span class="doc-code-lang">text</span><button type="button" class="doc-code-copy" aria-label="Copy code" title="Copy code">${COPY_ICON}</button></div><pre><code>${body}</code></pre></div>`
 	);
+	return groupTabs(wrapped);
 }
 
 const COPY_ICON =
@@ -231,31 +234,61 @@ const COPY_ICON =
  * that is a bold label line followed by a code fence, repeated; consecutive
  * runs are turned into the tabbed code group the reference uses.
  */
+// A pill of labels above one code block is how the reference presents variants:
+// `<strong>Label</strong>` then a fence. The text after the fence belongs to that
+// label until the next label or heading, and goes inside the same panel.
 const LABELLED_FRAME =
-	/<p><strong>([^<]{1,24})<\/strong><\/p>\s*(<div class="doc-code-frame"[^>]*><div class="doc-code-head">[\s\S]*?<\/div><pre><code[^>]*>[\s\S]*?<\/code><\/pre><\/div>)/g;
+	/<p><strong>([^<]{1,40})<\/strong><\/p>\s*(<div class="doc-code-frame"[^>]*><div class="doc-code-head">[\s\S]*?<\/div><pre><code[^>]*>[\s\S]*?<\/code><\/pre><\/div>)/g;
+// A caption is the run of paragraphs or lists directly after a fence, before the
+// next label or heading. It is matched from the start, not anchored at the end.
+const CAPTION_HEAD = /^\s*((?:<p>(?:(?!<strong>)[\s\S])*?<\/p>|<ul>[\s\S]*?<\/ul>|<ol>[\s\S]*?<\/ol>)+)/;
 
 function groupTabs(html: string): string {
-	const matches: { index: number; end: number; label: string; block: string }[] = [];
+	type Item = { index: number; end: number; label: string; block: string; caption: string };
+	const matches: Item[] = [];
 	let match: RegExpExecArray | null;
 	LABELLED_FRAME.lastIndex = 0;
 	while ((match = LABELLED_FRAME.exec(html)))
-		matches.push({ index: match.index, end: match.index + match[0].length, label: match[1].trim(), block: match[2] });
-	if (matches.length < 2) return html;
+		matches.push({ index: match.index, end: match.index + match[0].length, label: match[1].trim(), block: match[2], caption: '' });
+	if (!matches.length) return html;
 
-	const groups: typeof matches[] = [];
-	for (const item of matches) {
+	// Group first: consecutive labelled fences with only blank lines between their
+	// *labels* belong to one tab set. Captions are attached afterwards, so a caption
+	// never breaks a group.
+	// One pass: a caption is taken when the block after this fence continues into
+	// another labelled fence (that is a tab set), and a label joins the group when
+	// only whitespace remains between it and the previous item.
+	const groups: Item[][] = [];
+	for (let i = 0; i < matches.length; i++) {
+		const item = matches[i];
+		const next = matches[i + 1];
+		if (next) {
+			let between = html.slice(item.end, next.index);
+			const heading = between.search(/<h[1-6]/);
+			if (heading >= 0) between = between.slice(0, heading);
+			const caption = between.match(CAPTION_HEAD);
+			if (caption && caption[1]) {
+				item.caption = caption[1];
+				item.end += between.indexOf(caption[1], 0) + caption[1].length;
+			}
+		}
 		const current = groups[groups.length - 1];
 		const gap = current ? html.slice(current[current.length - 1].end, item.index) : '';
-		if (current && gap.trim() === '') current.push(item);
+		const bare = gap.replace(/<\/?(?:p|div|span)[^>]*>/g, '').trim() === '';
+		if (current && bare) current.push(item);
 		else groups.push([item]);
 	}
+
+	const render = (items: Item[]) =>
+		renderTabs(items.map((item) => ({ label: item.label, block: item.block + item.caption })));
 
 	let result = '';
 	let cursor = 0;
 	for (const group of groups) {
+		// A single labelled fence is just a code block with a lead-in: leave it be.
 		if (group.length < 2) continue;
 		result += html.slice(cursor, group[0].index);
-		result += renderTabs(group.map((item) => ({ label: item.label, block: item.block })));
+		result += render(group);
 		cursor = group[group.length - 1].end;
 	}
 	if (!cursor) return html;

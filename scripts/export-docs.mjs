@@ -82,6 +82,14 @@ function pageType(slug) {
 	return { type: 'markdown' };
 }
 
+const hashOf = (file) => {
+	try {
+		return createHash('sha1').update(readFileSync(file)).digest('hex').slice(0, 10);
+	} catch {
+		return '';
+	}
+};
+
 const pages = [...manifest.values()]
 	.map((page) => ({
 		slug: page.slug,
@@ -89,6 +97,8 @@ const pages = [...manifest.values()]
 		description: page.description ?? '',
 		section: page.section ?? '',
 		...(page.layout ? { layout: page.layout } : {}),
+		hash: hashOf(join(ROOT, DOCS, 'en', `${page.slug}.md`)),
+		hashZh: hashOf(join(ROOT, DOCS, 'zh', `${page.slug}.md`)),
 		order: Number.isFinite(page.order) ? page.order : 500000,
 		...(page.titleZh ? { titleZh: page.titleZh } : {}),
 		...(page.descriptionZh ? { descriptionZh: page.descriptionZh } : {})
@@ -111,13 +121,6 @@ import { mkdirSync } from 'node:fs';
 const CONTENT = join(ROOT, 'content');
 mkdirSync(join(CONTENT, 'data/learning'), { recursive: true });
 
-const hashOf = (file) => {
-	try {
-		return createHash('sha1').update(readFileSync(file)).digest('hex').slice(0, 10);
-	} catch {
-		return '';
-	}
-};
 
 const typed = pages.map((page) => ({
 	slug: page.slug,

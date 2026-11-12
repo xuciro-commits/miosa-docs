@@ -46,8 +46,6 @@ macOS only.
 
 **Manual**
 
-Download the archive for your platform from [GitHub Releases](https://github.com/Miosa-osa/miosa-cli-go/releases/latest) and place the binary in a directory on your `$PATH`.
-
 ```text
 miosa_2.3.1_darwin_arm64.tar.gz
 miosa_2.3.1_darwin_amd64.tar.gz
@@ -55,6 +53,8 @@ miosa_2.3.1_linux_arm64.tar.gz
 miosa_2.3.1_linux_amd64.tar.gz
 miosa_2.3.1_windows_amd64.zip
 ```
+
+Download the archive for your platform from [GitHub Releases](https://github.com/Miosa-osa/miosa-cli-go/releases/latest) and place the binary in a directory on your `$PATH`.
 
 ## 2. Verify
 
