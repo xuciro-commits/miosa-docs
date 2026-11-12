@@ -215,10 +215,10 @@ function pageFor(locale) {
  * The theme is a saved preference in the app; the static page reads the same
  * key so a reader who chose dark does not get a white flash on the homepage.
  */
-// The page follows the reader's system preference, like the docs (the reference
-// marketing site ships a single dark surface, but here light is a first-class
-// theme: the background switches to dark lines on a pale page).
-const HEAD_SCRIPT = `(function(){try{var m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;var saved=localStorage.getItem('miosa-theme');var dark=saved?saved==='dark':m;var l=localStorage.getItem('miosa-locale');var loc=l==='zh'||l==='en'?l:((navigator.language||'').toLowerCase().indexOf('zh')===0?'zh':'en');document.documentElement.dataset.theme=dark?'dark':'light';window.__homeLocale=document.documentElement.dataset.homeLocale||loc;}catch(e){}})();`;
+// The marketing page is dark, always — like the reference site. It deliberately
+// ignores the system preference so the landing page and the docs cannot disagree;
+// the docs keep their own theme switch.
+const HEAD_SCRIPT = `(function(){try{var l=localStorage.getItem('miosa-locale');var loc=l==='zh'||l==='en'?l:((navigator.language||'').toLowerCase().indexOf('zh')===0?'zh':'en');document.documentElement.dataset.theme='dark';window.__homeLocale=document.documentElement.dataset.homeLocale||loc;}catch(e){}})();`;
 
 function htmlFor(locale, otherLocale) {
 	const page = pageFor(locale);

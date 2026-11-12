@@ -193,8 +193,9 @@
 			// dropped before the canvas is composited.
 			var warm = 0;
 			var warmTimer = setInterval(function () {
+				renderer.clear();
 				renderer.render(scene, camera);
-				if (++warm > 12) clearInterval(warmTimer);
+				if (++warm > 20) clearInterval(warmTimer);
 			}, 80);
 			document.addEventListener('visibilitychange', resume);
 			motion.addEventListener('change', resume);
